@@ -1,0 +1,54 @@
+###--------------###
+###    Beads     ###
+###--------------###
+
+# Dolt database (managed by Dolt, not git)
+.beads/dolt/
+.beads/dolt-access.lock
+
+# Runtime files
+.beads/bd.sock
+.beads/bd.sock.startlock
+.beads/sync-state.json
+.beads/last-touched
+
+# Local version tracking
+.beads/.local_version
+
+# Worktree redirect file
+.beads/redirect
+
+# Sync state (local-only, per-machine)
+.beads/.sync.lock
+.beads/.jsonl.lock
+.beads/sync_base.jsonl
+.beads/export-state/
+
+# Ephemeral SQLite store
+.beads/ephemeral.sqlite3
+.beads/ephemeral.sqlite3-journal
+.beads/ephemeral.sqlite3-wal
+.beads/ephemeral.sqlite3-shm
+
+# Legacy database files
+.beads/*.db
+.beads/*.db?*
+.beads/*.db-journal
+.beads/*.db-wal
+.beads/*.db-shm
+.beads/db.sqlite
+.beads/bd.db
+
+# Legacy daemon files
+.beads/daemon.lock
+.beads/daemon.log
+.beads/daemon-*.log.gz
+.beads/daemon.pid
+
+# Legacy JSONL sync files
+.beads/beads.base.jsonl
+.beads/beads.base.meta.json
+.beads/beads.left.jsonl
+.beads/beads.left.meta.json
+.beads/beads.right.jsonl
+.beads/beads.right.meta.json
