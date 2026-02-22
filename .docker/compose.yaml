@@ -36,9 +36,8 @@ networks:
   penpot:
     name: penpot
 
-volumes:
-  penpot_postgres:
-  penpot_assets:
+# Using bind mounts instead of Docker volumes for version control
+# Data is stored in .docker/data/ which can be committed or backed up
 
 services:
   # ============================================================================
@@ -51,7 +50,7 @@ services:
     ports:
       - "9001:8080"
     volumes:
-      - penpot_assets:/opt/data/assets
+      - ./data/penpot-assets:/opt/data/assets
     depends_on:
       - penpot-backend
       - penpot-exporter
@@ -68,7 +67,7 @@ services:
     container_name: penpot-backend
     restart: unless-stopped
     volumes:
-      - penpot_assets:/opt/data/assets
+      - ./data/penpot-assets:/opt/data/assets
     depends_on:
       penpot-postgres:
         condition: service_healthy
@@ -96,9 +95,13 @@ services:
       # Redis/Valkey (websocket notifications)
       PENPOT_REDIS_URI: redis://penpot-valkey/0
 
-      # Asset storage (filesystem)
+      # Asset storage (filesystem - bind mounted for version control)
       PENPOT_OBJECTS_STORAGE_BACKEND: fs
       PENPOT_OBJECTS_STORAGE_FS_DIRECTORY: /opt/data/assets
+
+      # File data storage (use storage backend for version control)
+      # Options: legacy-db, db, storage (requires 2.11.0+)
+      PENPOT_FILE_DATA_BACKEND: storage
 
       # Telemetry (set to false to disable)
       PENPOT_TELEMETRY_ENABLED: false
@@ -145,7 +148,7 @@ services:
       retries: 5
       start_period: 2s
     volumes:
-      - penpot_postgres:/var/lib/postgresql/data
+      - ./data/penpot-postgres:/var/lib/postgresql/data
     networks:
       - penpot
     environment:
@@ -185,3 +188,26 @@ services:
       - "1080:1080"
     networks:
       - penpot
+
+  # ============================================================================
+  # Penpot MCP Server (Official)
+  # Provides MCP tools for AI-assisted design workflows
+  # Requires browser plugin connection from Penpot UI
+  # ============================================================================
+  penpot-mcp:
+    build:
+      context: ./penpot-mcp
+      dockerfile: Dockerfile
+    container_name: penpot-mcp
+    restart: unless-stopped
+    ports:
+      - "4400:4400"  # Plugin manifest server
+      - "4401:4401"  # MCP HTTP/SSE endpoint
+      - "4402:4402"  # WebSocket (plugin connection)
+      - "4403:4403"  # REPL server (debugging)
+    networks:
+      - penpot
+    environment:
+      PENPOT_MCP_SERVER_LISTEN_ADDRESS: "0.0.0.0"
+      PENPOT_MCP_SERVER_ADDRESS: "localhost"
+      PENPOT_MCP_LOG_LEVEL: "info"

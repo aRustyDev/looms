@@ -1,0 +1,9 @@
+# PostgreSQL binary data (not version-controllable)
+# Use pg_dump for backups instead
+penpot-postgres/
+
+# Keep SQL backups
+!*.sql
+
+# Keep assets directory (design files when using storage backend)
+!penpot-assets/
