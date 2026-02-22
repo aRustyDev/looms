@@ -1,4 +1,4 @@
-adr_dir = "adrs"
+adr_dir = "docs/src/adrs"
 mode = "ng"
 
 [templates]
