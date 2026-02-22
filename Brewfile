@@ -16,3 +16,6 @@ brew "dolt"
 
 # Architecture Decision Records
 brew "adrs"
+
+# Git utilities
+brew "gitnr"
