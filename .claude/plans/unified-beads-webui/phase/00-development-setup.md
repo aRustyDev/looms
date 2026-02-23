@@ -1,5 +1,8 @@
 # Phase 0: Development Setup
 
+**Duration**: 1 day (8-12 hours)
+**Theme**: Foundational project setup
+
 This phase covers the foundational setup required before Phase 1 development begins.
 
 ## Objectives
@@ -9,6 +12,62 @@ This phase covers the foundational setup required before Phase 1 development beg
 3. Set up CI/CD pipeline
 4. Establish code quality standards
 5. Document development workflow
+
+---
+
+## Success Criteria
+
+| Criterion | Measurement | Verification |
+|-----------|-------------|--------------|
+| Project runs | `bun dev` starts without errors | Manual test |
+| Type checking | `bun run check` passes with 0 errors | CI green |
+| Linting | `bun run lint` passes with 0 errors | CI green |
+| Tests run | `bun test` executes (even with no tests) | CI green |
+| Pre-commit works | Commit triggers lint-staged | Manual test |
+| CI pipeline | All CI jobs pass on push | GitHub Actions green |
+| bd CLI available | `bd --version` returns version | Manual test |
+| Database accessible | `bd sql "SELECT 1"` returns 1 | Manual test |
+
+---
+
+## Prerequisites
+
+### bd CLI Installation
+
+The `bd` (Beads) CLI is required for issue management. Install before proceeding:
+
+```bash
+# Option 1: Install via cargo (recommended)
+cargo install beads-cli
+
+# Option 2: Install from source
+git clone https://github.com/your-org/beads.git
+cd beads
+cargo install --path crates/bd
+
+# Option 3: Download pre-built binary
+curl -fsSL https://github.com/your-org/beads/releases/latest/download/bd-$(uname -s)-$(uname -m) -o /usr/local/bin/bd
+chmod +x /usr/local/bin/bd
+```
+
+**Verify installation:**
+
+```bash
+bd --version
+# Expected: bd 0.x.x
+
+bd init --help
+# Expected: Usage information
+```
+
+### Optional: gt CLI (for Phase 5)
+
+```bash
+# Install Gas-Town CLI (optional, needed for Phase 5)
+cargo install gastown-cli
+
+gt --version
+```
 
 ---
 
@@ -37,10 +96,15 @@ bun install
 # Core
 bun add tailwindcss@next @tailwindcss/vite tailwind-variants
 bun add lucide-svelte
+bun add @sveltejs/adapter-node  # Server adapter
 
 # State & Data
-bun add better-sqlite3
+bun add better-sqlite3           # SQLite support
+bun add mysql2                   # Dolt support
 bun add -d @types/better-sqlite3
+
+# Drag-and-Drop (finalized library choice)
+bun add svelte-dnd-action        # Svelte-native DnD
 
 # Real-time
 bun add chokidar
@@ -54,6 +118,28 @@ bun add execa
 bun add -d vitest @testing-library/svelte jsdom
 bun add -d playwright @playwright/test
 bun add -d @vitest/coverage-v8
+bun add -d axe-core @axe-core/playwright  # Accessibility testing
+```
+
+### SvelteKit Adapter Configuration
+
+```typescript
+// svelte.config.js
+import adapter from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  preprocess: vitePreprocess(),
+  kit: {
+    adapter: adapter({
+      out: 'build',
+      precompress: true,
+    }),
+  },
+};
+
+export default config;
 ```
 
 ### Directory Structure
@@ -488,6 +574,146 @@ Before starting Phase 1, verify:
 | CI/CD pipeline | 2 hours |
 | Storybook setup | 1 hour |
 | **Total** | **8 hours (1 day)** |
+
+---
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| `bun install` fails | Bun not installed or outdated | `curl -fsSL https://bun.sh/install \| bash` |
+| `bd: command not found` | bd CLI not installed | See Prerequisites section |
+| `better-sqlite3` build fails | Missing build tools | macOS: `xcode-select --install`, Linux: `apt install build-essential` |
+| Port 3000 in use | Another process using port | `lsof -i :3000` then kill process, or use `PORT=3001 bun dev` |
+| Tailwind not working | Vite plugin not configured | Verify `@tailwindcss/vite` in vite.config.ts |
+| Pre-commit hook skipped | Husky not initialized | Run `bunx husky init` again |
+| `.beads/` permission denied | Directory ownership issue | `chmod -R u+rw .beads/` |
+| Dolt connection refused | Dolt server not running | Start with `docker run -d -p 3307:3306 dolthub/dolt-sql-server` |
+| ESLint not finding files | Wrong ignore patterns | Check `eslint.config.js` ignores section |
+
+### Diagnostic Commands
+
+```bash
+# Check all tool versions
+bun --version && node --version && git --version && bd --version
+
+# Verify database connectivity
+bd sql "SELECT 1"
+
+# Check for port conflicts
+lsof -i :3000 -i :3307
+
+# Verify Husky hooks
+cat .husky/pre-commit
+
+# Test ESLint configuration
+bun run lint --debug
+
+# Verify TypeScript setup
+bunx tsc --noEmit
+```
+
+### Platform-Specific Notes
+
+**macOS:**
+- Requires Xcode Command Line Tools: `xcode-select --install`
+- If `better-sqlite3` fails, try: `brew install python-setuptools`
+
+**Linux (Ubuntu/Debian):**
+- Install build essentials: `apt install build-essential python3`
+- For node-pty (Phase 4): `apt install libsecret-1-dev`
+
+**Windows (WSL2 recommended):**
+- Use WSL2 with Ubuntu for best compatibility
+- Native Windows may have issues with `better-sqlite3` and `node-pty`
+
+---
+
+## Rollback Strategy
+
+If setup fails at any step, use these rollback procedures:
+
+### Step 1: Project Scaffolding Failed
+
+```bash
+# Remove generated project and start fresh
+rm -rf projx-ui
+bunx create-svelte@latest projx-ui
+```
+
+### Step 2: Dependencies Failed
+
+```bash
+# Clear cache and reinstall
+rm -rf node_modules bun.lockb
+bun install
+```
+
+### Step 3: Pre-commit Hooks Failed
+
+```bash
+# Reset Husky
+rm -rf .husky
+bun add -d husky
+bunx husky init
+echo "bun run lint-staged" > .husky/pre-commit
+```
+
+### Step 4: CI/CD Failed
+
+```bash
+# Validate workflow syntax locally
+gh workflow view ci.yml
+gh run list --workflow=ci.yml
+
+# Check for secrets needed
+gh secret list
+```
+
+### Step 5: Database Setup Failed
+
+```bash
+# Reset .beads directory
+rm -rf .beads
+bd init
+
+# Or for Dolt
+docker rm -f dolt-server
+docker run -d --name dolt-server -p 3307:3306 dolthub/dolt-sql-server
+```
+
+### Complete Reset
+
+```bash
+# Nuclear option: start from scratch
+cd ..
+rm -rf projx-ui
+git clone <repo-url> projx-ui
+cd projx-ui
+bun install
+```
+
+---
+
+## Phase 1 Entry Criteria
+
+Before proceeding to Phase 1, ALL of the following must be true:
+
+- [ ] All success criteria met (see table above)
+- [ ] `bun dev` serves application at localhost:3000
+- [ ] `bun run check && bun run lint` pass with 0 errors
+- [ ] Pre-commit hook fires and blocks bad commits
+- [ ] CI pipeline passes on a test push
+- [ ] `bd --version` returns valid version
+- [ ] `bd sql "SELECT 1"` returns 1 (database working)
+- [ ] `.beads/` directory exists with proper permissions
+- [ ] Storybook runs with `bun run storybook`
+
+**Sign-off**: Phase 0 complete when all items checked and verified.
 
 ---
 

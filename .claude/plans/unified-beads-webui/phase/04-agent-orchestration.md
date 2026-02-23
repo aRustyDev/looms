@@ -13,15 +13,56 @@
 
 ---
 
+## Phase 3 Entry Gate
+
+Before starting Phase 4, verify Phase 3 completion:
+
+- [ ] All Phase 3 Must-Have features complete
+- [ ] Worktree listing and status working
+- [ ] PR integration functional (list, create, merge)
+- [ ] CI status badges displaying
+- [ ] Dependency graph rendering
+- [ ] `gh` CLI authentication documented
+- [ ] Unit test coverage > 70%
+
+---
+
 ## Success Criteria
 
-| Criterion | Measurement |
-|-----------|-------------|
-| Terminal rendering | Renders 1000 lines without lag |
-| Session launch | Agent starts within 5s |
-| Output streaming | < 100ms latency to display |
-| Verification queue | Lists pending items correctly |
-| Approve/reject | Action completes within 2s |
+| Criterion | Measurement | Verification |
+|-----------|-------------|--------------|
+| Terminal rendering | Renders 1000 lines without lag | Performance benchmark |
+| Session launch | Agent starts within 5s | E2E timing test |
+| Output streaming | < 100ms latency to display | WebSocket timing test |
+| Verification queue | Lists pending items correctly | Integration test |
+| Approve/reject | Action completes within 2s | E2E timing test |
+| Security | No command injection, sandboxed execution | Security audit |
+| Accessibility | WCAG 2.1 AA compliant | axe-core audit |
+| Test coverage | > 70% for agent orchestration | Vitest coverage |
+
+---
+
+## Security Model
+
+See [Terminal Spec Security Section](../spec/terminal.md#security-model) for detailed security requirements:
+
+- PTY process sandboxing
+- Command injection prevention
+- Output sanitization
+- Session isolation
+- Rate limiting on session creation
+
+---
+
+## Complexity Scale
+
+| Score | Effort | Description |
+|-------|--------|-------------|
+| 1 | 0.5-1 day | Simple component or utility |
+| 2 | 1-2 days | Component with state/logic |
+| 3 | 2-4 days | Complex component or integration |
+| 4 | 4-7 days | Major feature or system |
+| 5 | 1-2 weeks | Large cross-cutting feature |
 
 ---
 
@@ -436,30 +477,100 @@ class VerificationService {
 
 ## Deliverables Checklist
 
-| Component | Priority | Status |
-|-----------|----------|--------|
-| Terminal Drawer | Must-Have | Pending |
-| Agent Session Launch | Must-Have | Pending |
-| Session Output Streaming | Must-Have | Pending |
-| Agent History View | Should-Have | Pending |
-| Verification Queue | Must-Have | Pending |
-| Approve/Reject Workflow | Must-Have | Pending |
-| ReTake Workflow | Should-Have | Pending |
-| Claude Planning Integration | Should-Have | Pending |
-| Session Persistence | Should-Have | Pending |
-| Agent Config UI | Should-Have | Pending |
-| Interaction History | Should-Have | Pending |
+| Component | Priority | Complexity | Effort | Status |
+|-----------|----------|------------|--------|--------|
+| Terminal Drawer | Must-Have | 4 | 4 days | Pending |
+| Agent Session Launch | Must-Have | 3 | 3 days | Pending |
+| Session Output Streaming | Must-Have | 3 | 2 days | Pending |
+| Agent History View | Should-Have | 2 | 1.5 days | Pending |
+| Verification Queue | Must-Have | 3 | 2 days | Pending |
+| Approve/Reject Workflow | Must-Have | 2 | 2 days | Pending |
+| ReTake Workflow | Should-Have | 3 | 2 days | Pending |
+| Claude Planning Integration | Should-Have | 4 | 3 days | Pending |
+| Session Persistence | Should-Have | 4 | 3 days | Pending |
+| Agent Config UI | Should-Have | 3 | 2 days | Pending |
+| Interaction History | Should-Have | 2 | 1.5 days | Pending |
+
+**Total Effort**: ~26 days (Must-Have: ~13 days, Should-Have: ~13 days)
 
 ---
 
 ## Time Estimates
 
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Terminal | Terminal drawer, xterm.js, basic output |
-| 2 | Sessions | Session launch, output streaming, status |
-| 3 | Verification | Verification queue, approve/reject, diff view |
-| 4 | Polish | History, retry, planning integration, config |
+| Week | Focus | Deliverables | Days |
+|------|-------|--------------|------|
+| 1 | Terminal | Terminal drawer (4d), basic output (1d) | 5 |
+| 2 | Sessions | Session launch (3d), output streaming (2d) | 5 |
+| 3 | Verification | Queue (2d), approve/reject (2d), history (1.5d) | 5.5 |
+| 4 | Polish | Retry (2d), planning (3d) | 5 |
+
+**Note**: Session Persistence and Agent Config may extend into buffer time.
+
+---
+
+## Accessibility Requirements
+
+All terminal and agent components must meet WCAG 2.1 AA standards:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Screen reader support | Terminal output announced, queue items labeled |
+| Keyboard navigation | All interactive elements focusable |
+| Focus management | Focus returns correctly after modal actions |
+| Color independence | Status conveyed by icon + text, not color alone |
+
+### Component-Specific A11y
+
+| Component | Requirements |
+|-----------|--------------|
+| Terminal Drawer | `role="log"`, aria-live for updates, keyboard close |
+| Verification Queue | `role="list"`, item status announced |
+| Approve/Reject | Clear button labels, confirmation dialogs accessible |
+| Session List | `role="list"`, status announced on change |
+| Diff Viewer | Line-by-line navigation, change type announced |
+
+---
+
+## Rollback Strategy
+
+### Feature Flags
+
+```bash
+# Disable features if issues arise
+DISABLE_TERMINAL=true          # Hide terminal drawer
+DISABLE_AGENTS=true            # Disable agent launch
+DISABLE_VERIFICATION=true      # Auto-approve all (dangerous)
+DISABLE_PTY=true               # Fall back to non-interactive output
+```
+
+### Component Rollback
+
+| Component | Rollback Procedure |
+|-----------|-------------------|
+| Terminal Drawer | Show output in plain text div |
+| Agent Sessions | Direct users to `claude` CLI |
+| Verification | Auto-approve or manual CLI verification |
+| PTY | Fall back to spawn with piped stdout |
+
+### Session Recovery
+
+```bash
+# If sessions are corrupted
+rm -rf .beads/agent-sessions/  # Clear session state
+bd sync --force                # Re-sync issue states
+```
+
+---
+
+## Test Coverage Targets
+
+| Area | Target | Measurement |
+|------|--------|-------------|
+| Session Manager | > 85% | Critical path - session lifecycle |
+| Verification Service | > 80% | Approve/reject/retry flows |
+| Terminal Integration | > 70% | xterm.js wrapper tests |
+| API Endpoints | > 75% | Integration tests |
+| Overall Phase 4 | > 70% | Vitest coverage report |
 
 ---
 
@@ -473,6 +584,22 @@ class VerificationService {
 - [ ] Rejected work can be retried
 - [ ] Session history viewable
 - [ ] All "Must-Have" features complete
+- [ ] Security audit passes (no command injection)
+- [ ] Accessibility audit passes (0 critical violations)
+- [ ] Unit test coverage > 70%
+
+---
+
+## Phase 5 Handoff
+
+Before proceeding to Phase 5, provide:
+
+- [ ] Agent session manager documented and tested
+- [ ] Terminal integration stable
+- [ ] Verification workflows documented
+- [ ] Security model implemented and audited
+- [ ] PTY fallback working
+- [ ] All Must-Have features deployed
 
 ---
 

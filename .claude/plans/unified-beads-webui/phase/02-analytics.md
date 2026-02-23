@@ -6,22 +6,69 @@
 ## Objectives
 
 1. Port metrics engine from beads-dashboard
-2. Implement CFD, Lead Time, Throughput, and Aging WIP charts
+2. Implement CFD, Lead Time, Cycle Time, Throughput, and Aging WIP charts
 3. Add health status badges (RAG indicators)
 4. Build Gantt chart with date prefix parsing
 5. Add progress indicators and percentile calculations
 
 ---
 
+## Phase 1 Entry Gate
+
+Before starting Phase 2, verify Phase 1 completion:
+
+- [ ] All Phase 1 Must-Have features complete
+- [ ] ProcessSupervisor tested and documented
+- [ ] Data Access Layer supports both SQLite and Dolt
+- [ ] Issue Store API stable
+- [ ] WebSocket infrastructure working
+- [ ] Unit test coverage > 70%
+
+---
+
 ## Success Criteria
 
-| Criterion | Measurement |
-|-----------|-------------|
-| Metrics calculation | < 500ms for 1000 issues |
-| Chart rendering | < 200ms for CFD with 30 days |
-| Lead time accuracy | Matches `bd` CLI calculations |
-| Gantt rendering | Renders 50 items in < 200ms |
-| Health badges | Correctly show RAG status |
+| Criterion | Measurement | Verification |
+|-----------|-------------|--------------|
+| Metrics calculation | < 500ms for 1000 issues | Performance benchmark |
+| Chart rendering | < 200ms for CFD with 30 days | Lighthouse audit |
+| Lead time accuracy | Matches `bd` CLI calculations | Unit tests with known data |
+| Gantt rendering | Renders 50 items in < 200ms | Performance benchmark |
+| Health badges | Correctly show RAG status | Visual regression test |
+| Accessibility | WCAG 2.1 AA compliant | axe-core audit |
+| Test coverage | > 70% for metrics engine | Vitest coverage |
+
+---
+
+## Chart Library Decision
+
+**Selected**: **Layerchart** (Svelte-native, built on D3)
+
+| Consideration | Recharts | Chart.js | D3.js | Layerchart |
+|---------------|----------|----------|-------|------------|
+| Svelte support | React only | Good | Manual | Native |
+| Bundle size | Large | Medium | Large | Medium |
+| Customization | Limited | Good | Full | Good |
+| Learning curve | Low | Low | High | Low |
+| SSR support | No | Limited | Yes | Yes |
+
+**Decision**: Use Layerchart for Svelte-native charting with D3 foundations.
+
+```bash
+bun add layerchart d3-scale d3-shape d3-array
+```
+
+---
+
+## Complexity Scale
+
+| Score | Effort | Description |
+|-------|--------|-------------|
+| 1 | 0.5-1 day | Simple component or utility |
+| 2 | 1-2 days | Component with state/logic |
+| 3 | 2-4 days | Complex component or integration |
+| 4 | 4-7 days | Major feature or system |
+| 5 | 1-2 weeks | Large cross-cutting feature |
 
 ---
 
@@ -465,32 +512,103 @@ const chartConfig = {
 
 ## Deliverables Checklist
 
-| Component | Priority | Status |
-|-----------|----------|--------|
-| Metrics Engine | Must-Have | Pending |
-| Lead Time Chart | Must-Have | Pending |
-| Throughput Chart | Must-Have | Pending |
-| CFD Chart | Must-Have | Pending |
-| Aging WIP Chart | Must-Have | Pending |
-| Percentile Calculations | Must-Have | Pending |
-| Health Badges | Must-Have | Pending |
-| Progress Bars | Should-Have | Pending |
-| Date Prefix Parsing | Must-Have | Pending |
-| Hierarchical Sorting | Should-Have | Pending |
-| Gantt Chart (Basic) | Must-Have | Pending |
-| Gantt Drag/Resize | Should-Have | Pending |
-| Due Date Management | Should-Have | Pending |
-| Quick Filters | Should-Have | Pending |
+| Component | Priority | Complexity | Effort | Status |
+|-----------|----------|------------|--------|--------|
+| Metrics Engine | Must-Have | 3 | 3 days | Pending |
+| Lead Time Chart | Must-Have | 3 | 2 days | Pending |
+| Throughput Chart | Must-Have | 2 | 1.5 days | Pending |
+| CFD Chart | Must-Have | 3 | 2 days | Pending |
+| Aging WIP Chart | Must-Have | 3 | 2 days | Pending |
+| Percentile Calculations | Must-Have | 2 | 1 day | Pending |
+| Health Badges | Must-Have | 2 | 1.5 days | Pending |
+| Progress Bars | Should-Have | 1 | 0.5 day | Pending |
+| Date Prefix Parsing | Must-Have | 3 | 2 days | Pending |
+| Hierarchical Sorting | Should-Have | 2 | 1 day | Pending |
+| Gantt Chart (Basic) | Must-Have | 4 | 3 days | Pending |
+| Gantt Drag/Resize | Should-Have | 4 | 3 days | Pending |
+| Due Date Management | Should-Have | 2 | 1.5 days | Pending |
+| Quick Filters | Should-Have | 2 | 1 day | Pending |
+
+**Total Effort**: ~25 days (Must-Have: ~18 days, Should-Have: ~7 days)
 
 ---
 
 ## Time Estimates
 
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Metrics | Engine, Lead Time, Throughput, Percentiles |
-| 2 | Charts | CFD, Aging WIP, Health Badges, Progress |
-| 3 | Timeline | Date Prefix, Gantt Basic, Gantt Interactions |
+| Week | Focus | Deliverables | Days |
+|------|-------|--------------|------|
+| 1 | Metrics | Engine (3d), Lead Time (2d), Throughput (1.5d), Percentiles (1d) | 7.5 |
+| 2 | Charts | CFD (2d), Aging WIP (2d), Health Badges (1.5d), Progress (0.5d) | 6 |
+| 3 | Timeline | Date Prefix (2d), Gantt Basic (3d), Due Dates (1.5d) | 6.5 |
+
+**Note**: Gantt Drag/Resize (3 days) deferred to Phase 2 buffer or Phase 3 if needed.
+
+---
+
+## Accessibility Requirements
+
+All chart and visualization components must meet WCAG 2.1 AA standards:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Screen reader support | Charts include text alternatives via `aria-label` and data tables |
+| Keyboard navigation | All interactive chart elements focusable and operable via keyboard |
+| Color independence | Data conveyed by shape/pattern in addition to color |
+| Focus indicators | Visible focus ring on chart elements and controls |
+| Motion | Respect `prefers-reduced-motion` for chart animations |
+
+### Component-Specific A11y
+
+| Component | Requirements |
+|-----------|--------------|
+| Charts | Hidden data table alternative, describedby for complex visualizations |
+| Health Badges | Tooltip text, not color-only status |
+| Progress Bars | `role="progressbar"`, `aria-valuenow/min/max` |
+| Gantt Chart | Keyboard-operable bars, grid navigation |
+| Date Pickers | `role="dialog"`, arrow key navigation |
+
+---
+
+## Rollback Strategy
+
+### Feature Flags
+
+```bash
+# Disable features if issues arise
+DISABLE_METRICS_ENGINE=true    # Fall back to CLI-only metrics
+DISABLE_CHARTS=true            # Show data tables instead of charts
+DISABLE_GANTT=true             # Hide Gantt, show list with dates
+DISABLE_HEALTH_BADGES=true     # Hide badges, show raw data
+```
+
+### Component Rollback
+
+| Component | Rollback Procedure |
+|-----------|-------------------|
+| Metrics Engine | Use `bd` CLI for all metrics calculations |
+| Charts | Replace with formatted data tables |
+| Gantt Chart | Replace with date-sorted list view |
+| Health Badges | Show age in days as plain text |
+| Date Prefix | Disable parsing, show raw titles |
+
+### Data Rollback
+
+```bash
+# If metrics calculations are incorrect
+bd metrics --recalculate  # Re-run metrics from source data
+```
+
+---
+
+## Test Coverage Targets
+
+| Area | Target | Measurement |
+|------|--------|-------------|
+| Metrics Engine | > 90% | Critical path - all calculations must be tested |
+| Chart Components | > 70% | Vitest component tests |
+| Date Prefix Parser | > 95% | All documented formats + edge cases |
+| Health Calculation | > 85% | All RAG thresholds tested |
+| Overall Phase 2 | > 70% | Vitest coverage report |
 
 ---
 

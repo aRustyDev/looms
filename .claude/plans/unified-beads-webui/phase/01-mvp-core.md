@@ -13,15 +13,41 @@
 
 ---
 
+## Phase 0 Entry Gate
+
+Before starting Phase 1, verify Phase 0 completion:
+
+- [ ] All Phase 0 success criteria met
+- [ ] `bd --version` returns valid version
+- [ ] `bd sql "SELECT 1"` returns 1
+- [ ] CI pipeline passing
+- [ ] Storybook running
+
+---
+
 ## Success Criteria
 
-| Criterion | Measurement |
-|-----------|-------------|
-| View issues | Issue list renders with < 100ms for 100 items |
-| Create issues | `bd create` executes successfully from UI |
-| Edit issues | Inline edits persist via `bd update` |
-| Real-time sync | File changes reflect in UI within 1s |
-| Kanban board | Drag-and-drop changes status correctly |
+| Criterion | Measurement | Verification Method |
+|-----------|-------------|---------------------|
+| View issues | Issue list renders < 100ms for 100 items | Lighthouse performance audit |
+| Create issues | `bd create` executes successfully from UI | E2E test |
+| Edit issues | Inline edits persist via `bd update` | E2E test |
+| Real-time sync | File changes reflect in UI within 1s | Integration test with timer |
+| Kanban board | Drag-and-drop changes status correctly | E2E test |
+| Accessibility | WCAG 2.1 AA compliant | axe-core audit with 0 critical violations |
+| Test coverage | > 70% unit test coverage | Vitest coverage report |
+
+---
+
+## Complexity Scale
+
+| Score | Effort | Description |
+|-------|--------|-------------|
+| 1 | 0.5-1 day | Simple component or utility |
+| 2 | 1-2 days | Component with state/logic |
+| 3 | 2-4 days | Complex component or integration |
+| 4 | 4-7 days | Major feature or system |
+| 5 | 1-2 weeks | Large cross-cutting feature |
 
 ---
 
@@ -419,32 +445,113 @@ export const issueStore = new IssueStore();
 
 ## Deliverables Checklist
 
-| Component | Priority | Status |
-|-----------|----------|--------|
-| ProcessSupervisor | Must-Have | Pending |
-| Data Access Layer | Must-Have | Pending |
-| Issue List View | Must-Have | Pending |
-| Filter Panel | Must-Have | Pending |
-| Text Search | Must-Have | Pending |
-| Create Issue Modal | Must-Have | Pending |
-| Quick Status Change | Must-Have | Pending |
-| Inline Editing | Should-Have | Pending |
-| Kanban Board | Must-Have | Pending |
-| Epics View | Should-Have | Pending |
-| File Watching | Must-Have | Pending |
-| Keyboard Shortcuts | Should-Have | Pending |
-| Owner/Assignee Filter | Should-Have | Pending |
+| Component | Priority | Complexity | Effort | Status |
+|-----------|----------|------------|--------|--------|
+| ProcessSupervisor | Must-Have | 3 | 3 days | Pending |
+| Data Access Layer | Must-Have | 3 | 3 days | Pending |
+| Issue List View | Must-Have | 2 | 2 days | Pending |
+| Filter Panel | Must-Have | 2 | 2 days | Pending |
+| Text Search | Must-Have | 1 | 1 day | Pending |
+| Create Issue Modal | Must-Have | 2 | 2 days | Pending |
+| Quick Status Change | Must-Have | 1 | 1 day | Pending |
+| Inline Editing | Should-Have | 3 | 2 days | Pending |
+| Kanban Board | Must-Have | 3 | 3 days | Pending |
+| Epics View | Should-Have | 2 | 1 day | Pending |
+| File Watching | Must-Have | 2 | 2 days | Pending |
+| Keyboard Shortcuts | Should-Have | 2 | 1 day | Pending |
+| Owner/Assignee Filter | Should-Have | 1 | 0.5 day | Pending |
+
+**Total Effort**: ~23.5 days (fits in 4 weeks with buffer)
 
 ---
 
 ## Time Estimates
 
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Foundation | ProcessSupervisor, Data Access Layer, API routes |
-| 2 | List View | Issue list, filters, search, create modal |
-| 3 | Kanban | Kanban board, drag-and-drop, status changes |
-| 4 | Polish | Inline editing, epics view, file watching, shortcuts |
+| Week | Focus | Deliverables | Days |
+|------|-------|--------------|------|
+| 1 | Foundation | ProcessSupervisor (3d), Data Access Layer (3d) | 6 |
+| 2 | List View | Issue list (2d), filters (2d), search (1d), create modal (2d) | 7 |
+| 3 | Kanban | Kanban board (3d), Quick Status (1d), File Watching (2d) | 6 |
+| 4 | Polish | Inline editing (2d), epics view (1d), shortcuts (1d), buffer (1d) | 5 |
+
+---
+
+## Accessibility Requirements
+
+All UI components must meet WCAG 2.1 AA standards:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Keyboard navigation | All interactive elements focusable via Tab |
+| Focus indicators | Visible focus ring (2px solid) on all focusable elements |
+| Screen reader support | Semantic HTML, ARIA labels where needed |
+| Color contrast | Minimum 4.5:1 for normal text, 3:1 for large text |
+| Motion | Respect `prefers-reduced-motion` media query |
+| Error messages | Associated with inputs via `aria-describedby` |
+
+### Component-Specific A11y
+
+| Component | Requirements |
+|-----------|--------------|
+| Issue Table | `role="grid"`, sortable headers with `aria-sort` |
+| Filter Panel | `role="search"`, checkboxes with labels |
+| Kanban Board | `role="listbox"` for columns, `role="option"` for cards |
+| Create Modal | Focus trap, `role="dialog"`, `aria-modal="true"` |
+| Status Dropdown | `role="listbox"`, arrow key navigation |
+
+### Testing
+
+```bash
+# Run accessibility audit
+bun test:e2e --project=a11y
+
+# Lighthouse CI (in CI pipeline)
+lhci autorun --collect.url=http://localhost:3000
+```
+
+---
+
+## Rollback Strategy
+
+### Feature Flags
+
+Each major feature can be disabled via environment variable:
+
+```bash
+# Disable features if issues arise
+DISABLE_KANBAN_DND=true      # Disable drag-and-drop (fall back to dropdown)
+DISABLE_INLINE_EDIT=true     # Disable inline editing (use modal only)
+DISABLE_REALTIME=true        # Disable file watching (manual refresh)
+DISABLE_WEBSOCKET=true       # Disable WebSocket (polling fallback)
+```
+
+### Component Rollback
+
+| Component | Rollback Procedure |
+|-----------|-------------------|
+| ProcessSupervisor | Revert to direct `execa` calls without circuit breaker |
+| Data Access Layer | Hard-code backend type, disable auto-detection |
+| Kanban Board | Replace with list view + status dropdown |
+| File Watching | Disable and add manual refresh button |
+| WebSocket | Fall back to 5s polling interval |
+
+### Database Rollback
+
+```bash
+# If database issues occur
+cp .beads/beads.db .beads/beads.db.backup
+bd sync --force  # Re-sync from JSONL source of truth
+```
+
+### Full Phase Rollback
+
+If Phase 1 cannot be completed:
+
+1. Tag current state: `git tag phase1-incomplete`
+2. Create `phase1-retry` branch
+3. Document blockers in `BLOCKERS.md`
+4. Reduce scope to Must-Have only
+5. Extend timeline by 1 week
 
 ---
 
@@ -459,6 +566,19 @@ export const issueStore = new IssueStore();
 - [ ] All "Must-Have" features complete
 - [ ] Unit test coverage > 70%
 - [ ] E2E tests pass
+- [ ] Accessibility audit passes (0 critical violations)
+
+---
+
+## Phase 2 Handoff
+
+Before proceeding to Phase 2, provide:
+
+- [ ] ProcessSupervisor documented and tested
+- [ ] Data Access Layer supports both backends
+- [ ] Issue Store API stable
+- [ ] WebSocket infrastructure working
+- [ ] All Must-Have features deployed
 
 ---
 

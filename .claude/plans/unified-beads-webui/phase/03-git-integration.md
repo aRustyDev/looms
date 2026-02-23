@@ -13,15 +13,43 @@
 
 ---
 
+## Phase 2 Entry Gate
+
+Before starting Phase 3, verify Phase 2 completion:
+
+- [ ] All Phase 2 Must-Have features complete
+- [ ] Metrics engine tested and documented
+- [ ] All 4 charts rendering correctly (Lead Time, Throughput, CFD, Aging WIP)
+- [ ] Health badges displaying on cards
+- [ ] Gantt chart basic functionality working
+- [ ] Date prefix parsing implemented
+- [ ] Unit test coverage > 70%
+
+---
+
 ## Success Criteria
 
-| Criterion | Measurement |
-|-----------|-------------|
-| Worktree listing | Displays all worktrees with status |
-| PR creation | Creates PR via `gh pr create` |
-| CI status | Shows pass/fail within 10s of change |
-| Dependency graph | Renders 50 nodes in < 500ms |
-| Batch operations | Updates 10 issues in < 5s |
+| Criterion | Measurement | Verification |
+|-----------|-------------|--------------|
+| Worktree listing | Displays all worktrees with status | E2E test with mock git repo |
+| PR creation | Creates PR via `gh pr create` | Integration test with GitHub API |
+| CI status | Shows pass/fail within 10s of change | WebSocket timing test |
+| Dependency graph | Renders 50 nodes in < 500ms | Performance benchmark |
+| Batch operations | Updates 10 issues in < 5s | E2E timing test |
+| Accessibility | WCAG 2.1 AA compliant | axe-core audit |
+| Test coverage | > 70% for git integration | Vitest coverage |
+
+---
+
+## Complexity Scale
+
+| Score | Effort | Description |
+|-------|--------|-------------|
+| 1 | 0.5-1 day | Simple component or utility |
+| 2 | 1-2 days | Component with state/logic |
+| 3 | 2-4 days | Complex component or integration |
+| 4 | 4-7 days | Major feature or system |
+| 5 | 1-2 weeks | Large cross-cutting feature |
 
 ---
 
@@ -379,6 +407,16 @@ function renderDependencyGraph(
 | `/api/git/prs/[number]/merge` | POST | Merge PR |
 | `/api/git/prs/[number]/checks` | GET | Get check status |
 
+### WebSocket Events
+
+| Event | Direction | Payload |
+|-------|-----------|---------|
+| `git:worktree:changed` | Server → Client | `{ path: string, status: WorktreeStatus }` |
+| `git:pr:updated` | Server → Client | `{ number: number, state: string, checks: CheckStatus }` |
+| `git:pr:created` | Server → Client | `{ pr: PullRequest }` |
+| `git:pr:merged` | Server → Client | `{ number: number, mergeCommit: string }` |
+| `git:checks:changed` | Server → Client | `{ prNumber: number, checks: CheckStatus }` |
+
 ---
 
 ## Dependencies
@@ -437,30 +475,99 @@ function renderDependencyGraph(
 
 ## Deliverables Checklist
 
-| Component | Priority | Status |
-|-----------|----------|--------|
-| Worktree Listing | Must-Have | Pending |
-| Worktree Status | Should-Have | Pending |
-| Dependency Graph | Must-Have | Pending |
-| Dependency Arrows | Should-Have | Pending |
-| PR Listing | Must-Have | Pending |
-| PR Create | Should-Have | Pending |
-| PR Merge | Should-Have | Pending |
-| CI Status Display | Must-Have | Pending |
-| Merge Conflict Alerts | Should-Have | Pending |
-| Drag-and-Drop (Enhanced) | Should-Have | Pending |
-| Batch Issue Creation | Should-Have | Pending |
-| Related Tasks Links | Should-Have | Pending |
+| Component | Priority | Complexity | Effort | Status |
+|-----------|----------|------------|--------|--------|
+| Worktree Listing | Must-Have | 2 | 2 days | Pending |
+| Worktree Status | Should-Have | 2 | 1.5 days | Pending |
+| Dependency Graph | Must-Have | 3 | 3 days | Pending |
+| Dependency Arrows | Should-Have | 3 | 2 days | Pending |
+| PR Listing | Must-Have | 3 | 2 days | Pending |
+| PR Create | Should-Have | 3 | 2 days | Pending |
+| PR Merge | Should-Have | 3 | 2 days | Pending |
+| CI Status Display | Must-Have | 2 | 1.5 days | Pending |
+| Merge Conflict Alerts | Should-Have | 2 | 1 day | Pending |
+| Drag-and-Drop (Enhanced) | Should-Have | 3 | 2 days | Pending |
+| Batch Issue Creation | Should-Have | 3 | 2 days | Pending |
+| Related Tasks Links | Should-Have | 2 | 1.5 days | Pending |
+
+**Total Effort**: ~22.5 days (Must-Have: ~8.5 days, Should-Have: ~14 days)
 
 ---
 
 ## Time Estimates
 
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Worktrees & Git | Worktree list, status, basic git operations |
-| 2 | PRs | PR listing, create, merge, CI status |
-| 3 | Dependencies | Dependency graph, arrows, batch operations |
+| Week | Focus | Deliverables | Days |
+|------|-------|--------------|------|
+| 1 | Worktrees & Git | Worktree list (2d), status (1.5d), CI Status (1.5d) | 5 |
+| 2 | PRs | PR listing (2d), create (2d), merge (2d) | 6 |
+| 3 | Dependencies | Graph (3d), arrows (2d), conflict alerts (1d) | 6 |
+
+**Note**: Enhanced Drag-and-Drop, Batch Creation, and Related Links may extend into buffer time.
+
+---
+
+## Accessibility Requirements
+
+All git and PR components must meet WCAG 2.1 AA standards:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Screen reader support | Status badges include text alternatives |
+| Keyboard navigation | All interactive elements focusable |
+| Focus indicators | Visible focus ring on all focusable elements |
+| Color independence | Status conveyed by icon shape + text, not color alone |
+
+### Component-Specific A11y
+
+| Component | Requirements |
+|-----------|--------------|
+| Worktree List | `role="list"`, keyboard navigation |
+| PR Cards | `role="article"`, status announced |
+| Dependency Graph | Text alternative listing, keyboard node navigation |
+| CI Status Badge | Tooltip text, `aria-label` with status |
+| Merge Dialogs | `role="dialog"`, `aria-modal="true"`, focus trap |
+
+---
+
+## Rollback Strategy
+
+### Feature Flags
+
+```bash
+# Disable features if issues arise
+DISABLE_WORKTREES=true         # Hide worktree panel
+DISABLE_PR_INTEGRATION=true    # Disable PR features, link to GitHub instead
+DISABLE_DEP_GRAPH=true         # Hide dependency graph, show list view
+DISABLE_CI_STATUS=true         # Hide CI badges
+```
+
+### Component Rollback
+
+| Component | Rollback Procedure |
+|-----------|-------------------|
+| Worktree Listing | Direct users to `git worktree list` command |
+| PR Integration | Link to GitHub web interface |
+| Dependency Graph | Show dependency list in table format |
+| CI Status | Show "View on GitHub" link instead |
+
+### CLI Fallback
+
+```bash
+# If gh CLI issues occur
+FORCE_GH_BROWSER=true  # Open GitHub in browser instead of CLI operations
+```
+
+---
+
+## Test Coverage Targets
+
+| Area | Target | Measurement |
+|------|--------|-------------|
+| Git Integration Layer | > 80% | Critical path with mocked git/gh |
+| PR Components | > 70% | Component tests with mock data |
+| Dependency Graph | > 75% | Layout algorithm + rendering |
+| Worktree Components | > 70% | Component tests |
+| Overall Phase 3 | > 70% | Vitest coverage report |
 
 ---
 
@@ -474,6 +581,21 @@ function renderDependencyGraph(
 - [ ] Blocked issues show dependency indicators
 - [ ] All "Must-Have" features complete
 - [ ] `gh` CLI integration tested
+- [ ] Accessibility audit passes (0 critical violations)
+- [ ] Unit test coverage > 70%
+
+---
+
+## Phase 4 Handoff
+
+Before proceeding to Phase 4, provide:
+
+- [ ] Git integration layer documented and tested
+- [ ] PR operations stable (list, create, merge)
+- [ ] CI status WebSocket updates working
+- [ ] Dependency graph component reusable
+- [ ] `gh` CLI authentication flow documented
+- [ ] All Must-Have features deployed
 
 ---
 

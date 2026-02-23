@@ -13,15 +13,63 @@
 
 ---
 
+## Phase 4 Entry Gate
+
+Before starting Phase 5, verify Phase 4 completion:
+
+- [ ] All Phase 4 Must-Have features complete
+- [ ] Terminal drawer functional
+- [ ] Agent session launch and monitoring working
+- [ ] Verification queue operational
+- [ ] Approve/reject workflows tested
+- [ ] Security audit passed
+- [ ] Unit test coverage > 70%
+
+---
+
 ## Success Criteria
 
-| Criterion | Measurement |
-|-----------|-------------|
-| Gas-Town detection | Detects gt CLI and town status |
-| Agent dashboard | Shows all rigs and polecats |
-| Convoy tracking | Displays convoy progress |
-| Mail system | Shows inbox with < 2s latency |
-| SQL explorer | Executes queries in < 500ms |
+| Criterion | Measurement | Verification |
+|-----------|-------------|--------------|
+| Gas-Town detection | Detects gt CLI and town status | Integration test |
+| Agent dashboard | Shows all rigs and polecats | E2E test |
+| Convoy tracking | Displays convoy progress | E2E test |
+| Mail system | Shows inbox with < 2s latency | Performance benchmark |
+| SQL explorer | Executes queries in < 500ms | Performance benchmark |
+| Accessibility | WCAG 2.1 AA compliant | axe-core audit |
+| Test coverage | > 70% for Gas-Town integration | Vitest coverage |
+
+---
+
+## gt CLI Requirements
+
+**Minimum Version**: gt >= 0.5.0
+
+```bash
+# Verify gt CLI version
+gt --version  # Must return >= 0.5.0
+
+# Required commands
+gt status --json --fast
+gt rig list --json
+gt polecat list --json
+gt convoy list --json
+gt mail inbox --json
+```
+
+See [CLI Integration Spec](../spec/cli-integration.md#gt-cli-commands) for full command reference.
+
+---
+
+## Complexity Scale
+
+| Score | Effort | Description |
+|-------|--------|-------------|
+| 1 | 0.5-1 day | Simple component or utility |
+| 2 | 1-2 days | Component with state/logic |
+| 3 | 2-4 days | Complex component or integration |
+| 4 | 4-7 days | Major feature or system |
+| 5 | 1-2 weeks | Large cross-cutting feature |
 
 ---
 
@@ -514,31 +562,101 @@ export const gasTownStore = new GasTownStore();
 
 ## Deliverables Checklist
 
-| Component | Priority | Status |
-|-----------|----------|--------|
-| Gas-Town Detection | Must-Have | Pending |
-| gt CLI Integration | Must-Have | Pending |
-| Agent Monitoring Dashboard | Must-Have | Pending |
-| Convoy Tracking | Must-Have | Pending |
-| Mail System Integration | Should-Have | Pending |
-| Scene/Wave Orchestration | Should-Have | Pending |
-| Knowledge Panel | Should-Have | Pending |
-| SQL Explorer | Should-Have | Pending |
-| Multi-rig Support | Should-Have | Pending |
-| Merge Queue Visualization | Should-Have | Pending |
-| Project Tags | Should-Have | Pending |
-| Cross-Project View | Should-Have | Pending |
+| Component | Priority | Complexity | Effort | Status |
+|-----------|----------|------------|--------|--------|
+| Gas-Town Detection | Must-Have | 2 | 1.5 days | Pending |
+| gt CLI Integration | Must-Have | 3 | 3 days | Pending |
+| Agent Monitoring Dashboard | Must-Have | 3 | 3 days | Pending |
+| Convoy Tracking | Must-Have | 3 | 2.5 days | Pending |
+| Mail System Integration | Should-Have | 3 | 2.5 days | Pending |
+| Scene/Wave Orchestration | Should-Have | 4 | 4 days | Pending |
+| Knowledge Panel | Should-Have | 3 | 2 days | Pending |
+| SQL Explorer | Should-Have | 4 | 3 days | Pending |
+| Multi-rig Support | Should-Have | 4 | 3 days | Pending |
+| Merge Queue Visualization | Should-Have | 3 | 2 days | Pending |
+| Project Tags | Should-Have | 2 | 1.5 days | Pending |
+| Cross-Project View | Should-Have | 4 | 3 days | Pending |
+
+**Total Effort**: ~31 days (Must-Have: ~10 days, Should-Have: ~21 days)
 
 ---
 
 ## Time Estimates
 
-| Week | Focus | Deliverables |
-|------|-------|--------------|
-| 1 | Foundation | Gas-Town detection, gt CLI integration |
-| 2 | Dashboard | Rig/polecat dashboard, sling UI |
-| 3 | Convoys & Mail | Convoy tracking, mail system |
-| 4 | Advanced | SQL explorer, orchestration, polish |
+| Week | Focus | Deliverables | Days |
+|------|-------|--------------|------|
+| 1 | Foundation | Detection (1.5d), gt CLI (3d) | 4.5 |
+| 2 | Dashboard | Agent dashboard (3d), convoy tracking (2.5d) | 5.5 |
+| 3 | Communication | Mail system (2.5d), knowledge panel (2d) | 4.5 |
+| 4 | Advanced | SQL explorer (3d), tags (1.5d) | 4.5 |
+
+**Note**: Scene/Wave Orchestration, Multi-rig Support, Merge Queue, and Cross-Project View deferred to post-MVP.
+
+---
+
+## Accessibility Requirements
+
+All Gas-Town components must meet WCAG 2.1 AA standards:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Screen reader support | Dashboard items labeled, status announced |
+| Keyboard navigation | All interactive elements focusable |
+| Focus management | Focus returns correctly after actions |
+| Color independence | Status conveyed by icon + text, not color alone |
+
+### Component-Specific A11y
+
+| Component | Requirements |
+|-----------|--------------|
+| Agent Dashboard | `role="grid"`, status announced on change |
+| Rig/Polecat Cards | `role="article"`, action buttons labeled |
+| Convoy List | `role="list"`, progress announced |
+| Mail Inbox | `role="list"`, unread status announced |
+| SQL Explorer | Query editor accessible, results in table with headers |
+
+---
+
+## Rollback Strategy
+
+### Feature Flags
+
+```bash
+# Disable features if issues arise
+DISABLE_GASTOWN=true           # Hide all Gas-Town features
+DISABLE_MAIL=true              # Disable mail integration
+DISABLE_CONVOYS=true           # Disable convoy tracking
+DISABLE_SQL_EXPLORER=true      # Disable SQL explorer
+```
+
+### Component Rollback
+
+| Component | Rollback Procedure |
+|-----------|-------------------|
+| Gas-Town Detection | Disable feature, show "not available" |
+| Agent Dashboard | Direct users to `gt status` CLI |
+| Convoy Tracking | Direct users to `gt convoy list` CLI |
+| Mail System | Direct users to `gt mail` CLI |
+| SQL Explorer | Direct users to `bd sql` CLI |
+
+### Version Compatibility
+
+```bash
+# If gt CLI version mismatch
+GT_COMPAT_MODE=0.4             # Use older API format
+```
+
+---
+
+## Test Coverage Targets
+
+| Area | Target | Measurement |
+|------|--------|-------------|
+| Gas-Town Detection | > 85% | Critical detection logic |
+| gt CLI Integration | > 80% | Command parsing and execution |
+| Dashboard Components | > 70% | Component tests |
+| API Endpoints | > 75% | Integration tests |
+| Overall Phase 5 | > 70% | Vitest coverage report |
 
 ---
 
@@ -552,6 +670,36 @@ export const gasTownStore = new GasTownStore();
 - [ ] SQL explorer works for SELECT queries
 - [ ] All "Must-Have" features complete
 - [ ] Feature-flagged for non-Gas-Town users
+- [ ] Accessibility audit passes (0 critical violations)
+- [ ] Unit test coverage > 70%
+
+---
+
+## Project Completion Criteria
+
+Phase 5 is the final phase. Upon completion, verify full project readiness:
+
+### All Phases Complete
+- [ ] Phase 0: Development environment setup verified
+- [ ] Phase 1: MVP Core (issue management, Kanban, real-time sync)
+- [ ] Phase 2: Analytics & Timeline (metrics, charts, Gantt)
+- [ ] Phase 3: Git Integration (worktrees, PRs, dependencies)
+- [ ] Phase 4: Agent Orchestration (terminal, sessions, verification)
+- [ ] Phase 5: Gas-Town Integration (multi-agent orchestration)
+
+### Quality Gates
+- [ ] Overall test coverage > 70%
+- [ ] No critical security vulnerabilities
+- [ ] WCAG 2.1 AA accessibility compliance
+- [ ] Performance benchmarks met
+- [ ] Documentation complete
+
+### Deployment Readiness
+- [ ] Docker container builds successfully
+- [ ] CI/CD pipeline green
+- [ ] Feature flags documented
+- [ ] Rollback procedures tested
+- [ ] User documentation written
 
 ---
 
