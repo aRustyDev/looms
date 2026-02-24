@@ -1,7 +1,7 @@
 # Phase 2: Analytics & Timeline
 
-**Duration**: 3 weeks
-**Theme**: Lean metrics and Gantt visualization
+**Duration**: 4 weeks
+**Theme**: Lean metrics, Gantt visualization, and configuration
 
 ## Objectives
 
@@ -405,6 +405,72 @@ Predefined filter combinations for common queries.
 
 ---
 
+### 2.15 Aging Items View
+
+**Priority**: Should-Have | **Complexity**: 2 | **Source**: New
+**Wireframe**: [10-aging-items-view.md](../wireframes/10-aging-items-view.md)
+
+Dedicated view for monitoring aging/stale work items.
+
+**Deliverables**:
+- [ ] `AgingItemsView.svelte` component
+- [ ] Warning items section (approaching threshold)
+- [ ] Critical items section (exceeding threshold)
+- [ ] Filter by assignee, epic, priority
+- [ ] Link to aging threshold configuration
+
+**Acceptance Criteria**:
+- Items grouped by warning vs critical status
+- Each item links to issue detail
+- Shows age in days and status
+- Threshold configuration accessible from view
+
+---
+
+### 2.16 Aging Threshold Configuration
+
+**Priority**: Could-Have | **Complexity**: 1 | **Source**: New
+**Wireframe**: [11-aging-threshold-config.md](../wireframes/11-aging-threshold-config.md)
+
+Modal for configuring aging thresholds.
+
+**Deliverables**:
+- [ ] `AgingThresholdConfigModal.svelte` component
+- [ ] Warning threshold input (days)
+- [ ] Critical threshold input (days)
+- [ ] Auto-calculate toggle (from historical data)
+- [ ] Preview affected items
+
+**Acceptance Criteria**:
+- Thresholds saved to configuration store
+- Preview shows which items would be flagged
+- Auto-calculate option uses P85/P95
+
+---
+
+### 2.17 Configuration View
+
+**Priority**: Should-Have | **Complexity**: 2 | **Source**: New
+**Wireframe**: [12-configuration-view.md](../wireframes/12-configuration-view.md)
+
+Central configuration hub for all application settings.
+
+**Deliverables**:
+- [ ] `ConfigurationView.svelte` component
+- [ ] Display settings section (density, theme, time format)
+- [ ] RAG thresholds section
+- [ ] Aging thresholds section
+- [ ] Column configurations section
+- [ ] Keyboard shortcuts preview
+
+**Acceptance Criteria**:
+- All settings persist in localStorage
+- Changes apply immediately (no restart)
+- Sections collapsible
+- Reset to defaults option
+
+---
+
 ## Technical Architecture
 
 ### Metrics Data Flow
@@ -643,8 +709,11 @@ interface AgingWIPResponse {
 | Gantt Drag/Resize | Deferred | 4 | - | Moved to Phase 3 |
 | Due Date Management | Should-Have | 2 | 1.5 days | Pending |
 | Quick Filters | Should-Have | 2 | 1 day | Pending |
+| Aging Items View | Should-Have | 2 | 1.5 days | Pending |
+| Aging Threshold Config | Could-Have | 1 | 0.5 day | Pending |
+| Configuration View | Should-Have | 2 | 2 days | Pending |
 
-**Total Effort**: ~25 days (Must-Have: ~18 days, Should-Have: ~7 days)
+**Total Effort**: ~29 days (Must-Have: ~18 days, Should-Have: ~9 days, Could-Have: ~2 days)
 
 ---
 
@@ -653,10 +722,11 @@ interface AgingWIPResponse {
 | Week | Focus | Deliverables | Days |
 |------|-------|--------------|------|
 | 1 | Metrics | Engine (3d), Lead Time (2d), Throughput (1.5d), Percentiles (1d) | 7.5 |
-| 2 | Charts | CFD (2d), Aging WIP (2d), Health Badges (1.5d), Progress (0.5d) | 6 |
+| 2 | Charts | CFD (2d), Aging WIP (2d), Health Badges (1.5d), Progress (0.5d), Aging Items View (1.5d) | 7.5 |
 | 3 | Timeline | Date Prefix (2d), Gantt Basic (3d), Due Dates (1.5d) | 6.5 |
+| 4 | Configuration | Configuration View (2d), Aging Threshold Config (0.5d), Quick Filters (1d), buffer (0.5d) | 4 |
 
-**Note**: Gantt Drag/Resize moved to Phase 3 to allow more polish time for Gantt interactions.
+**Note**: Gantt Drag/Resize moved to Phase 3. Added Week 4 for configuration and polish.
 
 ---
 
@@ -749,3 +819,8 @@ bd metrics --recalculate  # Re-run metrics from source data
 - [beads-dashboard Metrics](../references/beads-dashboard/README.md)
 - [beads-pm-ui Wireframes](../references/beads-pm-ui/src/components/wireframes/)
 - [Date Prefix Documentation](../references/requirements.md)
+- **Wireframes**:
+  - [09-dashboard-view.md](../wireframes/09-dashboard-view.md)
+  - [10-aging-items-view.md](../wireframes/10-aging-items-view.md)
+  - [11-aging-threshold-config.md](../wireframes/11-aging-threshold-config.md)
+  - [12-configuration-view.md](../wireframes/12-configuration-view.md)

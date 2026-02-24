@@ -55,7 +55,7 @@ Before starting Phase 1, verify Phase 0 completion:
 
 ### 1.1 ProcessSupervisor
 
-**Priority**: Must-Have | **Complexity**: 3 | **Source**: gastown_ui
+**Bead**: `projx-695.1` | **Priority**: Must-Have | **Complexity**: 3 | **Source**: gastown_ui
 
 Centralized CLI execution with circuit breaker protection.
 
@@ -88,7 +88,7 @@ interface ProcessSupervisorConfig {
 
 ### 1.2 Data Access Layer
 
-**Priority**: Must-Have | **Complexity**: 3 | **Source**: New
+**Bead**: `projx-695.2` | **Priority**: Must-Have | **Complexity**: 3 | **Source**: New
 
 Unified data access supporting both SQLite and Dolt backends.
 
@@ -118,7 +118,8 @@ interface DataAccessLayer {
 
 ### 1.3 Issue List View
 
-**Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Bead**: `projx-695.3` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Wireframe**: [01-issue-list-view.md](../wireframes/01-issue-list-view.md)
 
 Table view of issues with sorting and filtering.
 
@@ -135,11 +136,14 @@ Table view of issues with sorting and filtering.
 - Sort toggle updates in < 50ms
 - Keyboard navigation (j/k, Enter)
 
+> **Note**: Column configuration is constant-mapped for MVP. See [12-configuration-view.md](../wireframes/12-configuration-view.md) for future configurability.
+
 ---
 
 ### 1.4 Filter Panel
 
-**Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Bead**: `projx-695.4` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Wireframe**: [04-filter-panel.md](../wireframes/04-filter-panel.md)
 
 Multi-faceted filtering for issue list.
 
@@ -163,7 +167,7 @@ Multi-faceted filtering for issue list.
 
 ### 1.5 Text Search
 
-**Priority**: Must-Have | **Complexity**: 1 | **Source**: All tools
+**Bead**: `projx-695.5` | **Priority**: Must-Have | **Complexity**: 1 | **Source**: All tools
 
 Full-text search across issue title and description.
 
@@ -183,7 +187,8 @@ Full-text search across issue title and description.
 
 ### 1.6 Create Issue
 
-**Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Bead**: `projx-695.6` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Wireframe**: [05-create-issue-modal.md](../wireframes/05-create-issue-modal.md)
 
 Modal dialog for creating new issues.
 
@@ -205,7 +210,7 @@ Modal dialog for creating new issues.
 
 ### 1.7 Quick Status Change
 
-**Priority**: Must-Have | **Complexity**: 1 | **Source**: All tools
+**Bead**: `projx-695.7` | **Priority**: Must-Have | **Complexity**: 1 | **Source**: All tools
 
 Inline status dropdown for rapid workflow.
 
@@ -225,7 +230,7 @@ Inline status dropdown for rapid workflow.
 
 ### 1.8 Inline Editing
 
-**Priority**: Should-Have | **Complexity**: 3 | **Source**: beads-ui, beads-dashboard
+**Bead**: `projx-695.15` | **Priority**: Should-Have | **Complexity**: 3 | **Source**: beads-ui, beads-dashboard
 
 Edit issue fields directly in the table/card.
 
@@ -264,7 +269,8 @@ For MVP, implement "Refresh & Retry" pattern:
 
 ### 1.8a Issue Detail View
 
-**Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Bead**: `projx-695.9` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: All tools
+**Wireframe**: [03-issue-detail-modal.md](../wireframes/03-issue-detail-modal.md)
 
 Full issue detail modal/panel for viewing complete issue context.
 
@@ -272,9 +278,11 @@ Full issue detail modal/panel for viewing complete issue context.
 - [ ] `IssueDetail.svelte` component
 - [ ] `IssueDetailModal.svelte` wrapper
 - [ ] Full description rendering (markdown)
+- [ ] Design/Acceptance content tabs
 - [ ] Comments section (read-only for MVP)
 - [ ] Activity/event history
 - [ ] Related issues/dependencies section
+- [ ] [Show Dependencies] link to dependencies modal
 - [ ] Quick action buttons (edit, close, assign)
 
 **Acceptance Criteria**:
@@ -282,6 +290,8 @@ Full issue detail modal/panel for viewing complete issue context.
 - Opens via click on issue ID/title link
 - Shows all issue fields
 - Markdown description renders correctly
+- Design/Acceptance tabs display content
+- [Show Dependencies] opens dependencies modal (1.14)
 - Escape closes modal
 - URL updates to `/issues/[id]` for deep linking
 
@@ -289,7 +299,8 @@ Full issue detail modal/panel for viewing complete issue context.
 
 ### 1.9 Kanban Board
 
-**Priority**: Must-Have | **Complexity**: 3 | **Source**: beads-ui, beads-dashboard
+**Bead**: `projx-695.10` | **Priority**: Must-Have | **Complexity**: 3 | **Source**: beads-ui, beads-dashboard
+**Wireframe**: [02-kanban-board.md](../wireframes/02-kanban-board.md)
 
 Column-based view grouped by status.
 
@@ -299,19 +310,23 @@ Column-based view grouped by status.
 - [ ] `KanbanCard.svelte` component
 - [ ] Drag-and-drop between columns (svelte-dnd-action)
 - [ ] Column headers with counts
+- [ ] Column hide/collapse (constant-mapped for MVP)
 - [ ] Card shows: title, type badge, priority indicator, assignee avatar
+- [ ] Card context menu with quick actions (right-click)
 
 **Acceptance Criteria**:
 - Drag card to column changes status
 - Drop triggers `bd update --status`
 - Cards render priority as color stripe
 - Columns configurable (which statuses to show)
+- Card context menu shows: View Details, Change Status, Change Priority, Assign, Copy Link
 
 ---
 
 ### 1.10 Epics View
 
-**Priority**: Should-Have | **Complexity**: 2 | **Source**: All tools
+**Bead**: `projx-695.16` | **Priority**: Should-Have | **Complexity**: 2 | **Source**: All tools
+**Wireframe**: [06-epics-view.md](../wireframes/06-epics-view.md)
 
 Hierarchical view of epics and their children.
 
@@ -327,11 +342,13 @@ Hierarchical view of epics and their children.
 - Progress bar reflects completion
 - Click epic to see details
 
+> **Note**: Column configuration is constant-mapped for MVP. See [12-configuration-view.md](../wireframes/12-configuration-view.md) for future configurability.
+
 ---
 
 ### 1.11 File Watching (Real-time)
 
-**Priority**: Must-Have | **Complexity**: 2 | **Source**: beads-ui, beads-dashboard
+**Bead**: `projx-695.12` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: beads-ui, beads-dashboard
 
 Watch `.beads/` directory for changes and broadcast updates.
 
@@ -351,7 +368,8 @@ Watch `.beads/` directory for changes and broadcast updates.
 
 ### 1.12 Basic Keyboard Shortcuts
 
-**Priority**: Should-Have | **Complexity**: 2 | **Source**: beads-ui, foolery
+**Bead**: `projx-695.17` | **Priority**: Should-Have | **Complexity**: 2 | **Source**: beads-ui, foolery
+**Wireframe**: [12-configuration-view.md](../wireframes/12-configuration-view.md) (Keyboard section)
 
 Essential keyboard navigation.
 
@@ -379,7 +397,7 @@ Essential keyboard navigation.
 
 ### 1.13 Owner/Assignee Filter
 
-**Priority**: Should-Have | **Complexity**: 1 | **Source**: All tools
+**Bead**: `projx-695.18` | **Priority**: Should-Have | **Complexity**: 1 | **Source**: All tools
 
 Filter by owner or assignee with autocomplete.
 
@@ -392,6 +410,58 @@ Filter by owner or assignee with autocomplete.
 - Dropdown shows users from recent issues
 - Selection filters immediately
 - Can combine with other filters
+
+---
+
+### 1.14 Issue Dependencies Modal
+
+**Bead**: `projx-695.19` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: New
+**Wireframe**: [07-issue-dependencies-modal.md](../wireframes/07-issue-dependencies-modal.md)
+
+Modal showing blocking/blocked-by relationships for a single issue.
+
+**Deliverables**:
+- [ ] `DependenciesModal.svelte` component
+- [ ] Graph visualization of dependencies
+- [ ] Lists: Blocked By, Blocking
+- [ ] Add/remove dependency actions
+- [ ] Quick navigation to linked issues
+
+**Acceptance Criteria**:
+- Opens from [Show Dependencies] link in Issue Detail
+- Displays upstream (blocked by) and downstream (blocking) issues
+- Graph shows relationship direction with arrows
+- Click issue navigates to that issue's detail
+- Can add/remove dependencies via `bd update`
+
+---
+
+### 1.15 Global Navigation Bar
+
+**Bead**: `projx-695.20` | **Priority**: Must-Have | **Complexity**: 2 | **Source**: New
+**Wireframe**: [01-issue-list-view.md](../wireframes/01-issue-list-view.md) (Global Navigation Bar section)
+
+Persistent navigation with global actions and settings toggles.
+
+**Deliverables**:
+- [ ] `GlobalNav.svelte` component
+- [ ] Navigation tabs (Issues, Epics, Board, Dashboard, Graph)
+- [ ] Theme toggle (Dark/Light/System)
+- [ ] Time format toggle (Days vs Days+Hours)
+- [ ] Density selector (Compact/Standard/Wide)
+- [ ] Quick action buttons ([+ Issue], [+ Epic])
+- [ ] Configuration link
+- [ ] User menu
+
+**Acceptance Criteria**:
+- Navigation tabs switch views
+- Theme toggle applies immediately
+- Density affects all list/card views
+- [+ Issue] opens Create Issue modal
+- [+ Epic] opens Create Epic modal
+- Settings persist in localStorage
+
+> **Note**: For MVP, theme and density options are constant-mapped. Full configurability in Phase 2.
 
 ---
 
@@ -504,8 +574,10 @@ export const issueStore = new IssueStore();
 | File Watching | Must-Have | 2 | 2 days | Pending |
 | Keyboard Shortcuts | Should-Have | 2 | 1 day | Pending |
 | Owner/Assignee Filter | Should-Have | 1 | 0.5 day | Pending |
+| Issue Dependencies Modal | Must-Have | 2 | 1.5 days | Pending |
+| Global Navigation Bar | Must-Have | 2 | 1.5 days | Pending |
 
-**Total Effort**: ~25.5 days (fits in 4 weeks with buffer)
+**Total Effort**: ~28.5 days (fits in 4 weeks with buffer)
 
 ---
 
@@ -514,9 +586,9 @@ export const issueStore = new IssueStore();
 | Week | Focus | Deliverables | Days |
 |------|-------|--------------|------|
 | 1 | Foundation | ProcessSupervisor (3d), Data Access Layer (3d) | 6 |
-| 2 | List View | Issue list (2d), filters (2d), search (1d), create modal (2d) | 7 |
+| 2 | List View | Issue list (2d), filters (2d), search (1d), create modal (2d), Global Nav (1.5d) | 8.5 |
 | 3 | Kanban | Kanban board (3d), Quick Status (1d), File Watching (2d) | 6 |
-| 4 | Polish | Inline editing (2d), epics view (1d), shortcuts (1d), buffer (1d) | 5 |
+| 4 | Polish | Issue Detail (2d), Dependencies Modal (1.5d), Inline editing (2d), epics view (1d), shortcuts (1d), buffer (0.5d) | 8 |
 
 ---
 
@@ -632,7 +704,14 @@ Before proceeding to Phase 2, provide:
 - [API Contract](../spec/api-contract.md)
 - [CLI Integration](../spec/cli-integration.md)
 - [Data Flow](../spec/data-flow.md)
-- [Wireframes](../spec/wireframes.md)
 - [Component Library](../spec/component-library.md)
+- **Wireframes**:
+  - [01-issue-list-view.md](../wireframes/01-issue-list-view.md)
+  - [02-kanban-board.md](../wireframes/02-kanban-board.md)
+  - [03-issue-detail-modal.md](../wireframes/03-issue-detail-modal.md)
+  - [04-filter-panel.md](../wireframes/04-filter-panel.md)
+  - [05-create-issue-modal.md](../wireframes/05-create-issue-modal.md)
+  - [06-epics-view.md](../wireframes/06-epics-view.md)
+  - [07-issue-dependencies-modal.md](../wireframes/07-issue-dependencies-modal.md)
 - [ADR-0005: CLI for Writes](../../../../../docs/src/adrs/0005-cli-for-writes-and-direct-sql-for-reads.md)
 - [ADR-0006: File Watching](../../../../../docs/src/adrs/0006-use-file-watching-with-websocket-broadcast.md)
