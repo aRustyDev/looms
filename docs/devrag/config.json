@@ -1,0 +1,23 @@
+{
+  "document_patterns": [
+    "./docs/src/adrs/*.md",
+    "./docs/src/constraints/*.md",
+    "./docs/src/design/*.md",
+    "./docs/src/**/*.md",
+    ".docker/data/penpot-assets/*",
+    ".claude/plans/unified-beads-webui/*.md",
+    ".claude/plans/**/*.md",
+    "./src/*"
+  ],
+  "db_path": "./docs/devrag/vectors.db",
+  "chunk_size": 500,
+  "search_top_k": 5,
+  "compute": {
+    "device": "auto",
+    "fallback_to_cpu": true
+  },
+  "model": {
+    "name": "multilingual-e5-small",
+    "dimensions": 384
+  }
+}
