@@ -41,8 +41,9 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          npx @cyclonedx/cyclonedx-npm --output-file sbom.json --output-format json
-          npx @cyclonedx/cyclonedx-npm --output-file sbom.xml --output-format xml
+          # Use cdxgen which supports bun projects
+          npx @cyclonedx/cdxgen -o sbom.json --format json .
+          npx @cyclonedx/cdxgen -o sbom.xml --format xml .
 
       - name: Create release tarball
         run: |
