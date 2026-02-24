@@ -13,6 +13,12 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 | [0005](./0005-cli-for-writes-and-direct-sql-for-reads.md) | CLI for Writes and Direct SQL for Reads | Proposed | data, architecture |
 | [0006](./0006-use-file-watching-with-websocket-broadcast.md) | Use File Watching with WebSocket Broadcast | Proposed | realtime, architecture |
 | [0007](./0007-borrow-components-from-gastown-ui-with-custom-extensions.md) | Borrow Components from gastown_ui | Proposed | ui, components |
+| [0008](./0008-use-vitest-with-testing-library-for-component-testing.md) | Use Vitest with Testing Library | Proposed | testing, infrastructure |
+| [0009](./0009-use-callback-props-for-component-events.md) | Use Callback Props for Component Events | Proposed | components, patterns |
+| [0010](./0010-use-dependency-injection-for-testability.md) | Use Dependency Injection for Testability | Proposed | testing, architecture |
+| [0011](./0011-use-opentelemetry-for-observability.md) | Use OpenTelemetry for Observability | Proposed | observability, infrastructure |
+| [0012](./0012-use-just-as-command-runner.md) | Use Just as Command Runner | Proposed | tooling, developer-experience |
+| [0013](./0013-justfile-patterns-and-conventions.md) | Justfile Patterns and Conventions | Proposed | tooling, conventions |
 
 ## Summary
 
@@ -24,6 +30,9 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 4. **Data Access**: CLI for writes, direct SQL for reads
 5. **Real-time**: File watching + WebSocket broadcast
 6. **Components**: Borrow from gastown_ui, extend as needed
+7. **Testing**: Vitest + Testing Library with callback props and DI
+8. **Observability**: OpenTelemetry for tracing and metrics
+9. **Tooling**: Just command runner with modular structure
 
 ### Architecture Overview
 
