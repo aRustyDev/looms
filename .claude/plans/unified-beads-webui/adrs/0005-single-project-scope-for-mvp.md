@@ -85,4 +85,6 @@ When adding multi-project in Phase 5:
 
 - Phase 5: Gastown Integration (multi-project planned)
 - Feature Matrix: Multi-Project section
-- ADR-0003: ASCII wireframes (wireframes assume single project)
+- [Planning ADR-0003](./0003-use-ascii-wireframes-instead-of-penpot.md): ASCII wireframes (wireframes assume single project)
+
+Note: This is a planning-phase ADR, not a project architecture ADR. Project ADRs are in `docs/src/adrs/`.

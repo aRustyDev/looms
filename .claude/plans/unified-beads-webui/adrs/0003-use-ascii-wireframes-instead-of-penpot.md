@@ -72,13 +72,13 @@ Example ASCII wireframe:
 - Cannot leverage Penpot's component library features
 
 ### Mitigation
-- Use Storybook for visual component documentation (see ADR-0004)
+- Use Storybook for visual component documentation (see [ADR-0018](../../../../../docs/src/adrs/0018-use-storybook-for-visual-component-documentation.md))
 - Define design tokens directly in CSS/Tailwind configuration
 - Create interactive prototypes in code if needed
 - Revisit Penpot integration when MCP issues are resolved
 
 ## Related
 
-- ADR-0004: Use Storybook for visual component documentation
+- [ADR-0018: Use Storybook for Visual Component Documentation](../../../../../docs/src/adrs/0018-use-storybook-for-visual-component-documentation.md)
 - `.claude/plans/penpot-mcp/README.md`: Penpot MCP investigation findings
 - `.claude/plans/penpot-mcp/bug-001-penpot-plugin-api-calls-hang.md`: Critical blocking bug

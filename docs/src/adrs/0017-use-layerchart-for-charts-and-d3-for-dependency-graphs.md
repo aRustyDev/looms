@@ -1,11 +1,17 @@
 ---
-number: 2
-title: Use Layerchart for charts and D3 directly for dependency graphs
+number: 17
+title: Use Layerchart for Charts and D3 for Dependency Graphs
 status: accepted
 date: 2026-02-23
+tags:
+  - charts
+  - visualization
+  - ui
+deciders:
+  - aRustyDev
 ---
 
-# Use Layerchart for charts and D3 directly for dependency graphs
+# Use Layerchart for Charts and D3 for Dependency Graphs
 
 ## Context and Problem Statement
 
@@ -32,7 +38,6 @@ We need to select charting libraries that work well with SvelteKit 2.x and Svelt
 * **Chart.js + svelte-chartjs** - Mature canvas-based library with Svelte wrapper
 * **D3.js only** - Maximum flexibility, direct DOM manipulation
 * **Apache ECharts** - Feature-rich enterprise charting
-* **Recharts** - React-specific (not compatible)
 * **Hybrid: Layerchart + D3 directly** - Best of both worlds
 
 ## Decision Outcome
@@ -149,5 +154,3 @@ Feature-rich enterprise charting library.
 
 * [Layerchart Documentation](https://www.layerchart.com/)
 * [D3 Force Documentation](https://d3js.org/d3-force)
-* [Phase 2: Analytics & Timeline](../phase/02-analytics.md)
-* [Phase 3: Git Integration - Dependency Graph](../phase/03-git-integration.md#33-dependency-graph-basic)

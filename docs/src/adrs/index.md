@@ -22,6 +22,8 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 | [0014](./0014-use-adrs-cli-for-adr-management.md) | Use adrs CLI for ADR Management | Proposed | tooling, conventions |
 | [0015](./0015-use-xterm-js-with-node-pty-for-terminal-integration.md) | Use xterm.js with node-pty for Terminal | Proposed | terminal, ui, infrastructure |
 | [0016](./0016-use-gh-cli-for-github-operations.md) | Use gh CLI for GitHub Operations | Proposed | git, infrastructure, cli |
+| [0017](./0017-use-layerchart-for-charts-and-d3-for-dependency-graphs.md) | Use Layerchart + D3 for Visualizations | Accepted | charts, visualization, ui |
+| [0018](./0018-use-storybook-for-visual-component-documentation.md) | Use Storybook for Component Documentation | Accepted | tooling, documentation, ui |
 
 ## Summary
 
@@ -39,6 +41,8 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 10. **ADR Management**: adrs CLI for all ADR operations
 11. **Terminal**: xterm.js + node-pty for agent sessions
 12. **GitHub**: gh CLI for PR/CI operations
+13. **Charts**: Layerchart for analytics, D3 for dependency graphs
+14. **Docs**: Storybook for visual component documentation
 
 ### Architecture Overview
 
