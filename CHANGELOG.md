@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.0.3] - 2026-02-24
+
+### Features
+
+- **release:** Add environment for npm, fix signing workflow, add /release command
+- **release:** Add manual trigger to signing workflow
+
+### Bug Fixes
+
+- **release:** Skip prepare script during npm publish
+
+## [0.0.2] - 2026-02-24
 
 ### Features
 
