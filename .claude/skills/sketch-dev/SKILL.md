@@ -250,6 +250,8 @@ x: -2000                    x: 0
 | Layouts & Frames | [layouts.md](./references/layouts.md) |
 | Prototyping & Flows | [prototyping.md](./references/prototyping.md) |
 | Styling & Colors | [styling.md](./references/styling.md) |
+| Shapes & Booleans | [shapes.md](./references/shapes.md) |
+| Developer Handoff | [handoff.md](./references/handoff.md) |
 | Workflow & Organization | [workflow.md](./references/workflow.md) |
 | Naming Conventions | [naming.md](./references/naming.md) |
 | Versioning & History | [versioning.md](./references/versioning.md) |
@@ -263,6 +265,7 @@ x: -2000                    x: 0
 | [create-symbol.js](./scripts/create-symbol.js) | Symbol Master creation |
 | [add-prototype-links.js](./scripts/add-prototype-links.js) | Batch prototype linking |
 | [style-tokens.js](./scripts/style-tokens.js) | Design token definitions |
+| [batch-rename.js](./scripts/batch-rename.js) | Pattern-based layer renaming |
 
 ## Usage Examples
 

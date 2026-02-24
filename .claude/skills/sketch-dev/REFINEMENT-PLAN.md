@@ -65,30 +65,31 @@
 
 ## Refinement Actions
 
-### Phase 1: Complete Core Documentation (Priority: High)
+### Phase 1: Complete Core Documentation (Priority: High) ✅ COMPLETE
 
-1. **Add Developer Handoff reference**
-   - Create `references/handoff.md`
+1. **Add Developer Handoff reference** ✅
+   - Created `references/handoff.md`
    - CSS code generation patterns
    - Export settings for different platforms
    - Collaboration with dev tools
 
-2. **Add Boolean Operations reference**
-   - Create `references/shapes.md`
+2. **Add Boolean Operations reference** ✅
+   - Created `references/shapes.md`
    - Union, Subtract, Intersect, Difference
    - Flattening and path operations
 
 3. **Expand MCP API with more patterns**
-   - Add layer inspection utilities
-   - Add batch operations patterns
-   - Document all return value patterns
+   - Add layer inspection utilities (partial - in mcp-api.md)
+   - Add batch operations patterns (done via batch-rename.js)
+   - Document all return value patterns (done)
 
-### Phase 2: Script Improvements (Priority: High)
+### Phase 2: Script Improvements (Priority: High) 🔄 PARTIAL
 
-1. **Create `batch-rename.js`**
+1. **Create `batch-rename.js`** ✅
    - Pattern-based renaming
    - Sequential numbering
    - Find/replace in names
+   - Case transformations (kebab, camel, pascal, etc.)
 
 2. **Create `create-component-library.js`**
    - Full component set generation
@@ -126,11 +127,11 @@
 
 ---
 
-## Proposed New File Structure
+## Current File Structure
 
 ```
 .claude/skills/sketch-dev/
-├── SKILL.md                 # Index (< 500 lines)
+├── SKILL.md                 # Index (< 500 lines) ✓
 ├── REFINEMENT-PLAN.md       # This file (temporary)
 │
 ├── references/
@@ -142,21 +143,21 @@
 │   ├── naming.md            # ✓ Complete
 │   ├── versioning.md        # ✓ Complete
 │   ├── mcp-api.md           # ✓ Complete
-│   ├── shapes.md            # NEW - Boolean ops, paths
-│   ├── handoff.md           # NEW - Developer handoff
-│   ├── troubleshooting.md   # NEW - Common issues
-│   └── glossary.md          # NEW - Term definitions
+│   ├── shapes.md            # ✓ Complete (Phase 1)
+│   ├── handoff.md           # ✓ Complete (Phase 1)
+│   ├── troubleshooting.md   # TODO - Common issues
+│   └── glossary.md          # TODO - Term definitions
 │
 ├── scripts/
 │   ├── style-tokens.js      # ✓ Complete
 │   ├── create-wireframe.js  # ✓ Complete
 │   ├── create-symbol.js     # ✓ Complete
 │   ├── add-prototype-links.js # ✓ Complete
-│   ├── batch-rename.js      # NEW
-│   ├── export-frames.js     # NEW
-│   └── create-component-library.js # NEW
+│   ├── batch-rename.js      # ✓ Complete (Phase 2)
+│   ├── export-frames.js     # TODO
+│   └── create-component-library.js # TODO
 │
-└── templates/               # NEW directory
+└── templates/               # TODO directory
     └── README.md            # Template documentation
 ```
 
@@ -169,14 +170,18 @@
 1. ~~Create all core reference files~~ DONE
 2. ~~Create all initial scripts~~ DONE
 3. ~~Create SKILL.md index~~ DONE
-4. Create this refinement plan DONE
+4. ~~Create this refinement plan~~ DONE
+5. ~~Add `handoff.md` reference~~ DONE (Phase 1)
+6. ~~Add `shapes.md` reference~~ DONE (Phase 1)
+7. ~~Create `batch-rename.js` script~~ DONE (Phase 2)
 
 ### Next Session
 
-1. Add `handoff.md` reference
-2. Add `shapes.md` reference
-3. Create `batch-rename.js` script
-4. Add cross-links between files
+1. Add `troubleshooting.md` reference
+2. Add `glossary.md` reference
+3. Create `export-frames.js` script
+4. Create `create-component-library.js` script
+5. Add cross-links between files
 
 ### Future Sessions
 
