@@ -153,6 +153,91 @@ git reset --hard HEAD~1
 git push --force-with-lease
 ```
 
+## Demo Captures
+
+For major releases or new features, capture demos for the README:
+
+### Terminal Recordings (asciinema)
+
+```bash
+# Install asciinema
+brew install asciinema
+
+# Record a session
+asciinema rec demo.cast
+
+# Play back locally
+asciinema play demo.cast
+
+# Upload to asciinema.org
+asciinema upload demo.cast
+
+# Or convert to GIF for README
+# Install agg (asciinema gif generator)
+brew install agg
+agg demo.cast demo.gif
+```
+
+**Recommended demos:**
+- Installation: `npm install -g @arustydev/looms && looms --version`
+- Basic usage: Show main commands/features
+- WebUI tour: Start server and navigate key screens
+
+### Screenshots
+
+```bash
+# macOS screenshot to clipboard
+cmd+shift+4  # Select area
+cmd+shift+4, space  # Window capture
+
+# Using screencapture CLI
+screencapture -w screenshot.png  # Window mode
+screencapture -s screenshot.png  # Selection mode
+```
+
+**Recommended screenshots:**
+- Dashboard view
+- Issue list/kanban view
+- Configuration screen
+
+### Screen Recordings (video)
+
+```bash
+# macOS built-in
+cmd+shift+5  # Screen recording options
+
+# Using ffmpeg for GIF conversion
+ffmpeg -i recording.mov -vf "fps=10,scale=800:-1" -loop 0 demo.gif
+
+# Using gifski for high-quality GIFs
+brew install gifski
+gifski -o demo.gif recording.mov
+```
+
+### Embedding in README
+
+```markdown
+<!-- Terminal recording (asciinema) -->
+[![asciicast](https://asciinema.org/a/CAST_ID.svg)](https://asciinema.org/a/CAST_ID)
+
+<!-- GIF demo -->
+![Demo](docs/assets/demo.gif)
+
+<!-- Screenshot -->
+![Dashboard](docs/assets/dashboard.png)
+
+<!-- Video (GitHub supports mp4) -->
+https://user-images.githubusercontent.com/USER_ID/VIDEO_ID.mp4
+```
+
+### Demo Checklist for Major Releases
+
+- [ ] Record installation demo (asciinema)
+- [ ] Capture WebUI screenshots (light & dark mode)
+- [ ] Record feature walkthrough video
+- [ ] Update README with new demos
+- [ ] Add demos to release notes if significant
+
 ## Notes
 
 - Always run from the `main` branch
