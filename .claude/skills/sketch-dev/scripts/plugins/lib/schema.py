@@ -58,20 +58,28 @@ class PluginEntry(BaseModel):
         open-source: false
         tags:
           - icons
+        summary: |
+          Phosphor is a flexible icon family with 6 weights and 1,200+ icons.
+          Well-maintained with regular updates. React/Vue/Flutter support.
     """
     plugin: str = Field(..., description="Plugin name")
     link: HttpUrl = Field(..., description="Plugin URL (GitHub repo or homepage)")
-    description: str = Field(..., description="Plugin description")
+    description: str = Field(..., description="Plugin description (from scrape)")
     authors: list[str] = Field(default_factory=list, description="List of author names")
     updated: date = Field(..., description="Last update date (YYYY-MM-DD)")
     version: VersionInfo = Field(..., description="Version information")
     open_source: bool = Field(alias="open-source", description="Whether plugin is open source")
     tags: list[str] = Field(default_factory=list, description="Category tags")
 
+    # Research summary - populated during review pipeline
+    summary: Optional[str] = Field(
+        None,
+        description="Research summary from exploration: description analysis, link scraping, web search findings"
+    )
+
     # Optional tracking metadata
     watch_status: Optional[WatchStatus] = Field(None, description="Update tracking status")
     last_reviewed: Optional[date] = Field(None, description="Last review date")
-    review_summary: Optional[str] = Field(None, description="Summary from last review")
 
     model_config = {
         "populate_by_name": True,  # Allow both 'open_source' and 'open-source'
@@ -84,7 +92,8 @@ class PluginEntry(BaseModel):
                 "updated": "2026-01-06",
                 "version": {"value": "2.1.0", "url": "https://github.com/phosphor-icons/homepage/releases"},
                 "open-source": False,
-                "tags": ["icons"]
+                "tags": ["icons"],
+                "summary": "Phosphor is a flexible icon family with 6 weights and 1,200+ icons. Well-maintained with regular updates. React/Vue/Flutter support."
             }]
         }
     }
@@ -118,13 +127,15 @@ class PluginEntry(BaseModel):
         if self.version.url:
             d["version"]["url"] = str(self.version.url)
 
+        # Include summary if set (research findings from review)
+        if self.summary:
+            d["summary"] = self.summary
+
         # Only include optional tracking fields if set
         if self.watch_status and self.watch_status != WatchStatus.DEFAULT:
             d["watch_status"] = self.watch_status.value
         if self.last_reviewed:
             d["last_reviewed"] = self.last_reviewed.isoformat()
-        if self.review_summary:
-            d["review_summary"] = self.review_summary
 
         return d
 

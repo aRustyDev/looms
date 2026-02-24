@@ -128,7 +128,8 @@ def cmd_validate():
         print("Error: pydantic not installed. Run: pip install pydantic")
         sys.exit(1)
 
-    refs_dir = Path(__file__).parent.parent / "references" / "plugins"
+    # Path: helpers.py -> plugins -> scripts -> sketch-dev -> references/plugins
+    refs_dir = Path(__file__).parent.parent.parent / "references" / "plugins"
     errors = []
     valid = 0
 
@@ -153,6 +154,79 @@ def cmd_validate():
             print(f"  ... and {len(errors) - 20} more")
     else:
         print("All entries valid!")
+
+
+def cmd_fix_authors():
+    """Fix malformed author entries caused by comma splitting."""
+    import yaml
+    from pathlib import Path
+
+    # Patterns that indicate incorrectly split authors
+    # e.g., ["Stark Lab", "Inc"] should be ["Stark Lab, Inc."]
+    merge_patterns = [
+        ("Inc", True),   # "Company, Inc"
+        ("LLC", True),   # "Company, LLC"
+        ("Ltd", True),   # "Company, Ltd"
+        ("Co", True),    # "Company, Co"
+        ("GmbH", True),  # "Company, GmbH"
+    ]
+
+    # Path: helpers.py -> plugins -> scripts -> sketch-dev -> references/plugins
+    refs_dir = Path(__file__).parent.parent.parent / "references" / "plugins"
+    fixed_count = 0
+
+    for yml_file in sorted(refs_dir.glob("*.yml")):
+        with open(yml_file, encoding="utf-8") as f:
+            entries = yaml.safe_load(f)
+
+        if not entries:
+            continue
+
+        modified = False
+        for entry in entries:
+            authors = entry.get("authors", [])
+            if len(authors) < 2:
+                continue
+
+            # Check for patterns to merge
+            new_authors = []
+            i = 0
+            while i < len(authors):
+                current = authors[i]
+
+                # Check if next element should be merged
+                if i + 1 < len(authors):
+                    next_author = authors[i + 1]
+                    should_merge = False
+
+                    for pattern, _ in merge_patterns:
+                        if next_author.strip() == pattern or next_author.strip() == pattern + ".":
+                            should_merge = True
+                            break
+
+                    if should_merge:
+                        merged = f"{current}, {next_author}"
+                        new_authors.append(merged)
+                        print(f"  Fixed: {authors} -> {[merged]}")
+                        i += 2
+                        modified = True
+                        fixed_count += 1
+                        continue
+
+                new_authors.append(current)
+                i += 1
+
+            if len(new_authors) != len(authors):
+                entry["authors"] = new_authors
+
+        if modified:
+            with open(yml_file, "w", encoding="utf-8") as f:
+                f.write("---\n")
+                yaml.dump(entries, f, default_flow_style=False,
+                          allow_unicode=True, sort_keys=False)
+            print(f"Updated {yml_file.name}")
+
+    print(f"\nFixed {fixed_count} author entries")
 
 
 def main():
@@ -188,6 +262,8 @@ def main():
         cmd_export_schema(output)
     elif cmd == "validate":
         cmd_validate()
+    elif cmd == "fix-authors":
+        cmd_fix_authors()
     else:
         print(f"Unknown command: {cmd}")
         sys.exit(1)

@@ -52,18 +52,20 @@ class PluginRecord:
 
     # Metadata
     description: str = ""
-    authors: list = field(default_factory=list)  # New: list of authors
+    authors: list = field(default_factory=list)  # List of authors
     category: str = "Other"
-    updated: str = ""  # New: YYYY-MM-DD format
+    updated: str = ""  # YYYY-MM-DD format
 
     # Version tracking
     version: str = "unknown"  # SHA for GitHub, semver for others
     version_url: Optional[str] = None  # URL to changelog/releases
 
+    # Research summary (populated during review pipeline)
+    summary: Optional[str] = None  # Findings from exploration/review
+
     # Watch status
     watch_status: WatchStatus = WatchStatus.DEFAULT
     last_reviewed: Optional[str] = None
-    review_summary: Optional[str] = None
 
     # Computed
     is_github: bool = False
@@ -141,9 +143,9 @@ class PluginRecord:
             updated=updated,
             version=version,
             version_url=version_url,
+            summary=entry.get("summary"),  # Research summary from review
             watch_status=watch_status,
             last_reviewed=entry.get("last_reviewed"),
-            review_summary=entry.get("review_summary"),
             is_github=is_github,
             open_source=entry.get("open-source", is_github),
             tags=entry.get("tags", [])
@@ -166,13 +168,15 @@ class PluginRecord:
         if self.version_url:
             entry["version"]["url"] = self.version_url
 
+        # Include summary if set (research findings from review)
+        if self.summary:
+            entry["summary"] = self.summary
+
         # Only include tracking fields if set (to keep YAML clean)
         if self.watch_status != WatchStatus.DEFAULT:
             entry["watch_status"] = self.watch_status.value
         if self.last_reviewed:
             entry["last_reviewed"] = self.last_reviewed
-        if self.review_summary:
-            entry["review_summary"] = self.review_summary
 
         return entry
 

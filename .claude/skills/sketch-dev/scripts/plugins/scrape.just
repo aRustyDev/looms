@@ -135,6 +135,14 @@ watch link status="watch":
 migrate *args:
     cd "{{ plugins_dir }}" && {{ python }} migrate_schema.py {{ args }}
 
+# Update version info for existing plugins (fetches GitHub SHAs)
+update-versions *args:
+    cd "{{ plugins_dir }}" && {{ python }} update_versions.py {{ args }}
+
+# Fix malformed author entries (e.g., "Stark Lab, Inc" split incorrectly)
+fix-authors:
+    cd "{{ plugins_dir }}" && {{ python }} helpers.py fix-authors
+
 # Export JSON schema for plugin entries
 export-schema output="plugin.schema.json":
     cd "{{ plugins_dir }}" && {{ python }} helpers.py export-schema "{{ output }}"

@@ -289,8 +289,7 @@
   link: https://www.shutterstock.com/explore/shutterstock-sketch-plugin
   description: Access Shutterstock's stunning images without leaving your workspace.
   authors:
-  - Shutterstock
-  - Inc
+  - Shutterstock, Inc
   updated: '2018-07-03'
   version:
     value: unknown
