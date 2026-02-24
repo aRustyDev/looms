@@ -87,7 +87,7 @@ def fetch_github_sha(repo_url: str, use_gh_cli: bool = True) -> Optional[str]:
         return None
 
     owner, repo = match.groups()
-    repo = repo.rstrip(".git").split("#")[0]  # Remove .git and anchors
+    repo = repo.removesuffix(".git").split("#")[0]  # Remove .git suffix and anchors
 
     # Try gh CLI first (authenticated, higher rate limit)
     if use_gh_cli and GH_CLI_AVAILABLE:
