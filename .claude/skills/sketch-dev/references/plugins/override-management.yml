@@ -1,0 +1,32 @@
+---
+- plugin: Overrides Manager
+  link: https://github.com/ozgurgunes/Sketch-Overrides-Manager
+  description: A Sketch plugin which makes managing overrides easier.
+  summary: By Ozgur Gunes. Last updated 17 Feb 2026.
+  open-source: true
+  tags:
+  - override-management
+- plugin: Decimal Number Generator
+  link: https://github.com/vaexperience/sketch-plugin-decimal-number-generator
+  description: Generate anbd override text fields with decimal number values and custom
+    character content
+  summary: By vaexperience. Last updated 2 Jan 2020.
+  open-source: true
+  tags:
+  - override-management
+- plugin: Overrideit Sketchplugin
+  link: https://github.com/ahmedmigo/overrideit-sketchplugin
+  description: Overrideit is sketch plugin that allow designers to search in overridelist
+    and overrides dropdowns, and with many other features.
+  summary: By Ahmed Genaidy. Last updated 16 May 2019.
+  open-source: true
+  tags:
+  - override-management
+- plugin: restore-overrides
+  link: https://github.com/danielthall/restore-overrides
+  description: A small plugin to store and restore override values before and after
+    library updates
+  summary: By Daniel T. Hall. Last updated 7 May 2019.
+  open-source: true
+  tags:
+  - override-management

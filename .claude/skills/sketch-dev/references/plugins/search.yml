@@ -1,0 +1,54 @@
+---
+- plugin: Copy-Updater
+  link: https://github.com/lizhengDesign/Sketch-CopyUpdater
+  description: A Sketch plugin that updates copy based on selected JSON
+  summary: By Li Zheng. Last updated 4 Mar 2023.
+  open-source: true
+  tags:
+  - search
+- plugin: Reselect
+  link: https://github.com/mfouquet/Reselect
+  description: Reselect allows you to restore a previous selection or save selections
+    for later use (even after you close the document).
+  summary: By Michael Fouquet. Last updated 25 Feb 2022.
+  open-source: true
+  tags:
+  - search
+- plugin: Select 'n' Slice
+  link: https://github.com/kevintoepfer/select-n-slice
+  description: A Sketch plugin to create a slice around anything you've selected.
+  summary: By Kevin Töpfer. Last updated 3 Feb 2022.
+  open-source: true
+  tags:
+  - search
+- plugin: SketchDistributor
+  link: https://github.com/PEZ/SketchDistributor
+  description: Distribute selection objects vertically or horizontally with a given
+    spacing between them.
+  summary: By Peter Strömberg. Last updated 22 May 2021.
+  open-source: true
+  tags:
+  - search
+- plugin: pickle
+  link: https://github.com/billychasen/pickle-sketch
+  description: Pickle lets you get quick feedback on anything you design. By integrating
+    research early in your design process, you'll be more confident in your final
+    designs.
+  summary: By billychasen. Last updated 31 Jan 2021.
+  open-source: true
+  tags:
+  - search
+- plugin: Viewfinder Sketchplugin
+  link: https://github.com/ahmedmigo/ViewFinder-Sketchplugin
+  description: Easy access anywhere in you project file
+  summary: By Ahmed Genaidy. Last updated 5 Feb 2020.
+  open-source: true
+  tags:
+  - search
+- plugin: Sketch Reverse
+  link: https://github.com/lucaorio/sketch-reverse
+  description: Reverse the position or depth of selected elements.
+  summary: By Luca Orio. Last updated 18 Apr 2019.
+  open-source: true
+  tags:
+  - search

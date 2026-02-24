@@ -1,0 +1,15 @@
+---
+- plugin: betterTypePanel
+  link: https://github.com/KevinGutowski/betterTypePanel
+  description: A sketch plugin to help manage common OpenType properties
+  summary: By Kevin Gutowski. Last updated 3 Jan 2023.
+  open-source: true
+  tags:
+  - typography
+- plugin: Golden Ratio Line Height
+  link: https://github.com/lorenzwoehr/Golden-Ratio-Line-Height-Sketch-Plugin
+  description: Optimize your typography based on font size, line-height and width.
+  summary: By Lorenz Wöhr. Last updated 26 Mar 2018.
+  open-source: true
+  tags:
+  - typography

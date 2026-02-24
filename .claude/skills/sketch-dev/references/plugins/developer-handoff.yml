@@ -1,0 +1,8 @@
+---
+- plugin: Zeplin
+  link: https://zeplin.io
+  description: Zeplin Sketch Plugin.
+  summary: By Zeplin. Last updated 3 Jun 2025.
+  open-source: false
+  tags:
+  - developer-handoff

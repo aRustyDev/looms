@@ -1,0 +1,30 @@
+---
+- plugin: Brandfolder
+  link: https://github.com/brandfolder/sketch-plugin-brandfolder
+  description: Easily use your digital assets from Brandfolder right within your favorite
+    platform for digital design!
+  summary: By brandfolder. Last updated 14 Feb 2026.
+  open-source: true
+  tags:
+  - branding
+- plugin: Frontify Plugin
+  link: https://github.com/Frontify/sketch
+  description: Connecting your brand and design worlds
+  summary: By Frontify. Last updated 8 Jan 2026.
+  open-source: true
+  tags:
+  - branding
+- plugin: Brandfetch
+  link: https://github.com/Brandfetch/Brandfetch-Sketch-Plugin
+  description: Pull brand assets into Sketch
+  summary: By Brandfetch. Last updated 8 May 2024.
+  open-source: true
+  tags:
+  - branding
+- plugin: uiLogos
+  link: https://github.com/realvjy/uiLogos-sketch-plugin
+  description: Insert professionally designed dummy logos of companies.
+  summary: By vijay verma. Last updated 12 Apr 2024.
+  open-source: true
+  tags:
+  - branding

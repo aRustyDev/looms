@@ -1,0 +1,23 @@
+---
+- plugin: Sketch Play
+  link: http://sureskumar.com/sketchplay/
+  description: Create game plays directly from Sketch app.
+  summary: By Sures Kumar. Last updated 3 May 2024.
+  open-source: false
+  tags:
+  - human-focused
+- plugin: 10th Anniversary
+  link: https://github.com/bomberstudios/10th-anniversary
+  description: Celebrate Sketch's 10th Anniversary with a trip down memory lane
+  summary: By Ale M. Last updated 8 Jan 2023.
+  open-source: true
+  tags:
+  - human-focused
+- plugin: LaTeX Sketch Plugin
+  link: https://github.com/heytitle/latex-sketch-plugin
+  description: This plugin brings LaTeX functionalities to Sketch, and allows us to
+    directly write mathematical formulas
+  summary: By heytitle. Last updated 6 Jan 2023.
+  open-source: true
+  tags:
+  - human-focused

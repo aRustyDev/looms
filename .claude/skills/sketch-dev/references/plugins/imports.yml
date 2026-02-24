@@ -1,0 +1,31 @@
+---
+- plugin: Sketch Export Preferences
+  link: https://github.com/KevinGutowski/Sketch-Export-Preferences
+  description: Import and Save Sketch Export Preferences
+  summary: By Kevin Gutowski. Last updated 5 Jan 2023.
+  open-source: true
+  tags:
+  - imports
+- plugin: iOS2Sketch
+  link: https://www.design-code.app/docs
+  description: Import App Screens to Sketch
+  summary: By DesignCodeApp. Last updated 24 Oct 2022.
+  open-source: false
+  tags:
+  - imports
+- plugin: Magicul Converter
+  link: https://magicul.io/
+  description: Convert and import XD files in Sketch, Figma to Sketch, XD to Figma
+    and much more.
+  summary: By Magicul. Last updated 10 Jan 2020.
+  open-source: false
+  tags:
+  - imports
+- plugin: Sketch User Flows
+  link: https://github.com/reqfire/sketch-user-flows
+  description: A Sketch Plug-in for importing/exporting user flow and interface definitions
+    from Reqfire.
+  summary: By reqfire. Last updated 1 Mar 2018.
+  open-source: true
+  tags:
+  - imports
