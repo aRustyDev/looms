@@ -23,7 +23,7 @@ body = """
         - {% if commit.scope %}**{{ commit.scope }}:** {% endif %}\
             {% if commit.breaking %}[**breaking**] {% endif %}\
             {{ commit.message | upper_first }}\
-            {% if commit.github.pr_number %} ([#{{ commit.github.pr_number }}](https://github.com/p-b-d-z/projx-ui/pull/{{ commit.github.pr_number }})){% endif %}\
+            {% if commit.github.pr_number %} ([#{{ commit.github.pr_number }}](https://github.com/aRustyDev/projx/pull/{{ commit.github.pr_number }})){% endif %}\
     {% endfor %}
 {% endfor %}
 """
@@ -35,7 +35,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-  # { pattern = '<REPO>', replace = "https://github.com/p-b-d-z/projx-ui" },
+  # { pattern = '<REPO>', replace = "https://github.com/aRustyDev/projx" },
 ]
 
 [git]
@@ -48,7 +48,7 @@ split_commits = false
 # regex for preprocessing the commit messages
 commit_preprocessors = [
   # Replace issue numbers
-  { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/p-b-d-z/projx-ui/issues/${2}))" },
+  { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/aRustyDev/projx/issues/${2}))" },
   # Check spelling of the commit with https://github.com/crate-ci/typos
   # { pattern = '.*', replace_command = 'typos --write-changes -' },
 ]
@@ -86,6 +86,7 @@ sort_commits = "oldest"
 # limit the number of commits included in the changelog
 # limit_commits = 42
 
-[remote.github]
-owner = "p-b-d-z"
-repo = "projx-ui"
+# GitHub integration disabled - enable when GITHUB_TOKEN is configured
+# [remote.github]
+# owner = "aRustyDev"
+# repo = "projx"
