@@ -17,8 +17,11 @@ x-flags: &penpot-flags
     enable-demo-users
     enable-login-with-password
     enable-registration
+    enable-access-tokens
+    enable-backend-api-doc
     disable-email-verification
     disable-secure-session-cookies
+    disable-onboarding
 
 x-uri: &penpot-public-uri
   PENPOT_PUBLIC_URI: http://localhost:9001
@@ -44,11 +47,11 @@ services:
   # Penpot Frontend
   # ============================================================================
   penpot-frontend:
-    image: "penpotapp/frontend:${PENPOT_VERSION:-latest}"
+    image: 'penpotapp/frontend:${PENPOT_VERSION:-latest}'
     container_name: penpot-frontend
     restart: unless-stopped
     ports:
-      - "9001:8080"
+      - '9001:8080'
     volumes:
       - ./data/penpot-assets:/opt/data/assets
     depends_on:
@@ -63,7 +66,7 @@ services:
   # Penpot Backend
   # ============================================================================
   penpot-backend:
-    image: "penpotapp/backend:${PENPOT_VERSION:-latest}"
+    image: 'penpotapp/backend:${PENPOT_VERSION:-latest}'
     container_name: penpot-backend
     restart: unless-stopped
     volumes:
@@ -76,13 +79,7 @@ services:
     networks:
       - penpot
     environment:
-      <<:
-        [
-          *penpot-flags,
-          *penpot-public-uri,
-          *penpot-http-body-size,
-          *penpot-secret-key,
-        ]
+      <<: [*penpot-flags, *penpot-public-uri, *penpot-http-body-size, *penpot-secret-key]
 
       PENPOT_GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-penpot}
       PENPOT_GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-penpot}
@@ -120,7 +117,7 @@ services:
   # Penpot Exporter (PDF/SVG export)
   # ============================================================================
   penpot-exporter:
-    image: "penpotapp/exporter:${PENPOT_VERSION:-latest}"
+    image: 'penpotapp/exporter:${PENPOT_VERSION:-latest}'
     container_name: penpot-exporter
     restart: unless-stopped
     depends_on:
@@ -142,7 +139,7 @@ services:
     restart: unless-stopped
     stop_signal: SIGINT
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U penpot"]
+      test: ['CMD-SHELL', 'pg_isready -U penpot']
       interval: 2s
       timeout: 10s
       retries: 5
@@ -165,7 +162,7 @@ services:
     container_name: penpot-valkey
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "valkey-cli ping | grep PONG"]
+      test: ['CMD-SHELL', 'valkey-cli ping | grep PONG']
       interval: 1s
       timeout: 3s
       retries: 5
@@ -183,9 +180,9 @@ services:
     container_name: penpot-mailcatch
     restart: unless-stopped
     expose:
-      - "1025"
+      - '1025'
     ports:
-      - "1080:1080"
+      - '1080:1080'
     networks:
       - penpot
 
@@ -201,13 +198,13 @@ services:
     container_name: penpot-mcp
     restart: unless-stopped
     ports:
-      - "4400:4400"  # Plugin manifest server
-      - "4401:4401"  # MCP HTTP/SSE endpoint
-      - "4402:4402"  # WebSocket (plugin connection)
-      - "4403:4403"  # REPL server (debugging)
+      - '4400:4400' # Plugin manifest server
+      - '4401:4401' # MCP HTTP/SSE endpoint
+      - '4402:4402' # WebSocket (plugin connection)
+      - '4403:4403' # REPL server (debugging)
     networks:
       - penpot
     environment:
-      PENPOT_MCP_SERVER_LISTEN_ADDRESS: "0.0.0.0"
-      PENPOT_MCP_SERVER_ADDRESS: "localhost"
-      PENPOT_MCP_LOG_LEVEL: "info"
+      PENPOT_MCP_SERVER_LISTEN_ADDRESS: '0.0.0.0'
+      PENPOT_MCP_SERVER_ADDRESS: 'localhost'
+      PENPOT_MCP_LOG_LEVEL: 'info'
