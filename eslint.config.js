@@ -30,6 +30,20 @@ export default [
 		}
 	},
 	{
+		// Svelte 5 runes files (.svelte.ts) need special handling
+		files: ['**/*.svelte.ts'],
+		languageOptions: {
+			parser: ts.parser,
+			parserOptions: {
+				project: null // Disable type-aware linting for runes files
+			}
+		},
+		rules: {
+			// Runes use special syntax that looks like unused variables
+			'@typescript-eslint/no-unused-vars': 'off'
+		}
+	},
+	{
 		rules: {
 			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 			'svelte/no-at-html-tags': 'warn',

@@ -17,7 +17,15 @@ export default defineConfig({
 	],
 	resolve: {
 		// Force browser exports for Svelte in tests
-		conditions: ['browser', 'development']
+		conditions: ['browser', 'development'],
+		alias: {
+			// SvelteKit path aliases
+			$lib: path.join(dirname, 'src/lib'),
+			// Mock SvelteKit modules for unit tests
+			'$app/environment': path.join(dirname, 'src/tests/mocks/app-environment.ts'),
+			'$app/navigation': path.join(dirname, 'src/tests/mocks/app-navigation.ts'),
+			'$app/stores': path.join(dirname, 'src/tests/mocks/app-stores.ts')
+		}
 	},
 	test: {
 		// Default project configuration (unit tests)
