@@ -72,16 +72,16 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
           echo "# Download the artifact, signature, and certificate" >> $GITHUB_STEP_SUMMARY
-          echo "gh release download $TAG -p 'projx-ui-*.tar.gz*'" >> $GITHUB_STEP_SUMMARY
+          echo "gh release download $TAG -p 'looms-*.tar.gz*'" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "# Verify with cosign" >> $GITHUB_STEP_SUMMARY
           echo "cosign verify-blob \\\\" >> $GITHUB_STEP_SUMMARY
-          echo "  --signature projx-ui-${VERSION}.tar.gz.sig \\\\" >> $GITHUB_STEP_SUMMARY
-          echo "  --certificate projx-ui-${VERSION}.tar.gz.pem \\\\" >> $GITHUB_STEP_SUMMARY
-          echo "  --certificate-identity-regexp='https://github.com/aRustyDev/projx/.*' \\\\" >> $GITHUB_STEP_SUMMARY
+          echo "  --signature looms-${VERSION}.tar.gz.sig \\\\" >> $GITHUB_STEP_SUMMARY
+          echo "  --certificate looms-${VERSION}.tar.gz.pem \\\\" >> $GITHUB_STEP_SUMMARY
+          echo "  --certificate-identity-regexp='https://github.com/aRustyDev/looms/.*' \\\\" >> $GITHUB_STEP_SUMMARY
           echo "  --certificate-oidc-issuer='https://token.actions.githubusercontent.com' \\\\" >> $GITHUB_STEP_SUMMARY
-          echo "  projx-ui-${VERSION}.tar.gz" >> $GITHUB_STEP_SUMMARY
+          echo "  looms-${VERSION}.tar.gz" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "# Verify SHA256 checksum" >> $GITHUB_STEP_SUMMARY
-          echo "sha256sum -c projx-ui-${VERSION}.tar.gz.sha256" >> $GITHUB_STEP_SUMMARY
+          echo "sha256sum -c looms-${VERSION}.tar.gz.sha256" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

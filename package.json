@@ -1,10 +1,10 @@
 {
-	"name": "projx-ui",
-	"version": "0.0.4",
-	"description": "Unified Beads WebUI - A comprehensive interface for Beads and Gas-Town",
+	"name": "looms",
+	"version": "0.0.5",
+	"description": "Unified dev tooling - weaving beads, gastown, git-bug, adrs, and more",
 	"type": "module",
 	"bin": {
-		"projx-ui": "./bin/projx-ui.js"
+		"looms": "./bin/looms.js"
 	},
 	"files": [
 		"build",
@@ -18,11 +18,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/p-b-d-z/projx-ui.git"
+		"url": "git+https://github.com/aRustyDev/looms.git"
 	},
-	"homepage": "https://github.com/p-b-d-z/projx-ui#readme",
+	"homepage": "https://github.com/aRustyDev/looms#readme",
 	"bugs": {
-		"url": "https://github.com/p-b-d-z/projx-ui/issues"
+		"url": "https://github.com/aRustyDev/looms/issues"
 	},
 	"license": "MIT",
 	"scripts": {

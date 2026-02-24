@@ -1,6 +1,6 @@
-# Releasing projx-ui
+# Releasing looms
 
-This document describes how to create a new release of projx-ui.
+This document describes how to create a new release of looms.
 
 ## Prerequisites
 
@@ -121,11 +121,11 @@ gh release download v1.0.0
 
 # Verify signature
 cosign verify-blob \
-  --signature projx-ui-1.0.0.tar.gz.sig \
-  --certificate projx-ui-1.0.0.tar.gz.pem \
-  --certificate-identity-regexp='https://github.com/p-b-d-z/projx-ui/.*' \
+  --signature looms-1.0.0.tar.gz.sig \
+  --certificate looms-1.0.0.tar.gz.pem \
+  --certificate-identity-regexp='https://github.com/p-b-d-z/looms/.*' \
   --certificate-oidc-issuer='https://token.actions.githubusercontent.com' \
-  projx-ui-1.0.0.tar.gz
+  looms-1.0.0.tar.gz
 ```
 
 ## Troubleshooting
@@ -170,7 +170,7 @@ git push origin :refs/tags/v1.0.0
 gh release delete v1.0.0
 
 # npm unpublish (within 72 hours)
-npm unpublish projx-ui@1.0.0
+npm unpublish looms@1.0.0
 ```
 
 ## Security

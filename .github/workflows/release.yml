@@ -48,7 +48,7 @@ jobs:
       - name: Create release tarball
         run: |
           VERSION=${GITHUB_REF_NAME#v}
-          tar -czvf projx-ui-${VERSION}.tar.gz build/ bin/ package.json README.md
+          tar -czvf looms-${VERSION}.tar.gz build/ bin/ package.json README.md
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -66,7 +66,7 @@ jobs:
         with:
           name: release-assets
           path: |
-            projx-ui-*.tar.gz
+            looms-*.tar.gz
             sbom.json
             sbom.xml
           retention-days: 1
@@ -109,7 +109,7 @@ jobs:
         with:
           body_path: release_notes.md
           files: |
-            projx-ui-*.tar.gz
+            looms-*.tar.gz
             sbom.json
             sbom.xml
           fail_on_unmatched_files: true

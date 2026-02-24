@@ -99,7 +99,7 @@ The GitHub Actions workflow will automatically:
 2. **Test** - Run type checks and unit tests
 3. **SBOM** - Generate Software Bill of Materials
 4. **Release** - Create GitHub release with:
-   - Release tarball (`projx-ui-x.x.x.tar.gz`)
+   - Release tarball (`looms-x.x.x.tar.gz`)
    - SBOM files (`sbom.json`, `sbom.xml`)
    - Auto-generated release notes
 5. **Publish** - Publish to npm with provenance

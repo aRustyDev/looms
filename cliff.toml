@@ -23,7 +23,7 @@ body = """
         - {% if commit.scope %}**{{ commit.scope }}:** {% endif %}\
             {% if commit.breaking %}[**breaking**] {% endif %}\
             {{ commit.message | upper_first }}\
-            {% if commit.github.pr_number %} ([#{{ commit.github.pr_number }}](https://github.com/aRustyDev/projx/pull/{{ commit.github.pr_number }})){% endif %}\
+            {% if commit.github.pr_number %} ([#{{ commit.github.pr_number }}](https://github.com/aRustyDev/looms/pull/{{ commit.github.pr_number }})){% endif %}\
     {% endfor %}
 {% endfor %}
 """
@@ -35,7 +35,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-  # { pattern = '<REPO>', replace = "https://github.com/aRustyDev/projx" },
+  # { pattern = '<REPO>', replace = "https://github.com/aRustyDev/looms" },
 ]
 
 [git]
@@ -48,7 +48,7 @@ split_commits = false
 # regex for preprocessing the commit messages
 commit_preprocessors = [
   # Replace issue numbers
-  { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/aRustyDev/projx/issues/${2}))" },
+  { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/aRustyDev/looms/issues/${2}))" },
   # Check spelling of the commit with https://github.com/crate-ci/typos
   # { pattern = '.*', replace_command = 'typos --write-changes -' },
 ]

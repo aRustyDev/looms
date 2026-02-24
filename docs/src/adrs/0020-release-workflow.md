@@ -90,11 +90,11 @@ npm audit signatures
 
 # Verify GitHub release artifacts
 cosign verify-blob \
-  --signature projx-ui-VERSION.tar.gz.sig \
-  --certificate projx-ui-VERSION.tar.gz.pem \
-  --certificate-identity-regexp='https://github.com/p-b-d-z/projx-ui/.*' \
+  --signature looms-VERSION.tar.gz.sig \
+  --certificate looms-VERSION.tar.gz.pem \
+  --certificate-identity-regexp='https://github.com/p-b-d-z/looms/.*' \
   --certificate-oidc-issuer='https://token.actions.githubusercontent.com' \
-  projx-ui-VERSION.tar.gz
+  looms-VERSION.tar.gz
 ```
 
 ## Files
@@ -102,7 +102,7 @@ cosign verify-blob \
 | File | Purpose |
 |------|---------|
 | `cliff.toml` | git-cliff changelog configuration |
-| `bin/projx-ui.js` | CLI entry point for npm package |
+| `bin/looms.js` | CLI entry point for npm package |
 | `scripts/release.sh` | Interactive release script |
 | `.github/workflows/release.yml` | Build, release, and npm publish |
 | `.github/workflows/release-sign.yml` | Sigstore artifact signing |
