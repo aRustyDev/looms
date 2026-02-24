@@ -1,101 +1,188 @@
-# Sketch Plugin Scripts
+# Sketch Plugin Tracking System
 
-Scripts for scraping, extracting, and categorizing Sketch plugins from the official extensions page.
+A modular system for tracking, categorizing, and monitoring Sketch plugins from the official extensions page.
 
-## Scripts
+## Architecture
 
-### scrape-plugins.js
+The system uses **YAML files as the source of truth** for plugin state:
+- `references/plugins/*.yml` - 36 category files containing plugin records
+- Each entry includes tracking metadata (dates, SHA, watch status)
+- Human-readable format that doubles as documentation
 
-Documents the Crawl4AI MCP approach for scraping the Sketch plugins page. This is a reference implementation showing:
-- The URL to scrape
-- Regex patterns for parsing plugin entries
-- Data structure for extracted plugins
+### Library Modules
 
-**Note**: Actual scraping is done via MCP tool calls (`mcp__crawl4ai__md`).
+```
+lib/
+├── __init__.py      # Package exports
+├── state.py         # PluginState - YAML-based state management
+├── scraper.py       # PluginScraper - Fetch and parse plugins
+├── differ.py        # PluginDiffer - Detect changes between scrapes
+├── categorizer.py   # PluginCategorizer - Keyword-based categorization
+└── reviewer.py      # ReviewQueue - LLM-gated review workflow
+```
 
-### extract-plugins.py
+### Key Classes
 
-Parses raw markdown from Crawl4AI and extracts structured plugin data.
+| Class | Purpose |
+|-------|---------|
+| `PluginState` | Load/save plugin state from YAML files |
+| `PluginRecord` | Single plugin with tracking metadata |
+| `PluginScraper` | Parse Crawl4AI output, fetch GitHub SHAs |
+| `PluginDiffer` | Compare scrapes against state, classify changes |
+| `ReviewQueue` | Queue items for LLM review |
+
+## Installation
 
 ```bash
-python extract-plugins.py raw-markdown.md plugins.json
+# Required for direct scraping
+pip install crawl4ai
+
+# For first run, install browser
+crawl4ai-setup
 ```
-
-**Input**: Markdown content from Crawl4AI
-**Output**: JSON array of plugin objects
-
-```json
-{
-  "name": "Plugin Name",
-  "description": "Plugin description",
-  "author": "Author Name",
-  "link": "https://...",
-  "updated": "15 Jan 2026",
-  "is_github": true
-}
-```
-
-### categorize-plugins.py
-
-Categorizes extracted plugins into predefined categories based on keyword matching.
-
-```bash
-python categorize-plugins.py plugins.json output/
-```
-
-**Input**: JSON file from extract-plugins.py
-**Output**: YAML files per category in output directory
-
-## Categories
-
-The categorizer supports these categories:
-
-| Category | Keywords |
-|----------|----------|
-| A11y | accessibility, wcag, color blind, stark |
-| AI | codia, uxarts, picsart, prediction |
-| Icons | icon, phosphor, icondrop, fontawesome |
-| Symbol Management | symbol, instance, component |
-| Colors | color, gradient, palette, swatch |
-| Text | text, lorem, ipsum, rename |
-| Code | tailwind, css, html, react |
-| ... | (see script for full list) |
 
 ## Workflow
 
-1. **Scrape** - Use Crawl4AI MCP to fetch the plugins page
-   ```
-   mcp__crawl4ai__md({ url: "https://www.sketch.com/extensions/plugins/#all", f: "raw" })
-   ```
+### 1. Scrape
 
-2. **Extract** - Parse the JSON response to get markdown, then run extraction
-   ```bash
-   python extract-plugins.py /tmp/sketch-plugins-raw.md /tmp/plugins.json
-   ```
+Two options for fetching plugin data:
 
-3. **Categorize** - Generate YAML files by category
-   ```bash
-   python categorize-plugins.py /tmp/plugins.json ./references/plugins/
-   ```
+**Option A: Direct Crawl4AI (Recommended)**
 
-## Output Format
+```bash
+# Scrape directly using Crawl4AI Python library
+python pipeline.py check --scrape
+python pipeline.py run --scrape
+```
 
-Each category YAML file follows this schema:
+**Option B: MCP-gated (for Claude Code)**
+
+```bash
+# Get MCP tool info
+python pipeline.py mcp-info
+
+# Use in Claude Code:
+# mcp__crawl4ai__md({ url: "https://www.sketch.com/extensions/plugins/#all", f: "raw" })
+
+# Then process the result
+python pipeline.py check --mcp-input /tmp/scrape-result.json
+```
+
+### 2. Check for Changes
+
+```bash
+# Show current state statistics
+python pipeline.py stats
+
+# Check for updates (with scraped data)
+python pipeline.py check --mcp-input /tmp/scrape-result.json
+```
+
+### 3. Run Full Pipeline
+
+```bash
+# Creates review queue for NEW and MAJOR updates
+python pipeline.py run --mcp-input /tmp/scrape-result.json
+```
+
+### 4. Review (LLM-gated)
+
+```bash
+# View pending review items
+python pipeline.py review --queue /tmp/plugin-review-queue.json
+```
+
+Or programmatically:
+
+```python
+from lib import ReviewQueue, create_review_prompt
+
+queue = ReviewQueue()
+item = queue.get_next()
+prompt = create_review_prompt(item)
+# ... LLM review ...
+queue.mark_reviewed(item, ReviewAction.ACCEPT, category="Icons")
+```
+
+### 5. Apply Changes
+
+```bash
+python pipeline.py apply --queue /tmp/plugin-review-queue.json
+```
+
+Or programmatically:
+
+```python
+from lib import PluginState, ReviewQueue
+
+state = PluginState()
+queue = ReviewQueue()
+# ... populate and review queue ...
+results = queue.apply_to_state(state)
+state.save()
+```
+
+## Change Detection
+
+### Classification
+
+| Type | Trigger | Action |
+|------|---------|--------|
+| NEW | Plugin not in YAML | Full review pipeline |
+| MAJOR | GitHub: >10 commits or >20 files | Full review pipeline |
+| MINOR | GitHub: ≤10 commits | Skip or brief review |
+| UNCHANGED | No detected changes | Skip |
+| REMOVED | In YAML but not scraped | Flag for removal |
+
+### Watch Status
+
+Each plugin can have a watch status that affects processing:
+
+| Status | Behavior |
+|--------|----------|
+| `default` | Normal processing |
+| `watch` | Track all updates, always review |
+| `major_only` | Only review major updates |
+| `ignore` | Skip all updates |
+
+Set watch status:
+
+```python
+state = PluginState()
+state.set_watch_status("https://github.com/...", WatchStatus.WATCH)
+state.save()
+```
+
+## YAML Entry Format
 
 ```yaml
----
 - plugin: Plugin Name
-  link: https://github.com/...
+  link: https://github.com/owner/repo
   description: Plugin description text
-  summary: By Author. Last updated DATE.
+  summary: By Author. Last updated 15 Jan 2026.
   open-source: true
   tags:
-  - category-name
+  - icons
+  # Optional tracking fields (only written when set):
+  github_sha: abc123def456
+  watch_status: watch
+  last_reviewed: "2026-02-24T12:00:00"
+  review_summary: "Useful icon library, actively maintained"
 ```
+
+## Legacy Scripts
+
+The original one-shot scripts are still available:
+
+- `scrape-plugins.js` - Documents MCP approach
+- `extract-plugins.py` - Parse markdown to JSON
+- `categorize-plugins.py` - Categorize and write YAML
+
+These are kept for reference but the new `lib/` modules and `pipeline.py` are recommended for ongoing tracking.
 
 ## Statistics
 
 As of February 2026:
-- **660+ plugins** listed on Sketch extensions page
-- **~90% open source** (hosted on GitHub)
-- **35+ categories** after classification
+- **663 plugins** tracked
+- **36 categories**
+- **~90%** open source (GitHub hosted)
