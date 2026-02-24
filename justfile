@@ -8,6 +8,7 @@ set dotenv-load := true
 # Import modules
 mod docker '.docker/mod.just'
 mod db '.beads/mod.database.just'
+mod scrape '.claude/skills/sketch-dev/scripts/plugins/scrape.just'
 
 # Default recipe - interactive chooser with fancy menu
 [private]
