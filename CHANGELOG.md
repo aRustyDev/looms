@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 - **tests:** Update E2E tests to match actual app structure
 - **core:** Resolve TypeScript errors for release
 - **ci:** Update bun version to 1.3.9 for lockfile compatibility
+- **ci:** Use cdxgen for SBOM generation (supports bun)
 
 ### Refactor
 
