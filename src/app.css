@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+/* Custom design tokens */
+@theme {
+	--color-primary: #3b82f6;
+	--color-success: #22c55e;
+	--color-warning: #f59e0b;
+	--color-danger: #ef4444;
+
+	/* RAG status colors */
+	--color-rag-green: #22c55e;
+	--color-rag-amber: #f59e0b;
+	--color-rag-red: #ef4444;
+
+	/* Kanban column colors */
+	--color-status-open: #6b7280;
+	--color-status-in-progress: #3b82f6;
+	--color-status-review: #8b5cf6;
+	--color-status-done: #22c55e;
+	--color-status-closed: #9ca3af;
+}
