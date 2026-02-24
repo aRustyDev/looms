@@ -9,6 +9,10 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noUncheckedIndexedAccess": true,
+		"verbatimModuleSyntax": true,
 		"moduleResolution": "bundler"
 	}
 }

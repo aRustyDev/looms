@@ -1,0 +1,22 @@
+# Package managers
+node_modules
+bun.lockb
+package-lock.json
+
+# Build outputs
+build
+.svelte-kit
+dist
+
+# IDE
+.vscode
+.idea
+
+# Beads
+.beads
+
+# Claude
+.claude
+
+# Documentation
+docs
