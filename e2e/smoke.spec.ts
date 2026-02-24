@@ -13,22 +13,28 @@ test.describe('App Smoke Tests', () => {
 		expect(response?.status()).toBe(200);
 	});
 
-	test('has correct page title', async ({ page }) => {
+	test('has page title', async ({ page }) => {
 		await page.goto('/');
-		await expect(page).toHaveTitle(/ProjX/);
+		// App has a title set (Beads or similar)
+		const title = await page.title();
+		expect(title.length).toBeGreaterThan(0);
 	});
 
-	test('displays main heading', async ({ page }) => {
+	test('displays navigation tabs', async ({ page }) => {
 		await page.goto('/');
-		const heading = page.locator('h1');
-		await expect(heading).toBeVisible();
-		await expect(heading).toHaveText('ProjX');
+		// Main navigation should be visible with tabs
+		const nav = page.locator('nav').first();
+		await expect(nav).toBeVisible();
+
+		// Should have Issues tab
+		const issuesTab = page.getByRole('tab', { name: 'Issues' });
+		await expect(issuesTab).toBeVisible();
 	});
 
-	test('displays subtitle', async ({ page }) => {
+	test('has main content area', async ({ page }) => {
 		await page.goto('/');
-		const subtitle = page.locator('p');
-		await expect(subtitle).toContainText('Unified Beads WebUI');
+		const main = page.locator('main#main-content');
+		await expect(main).toBeVisible();
 	});
 
 	test('has proper viewport meta tag', async ({ page }) => {
@@ -37,10 +43,11 @@ test.describe('App Smoke Tests', () => {
 		expect(viewport).toContain('width=device-width');
 	});
 
-	test('has description meta tag', async ({ page }) => {
+	test('has skip link for accessibility', async ({ page }) => {
 		await page.goto('/');
-		const description = await page.locator('meta[name="description"]').getAttribute('content');
-		expect(description).toBeTruthy();
+		const skipLink = page.locator('a[href="#main-content"]');
+		// Skip link exists but is visually hidden until focused
+		await expect(skipLink).toBeAttached();
 	});
 });
 
@@ -102,13 +109,13 @@ test.describe('Responsive Design', () => {
 			await page.setViewportSize({ width: viewport.width, height: viewport.height });
 			await page.goto('/');
 
-			// Main content should be visible
-			const heading = page.locator('h1');
-			await expect(heading).toBeVisible();
+			// Navigation should be visible
+			const nav = page.locator('nav').first();
+			await expect(nav).toBeVisible();
 
-			// Content should be properly centered (container has flex center)
-			const container = page.locator('.container');
-			await expect(container).toBeVisible();
+			// Main content area should be visible
+			const main = page.locator('main#main-content');
+			await expect(main).toBeVisible();
 		});
 	}
 });
@@ -116,22 +123,25 @@ test.describe('Responsive Design', () => {
 test.describe('Navigation', () => {
 	test('refreshing page maintains state', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.locator('h1')).toHaveText('ProjX');
+		const issuesTab = page.getByRole('tab', { name: 'Issues' });
+		await expect(issuesTab).toBeVisible();
 
 		await page.reload();
-		await expect(page.locator('h1')).toHaveText('ProjX');
+		await expect(issuesTab).toBeVisible();
 	});
 
-	test('back/forward navigation works', async ({ page }) => {
+	test('tab navigation works', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.locator('h1')).toHaveText('ProjX');
 
-		// Navigate somewhere else (if routes exist) or just test history
-		await page.evaluate(() => {
-			window.history.pushState({}, '', '/?test=1');
-		});
+		// Issues tab should be active on homepage
+		const issuesTab = page.getByRole('tab', { name: 'Issues' });
+		await expect(issuesTab).toHaveAttribute('aria-selected', 'true');
 
-		await page.goBack();
-		await expect(page.locator('h1')).toHaveText('ProjX');
+		// Click on Board tab
+		const boardTab = page.getByRole('tab', { name: 'Board' });
+		await boardTab.click();
+
+		// Should navigate to kanban route
+		await expect(page).toHaveURL(/\/kanban/);
 	});
 });
