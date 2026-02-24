@@ -8,6 +8,13 @@ For non-GitHub: leaves as-is (manual update needed)
 
 Usage:
     python update_versions.py [--dry-run] [--github-only] [--limit N]
+
+Rate Limits:
+    - Unauthenticated: 60 requests/hour (adds 1s delay between requests)
+    - With `gh` CLI: 5,000 requests/hour (recommended)
+
+To use authenticated requests, ensure `gh` CLI is installed and authenticated:
+    gh auth login
 """
 
 import argparse
@@ -15,13 +22,66 @@ import re
 import yaml
 import json
 import subprocess
+import time
+import shutil
 from pathlib import Path
 from typing import Optional
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-def fetch_github_sha(repo_url: str) -> Optional[str]:
-    """Fetch latest commit SHA for a GitHub repo."""
+# Rate limiting
+REQUEST_DELAY = 1.0  # Seconds between unauthenticated requests
+GH_CLI_AVAILABLE = shutil.which("gh") is not None
+
+
+def check_rate_limit() -> dict:
+    """Check current GitHub API rate limit status."""
+    if GH_CLI_AVAILABLE:
+        try:
+            result = subprocess.run(
+                ["gh", "api", "rate_limit"],
+                capture_output=True, text=True, timeout=10
+            )
+            if result.returncode == 0:
+                data = json.loads(result.stdout)
+                core = data.get("resources", {}).get("core", {})
+                return {
+                    "remaining": core.get("remaining", 0),
+                    "limit": core.get("limit", 0),
+                    "reset": core.get("reset", 0),
+                    "authenticated": core.get("limit", 0) > 60
+                }
+        except Exception:
+            pass
+
+    # Fallback: check via curl
+    try:
+        result = subprocess.run(
+            ["curl", "-s", "https://api.github.com/rate_limit"],
+            capture_output=True, text=True, timeout=10
+        )
+        if result.returncode == 0:
+            data = json.loads(result.stdout)
+            core = data.get("resources", {}).get("core", {})
+            return {
+                "remaining": core.get("remaining", 0),
+                "limit": core.get("limit", 0),
+                "reset": core.get("reset", 0),
+                "authenticated": False
+            }
+    except Exception:
+        pass
+
+    return {"remaining": 0, "limit": 60, "reset": 0, "authenticated": False}
+
+
+def fetch_github_sha(repo_url: str, use_gh_cli: bool = True) -> Optional[str]:
+    """
+    Fetch latest commit SHA for a GitHub repo.
+
+    Args:
+        repo_url: GitHub repository URL
+        use_gh_cli: Use gh CLI for authenticated requests (recommended)
+    """
     match = re.search(r"github\.com/([^/]+)/([^/]+)", repo_url)
     if not match:
         return None
@@ -29,14 +89,26 @@ def fetch_github_sha(repo_url: str) -> Optional[str]:
     owner, repo = match.groups()
     repo = repo.rstrip(".git").split("#")[0]  # Remove .git and anchors
 
-    api_url = f"https://api.github.com/repos/{owner}/{repo}/commits?per_page=1"
+    # Try gh CLI first (authenticated, higher rate limit)
+    if use_gh_cli and GH_CLI_AVAILABLE:
+        try:
+            result = subprocess.run(
+                ["gh", "api", f"repos/{owner}/{repo}/commits?per_page=1"],
+                capture_output=True, text=True, timeout=15
+            )
+            if result.returncode == 0:
+                data = json.loads(result.stdout)
+                if isinstance(data, list) and len(data) > 0:
+                    return data[0].get("sha")
+        except Exception:
+            pass
 
+    # Fallback to curl (unauthenticated)
+    api_url = f"https://api.github.com/repos/{owner}/{repo}/commits?per_page=1"
     try:
         result = subprocess.run(
             ["curl", "-s", "-f", api_url],
-            capture_output=True,
-            text=True,
-            timeout=15
+            capture_output=True, text=True, timeout=15
         )
         if result.returncode == 0:
             data = json.loads(result.stdout)
@@ -48,7 +120,13 @@ def fetch_github_sha(repo_url: str) -> Optional[str]:
     return None
 
 
-def update_file(filepath: Path, dry_run: bool = True, github_only: bool = True) -> dict:
+def update_file(
+    filepath: Path,
+    dry_run: bool = True,
+    github_only: bool = True,
+    use_gh_cli: bool = True,
+    delay: float = 0.0
+) -> dict:
     """
     Update versions in a single YAML file.
 
@@ -85,7 +163,11 @@ def update_file(filepath: Path, dry_run: bool = True, github_only: bool = True) 
             continue
 
         if is_github:
-            sha = fetch_github_sha(link)
+            # Rate limiting delay
+            if delay > 0:
+                time.sleep(delay)
+
+            sha = fetch_github_sha(link, use_gh_cli=use_gh_cli)
             if sha:
                 entry["version"] = {"value": sha}
                 stats["updated"] += 1
@@ -107,7 +189,17 @@ def update_file(filepath: Path, dry_run: bool = True, github_only: bool = True) 
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Update plugin versions")
+    parser = argparse.ArgumentParser(
+        description="Update plugin versions",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Rate Limits:
+  Without gh CLI: 60 requests/hour (1s delay added automatically)
+  With gh CLI:    5,000 requests/hour (recommended)
+
+To authenticate: gh auth login
+"""
+    )
     parser.add_argument("--dry-run", action="store_true",
                         help="Show what would be changed without modifying files")
     parser.add_argument("--github-only", action="store_true", default=True,
@@ -118,9 +210,38 @@ def main():
                         help="Limit number of plugins to update (0 = no limit)")
     parser.add_argument("--file", type=str,
                         help="Update single file instead of all")
+    parser.add_argument("--no-gh-cli", action="store_true",
+                        help="Don't use gh CLI (use unauthenticated API)")
+    parser.add_argument("--no-delay", action="store_true",
+                        help="Disable rate limit delay (may hit limits)")
     args = parser.parse_args()
 
     github_only = not args.all
+    use_gh_cli = not args.no_gh_cli and GH_CLI_AVAILABLE
+
+    # Check rate limit status
+    rate_info = check_rate_limit()
+    print(f"{'[DRY RUN] ' if args.dry_run else ''}Updating plugin versions...")
+    print()
+    print("GitHub API Rate Limit:")
+    print(f"  Remaining: {rate_info['remaining']}/{rate_info['limit']}")
+    print(f"  Authenticated: {'Yes (gh CLI)' if rate_info['authenticated'] else 'No'}")
+
+    if not rate_info['authenticated'] and not args.no_delay:
+        print(f"  Delay: {REQUEST_DELAY}s between requests (use --no-delay to disable)")
+    print()
+
+    if rate_info['remaining'] < 10 and not args.dry_run:
+        import datetime
+        reset_time = datetime.datetime.fromtimestamp(rate_info['reset'])
+        print(f"Warning: Rate limit nearly exhausted. Resets at {reset_time}")
+        print("Consider waiting or using `gh auth login` for higher limits.")
+        print()
+
+    # Determine delay
+    delay = 0.0
+    if not rate_info['authenticated'] and not args.no_delay:
+        delay = REQUEST_DELAY
 
     # Find plugins directory
     skill_root = Path(__file__).parent.parent.parent
@@ -135,7 +256,6 @@ def main():
     else:
         files = sorted(plugins_dir.glob("*.yml"))
 
-    print(f"{'[DRY RUN] ' if args.dry_run else ''}Updating plugin versions...")
     print(f"GitHub only: {github_only}")
     if args.limit:
         print(f"Limit: {args.limit} plugins")
@@ -149,7 +269,13 @@ def main():
             break
 
         print(f"{filepath.name}:")
-        stats = update_file(filepath, dry_run=args.dry_run, github_only=github_only)
+        stats = update_file(
+            filepath,
+            dry_run=args.dry_run,
+            github_only=github_only,
+            use_gh_cli=use_gh_cli,
+            delay=delay
+        )
 
         total_stats["updated"] += stats["updated"]
         total_stats["skipped"] += stats["skipped"]
