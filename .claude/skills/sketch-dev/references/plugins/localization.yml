@@ -20,7 +20,7 @@
   - Crowdin
   updated: '2024-10-14'
   version:
-    value: unknown
+    value: 716bb1341d0fe91e54992678aa6b9bc7551d89a8
   open-source: true
   tags:
   - localization
@@ -32,7 +32,7 @@
   - mathieudutour
   updated: '2023-02-28'
   version:
-    value: unknown
+    value: 003688a7b0ee375e385db57a800e854adee689df
   open-source: true
   tags:
   - localization
@@ -43,7 +43,7 @@
   - Friedrich Schultheiss
   updated: '2022-09-30'
   version:
-    value: unknown
+    value: 63a7046b16173615ee2e0792abb40317af41e0a0
   open-source: true
   tags:
   - localization
@@ -54,7 +54,7 @@
   - kbirgoren
   updated: '2021-01-16'
   version:
-    value: unknown
+    value: 696cf6c4df0e3efbca2abeaacc337961700ea96c
   open-source: true
   tags:
   - localization
@@ -78,7 +78,7 @@
   - Google
   updated: '2019-05-18'
   version:
-    value: unknown
+    value: ce9d2ba1c80a9bf4e3a3a963e6369db699bb44fd
   open-source: true
   tags:
   - localization
@@ -89,7 +89,7 @@
   - uinames
   updated: '2019-03-18'
   version:
-    value: unknown
+    value: 95d91a84f9486279966f54db67998b33d58929d1
   open-source: true
   tags:
   - localization

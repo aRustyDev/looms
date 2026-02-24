@@ -30,7 +30,7 @@
   - Michael Le
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 9be817e956f0e437f7594365b4aae2ca4c784617
   open-source: true
   tags:
   - a11y
@@ -41,7 +41,7 @@
   - Roman Nurik
   updated: '2022-12-02'
   version:
-    value: unknown
+    value: 31efd165240d20c5fd62fab27780b2dccc04cd11
   open-source: true
   tags:
   - a11y
@@ -52,7 +52,7 @@
   - fixate-ai
   updated: '2021-04-28'
   version:
-    value: unknown
+    value: 93d644735dbc054e68da19fbae23ded95abe10a8
   open-source: true
   tags:
   - a11y
@@ -63,7 +63,7 @@
   - Youran You
   updated: '2021-04-07'
   version:
-    value: unknown
+    value: 27627f7bc2f9081a6b08e9e8a2e1b90277aca8ca
   open-source: true
   tags:
   - a11y
@@ -75,7 +75,7 @@
   - Attention Insight
   updated: '2021-03-24'
   version:
-    value: unknown
+    value: ef858acc261b31ce9812f444deb4a03b59acc8f5
   open-source: true
   tags:
   - a11y
@@ -112,7 +112,7 @@
   - Florian Schulz
   updated: '2020-02-21'
   version:
-    value: unknown
+    value: 2aaba15a6d55aba1bc0399e41479a321c54301e6
   open-source: true
   tags:
   - a11y
@@ -124,7 +124,7 @@
   - akiersky
   updated: '2019-04-02'
   version:
-    value: unknown
+    value: 7344ce64ba96a6c9faf1f92913fda6266d01a6a8
   open-source: true
   tags:
   - a11y
@@ -136,7 +136,7 @@
   - Bryan Berger
   updated: '2018-10-11'
   version:
-    value: unknown
+    value: 41571a052ca0011d70ecdc5d6b36c03aa8254957
   open-source: true
   tags:
   - a11y

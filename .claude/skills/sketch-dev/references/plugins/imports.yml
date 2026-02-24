@@ -6,7 +6,7 @@
   - Kevin Gutowski
   updated: '2023-01-05'
   version:
-    value: unknown
+    value: d7db63883c7f11bb829237b48ecceeaea746a03b
   open-source: true
   tags:
   - imports
@@ -41,7 +41,7 @@
   - reqfire
   updated: '2018-03-01'
   version:
-    value: unknown
+    value: ce7f1cc9a31cd4ccae0a5773ce4c27752c698d90
   open-source: true
   tags:
   - imports

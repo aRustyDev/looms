@@ -7,7 +7,7 @@
   - Jono Kolnik
   updated: '2022-10-14'
   version:
-    value: unknown
+    value: e8157c01bfcd03a5e857a8d672bcadd31b591f99
   open-source: true
   tags:
   - linting
@@ -18,7 +18,7 @@
   - Gui Brunow Gomes
   updated: '2022-08-16'
   version:
-    value: unknown
+    value: b2fe42aa4c75dae4658f2532270a98a8d9787d3c
   open-source: true
   tags:
   - linting
@@ -41,7 +41,7 @@
   - Vyacheslav Dubovitsky
   updated: '2018-01-31'
   version:
-    value: unknown
+    value: 81b92c42a6600e315dc49a8ecdb3685447d97a78
   open-source: true
   tags:
   - linting

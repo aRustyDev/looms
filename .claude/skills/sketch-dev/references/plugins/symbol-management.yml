@@ -6,7 +6,7 @@
   - oodesign
   updated: '2025-11-14'
   version:
-    value: unknown
+    value: 477c2f2b771368196061727aa03cc58a3dd50eb5
   open-source: true
   tags:
   - symbol-management
@@ -18,7 +18,7 @@
   - Vyacheslav Dubovitsky
   updated: '2025-05-27'
   version:
-    value: unknown
+    value: f7f1fdb9d24f8d5df56225c618360efa2211b404
   open-source: true
   tags:
   - symbol-management
@@ -29,7 +29,7 @@
   - Paul Demers
   updated: '2025-02-12'
   version:
-    value: unknown
+    value: fefde047230dbd0deb9e5e479514837ba9074a85
   open-source: true
   tags:
   - symbol-management
@@ -40,7 +40,7 @@
   - Dmytro Shevchuk
   updated: '2025-02-11'
   version:
-    value: unknown
+    value: 67f4b0102fe5eedcde83985305329a32eb8e2668
   open-source: true
   tags:
   - symbol-management
@@ -51,7 +51,7 @@
   - Snacks Studio
   updated: '2024-10-02'
   version:
-    value: unknown
+    value: ba612c32ccd9e7f09469e003c2d8877be63602fe
   open-source: true
   tags:
   - symbol-management
@@ -62,7 +62,7 @@
   - afifkhaidir
   updated: '2024-02-13'
   version:
-    value: unknown
+    value: 71bf7790ab9b6b1b23261197249fd9d42f403949
   open-source: true
   tags:
   - symbol-management
@@ -74,7 +74,7 @@
   - Canis Minor
   updated: '2023-12-15'
   version:
-    value: unknown
+    value: adc10c3d177cf4c75dba859dc7d37de11a28a0dd
   open-source: true
   tags:
   - symbol-management
@@ -85,7 +85,7 @@
   - Jason Burns
   updated: '2023-10-09'
   version:
-    value: unknown
+    value: 2dd4ef31ba2db88ffd0d961375d7fe2c6996080d
   open-source: true
   tags:
   - symbol-management
@@ -96,7 +96,7 @@
   - WIX Incubator
   updated: '2023-03-20'
   version:
-    value: unknown
+    value: 8004938768ea3fc8263a2ffb8172e57161caefe5
   open-source: true
   tags:
   - symbol-management
@@ -108,7 +108,7 @@
   - griffin-stewie
   updated: '2023-03-06'
   version:
-    value: unknown
+    value: 38c7b0d645932ba58e86a0a1c89172c0d0309ed0
   open-source: true
   tags:
   - symbol-management
@@ -119,7 +119,7 @@
   - Myrronth
   updated: '2023-03-06'
   version:
-    value: unknown
+    value: 8826e16d8e134d9a783e71099b4fe7dbbe6c16a8
   open-source: true
   tags:
   - symbol-management
@@ -130,7 +130,7 @@
   - oodesign
   updated: '2023-03-04'
   version:
-    value: unknown
+    value: c37cf514ee6127dbdfcd17787c391507023b61f4
   open-source: true
   tags:
   - symbol-management
@@ -141,7 +141,7 @@
   - Li Zheng
   updated: '2023-03-04'
   version:
-    value: unknown
+    value: 035de70ed86d5ecddae6baaae1b97df48c9dc783
   open-source: true
   tags:
   - symbol-management
@@ -153,7 +153,7 @@
   - griffin-stewie
   updated: '2023-03-04'
   version:
-    value: unknown
+    value: ba02955ddacbe3f27e680b7ec3b3ac0ee28330c6
   open-source: true
   tags:
   - symbol-management
@@ -165,7 +165,7 @@
   - Ozgur Gunes
   updated: '2023-03-04'
   version:
-    value: unknown
+    value: 3ebcc1c1db580cd807d952e57fad08493b1b390d
   open-source: true
   tags:
   - symbol-management
@@ -176,7 +176,7 @@
   - Andrew S
   updated: '2023-01-06'
   version:
-    value: unknown
+    value: ec47a7d8572e66c925c0607e32b219d9cc612f36
   open-source: true
   tags:
   - symbol-management
@@ -189,7 +189,7 @@
   - Tijmen van
   updated: '2023-01-06'
   version:
-    value: unknown
+    value: 882131677fc7948744bee1f83bd533eeb3dfec84
   open-source: true
   tags:
   - symbol-management
@@ -200,7 +200,7 @@
   - Özgür Güneş
   updated: '2023-01-06'
   version:
-    value: unknown
+    value: 4bf3e9dd344677e68ebdb31662c380ac611fccb0
   open-source: true
   tags:
   - symbol-management
@@ -212,7 +212,7 @@
   - uxcourt
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 025f1d7deb8fec528d8b52e742aed3a55f3709fe
   open-source: true
   tags:
   - symbol-management
@@ -224,7 +224,7 @@
   - Giles Perry
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 5189ffa92b5309f3bd33115ddbfa53ffe409a933
   open-source: true
   tags:
   - symbol-management
@@ -236,7 +236,7 @@
   - Giles Perry
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 413e7f1e14158584fccda9483e4fb126a9dc422d
   open-source: true
   tags:
   - symbol-management
@@ -247,7 +247,7 @@
   - Samuel Berriman
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 36c5fd77fb2176ba578c5eeebc40a80f74a021e5
   open-source: true
   tags:
   - symbol-management
@@ -258,7 +258,7 @@
   - Miguel Angel Narvaez
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 094056188bfd0357af199c0df659ca1d5ed53574
   open-source: true
   tags:
   - symbol-management
@@ -269,7 +269,7 @@
   - Michael Le
   updated: '2023-01-04'
   version:
-    value: unknown
+    value: 0b8bd42dea8c7ce318d67ae2bc75c9fdbd3f7829
   open-source: true
   tags:
   - symbol-management
@@ -280,7 +280,7 @@
   - Nathan Crowther
   updated: '2023-01-03'
   version:
-    value: unknown
+    value: 02ffb8ccb0362f746b39eb284fa85d56a555784c
   open-source: true
   tags:
   - symbol-management
@@ -291,7 +291,7 @@
   - Dmitri Bilyk
   updated: '2023-01-03'
   version:
-    value: unknown
+    value: f895255404cadf15133f1dcd049c73e4a0ffc88f
   open-source: true
   tags:
   - symbol-management
@@ -302,7 +302,7 @@
   - Sketch
   updated: '2023-01-03'
   version:
-    value: unknown
+    value: 2f6dd2f82d56a3fe2517150bc0e115d2200b313c
   open-source: true
   tags:
   - symbol-management
@@ -314,7 +314,7 @@
   - Atlassian Design
   updated: '2022-12-10'
   version:
-    value: unknown
+    value: 2afa0bd39dd07c1366b9e0407bff7f467f567b89
   open-source: true
   tags:
   - symbol-management
@@ -326,7 +326,7 @@
   - Siddhartha Gudipati
   updated: '2022-12-03'
   version:
-    value: unknown
+    value: 6d85e5c19bd018ec6f6d2660351069d066282a9b
   open-source: true
   tags:
   - symbol-management
@@ -337,7 +337,7 @@
   - Eric Kramp
   updated: '2022-11-29'
   version:
-    value: unknown
+    value: f13aadae79d7ce9b9041c587db3d9eb26933b978
   open-source: true
   tags:
   - symbol-management
@@ -348,7 +348,7 @@
   - taohsu
   updated: '2022-11-22'
   version:
-    value: unknown
+    value: 43d384b81132cd77cb06509d8ae03d8f2b2611ef
   open-source: true
   tags:
   - symbol-management
@@ -360,7 +360,7 @@
   - Jason Burns
   updated: '2022-11-09'
   version:
-    value: unknown
+    value: 5a9d84cda78194a6704c81000b99646ae670fca4
   open-source: true
   tags:
   - symbol-management
@@ -372,7 +372,7 @@
   - Matteo Gratton
   updated: '2021-12-17'
   version:
-    value: unknown
+    value: 933e43d22cda4d0e40bdc36b1465f190c8d3d521
   open-source: true
   tags:
   - symbol-management
@@ -397,7 +397,7 @@
   - Ahmed Genaidy
   updated: '2021-09-15'
   version:
-    value: unknown
+    value: 8a20e533102b6bde2c6550c05955abfd8250b0f1
   open-source: true
   tags:
   - symbol-management
@@ -408,7 +408,7 @@
   - Roger Lee
   updated: '2021-07-30'
   version:
-    value: unknown
+    value: 2df97731f6f5a65808a2a743eea4e1f6a939f635
   open-source: true
   tags:
   - symbol-management
@@ -419,7 +419,7 @@
   - Massimo Cassandro
   updated: '2021-06-21'
   version:
-    value: unknown
+    value: 08d650762418e37e1587990a8bd77a0e31ccc666
   open-source: true
   tags:
   - symbol-management
@@ -430,7 +430,7 @@
   - Jason Burns
   updated: '2021-05-12'
   version:
-    value: unknown
+    value: f3d6b6e39a002ab33ef0e0bc5fc8dfed072f4f73
   open-source: true
   tags:
   - symbol-management
@@ -441,7 +441,7 @@
   - Jason Burns
   updated: '2021-05-12'
   version:
-    value: unknown
+    value: bd2e0b518f6dfc11f033ceb40baeb78e48aa220d
   open-source: true
   tags:
   - symbol-management
@@ -453,7 +453,7 @@
   - Ozgur Gunes
   updated: '2021-05-08'
   version:
-    value: unknown
+    value: 8b86bfcb31212f86407648d6df1a01dd049c6d86
   open-source: true
   tags:
   - symbol-management
@@ -464,7 +464,7 @@
   - Logan McAnsh
   updated: '2021-04-12'
   version:
-    value: unknown
+    value: 8554b22adb7916c7fff392432ff025517312c034
   open-source: true
   tags:
   - symbol-management
@@ -488,7 +488,7 @@
   - Shaina Hantsis
   updated: '2020-03-25'
   version:
-    value: unknown
+    value: 1325e6cb465a189819d331465a3f6aab77fb9407
   open-source: true
   tags:
   - symbol-management
@@ -500,7 +500,7 @@
   - Giles Perry
   updated: '2020-02-23'
   version:
-    value: unknown
+    value: 8d57e021a4fe86e0089a30766c9e1433b3ed4400
   open-source: true
   tags:
   - symbol-management
@@ -524,7 +524,7 @@
   - Roman Shamin
   updated: '2019-06-24'
   version:
-    value: unknown
+    value: b0c277e14d7681e61c9f21f0a0b8fef08a0b96b7
   open-source: true
   tags:
   - symbol-management
@@ -537,7 +537,7 @@
   - reeli
   updated: '2019-06-11'
   version:
-    value: unknown
+    value: f03be86f7230f988226f98e04a8995e5d8509cca
   open-source: true
   tags:
   - symbol-management
@@ -559,7 +559,7 @@
   - Adria Navarro
   updated: '2019-05-21'
   version:
-    value: unknown
+    value: debe823d01e2de0580486aeb048a71752f8b0c3b
   open-source: true
   tags:
   - symbol-management
@@ -570,7 +570,7 @@
   - Jason Burns
   updated: '2019-04-11'
   version:
-    value: unknown
+    value: e8ab56f4af9b026f329ba471015ce8c8a2c99768
   open-source: true
   tags:
   - symbol-management
@@ -582,7 +582,7 @@
   - Jason Burns
   updated: '2019-04-11'
   version:
-    value: unknown
+    value: dcf1f6061eee2631929b014b5152a55675a4b56a
   open-source: true
   tags:
   - symbol-management
@@ -593,7 +593,7 @@
   - Colby Grenier
   updated: '2019-03-27'
   version:
-    value: unknown
+    value: 074e2635a4c6987768a156ab4df194c3a435518b
   open-source: true
   tags:
   - symbol-management
@@ -615,7 +615,7 @@
   - Pablo Sanchez Soler
   updated: '2019-02-24'
   version:
-    value: unknown
+    value: 7e5a6fd27cb564f546a06e5fc5e36e2e0611e8ab
   open-source: true
   tags:
   - symbol-management
@@ -627,7 +627,7 @@
   - Brandon Withrow
   updated: '2019-02-12'
   version:
-    value: unknown
+    value: 30fb9bda0282e2d3e61d66e7215cb599b6056fd5
   open-source: true
   tags:
   - symbol-management
@@ -638,7 +638,7 @@
   - name
   updated: '2018-12-13'
   version:
-    value: unknown
+    value: 9694bc4aff23fd2f596690ad3ec569838a2263dd
   open-source: true
   tags:
   - symbol-management
@@ -650,7 +650,7 @@
   - Dmitri Bilyk
   updated: '2018-10-19'
   version:
-    value: unknown
+    value: b7b14f80d9f54fb27b8a4fe4ed534c42f40e19a2
   open-source: true
   tags:
   - symbol-management
@@ -661,7 +661,7 @@
   - Giles Perry
   updated: '2018-10-03'
   version:
-    value: unknown
+    value: cc722c220617d538c5826975b568f9d1af18fef9
   open-source: true
   tags:
   - symbol-management
@@ -672,7 +672,7 @@
   - Jason Donnette
   updated: '2018-06-28'
   version:
-    value: unknown
+    value: c4610ebf5c631329d2c4c97fffc8ae27508ab91b
   open-source: true
   tags:
   - symbol-management
@@ -683,7 +683,7 @@
   - Mike Mariano
   updated: '2018-05-26'
   version:
-    value: unknown
+    value: 0c00511bccebf44a1c9ccd63cc66920a0584c6f6
   open-source: true
   tags:
   - symbol-management
@@ -694,7 +694,7 @@
   - Mike Mariano
   updated: '2018-05-26'
   version:
-    value: unknown
+    value: 1939b73936d72c9f742a4c68e6066dff5d9ff1bf
   open-source: true
   tags:
   - symbol-management
@@ -705,7 +705,7 @@
   - Mike Mariano
   updated: '2018-05-26'
   version:
-    value: unknown
+    value: 534079201a4dd3aee68b443f56370ff63ba1a3e6
   open-source: true
   tags:
   - symbol-management
@@ -717,7 +717,7 @@
   - Eivind Bøhler
   updated: '2018-05-26'
   version:
-    value: unknown
+    value: 3f044a1dca6275d45969ca311b5c00af5490011e
   open-source: true
   tags:
   - symbol-management
@@ -729,7 +729,7 @@
   - zeroheight
   updated: '2018-05-15'
   version:
-    value: unknown
+    value: a372f06530199381b7032f38bc4db41bbea5bf44
   open-source: true
   tags:
   - symbol-management
@@ -740,7 +740,7 @@
   - Richard Gazdik
   updated: '2018-05-15'
   version:
-    value: unknown
+    value: f54dcbf0f7dbdc9d4ea2fcc9fd0add16df47d212
   open-source: true
   tags:
   - symbol-management
@@ -751,7 +751,7 @@
   - Yusuke Saitoh
   updated: '2018-01-08'
   version:
-    value: unknown
+    value: 4ed4af1e919c148476c9ee9060669bc36ec76399
   open-source: true
   tags:
   - symbol-management

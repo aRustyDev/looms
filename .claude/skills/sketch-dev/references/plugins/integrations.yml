@@ -7,7 +7,7 @@
   - Miro
   updated: '2025-04-24'
   version:
-    value: unknown
+    value: 74908b64244abc4efb61a15d673cd7d424ed323e
   open-source: true
   tags:
   - integrations
@@ -18,7 +18,7 @@
   - WakaTime
   updated: '2023-10-12'
   version:
-    value: unknown
+    value: 1d0f32fd5b6b7366a641cc593b9ea830cc454495
   open-source: true
   tags:
   - integrations
@@ -29,7 +29,7 @@
   - Maya Shavin
   updated: '2023-07-11'
   version:
-    value: unknown
+    value: acf6a366e4b93dc28de90294c61dd4aa21401cc7
   open-source: true
   tags:
   - integrations
@@ -40,7 +40,7 @@
   - ContentSync
   updated: '2023-03-30'
   version:
-    value: unknown
+    value: c17f9593aca5ef33a40601fd9554cdcfc94530e8
   open-source: true
   tags:
   - integrations
@@ -51,7 +51,7 @@
   - Mathieu Dutour
   updated: '2023-03-03'
   version:
-    value: unknown
+    value: db9ca25a5fee05d78130e5bf502e8c57c48e8efb
   open-source: true
   tags:
   - integrations
@@ -62,7 +62,7 @@
   - Farid Sabitov
   updated: '2023-01-03'
   version:
-    value: unknown
+    value: c575c97151e4e4f266220b876cb8f3db9d4ac665
   open-source: true
   tags:
   - integrations
@@ -74,7 +74,7 @@
   - David Williames
   updated: '2021-08-08'
   version:
-    value: unknown
+    value: 534627c9ddd3c31aca55ba90d2439d214f2391bc
   open-source: true
   tags:
   - integrations
@@ -85,7 +85,7 @@
   - Primary
   updated: '2020-05-06'
   version:
-    value: unknown
+    value: a9fa1bec7ee50f8beeb982935a8c913dc1f19f66
   open-source: true
   tags:
   - integrations
