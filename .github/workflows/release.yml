@@ -4,17 +4,136 @@ on:
   push:
     tags: ['v*']
 
+permissions:
+  contents: write
+  id-token: write # For npm provenance
+
+env:
+  BUN_VERSION: '1.1.0'
+  NODE_VERSION: '20'
+
 jobs:
-  release:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run build
-      - uses: softprops/action-gh-release@v2
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          files: build/**/*
-          generate_release_notes: true
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run type checks
+        run: bun run check
+
+      - name: Run tests
+        run: bun run test:unit
+
+      - name: Build application
+        run: bun run build
+
+      - name: Generate SBOM
+        run: |
+          npx @cyclonedx/cyclonedx-npm --output-file sbom.json --output-format json
+          npx @cyclonedx/cyclonedx-npm --output-file sbom.xml --output-format xml
+
+      - name: Create release tarball
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          tar -czvf projx-ui-${VERSION}.tar.gz build/ bin/ package.json README.md
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            build/
+            bin/
+            package.json
+            README.md
+          retention-days: 1
+
+      - name: Upload release assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: |
+            projx-ui-*.tar.gz
+            sbom.json
+            sbom.xml
+          retention-days: 1
+
+  release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download release assets
+        uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+
+      - name: Install git-cliff
+        uses: taiki-e/install-action@git-cliff
+
+      - name: Generate release notes
+        id: changelog
+        run: |
+          # Get the previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+          if [ -n "$PREV_TAG" ]; then
+            NOTES=$(git cliff --current --strip header)
+          else
+            NOTES=$(git cliff --latest --strip header)
+          fi
+
+          # Write to file for multiline output
+          echo "$NOTES" > release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release_notes.md
+          files: |
+            projx-ui-*.tar.gz
+            sbom.json
+            sbom.xml
+          fail_on_unmatched_files: true
+          generate_release_notes: false
+
+  publish-npm:
+    name: Publish to npm
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

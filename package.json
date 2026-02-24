@@ -3,6 +3,28 @@
 	"version": "0.0.1",
 	"description": "Unified Beads WebUI - A comprehensive interface for Beads and Gas-Town",
 	"type": "module",
+	"bin": {
+		"projx-ui": "./bin/projx-ui.js"
+	},
+	"files": [
+		"build",
+		"bin",
+		"package.json",
+		"README.md"
+	],
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/p-b-d-z/projx-ui.git"
+	},
+	"homepage": "https://github.com/p-b-d-z/projx-ui#readme",
+	"bugs": {
+		"url": "https://github.com/p-b-d-z/projx-ui/issues"
+	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -19,7 +41,9 @@
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:coverage": "vitest run --coverage",
-		"prepare": "husky"
+		"prepare": "husky",
+		"release": "./scripts/release.sh",
+		"changelog": "git cliff --unreleased"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [

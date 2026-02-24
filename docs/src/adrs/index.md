@@ -25,6 +25,7 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 | [0017](./0017-use-layerchart-for-charts-and-d3-for-dependency-graphs.md) | Use Layerchart + D3 for Visualizations | Accepted | charts, visualization, ui |
 | [0018](./0018-use-storybook-for-visual-component-documentation.md) | Use Storybook for Component Documentation | Accepted | tooling, documentation, ui |
 | [0019](./0019-testing-strategy-and-conventions.md) | Testing Strategy and Conventions | Accepted | testing, conventions, infrastructure |
+| [0020](./0020-release-workflow.md) | Release Workflow Strategy | Accepted | release, ci-cd, security, npm |
 
 ## Summary
 
@@ -45,6 +46,7 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 13. **Charts**: Layerchart for analytics, D3 for dependency graphs
 14. **Docs**: Storybook for visual component documentation
 15. **Testing**: Traditional pyramid (50/30/15/5), co-located tests, 70% coverage
+16. **Release**: Script-based + git-cliff, npm provenance, Sigstore signing
 
 ### Architecture Overview
 

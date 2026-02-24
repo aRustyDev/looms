@@ -99,6 +99,19 @@ fix:
     bun run check
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Release
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Create a new release (use --dry-run to preview)
+[arg("dry-run", long, value="true")]
+release dry-run="false":
+    {{ if dry-run == "true" { "./scripts/release.sh --dry-run" } else { "./scripts/release.sh" } }}
+
+# Generate changelog for unreleased changes
+changelog:
+    git cliff --unreleased
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Documentation
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -233,6 +246,7 @@ _menu:
         "Testing" \
         "Linting" \
         "Documentation" \
+        "Release" \
         "Search" \
         "Maintenance" \
         "Docker" \
@@ -262,6 +276,12 @@ _menu:
             recipe=$(gum choose --header "Documentation:" \
                 "docs        → Build documentation" \
                 "docs --open → Build and serve docs")
+            ;;
+        "Release")
+            recipe=$(gum choose --header "Release:" \
+                "release           → Create a new release" \
+                "release --dry-run → Preview release (no changes)" \
+                "changelog         → Show unreleased changes")
             ;;
         "Search")
             query=$(gum input --placeholder "Enter search query...")

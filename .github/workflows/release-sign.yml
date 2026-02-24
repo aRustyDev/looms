@@ -1,0 +1,62 @@
+name: Sign Release Artifacts
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  id-token: write # For Sigstore
+
+jobs:
+  sign:
+    name: Sign with Sigstore
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release assets
+        uses: robinraju/release-downloader@v1
+        with:
+          tag: ${{ github.event.release.tag_name }}
+          fileName: '*.tar.gz'
+          out-file-path: artifacts
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign artifacts
+        run: |
+          cd artifacts
+          for file in *.tar.gz; do
+            echo "Signing $file..."
+            cosign sign-blob --yes --output-signature "${file}.sig" --output-certificate "${file}.pem" "$file"
+          done
+
+      - name: Generate SLSA provenance
+        uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
+        with:
+          base64-subjects: |
+            $(cd artifacts && sha256sum *.tar.gz | base64 -w0)
+
+      - name: Upload signatures to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: |
+            artifacts/*.sig
+            artifacts/*.pem
+          fail_on_unmatched_files: false
+
+      - name: Verification instructions
+        run: |
+          echo "## Verification Instructions" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "To verify the signed artifacts:" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "# Download the artifact, signature, and certificate" >> $GITHUB_STEP_SUMMARY
+          echo "cosign verify-blob \\" >> $GITHUB_STEP_SUMMARY
+          echo "  --signature projx-ui-VERSION.tar.gz.sig \\" >> $GITHUB_STEP_SUMMARY
+          echo "  --certificate projx-ui-VERSION.tar.gz.pem \\" >> $GITHUB_STEP_SUMMARY
+          echo "  --certificate-identity-regexp='https://github.com/p-b-d-z/projx-ui/.*' \\" >> $GITHUB_STEP_SUMMARY
+          echo "  --certificate-oidc-issuer='https://token.actions.githubusercontent.com' \\" >> $GITHUB_STEP_SUMMARY
+          echo "  projx-ui-VERSION.tar.gz" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
