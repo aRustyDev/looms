@@ -11,6 +11,11 @@
   open-source: false
   tags:
   - icons
+  summary: |
+    Phosphor is a comprehensive icon library with 1,200+ icons available in 6 weights
+    (thin, light, regular, bold, fill, duotone). The Sketch plugin provides direct access
+    to the icon set for drag-and-drop insertion. Well-maintained with regular updates
+    and cross-platform support including React, Vue, and Flutter.
 - plugin: App Asset Export
   link: https://github.com/work4blue/sketch-app-asset-export
   description: Sketch3 plugin, One key export Android/iOS App icons.
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    One-click export of app icons for iOS and Android from a single 1024x1024 design.
+    Generates all required sizes with proper naming, including iOS AppIcon.xcassets with
+    Contents.json for direct Xcode import, Android drawable directories, and App Store
+    marketing icons. Also supports Mac ICNS export. Last significant update in 2017.
 - plugin: Icondrop
   link: https://github.com/iconscout/icondrop
   description: Get access to 300,000+ icons right into Sketch App
@@ -33,6 +43,11 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Access to 2+ million design resources (icons, illustrations, stock photos) from
+    Iconscout's library directly in Sketch. Search and insert icons via keyboard shortcut
+    (Cmd+Shift+I). Free tier available with premium subscription for vector format access.
+    Also available for Figma, Adobe XD, and Adobe Creative Cloud apps.
 - plugin: Android Res Export
   link: https://github.com/Ashung/Android_Res_Export
   description: Export Android resouces in Sketch, include PNG assets, app icon, nine-patch
@@ -45,6 +60,11 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Comprehensive Android resource exporter supporting PNG/WebP assets in multiple densities,
+    nine-patch preview and export, vector drawable generation, and app launcher icons for
+    Android 8+. Also exports shape drawable XML and color resource XML from layers or color
+    variables. Design must be at MDPI (1x) size. Actively maintained.
 - plugin: Icons → Code
   link: https://github.com/Sugarcode-Team/icons-to-code-sketch-plugin-live
   description: Export Icons as vector-perfect code components for Android, React,
@@ -57,6 +77,11 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Design system middleware for exporting icons as framework-specific code components.
+    Supports React, Vue, Angular, ReactNative, Ionic, Android XML, iOS PDF, icon fonts (TTF),
+    SVG sprites, ICO, EPS, and custom templates. Free tier allows 50 icon exports; subscription
+    required for unlimited exports and custom component templates via icanicon.io.
 - plugin: Design Tokens
   link: https://github.com/design-meets-development/design-tokens-plugin
   description: A Sketch plugin that exports design Tokens to JSON format. You can
