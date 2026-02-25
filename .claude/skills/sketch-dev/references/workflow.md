@@ -351,3 +351,5 @@ See [MCP API Patterns](./mcp-api.md) for details.
 - [Naming Conventions](./naming.md)
 - [Version History](./versioning.md)
 - [MCP API Patterns](./mcp-api.md)
+- [Troubleshooting](./troubleshooting.md) - Common issues
+- [Glossary](./glossary.md) - Term definitions

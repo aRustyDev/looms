@@ -256,6 +256,8 @@ x: -2000                    x: 0
 | Naming Conventions | [naming.md](./references/naming.md) |
 | Versioning & History | [versioning.md](./references/versioning.md) |
 | MCP API Patterns | [mcp-api.md](./references/mcp-api.md) |
+| Troubleshooting | [troubleshooting.md](./references/troubleshooting.md) |
+| Glossary | [glossary.md](./references/glossary.md) |
 
 ## Scripts Library
 
@@ -263,7 +265,9 @@ x: -2000                    x: 0
 |--------|---------|
 | [create-wireframe.js](./scripts/create-wireframe.js) | Standard frame with layout |
 | [create-symbol.js](./scripts/create-symbol.js) | Symbol Master creation |
+| [create-component-library.js](./scripts/create-component-library.js) | Full component library |
 | [add-prototype-links.js](./scripts/add-prototype-links.js) | Batch prototype linking |
+| [export-frames.js](./scripts/export-frames.js) | Export artboards with presets |
 | [style-tokens.js](./scripts/style-tokens.js) | Design token definitions |
 | [batch-rename.js](./scripts/batch-rename.js) | Pattern-based layer renaming |
 

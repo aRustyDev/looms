@@ -202,3 +202,5 @@ x: -2000 (left of main canvas)
 - [Overrides Deep Dive](./overrides.md)
 - [Libraries & Sharing](./workflow.md#libraries)
 - [MCP API Patterns](./mcp-api.md)
+- [Troubleshooting](./troubleshooting.md) - Common symbol issues
+- [Glossary](./glossary.md) - Term definitions

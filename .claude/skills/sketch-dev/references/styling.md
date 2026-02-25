@@ -472,3 +472,4 @@ const STATUS_BADGES = {
 - [Layouts & Frames](./layouts.md)
 - [Symbols & Components](./symbols.md)
 - [MCP API Patterns](./mcp-api.md)
+- [Glossary](./glossary.md) - Style terminology

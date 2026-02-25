@@ -347,3 +347,5 @@ frame.scrollDirection = 'vertical';
 - [Layouts & Frames](./layouts.md)
 - [Symbols & Components](./symbols.md)
 - [Workflow & Organization](./workflow.md)
+- [Troubleshooting](./troubleshooting.md) - Prototype issues
+- [Glossary](./glossary.md) - Animation types

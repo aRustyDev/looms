@@ -563,3 +563,5 @@ return debug.join('\n');
 - [Symbols & Components](./symbols.md)
 - [Layouts & Frames](./layouts.md)
 - [Prototyping](./prototyping.md)
+- [Troubleshooting](./troubleshooting.md) - Error handling
+- [Glossary](./glossary.md) - API terminology

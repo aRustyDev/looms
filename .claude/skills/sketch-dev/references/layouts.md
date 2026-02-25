@@ -303,3 +303,4 @@ const LAYOUT = {
 - [Prototyping & Flows](./prototyping.md)
 - [Styling & Colors](./styling.md)
 - [MCP API Patterns](./mcp-api.md)
+- [Glossary](./glossary.md) - Layout terminology
