@@ -138,9 +138,6 @@
 </script>
 
 <div class="flex h-full flex-col gap-4 p-4">
-	<!-- Header -->
-	<h1 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Epics</h1>
-
 	<!-- Filters (includes search) -->
 	<FilterPanel
 		status={filterStatus}
