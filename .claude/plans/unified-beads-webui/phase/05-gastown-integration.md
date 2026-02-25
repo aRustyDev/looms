@@ -442,17 +442,29 @@ Tag-based project organization.
 
 **Priority**: Should-Have | **Complexity**: 4 | **Source**: Beads-Kanban-UI, foolery
 
-View issues across multiple projects (future).
+View issues across multiple projects using Federated Data Access Layer.
+
+**Prerequisites**:
+- [ ] FederatedDAL implementation ([ADR-0022](../../../../docs/src/adrs/0022-federated-data-access-layer-for-multi-source-support.md))
+- [ ] Multi-source configuration system
 
 **Deliverables**:
+- [ ] FederatedDAL with namespace isolation
+- [ ] Source adapter for each backend (SQLite, Dolt-server, JSONL)
+- [ ] Query router with namespace enforcement
 - [ ] Project selector (when enabled)
-- [ ] Unified issue view
-- [ ] Per-project filtering
-- [ ] Cross-project search
+- [ ] Unified issue view across sources
+- [ ] Per-project/namespace filtering
+- [ ] Cross-project search with source attribution
+
+**Technical Reference**: [Federated DAL Reference](../references/federated-dal.md)
 
 **Acceptance Criteria**:
-- (Deferred to post-MVP)
-- Design supports future multi-project
+- FederatedDAL connects to multiple sources simultaneously
+- Namespace isolation prevents cross-project data leakage (configurable)
+- Queries correctly route to appropriate source adapters
+- Results include source attribution (`_source` field)
+- Design supports future multi-project scenarios
 - Data models are project-aware
 
 ---

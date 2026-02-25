@@ -33,6 +33,7 @@
 | [Phase 03](./phase/03-git-integration.md) | Git Integration | Pending |
 | [Phase 04](./phase/04-agent-orchestration.md) | Agent Orchestration | Pending |
 | [Phase 05](./phase/05-gastown-integration.md) | Gas-Town Integration | Pending |
+| [Phase 06](./phase/06-advanced-data-access.md) | Advanced Data Access | Pending |
 
 ---
 
@@ -62,7 +63,8 @@
 
 ### Database Backend
 - **Support multiple backends simultaneously** via Federated DAL ([ADR-0022](../../docs/src/adrs/0022-federated-data-access-layer-for-multi-source-support.md))
-- Backends: SQLite, Dolt-server, JSONL, future Dolt-native (FFI)
+- Backends: SQLite, Dolt-server, JSONL
+- **Future (Phase 6)**: Dolt-native via FFI bindings ([Reference](./references/dolt-native-ffi.md))
 - Namespace-based isolation prevents cross-repo data leakage
 - Dolt-only features: version history, branching, time travel queries
 - SQLite-only features: simpler setup, no server process
