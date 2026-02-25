@@ -150,3 +150,15 @@ export-schema output="plugin.schema.json":
 # Validate YAML files against schema
 validate:
     cd "{{ plugins_dir }}" && {{ python }} helpers.py validate
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Summary Generation
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Generate summaries for plugins (requires ANTHROPIC_API_KEY or use Claude Code)
+generate-summaries *args:
+    cd "{{ plugins_dir }}" && {{ python }} generate_summaries.py {{ args }}
+
+# Preview what summaries would be generated (dry run)
+preview-summaries category="icons" limit="5":
+    cd "{{ plugins_dir }}" && {{ python }} generate_summaries.py --dry-run --category "{{ category }}" --limit "{{ limit }}"
