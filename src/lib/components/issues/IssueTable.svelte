@@ -47,12 +47,19 @@
 		const date = new Date(dateStr);
 		const now = new Date();
 		const diffMs = now.getTime() - date.getTime();
+
+		// Handle future dates (clock drift, timezone issues)
+		if (diffMs < 0) {
+			return 'just now';
+		}
+
 		const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
 		if (diffDays === 0) {
 			const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
 			if (diffHours === 0) {
 				const diffMins = Math.floor(diffMs / (1000 * 60));
+				if (diffMins < 1) return 'just now';
 				return `${diffMins}m ago`;
 			}
 			return `${diffHours}h ago`;

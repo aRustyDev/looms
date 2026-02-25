@@ -8,13 +8,22 @@
 import { DataAccessLayer } from '$lib/server/db/dal.js';
 import type { PageServerLoad } from './$types.js';
 
+// Canonical status order for Kanban columns
+const STATUS_ORDER = ['open', 'in_progress', 'review', 'done', 'closed'];
+
 export const load: PageServerLoad = async () => {
 	try {
 		const dal = await DataAccessLayer.create();
 		const issues = await dal.getIssues();
 
-		// Extract unique values for filters
-		const statuses = [...new Set(issues.map((i) => i.status).filter(Boolean))];
+		// Extract unique values for filters, maintaining canonical order for statuses
+		const statusSet = new Set(issues.map((i) => i.status).filter(Boolean));
+		const statuses = STATUS_ORDER.filter((s) => statusSet.has(s));
+		// Add any statuses not in the canonical order at the end
+		statusSet.forEach((s) => {
+			if (!statuses.includes(s)) statuses.push(s);
+		});
+
 		const assignees = [...new Set(issues.map((i) => i.assignee).filter(Boolean))] as string[];
 		const issueTypes = [...new Set(issues.map((i) => i.issue_type).filter(Boolean))];
 

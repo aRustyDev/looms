@@ -20,8 +20,13 @@
 	// Track expanded epics
 	let expandedIds = new SvelteSet<string>();
 
+	// Sorting state
+	type SortField = 'id' | 'title' | 'status' | 'progress';
+	let sortField = $state<SortField>('id');
+	let sortDirection = $state<'asc' | 'desc'>('asc');
+
 	// Filter and group issues into epics with children
-	function getEpics(): Epic[] {
+	function getEpicsUnsorted(): Epic[] {
 		const epics = issues.filter((i) => i.issue_type === 'epic');
 		const nonEpics = issues.filter((i) => i.issue_type !== 'epic');
 
@@ -31,6 +36,48 @@
 			// In reality, this would use the dependencies table
 			children: nonEpics.filter((i) => i.spec_id === epic.id || i.external_ref?.includes(epic.id))
 		}));
+	}
+
+	// Sorted epics
+	const sortedEpics = $derived.by(() => {
+		const epics = getEpicsUnsorted();
+		return epics.sort((a, b) => {
+			let comparison = 0;
+
+			switch (sortField) {
+				case 'id':
+					comparison = a.id.localeCompare(b.id);
+					break;
+				case 'title':
+					comparison = a.title.localeCompare(b.title);
+					break;
+				case 'status':
+					comparison = a.status.localeCompare(b.status);
+					break;
+				case 'progress': {
+					const progressA = getProgress(a).percent;
+					const progressB = getProgress(b).percent;
+					comparison = progressA - progressB;
+					break;
+				}
+			}
+
+			return sortDirection === 'asc' ? comparison : -comparison;
+		});
+	});
+
+	function handleSort(field: SortField) {
+		if (sortField === field) {
+			sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+		} else {
+			sortField = field;
+			sortDirection = 'asc';
+		}
+	}
+
+	function getSortIndicator(field: string): string {
+		if (sortField !== field) return '';
+		return sortDirection === 'asc' ? ' ↑' : ' ↓';
 	}
 
 	function toggleExpand(epicId: string) {
@@ -71,7 +118,7 @@
 </script>
 
 <div class="epics-view">
-	{#if getEpics().length === 0}
+	{#if sortedEpics.length === 0}
 		<div class="empty-state">
 			<p>No epics found</p>
 			<p class="hint">Create an epic to organize related issues</p>
@@ -81,13 +128,19 @@
 			<thead>
 				<tr>
 					<th class="expand-col"></th>
-					<th>Epic</th>
-					<th>Status</th>
-					<th>Progress</th>
+					<th class="sortable" onclick={() => handleSort('title')}>
+						Epic{getSortIndicator('title')}
+					</th>
+					<th class="sortable" onclick={() => handleSort('status')}>
+						Status{getSortIndicator('status')}
+					</th>
+					<th class="sortable" onclick={() => handleSort('progress')}>
+						Progress{getSortIndicator('progress')}
+					</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each getEpics() as epic (epic.id)}
+				{#each sortedEpics as epic (epic.id)}
 					{@const progress = getProgress(epic)}
 					{@const isExpanded = expandedIds.has(epic.id)}
 					<tr
@@ -199,6 +252,16 @@
 		font-size: 0.75rem;
 		text-transform: uppercase;
 		color: var(--text-secondary, #6b7280);
+	}
+
+	th.sortable {
+		cursor: pointer;
+		user-select: none;
+	}
+
+	th.sortable:hover {
+		color: var(--text-primary, #374151);
+		background: var(--bg-hover, #f9fafb);
 	}
 
 	td {
