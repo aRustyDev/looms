@@ -3,6 +3,7 @@
 	import type { Snippet } from 'svelte';
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import GlobalNav from '$lib/components/navigation/GlobalNav.svelte';
 	import ToastContainer from '$lib/components/common/ToastContainer.svelte';
 	import CreateIssueModal from '$lib/components/issues/CreateIssueModal.svelte';
@@ -15,8 +16,15 @@
 
 	let { children }: { children: Snippet } = $props();
 
-	// Reactive state
-	let activeTab = $state<Tab>('Issues');
+	// Derive active tab from current URL
+	const ROUTE_TO_TAB: Record<string, Tab> = {
+		'/': 'Issues',
+		'/epics': 'Epics',
+		'/kanban': 'Board',
+		'/dashboard': 'Dashboard',
+		'/graph': 'Graph'
+	};
+	const activeTab = $derived(ROUTE_TO_TAB[$page.url.pathname] ?? 'Issues');
 	let theme = $state<Theme>('system');
 	let density = $state<Density>('standard');
 
@@ -90,8 +98,7 @@
 	}
 
 	function handleNavigate(tab: Tab) {
-		activeTab = tab;
-		// Navigate to corresponding route (static routes don't need resolve)
+		// Navigate to corresponding route (activeTab will update automatically via derived)
 		const routes: Record<Tab, string> = {
 			Issues: '/',
 			Epics: '/epics',
@@ -155,7 +162,7 @@
 	onthemechange={handleThemeChange}
 />
 
-<main id="main-content" class="min-h-[calc(100vh-3.5rem)]">
+<main id="main-content" class="h-[calc(100vh-3.5rem)] overflow-hidden">
 	{@render children?.()}
 </main>
 

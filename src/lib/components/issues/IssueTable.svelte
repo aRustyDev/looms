@@ -91,7 +91,7 @@
 	</div>
 {:else}
 	<table role="grid" class="w-full border-collapse">
-		<thead>
+		<thead class="sticky top-0 z-10 bg-white dark:bg-gray-900">
 			<tr>
 				<th
 					role="columnheader"

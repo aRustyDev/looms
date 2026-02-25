@@ -79,38 +79,35 @@
 >
 	<!-- Header -->
 	<div
-		class="flex items-center justify-between rounded-t-lg bg-gray-100 px-3 py-2 dark:bg-gray-800 {collapsed
-			? 'flex-col gap-2 px-2'
-			: ''}"
+		class="flex rounded-t-lg bg-gray-100 dark:bg-gray-800 {collapsed
+			? 'flex-col items-center gap-3 px-2 py-3'
+			: 'items-center justify-between px-3 py-2'}"
 	>
 		{#if collapsed}
-			<!-- Collapsed: vertical layout -->
+			<!-- Collapsed: vertical layout with proper text rotation -->
 			<button
 				type="button"
 				aria-label="Expand column"
 				onclick={toggleCollapse}
 				class="rounded p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
 			>
-				<svg class="h-4 w-4 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M19 9l-7 7-7-7"
-					/>
+				<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 				</svg>
 			</button>
 			<span
-				class="rounded-full bg-gray-200 px-2 py-0.5 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+				class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-400"
 			>
 				{issues.length}
 			</span>
-			<span
-				class="origin-center -rotate-90 text-xs font-medium whitespace-nowrap text-gray-700 dark:text-gray-300"
-				style="writing-mode: vertical-rl"
-			>
-				{getStatusLabel(status)}
-			</span>
+			<div class="flex flex-1 items-center justify-center">
+				<span
+					class="text-xs font-medium text-gray-700 dark:text-gray-300"
+					style="writing-mode: vertical-lr; transform: rotate(180deg);"
+				>
+					{getStatusLabel(status)}
+				</span>
+			</div>
 		{:else}
 			<!-- Expanded: horizontal layout -->
 			<div class="flex items-center gap-2">

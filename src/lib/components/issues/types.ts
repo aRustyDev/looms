@@ -45,11 +45,11 @@ export const PRIORITY_COLORS: Record<number, string> = {
 
 /** Status to color mapping */
 export const STATUS_COLORS: Record<string, string> = {
-	open: 'text-gray-500',
-	in_progress: 'text-blue-500',
-	review: 'text-purple-500',
-	done: 'text-green-500',
-	closed: 'text-gray-400'
+	open: 'text-green-600 dark:text-green-400',
+	in_progress: 'text-blue-600 dark:text-blue-400',
+	review: 'text-amber-600 dark:text-amber-400',
+	done: 'text-purple-600 dark:text-purple-400',
+	closed: 'text-gray-500 dark:text-gray-400'
 };
 
 /** Column configuration for issue table */

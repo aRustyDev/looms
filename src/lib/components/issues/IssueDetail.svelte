@@ -209,7 +209,7 @@
 				role="tabpanel"
 				id="panel-description"
 				aria-labelledby="tab-description"
-				class="prose prose-sm dark:prose-invert max-w-none"
+				class="prose prose-sm prose-headings:text-gray-900 prose-p:text-gray-700 dark:prose-headings:text-gray-100 dark:prose-p:text-gray-300 max-w-none"
 			>
 				{#if issue.description}
 					{@html parseMarkdown(issue.description)}

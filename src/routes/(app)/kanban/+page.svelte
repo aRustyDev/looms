@@ -184,7 +184,7 @@
 	</div>
 
 	<!-- Kanban board - horizontal scroll -->
-	<div class="flex-1 overflow-auto px-4 pb-4">
+	<div class="flex-1 overflow-auto px-4 pt-2 pb-4">
 		{#if error}
 			<div class="flex h-full flex-col items-center justify-center gap-4 text-center">
 				<p class="text-red-600 dark:text-red-400">Error loading issues: {error}</p>

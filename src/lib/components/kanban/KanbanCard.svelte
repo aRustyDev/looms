@@ -115,7 +115,7 @@
 >
 	<!-- Header: ID and Type -->
 	<div class="mb-2 flex items-center justify-between">
-		<span class="font-mono text-xs text-gray-500 dark:text-gray-400">{issue.id}</span>
+		<span class="font-mono text-xs font-medium text-gray-700 dark:text-gray-300">{issue.id}</span>
 		<span class="rounded-full px-2 py-0.5 text-xs {getTypeColor(issue.type)}">{issue.type}</span>
 	</div>
 
