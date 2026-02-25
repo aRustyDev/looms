@@ -92,6 +92,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Design system middleware for exporting selected colors as organized stylesheets in multiple formats
+    (CSS, SCSS, Sass, Less, PostCSS, React, ReactNative, Android XML). Simplifies handoff to developers by
+    supporting various build tools and frameworks. Free tier allows export of up to 50 items; extended
+    features available via paid subscription.
 - plugin: Sketch Dark Mode
   link: https://sketch-dark-mode.eduardogomez.io
   description: Generate a dark mode version of any document, the right way.
@@ -103,6 +108,10 @@
   open-source: false
   tags:
   - colors
+  summary: |
+    Automatically generates dark mode versions of Sketch documents following best practices for
+    color inversion and contrast. Proprietary plugin focused on producing production-ready dark themes.
+    Commercial tool with clean, minimal documentation.
 - plugin: Color Variables Migrator
   link: https://github.com/sketch-hq/color-variables-migrator
   description: Migrate your Layers and Styles to use Color Variables
@@ -114,6 +123,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Official Sketch plugin that migrates layer fills and layer/text styles to use Sketch 69+ Color Variables.
+    Updates all non-variable colors in the current document while preserving design integrity. Useful for
+    modernizing pre-69 documents. Works on open documents only; shared libraries require separate migration.
 - plugin: Dark Side
   link: https://github.com/receptiryaki/darkside
   description: Design light and dark themes easily. Switch between themes. Export
@@ -126,6 +139,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    DEPRECATED - Originally designed for creating and switching between light/dark themes using layer styles
+    and exporting to Xcode/Android Studio formats. No longer maintained; author has migrated to Figma.
+    Sketch 69+ Color Variables provide superior native functionality, making this plugin obsolete.
 - plugin: Sketch Color Manager
   link: https://github.com/hecflores/sketch-color-manager
   description: Sketch Plugin to manage all rogue colors in the sketch, along with
@@ -138,6 +155,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Identifies and manages rogue/inconsistent colors and styling properties throughout a Sketch document.
+    Helps maintain design system compliance by finding out-of-palette colors. Built with skpm (Sketch Plugin
+    Manager), compatible with recent Sketch versions. Development-ready with watch and debug tooling.
 - plugin: Tinty
   link: https://github.com/chewbecky/tinty
   description: Sketch Plugin that lets you create tints and shades of any color as
@@ -150,6 +171,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates color tints and shades from a base color and saves them as shared styles or document colors.
+    Automates color scale creation for design systems with minimal setup. Built with skpm, includes watch
+    mode for active development. Useful for rapidly building consistent color hierarchies.
 - plugin: DarkModeSystem
   link: https://github.com/BDiogo/DarkMode-System
   description: Apply a Dark Theme to your Project
@@ -161,6 +186,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Applies dark theme styling to Sketch projects by converting colors using theme-aware rules.
+    Built with skpm and supports common dark mode patterns. Includes development tooling for
+    local testing and debugging. Moderate maintenance activity.
 - plugin: sketch-easing-gradients
   link: https://github.com/larsenwork/sketch-easing-gradient
   description: Supercharge your gradients in Sketch with no-linear color mix and custom
@@ -173,6 +202,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Creates advanced gradients using non-linear easing functions and custom color spaces for perceptually
+    uniform results. Integrates with a postCSS plugin for web development. Requires Sketch 49+. Includes
+    online editor and downloadable demo file. Actively maintained with comprehensive documentation.
 - plugin: Colormate
   link: https://github.com/themainingredient/colormate
   description: 'Colormate is a kickass sketch plugin that will help you figure out
@@ -186,6 +219,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Color auditing tool that scans your entire document for all colors in use and displays frequency counts
+    with locations. Identifies duplicate colors (e.g., multiple greys) without requiring pre-defined palettes.
+    Includes find-and-replace functionality and layer-specific color overrides. Active community support via Slack.
 - plugin: Sketch MD3 Color Palettes
   link: https://github.com/icona79/sketch-m3-color-palettes
   description: With this plugin you can import Material Design themes from the tokens
@@ -198,6 +235,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Imports Material Design 3 token files generated by Google's Material Theme Builder into Sketch as Color Variables,
+    Layer Styles, and Text Styles for both light and dark themes. Automates design system setup for Material Design
+    projects. Import process takes approximately 2 minutes.
 - plugin: import-colors
   link: https://github.com/Ashung/import-colors-sketch
   description: Import colors from swatches file to Sketch.
@@ -209,6 +250,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Imports colors from multiple swatch formats (.clr, .aco, .act, .ase, .gpl, .sketchpalette, .txt) into
+    Sketch Color Variables (v2.0+) or legacy Document Colors (v1.0). Supports round-trip export to .txt/.clr files.
+    Works with Sketch 53+. Requires Sketch 69+ for Color Variables feature.
 - plugin: Light to Dark 🌓
   link: https://github.com/pplcallmesatz/lighttodark
   description: To create light to dark mode
@@ -220,6 +265,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Simplifies dark mode creation through organized shared styles with light/dark prefixes. Creates dark
+    mode variants from light pages automatically, with optional boilerplate setup. Validates style consistency
+    and prevents cross-theme style misuse. Lightweight tool focused on rapid dark mode production.
 - plugin: Colors Manager
   link: https://github.com/fbmore/Colors-Manager-Sketch-Plugin
   description: Import, Export and Update Sketch Color Variables to and from Color
@@ -232,6 +281,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Bidirectional sync of Sketch Color Variables with external color token formats. Supports grouped color
+    variables via slash-separated names and bulk HEX updates. Includes import/export for managing multi-document
+    color systems. Facilitates team collaboration on design tokens.
 - plugin: Colors In Use
   link: https://github.com/icona79/Sketch---Colors-in-use
   description: Copy a list of all the used colors in your layers
@@ -243,6 +296,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Extracts and copies HEX color values from all layers in the current selection or document. Simple utility
+    for color auditing and documentation without requiring pre-defined color systems. Note: exports HEX only
+    without opacity data; does not track color variables or styles.
 - plugin: ColorVariablesExporter
   link: https://github.com/griffin-stewie/ColorVariablesExporter
   description: Export Color Variables for development
@@ -254,6 +311,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Exports Sketch Color Variables to multiple developer-friendly formats: Xcode ColorSet, Swift UIColor extensions,
+    Android color.xml, JSON, and CLR (macOS Color Picker). Sample files available for reference. Streamlines
+    design-to-code handoff for native app development.
 - plugin: Palette Cleanser
   link: https://github.com/proteanstudio/sketch-palette-cleanser
   description: Get a full rundown of the colors you're using in your Sketch document.

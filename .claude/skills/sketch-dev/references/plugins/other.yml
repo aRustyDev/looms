@@ -10,6 +10,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    A Sketch plugin framework built with skpm and umi. Provides basic plugin infrastructure
+    for Sketch development. Last updated in June 2025, indicating active maintenance.
 - plugin: GxDesignOps
   link: https://github.com/genexuslabs/sketchdesignops
   description: Sketch Plugin For GeneXus internal use
@@ -21,6 +24,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Simplifies asset and design exchange between GeneXus developers and designers through shared folders or AWS S3.
+    Supports GeneXus Format (.gxsketch) files with embedded previews, fonts, and design documents for seamless handoff.
+    Repository archived as of July 2024, no longer actively maintained.
 - plugin: Anto
   link: https://github.com/canisminor1990/anto
   description: Sketch Tools for AFX Designers
@@ -32,6 +39,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Productivity toolkit for Ant Financial UX designers with features for symbol management, component workflows,
+    layer management, and publishing. Requires Sketch 52+, macOS Mojave, and Anima plugin dependency.
+    Maintenance paused as of December 2023, merged into Kitchen design system.
 - plugin: sketch-json
   link: https://github.com/arvinxx/sketch-json
   description: a plugin to transfer sketch JSON into sketch Object
@@ -43,6 +54,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Parses Sketch JSON format directly into Sketch objects and layers. Works with html2sketch for converting
+    HTML/design data into native Sketch elements. Provides keyboard shortcut (Ctrl+Alt+V) for quick import
+    of JSON content.
 - plugin: CODING Toolkit
   link: https://github.com/Coding/coding-sketch-toolkit
   description: A series of commands for CODING designers.
@@ -54,6 +69,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Suite of tools for CODING design system including icon library management, symbol instance creation,
+    and automated icon publishing to UIKit repositories. Integrates with CODING CI for automatic updates
+    and enterprise WeChat notifications. Last updated January 2023.
 - plugin: sketch-ignore
   link: https://github.com/theboi/sketch-ignore
   description: s
@@ -65,6 +84,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Hides selected layers for Sketch Cloud uploads (similar to .gitignore for Git), useful for hiding design aids
+    and overlays from developers viewing designs via Inspector. Marks layers with a configurable indicator (default
+    `//`) to automatically hide them. Keyboard shortcut (Ctrl+T) for manual toggling.
 - plugin: FS_StockSummaryFiller
   link: https://github.com/freeman990/FS_StockInfoFiller
   description: 一系列关于股票数据的自动填充/生成工具
@@ -76,6 +99,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Auto-populates text layers with real Chinese A-stock market data (turnover rate and other metrics).
+    Uses placeholder syntax `{keyword}` to mark fields for updating with live stock information.
+    Suitable for financial dashboards and trading system mockups.
 - plugin: labelizer
   link: https://github.com/nOograss/labelizer
   description: Extract, replace and download labels from Sketch file.
@@ -87,6 +114,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Extracts all text labels from Sketch pages into an editable table for translation workflows.
+    Supports JSON and CSV export/import for sharing translations between designers, copywriters, and developers.
+    Uses clear naming conventions (ArtboardName__FieldName) to maintain context throughout localization.
 - plugin: Mise En Place
   link: https://github.com/madwaro/MiseEnPlace
   description: Mise En Place is a Sketch plug-in that helps you prep before you start
@@ -99,6 +130,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Automation suite for design preparation including layer/artboard renaming, sorting, and organization.
+    Includes Principle motion preparation features like detaching symbols, unhiding layers, and renaming for
+    animation workflows. Provides batch operations with keyboard shortcuts (Ctrl+Cmd+S/R) for efficient workflow.
 - plugin: microwave
   link: https://github.com/arvinxx/microwave-release
   description: 叮！你的设计已出炉~
@@ -110,6 +145,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Sketch plugin by Arvin Xu with limited public documentation. Last updated June 2022.
+    Functionality details not readily available from repository README.
 - plugin: Transifex Sketch Plugin
   link: https://github.com/transifex/transifex-sketch-plugin
   description: Start localization at the design phase. Accelerate your workflow
@@ -123,6 +161,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Integrates Transifex localization platform directly into Sketch for early-stage translation workflows.
+    Brings Product, Design, and Localization teams together during design phase to accelerate handoffs.
+    Includes comprehensive documentation at help.transifex.com for setup and usage.
 - plugin: Hubble Sketch Plugin
   link: https://github.com/inthepocket/hubble-sketch-plugin
   description: A Sketch plugin to extract assets and primitives and send them to Hubble.app
@@ -134,6 +176,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Couples Sketch designs with the Hubble design system by extracting assets and primitives for synchronization.
+    Requires Hubble.app and Sketch 41+ for configuration and data export. Supports automatic plugin updates
+    through Sketch Plugin Manager. MIT licensed and actively maintained.
 - plugin: hs-plugin
   link: https://github.com/Weibotaoa/Weibotaoa
   description: sketch插件
@@ -145,6 +191,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    General-purpose Sketch plugin built with skpm framework. Limited documentation available.
+    Last updated August 2021, no recent active maintenance indicated.
 - plugin: FreeFlow
   link: http://free-flow.co/
   description: Speed up common tasks and boost your productivity.
@@ -156,6 +205,10 @@
   open-source: false
   tags:
   - other
+  summary: |
+    Comprehensive productivity toolkit offering copy/paste of layers to multiple artboards, batch symbol/style creation,
+    AutoLayout for spacing, document statistics, and artboard navigation with emoji status indicators (WIP, Approved, Ready).
+    Premium plugin (commercial) with v2.9.9.1 available. Last updated April 2021.
 - plugin: Fake News
   link: https://github.com/JasonBernert/fake-news-sketchplugin
   description: Auto-populate Washington Post news content
@@ -167,6 +220,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Auto-populates Sketch mockups with real Washington Post news articles and content for news application prototypes.
+    Useful for designing news readers, content feeds, and journalism-focused interfaces with realistic data.
+    Last updated February 2021, may need updates for newer Sketch versions.
 - plugin: Crafttor
   link: https://crafttor.com/sketch/
   description: Illustrations For Everyone

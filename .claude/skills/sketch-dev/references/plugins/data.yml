@@ -10,6 +10,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Provides Turkish-specific data for filling Sketch layers including names (male/female/any), locations (addresses, cities, districts), business titles, company names, and dates in various formats. Supports both random and ordered data generation, with Turkish locale formatting (dd.MM.yyyy, district hierarchies). Actively maintained with recent updates and available through Sketchrunner and Sketchpacks.
 - plugin: Data from Clipboard
   link: https://github.com/Saint-loup/data-from-clipboard
   description: A DataSupplier plugin
@@ -21,6 +23,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Allows copying text data from clipboard and pasting it into Sketch text layers or symbol overrides without requiring external files. Includes a shuffle command for randomizing data order, making it ideal for quick prototyping with custom datasets. No setup required—just copy data and apply the plugin.
 - plugin: TinyFaces 👦🏼👨🏾👩🏻
   link: https://github.com/maximedegreve/TinyFaces-Sketch-Plugin
   description: Fill content with random avatars & data
@@ -32,6 +36,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Populates Sketch layers with random avatars and names from tinyfac.es, a stock photo service. Supports quality selection (high/low resolution), gender filtering (male/female only), and works with text layers, shapes, groups, and symbols. Useful for rapid prototyping user interfaces with realistic persona data.
 - plugin: Sketch Times
   link: https://github.com/xaddict/sketch-times
   description: A DataSupplier plugin to get Times
@@ -43,6 +49,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    A DataSupplier plugin that generates random time values for filling text layers. Configurable maximum time duration (default 100 minutes/1h40m) for creating realistic time data. Simple, lightweight tool for prototyping time-related UI elements like schedules or duration fields.
 - plugin: stuffing
   link: https://github.com/Ashung/Sketch-Stuffing
   description: A DataSupplier plugin which supplies chinese data.
@@ -54,6 +62,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Comprehensive Chinese data plugin providing names, addresses, provinces, license plates, emails, phone numbers, and ID numbers with locale-specific formatting. Advanced features include lunar/solar calendar dates, templated time generation, custom numbering, and JavaScript expression evaluation. Actively maintained with extensive localization support (Simplified/Traditional Chinese, English).
 - plugin: foodreau
   link: https://github.com/maxdavid/sketch-foodreau
   description: Data supplier plugin for populating designs with real food recipes.
@@ -65,6 +75,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Fills Sketch layers with realistic recipe data from offline bundled recipes or Spoonacular API. Supports layer-based data mapping (title, ingredients, instructions, source URL) for food-related designs. Includes freemium API access through RapidAPI with optional persistent key storage, useful for designing food/recipe applications.
 - plugin: Live Planet Sketch DataSupplier
   link: https://github.com/Craigtut/liveplanet-sketch-datasupplier
   description: Supply's real data from Live Planet's API to Sketch for testing designs
@@ -76,6 +88,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    DataSupplier plugin that integrates Live Planet's API to provide real data for prototyping. Supplies actual data from the Live Planet service to fill text and image layers in Sketch designs. Last updated January 2023, open-source implementation using skpm framework.
 - plugin: Chemfill
   link: https://github.com/ahadik/chemfill
   description: A Chemical Structure data supplier plugin.
@@ -87,6 +101,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Specialized DataSupplier for life sciences and chemistry domains, fetching random molecular structures from ChEMBL API and rendering them as PNG images. Also supplies chemical data as text (molecular weights, formulas, etc.). Requires Sketch 3+, useful for designing scientific or pharmaceutical applications.
 - plugin: IBAN Generator
   link: https://github.com/idriesalbender/iban-sketch-plugin
   description: Generate random International Bank Account Numbers (IBAN)
@@ -98,6 +114,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Generates realistic IBAN (International Bank Account Number) data for filling text layers, supporting random generation across all IBAN-using countries or country-specific selection. Maintains ISO country codes and correct IBAN format structure for each of 70+ supported countries. Useful for banking/fintech application prototypes.
 - plugin: DatesFromNow
   link: https://github.com/LeipeLeon/Sketch_DatesFormNow
   description: Simple data plugin to fill dates from now
@@ -109,6 +127,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Simple DataSupplier plugin that generates dates relative to the current date using skpm framework. Generates date values offset from today for filling text layers, useful for creating realistic timeline mockups and scheduling UI prototypes. Last updated September 2022.
 - plugin: Nederlandse Namen
   link: https://github.com/sasjakoning/sketch-nederlandse-namen
   description: Sketch plugin for Dutch names
@@ -120,6 +140,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Locale-specific DataSupplier plugin providing Dutch names for filling Sketch text layers. Lightweight, specialized plugin for Dutch/Netherlands design contexts. Last updated June 2022, minimal documentation available but straightforward installation via standard plugin mechanism.
 - plugin: ghost
   link: https://github.com/tmdvs/ghost-sketch-plugin
   description: Randomly change the opacity of selected layers
@@ -131,6 +153,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Utility plugin that applies random opacity values to selected layers, useful for creating varied visual hierarchies or simulating fading effects. Simple one-command operation for batch opacity randomization. Last updated July 2021, minimal but functional interface.
 - plugin: mktgoo-data
   link: https://github.com/marketgoo/sketch-copies
   description: A data supplier plugin for copies,
@@ -142,6 +166,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    DataSupplier plugin that fetches and updates copy text from external sources (Airtable, Google Spreadsheets). Enables live copy synchronization from spreadsheets directly into Sketch designs, useful for design-content collaboration workflows. Last updated May 2021, built with skpm framework.
 - plugin: Base64 PNG Export
   link: https://github.com/jawayang/Sketch-Base64-PNG-Export
   description: sketch plugin for Export Data URI
@@ -153,6 +179,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Exports Sketch layers as Base64-encoded PNG or data URIs for direct embedding in CSS or HTML. Useful for converting design assets into inline image formats for web development. Last updated December 2020, provides batch export functionality.
 - plugin: Random Sizing
   link: https://github.com/longzheng/sketch-randomSize
   description: Sketch plugin to randomly resize selected elements.
@@ -164,6 +192,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Randomly resizes width or height of selected layers within specified min/max ranges, useful for creating chart/graph mockups and simulating variable-sized UI elements. Includes optional alignment controls (top/middle/bottom, left/center/right) after resizing. Works well with Duplicator plugin for batch operations.
 - plugin: VK-Data
   link: https://github.com/VKCOM/vkdata-sketchplugin
   description: Plugin for using data from your account at vk.com

@@ -92,6 +92,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data supplier plugin that automatically fills text layers with randomized Lorem Ipsum
+    using Markov chain generation for varied output. Works as a native Sketch Data Supplier.
+    Last updated March 2023. Requires Sketch installation to use.
 - plugin: Sketch Title Case
   link: https://github.com/Hemmingsson/Sketch-Title-Case
   description: Sketch Plugin to make text Title Case
@@ -103,6 +107,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Converts selected text layer content to Title Case using a comprehensive word list
+    that excludes common articles and prepositions. Shortcut Cmd+Ctrl+T. Based on titlecase.com
+    rules, with support for text layer transformations. Last updated March 2023.
 - plugin: CSV Mail Merge
   link: https://github.com/jdwolk/sketch-csv-mailmerge
   description: A lightweight Sketch plugin for importing data from .csv files using
@@ -115,6 +123,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Imports data from CSV files to populate text layers and images using {field} placeholder
+    syntax matching CSV column names. Supports batch artboard generation with custom naming
+    from CSV columns. Handles PNG/JPG image imports via file paths. Last updated February 2023.
 - plugin: Dad Jokes
   link: https://github.com/domhabersack/sketch-dadjokes
   description: Replace your text with dad jokes.
@@ -126,6 +138,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data Supplier plugin that replaces text layers with humorous dad jokes fetched from
+    icanhazdadjoke.com API. Brings entertainment to mockups as an alternative to Lorem Ipsum
+    while maintaining realistic text content. Last updated January 2023.
 - plugin: Export Flat SVGs
   link: https://github.com/KevinGutowski/ExportFlatSVGs
   description: Flatten text within SVGs on export.
@@ -137,6 +153,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Exports selected layers or marked export items as SVGs with text converted to outlines
+    for flattened, production-ready assets. Supports multiple export options for flexibility
+    in workflow. Last updated January 2023.
 - plugin: rename-text-layers-by-style
   link: https://github.com/okaybueno/rename-text-layers-by-style
   description: Rename all text layers based on the name of the text style assigned.
@@ -148,6 +168,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically renames text layers to match their assigned text style names, keeping
+    document layer names synchronized with design system changes. Available via Sketchpacks
+    and Runner Pro. Developed by okay bueno design studio. Last updated January 2023.
 - plugin: Text to Styles
   link: https://github.com/tbrasington/text-to-styles
   description: Generates Sketch type styles programmatically from Artboards
@@ -159,6 +183,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Generates text styles from artboard configurations with support for color and alignment
+    variations. Includes commands for document setup, style creation, style sheet rendering,
+    and JSON token export for design-to-code workflows. Last updated January 2023.
 - plugin: Inter Letter Spacing
   link: https://github.com/giliamverheide/sketch-inter-letter-spacing
   description: Sketch plugin that dynamically sets letter spacing of layers using
@@ -171,6 +199,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically applies optimal letter spacing to text using Inter font's Dynamic Metrics
+    recommendations. Keyboard shortcut Ctrl+Cmd+Shift+T. Ignores non-Inter text layers.
+    Last updated January 2023.
 - plugin: Inter UI Character Spacing
   link: https://github.com/qruzz/InterUI-Character-Spacing
   description: Package to correct the character spacing for the InterUI font in Sketch
@@ -182,6 +214,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Applies Inter UI Dynamic Metrics character spacing adjustments to text layers based on
+    font size. Supports keyboard shortcut Ctrl+Shift+Cmd+T and available via Sketch Runner.
+    Re-run when changing font sizes. Last updated January 2023.
 - plugin: typex
   link: https://github.com/reinvanoyen/typex
   description: Highly configurable text styles to web (css, sass, html, json, ...)
@@ -194,6 +230,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Exports Sketch text styles to CSS, SASS mixins, HTML, and JSON with highly configurable
+    formatting options including rem/em units. Provides context menus and multiple output
+    formats for design-to-code handoff. Last updated January 2023.
 - plugin: Truncat
   link: https://github.com/KevinGutowski/Truncat
   description: A Sketch plugin to truncate text.
@@ -205,6 +245,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Applies text truncation (head, belly, tail) using native paragraph styles that work with
+    symbol overrides and libraries. Keyboard shortcuts Ctrl+, (head), Ctrl+. (belly), Ctrl+/
+    (tail). No plugin needed on team machines after setup. Last updated January 2023.
 - plugin: Sketch Copy Text Only
   link: https://github.com/explorador/sketch-copy-text-only
   description: Sketch plugin to copy only the text from selected artboard(s) or layer(s)
@@ -216,6 +260,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Extracts and copies plain text content from selected artboards or layers to clipboard.
+    Includes symbol support and action messages confirming success or errors. Version 2
+    rewrite with cleaner code. Last updated January 2023.
 - plugin: Context
   link: https://github.com/afnizarnur/context-sketch-plugin
   description: Count character, words, and paragraphs from a text layer easily inside
@@ -228,6 +276,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Displays character, word, and paragraph counts from selected text layers in a floating
+    window with easy copy buttons for sharing with writers. Available via Sketch Runner or
+    Sketchpacks. Last updated January 2023.
 - plugin: BRData
   link: https://github.com/jonathasbsouza/brdata
   description: Gerador de dados contextualizados com a realidade brasileira.
@@ -239,6 +291,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Brazilian-localized data generator plugin filling text layers with context-appropriate
+    names, surnames, cities, and states from Brazilian reality. Available via Sketchpacks.
+    Addresses limitations of generic data suppliers for Portuguese/Brazilian designs. Last updated January 2023.
 - plugin: 🕵🏻‍ Find and Replace Text
   link: https://github.com/chriswetterman/sketch-find-and-replace-text
   description: Find and replace text throughout your Sketch document
@@ -250,6 +306,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Searches and replaces text across canvas elements including symbol overrides with flexible
+    scoping at document, page, artboard, or layer levels. Shortcut Cmd+Shift+F with optional
+    layer name-only renaming. Supports Sketch 53+. Last updated January 2023.
 - plugin: Bold It
   link: https://github.com/ysjn/bold-it
   description: Bold-it is a super simple plugin that bolds user-specified keyword

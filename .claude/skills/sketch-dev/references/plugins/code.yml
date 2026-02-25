@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Bridges design and code by exporting Sketch styles to Tailwind CSS theme files.
+    Extracts colors, font families, and text sizes from Layer and Text Styles for use in your Tailwind
+    configuration. Note: No longer maintained as the author no longer owns a Sketch license, but a Figma
+    version is actively maintained.
 - plugin: picasso
   link: https://github.com/wuba/Picasso
   description: Picasso是58同城推出的一款sketch生成代码插件，可将sketch设计稿自动解析成还原精准，可用度高的前端代码
@@ -22,6 +27,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Chinese design-to-code plugin by 58 (a major Chinese platform) that converts Sketch artboards to
+    production-ready frontend code. Supports multiple export targets: standard web code, operational page
+    HTML, WeChat mini-programs, and React Native. Requires Sketch 60+ and is actively maintained with regular updates.
 - plugin: Sketch Measure
   link: https://github.com/utom/sketch-measure
   description: Make it a fun to create spec for developers and teammates! Automatically
@@ -35,6 +44,11 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Generates interactive HTML spec pages from Sketch designs with full CSS styling inspection.
+    Allows developers to inspect exact layer measurements, colors, shadows, and CSS properties offline.
+    Supports Sketch 49+, available through Sketch Plugin Manager, Sketchpacks, and Sketch Runner. Recently
+    updated and actively maintained.
 - plugin: easy-code
   link: https://github.com/luchaoqun125/sketch-version/
   description: easy code
@@ -46,6 +60,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Simple code generation plugin for Sketch built with skpm (Sketch Plugin Maker).
+    Provides basic code export functionality with standard development tools integration. Built on modern
+    tooling (Webpack, Babel) for maintenance and feature development.
 - plugin: CodeWave
   link: https://github.com/netease-lcap/sketch-plugin
   description: 导出 Sketch 设计稿中的任意部分到 CodeWave
@@ -57,6 +75,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    NetEase's plugin that exports design selections from Sketch directly to CodeWave for rapid UI view generation.
+    Integrates with CodeWave's low-code/no-code platform for full-stack development and deployment. Recently updated
+    with performance optimizations, WebView component library support, and private deployment options.
 - plugin: imgcook
   link: https://www.imgcook.com
   description: A cook who can transform design to code
@@ -65,9 +87,13 @@
   updated: '2023-10-31'
   version:
     value: unknown
-  open-source: false
+  open-source: true
   tags:
   - code
+  summary: |
+    Alibaba's AI-powered design-to-code platform that transforms Sketch designs into production-ready code.
+    Uses machine learning to analyze design structures and generate accurate code across multiple
+    frameworks. Commercial service with pricing models available on imgcook.com.
 - plugin: css-to-shadow-style
   link: https://github.com/oliverpitsch/CSS-Shadow-to-Sketch-Style-Plugin
   description: CSS box-shadow to Layer Style Converter
@@ -79,6 +105,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Converts CSS box-shadow syntax directly into Sketch Layer Styles, including inset shadows.
+    Inspired by brumm.af/shadows tool, allowing designers to paste CSS shadow code into Sketch for
+    automatic conversion. Plugin is no longer maintained but remains available as-is.
 - plugin: Copy Optimized SVG Code
   link: https://github.com/chenxsan/copy-optimized-svg-code
   description: Sketch plugin to copy optimized svg code
@@ -90,6 +120,9 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Exports Sketch layers as optimized SVG code directly to the clipboard.
+    Select any layer or group, run the command, and get clean, optimized SVG code ready for immediate use in web projects.
 - plugin: sketch-share
   link: https://github.com/robflaherty/sketch-share
   description: Sketch plugin that exports artboards and generates an HTML file linking
@@ -102,6 +135,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Automates exporting artboards as PNG images and generates an HTML index linking to each one.
+    Supports optional artboard descriptions and page intro text via hidden layers. Useful for creating shareable
+    mockup galleries that can be uploaded to web servers or CDNs.
 - plugin: Copy Framer Code
   link: https://github.com/perrysmotors/copy-framer-code
   description: A Sketch plugin that copies any selected layer to the clipboard as
@@ -114,6 +151,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Exports Sketch layers as CoffeeScript code ready to paste directly into Framer prototypes.
+    Converts rectangles, circles, text, and groups with full style support (colors, borders, shadows,
+    opacity). Supports 1x, 2x, and 3x scales, and can export complex layers as images when needed.
 - plugin: Genus
   link: https://github.com/keplerlab/genus
   description: A sketch plugin for exporting prototype website (static html css) from
@@ -126,6 +167,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Generates static HTML/CSS websites directly from Sketch artboards, with full style preservation.
+    Creates responsive prototypes with proper font rendering and CSS styling. Includes guidelines for logical
+    naming and grouping to improve HTML output structure.
 - plugin: ImageCodeExporter
   link: https://github.com/funfungo/ImageCodeExporter
   description: A Plugin that export your sketch layer for code usage
@@ -137,6 +182,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Exports Sketch layers as optimized code using data URIs for immediate web use.
+    Supports PNG (base64) and SVG (XML-encoded) formats with compression via advpng and svgo.
+    Provides multiple export templates for HTML innerHtml, CSS background, and CSS mask use cases.
 - plugin: Sketch QR Code
   link: https://github.com/lerte/sketch-qr-code
   description: A Plugin for generate SVG QR Code in Sketch app.
@@ -148,6 +197,9 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Generates SVG QR codes directly within Sketch using Ctrl+Shift+Q shortcut.
+    Useful for adding scannable codes to design mockups and prototypes for testing or deployment.
 - plugin: Puzzle Publisher
   link: https://github.com/ingrammicro/puzzle-publisher
   description: Exports Sketch artboards into linked HTML files and publish it on external
@@ -160,6 +212,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Creates interactive HTML prototypes from Sketch artboards with native link support and modal overlays.
+    Features fixed position layers, embedded Google Analytics, image compression, and direct SFTP publishing.
+    Supports publishing to external sites, Miro whiteboards, and Telegram announcements with version control.
 - plugin: Tiled for Sketch
   link: https://tiled.co/tiled-for-sketch-plugin
   description: Sync screens, hotspots, and feedback directly from Sketch to Tiled
@@ -172,6 +228,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Syncs Sketch artboards to Tiled's interactive microapp platform for no-code prototyping.
+    Supports pixel-perfect design transfer, live updates with resync, and access to customizable templates.
+    Enables rapid creation and editing of interactive presentations with embedded content.
 - plugin: Click-Thru Prototype
   link: https://github.com/markhorgan/click-thru-prototype
   description: Generates a HTML click-through prototype of your responsive website

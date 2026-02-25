@@ -10,6 +10,11 @@
   open-source: false
   tags:
   - images-photos
+  summary: |
+    Integrates Ephoto Dam digital asset management directly into Sketch, allowing designers
+    to search, import image assets, and export finalized designs as PDFs back to the DAM.
+    Requires organization-specific DAM credentials and supports advanced search and keyword
+    filtering. Recently maintained enterprise solution for team-based asset management.
 - plugin: Sketch Pexels
   link: https://github.com/pexels/pexels-sketchplugin
   description: A Pexels plugin for Sketch
@@ -21,18 +26,28 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Free stock photo plugin that integrates Pexels' image library directly into Sketch
+    using the Data Supplier feature. Access high-quality photos from toolbar, context menu,
+    or overrides inspector, with ability to view original URLs and access full credits.
+    Actively maintained and recently updated (Dec 2024).
 - plugin: Place Linked Bitmap
   link: https://github.com/frankko/Place-Linked-Bitmap
   description: A plugin to place external bitmap files into Sketch and update Sketch
     layers after external bitmaps are updated
   authors:
-  - Frank Kolodziej
+  - Frank Kolodriguez
   updated: '2024-05-17'
   version:
     value: b3afd8345dfa44c4f9ae5eacc9a1044ab303474e
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Enables linking external bitmap files (PSD, PNG, JPG) into Sketch with automatic
+    update capability when source files change. Supports placing as new layers or layer
+    fills, works with PSD exports from Photoshop. Requires Sketch 99+ and best results
+    when assets are in same directory as .sketch file or shared server.
 - plugin: Paste to Fill
   link: https://github.com/tgfjt/sketch-paste-to-fill#readme
   description: Paste your image from clipboard, to fill layer.
@@ -44,6 +59,10 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Quick utility that pastes images directly from clipboard as shape fills using keyboard
+    shortcut (Ctrl+Shift+V) or menu command. Works with images copied from Finder, browser,
+    or any application. Built with skpm framework for Sketch plugin development.
 - plugin: Remove.bg
   link: https://github.com/mathieudutour/sketch-remove-bg
   description: Remove image background in a single click
@@ -55,6 +74,10 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    AI-powered background removal tool that removes image backgrounds with single click
+    using Remove.bg API integration. Simple one-click workflow for quick background elimination
+    in design mockups. Open source plugin built with skpm framework.
 - plugin: Unsplash
   link: https://www.sketch.com/extensions/plugins/unsplash/
   description: Unsplash Data Provider plugin, for Sketch 52+.
@@ -66,6 +89,11 @@
   open-source: false
   tags:
   - images-photos
+  summary: |
+    Official Sketch-bundled plugin providing access to Unsplash's vast free photo library
+    via Data Supplier feature. Works from toolbar, context menu, and overrides inspector,
+    allowing designers to view photo URLs and download originals. Comes pre-installed with
+    Sketch 52 and later.
 - plugin: Potrace
   link: https://github.com/perrysmotors/sketch-potrace
   description: Convert bitmaps to vector graphics
@@ -77,6 +105,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Bitmap-to-vector tracing plugin based on the Potrace algorithm by Peter Selinger,
+    converting monochrome bitmap images into scalable vector graphics. Includes trace
+    and posterize features for artistic effects. Use on bitmap layers (flatten image
+    fills first for best results).
 - plugin: Photo Grid
   link: https://github.com/perrysmotors/photo-grid
   description: A Sketch plugin that can size layers to common photo dimensions and
@@ -89,6 +122,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Grid layout utility for photo elements that applies random common aspect ratios
+    to selected layers and arranges them in rows or columns with custom spacing.
+    Supports fixed width option for rows and scales content between outermost layers.
+    Available via Sketchpacks package manager.
 - plugin: Images Assets Manager
   link: https://github.com/icona79/sketch-images-assets-manager
   description: Prepare all your image asstes in an artboard, ready to be exported
@@ -100,6 +138,10 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Collects all images from document (direct, fills, symbols) into exportable asset
+    artboard with multiple format presets (PNG 1x/2x/3x, SVG, PDF). Automates asset
+    preparation workflow for design handoff. Built with skpm framework.
 - plugin: Linked Data exporter
   link: https://github.com/icona79/sketch-linked-data-exporter
   description: Export selection as Linked Data-ready JSON file and images
@@ -111,6 +153,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Exports selected groups, symbols, or instances as Linked Data-compatible JSON
+    with all text and image content preserved for use with Sketch's native Linked
+    Data feature. Creates dedicated Linked-Data folder with accompanying images.
+    Enables dynamic content population in design systems.
 - plugin: ImageOptim Sketch Plugin
   link: https://github.com/ImageOptim/sketch-plugin
   description: ImageOptim plugin for the Sketch app
@@ -122,6 +169,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Compresses exported images using ImageOptim app integration, running automatically
+    on File > Export or through batch export all assets command. Non-blocking compression
+    allows continued work while ImageOptim processes in background. Requires separate
+    ImageOptim.app installation.
 - plugin: IntelligenceBank Assets
   link: https://help.intelligencebank.com/hc/en-us/articles/4417559546009
   description: The IntelligenceBank Assets plugin for Sketch makes it easy for designers
@@ -134,6 +186,10 @@
   open-source: false
   tags:
   - images-photos
+  summary: |
+    Enterprise digital asset management integration enabling designers to browse, search,
+    and insert approved brand assets and images directly in Sketch. Provides centralized
+    brand compliance for team workflows. Requires IntelligenceBank account setup.
 - plugin: Slazzer for Sketch
   link: https://github.com/slazzercom/slazzer-sketch
   description: Remove image background in just few seconds 100% automatic.
@@ -145,17 +201,26 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Automatic background removal tool using Slazzer API for quick image cleanup
+    without manual selection or masking. Built with skpm framework. Note: last
+    updated April 2021, consider maintenance status.
 - plugin: Replace Images
   link: https://github.com/shakemno/sketch-replace-images
   description: Sketch 3 plugin to replace (as in update) existing images
   authors:
-  - name in a sketch document
+  - shakemno
   updated: '2021-03-27'
   version:
     value: de701a807b9dbc02c80a132edec7937299ab342e
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Updates existing images by matching layer names with image filenames from local
+    directory or custom path. Supports PNG, JPG, JPEG formats with recursive directory
+    search and persistent custom path settings. Note: repository is no longer
+    maintained.
 - plugin: Drake
   link: https://github.com/okcoker/Drake-Sketch-Plugin
   description: Sketch app plugin for generating dummy Drake content such as photos
@@ -168,6 +233,10 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Humorous dummy content generator creating Drake-themed photos and lyrics for
+    rapid prototyping. Updated for Sketch 50. Built with skpm framework, useful
+    for testing layouts with placeholder content.
 - plugin: Artboard presets for social media images
   link: https://github.com/herrhelms/social-artboards-sketch
   description: This is a Plugin for Sketch App that adds artboard presets for the

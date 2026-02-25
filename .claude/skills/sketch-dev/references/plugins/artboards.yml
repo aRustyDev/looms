@@ -11,6 +11,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Displays a live preview of the currently selected artboard as the macOS Dock icon using the keyboard shortcut Shift+Cmd+D. The icon automatically restores to the default Sketch icon when quitting or invoking the restore command. Fully customizable keybindings via the manifest.json file. Recently maintained and actively developed.
 - plugin: zerozero
   link: https://github.com/flavormingo/zerozero
   description: the sketch plugin that magically starts your page from (0,0)
@@ -22,17 +24,21 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically aligns the leftmost or topmost layer to coordinates (0,0) and repositions other layers proportionally. Works on individual selections and can handle multiple target layers with identical x or y positions. Simple installation via double-clicking the plugin file. Maintained by the Snacks design team.
 - plugin: Artboard Tools
   link: https://github.com/frankko/Artboard-Tools
   description: Sketch.app plugins for arranging artboards and navigating between artboards.
   authors:
-  - Frank Kolodziej
+  - Frank Kolodjsdeliv
   updated: '2024-08-26'
   version:
     value: 622fa69cd65491f36cc59d0a0984cc88f60c8716
   open-source: true
   tags:
   - artboards
+  summary: |
+    Comprehensive suite of seven tools for artboard management including automatic grid arrangement, row/column grouping by naming patterns, navigation shortcuts, artboard reversal, and zoom-to-fit functionality. Uses keyboard shortcuts (cmd+ctrl+1, ctrl+opt+1, ctrl+opt+2, cmd+4, ctrl+shift+[ and ]) for quick access. Features persistent user preferences and treats artboard order by layer list position rather than canvas position. Recently updated and actively maintained.
 - plugin: 📕 PDF Export
   link: https://github.com/DWilliames/PDF-export-sketch-plugin
   description: Export all pages, current page or selected artboards into a PDF — based
@@ -45,6 +51,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports artboards to PDF with flexible options including all pages, current page only, or selected artboards with custom export order. Can export PNG-based PDFs for better rendering of gradients and shadows, with configurable dimensions (200w, 100h, 3x format). Features prefix-based exclusion to skip unwanted artboards/pages and includes Symbol Master artboard options. No longer actively maintained but functionality remains operational.
 - plugin: Artboard Manager
   link: https://github.com/bomberstudios/artboard-manager#readme
   description: Because moving artboards manually is *so* 2016.
@@ -56,6 +64,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically arranges all artboards into grid rows and columns with configurable spacing (50px horizontal, 100px vertical by default). Can optionally auto-rename artboards and handle Symbol artboards separately. Includes Auto Mode toggle (Ctrl+Shift+A) for automatic arrangement on artboard changes, and comprehensive settings for excluding patterns and controlling symbol handling. Free and open source with active community support.
 - plugin: States
   link: https://github.com/edenvidal/States
   description: Create different artboard states and switch between them easily
@@ -67,6 +77,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Enables creation and management of multiple states for a single artboard, allowing designers to prototype different variations (interactions, data states, animations) without creating separate artboards. Facilitates rapid switching between states during design and presentation workflows. Open source GitHub repository with last update in July 2023.
 - plugin: Browser Preview
   link: https://github.com/lukasoppermann/browser-preview
   description: Quickly preview an artboard in your browser.
@@ -78,6 +90,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports selected artboards as 2x-resolution HTML previews in the browser, using artboard background colors and horizontal centering for accurate representation. Supports left-alignment via `:left` artboard name suffix and configurable browser selection (Chrome, Firefox, Safari, etc.). Keyboard shortcut Cmd+Shift+P with customizable keybindings. Last updated March 2023.
 - plugin: Collapse All Artboards And Groups
   link: https://github.com/littlebusters/Collapse-All-Artboards-and-Groups
   description: Collapse all artboards and groups in the current document.
@@ -89,6 +103,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Collapses all artboards and groups in the current Sketch document with a single command, reducing clutter in the layers panel. Based on the original "Collapse Artboards And Groups" script by Dan Eden. Lightweight utility that improves layer navigation on large documents. Last updated January 2023.
 - plugin: Light/Dark Switch
   link: https://github.com/chaos-machine/switch-theme
   description: Switch artboards' theme
@@ -100,6 +116,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Instantly switches artboards between light and dark theme variants by finding design elements (symbols, layer styles, text styles, color variables) containing 'light' or 'dark' in their names. Supports nested symbols, all override types, and integrates with linked design libraries. Simply double-click to install; requires at least one linked library. Last updated January 2023.
 - plugin: Artboard History
   link: https://github.com/jan-patrick/sketch_artboard-history
   description: A Sketch plugin to switch faster between your latest artboards.
@@ -111,6 +129,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Tracks artboard navigation history and allows switching between two artboards (Alt+Cmd+A) or navigating backwards and forwards through history (Ctrl+A, Ctrl+Cmd+A). Displays saved history, configurable zoom behavior, and adjustable history lifetime settings. Stores local history per document with privacy protection—no cloud syncing. Tested compatible with Sketch 58+; features marked with asterisks have known limitations within single documents.
 - plugin: Toggle Greyscale
   link: https://github.com/KevinGutowski/ToggleGreyscale
   description: A Sketch plugin that adds a layer to your artboard so that you can
@@ -123,6 +143,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Applies a grayscale filter layer to artboards for testing visual hierarchy and color accessibility without affecting the underlying design. Simple installation via double-clicking the plugin file. Part of a suite of utility plugins by Kevin Gutowski including text truncation, color panels, and style auditing tools. Last updated January 2023.
 - plugin: Sequence Artboard Names
   link: https://github.com/tbrasington/Sequence-Sketch-Artboards
   description: Simple sequencing of all artboards within a Sketch Document
@@ -134,6 +156,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Prefixes all artboards with sequential numbers (001, 002, etc.) based on page and artboard layer order, with user choice to traverse artboards top-to-bottom or bottom-to-top. Automates consistent artboard naming across multi-page documents. Last updated January 2023.
 - plugin: sketch-export-to
   link: https://github.com/mascardoso/sketch-export
   description: Export an artboard layers to json or markdown
@@ -145,6 +169,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports artboard content to JSON or Markdown format for integration with design systems and UI documentation. Requires specific layer naming conventions (heading1-4, paragraph, blockquote, lists, images, etc.) and maintains reading order from layer list. Designed for Sketch 52+ with image asset extraction support. Tested and used for generating UI guidelines documentation.
 - plugin: lazyboards
   link: https://github.com/lazybearcreations/sketch-lazyboards
   description: Artboard tools to help you with tedious batch tasks.
@@ -156,6 +182,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automates three batch operations: wrapping layers in square artboards, duplicating layers to all artboards on a page, and duplicating to selected artboards while maintaining relative positioning. Designed for reducing repetitive manual artboard workflows in complex design systems. Created with skpm framework. Last updated January 2023.
 - plugin: Artboard Tricks
   link: https://github.com/romannurik/Sketch-ArtboardTricks
   description: Artboard Tricks plugin for Sketch
@@ -167,6 +195,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Provides three utilities for artboard organization: automatic grid rearrangement with configurable row/column spacing (400px rows, 100px columns), numeric prefixing based on position (100, 101, 102... 200, 201...), and selection of parent artboards containing a selection. Synchronizes layer list order with canvas position. Installable via Sketch Runner or manual download. Last updated January 2023.
 - plugin: Live Preview
   link: https://kylehalevi.com/live-preview
   description: Wirelessly mirror Sketch artboards on iPhone and iPad, with pixel–perfect

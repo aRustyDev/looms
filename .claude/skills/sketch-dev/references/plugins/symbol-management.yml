@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Identifies and merges duplicate or inconsistent symbols, styles, and color variables
+    within Sketch projects. Users select which master to keep, and the plugin automatically
+    removes duplicates while replacing all instances and preserving overrides. Available
+    as a paid plugin on Gumroad, actively maintained and feature-rich.
 - plugin: Rename Instances
   link: https://github.com/exevil/sketch-rename-instances
   description: Tiny single-command Sketch plugin that renames every symbol instance
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Lightweight plugin that automatically renames all symbol instances to match
+    their parent symbol masters' names with a single command. Useful for maintaining
+    consistent naming conventions across documents with many symbol instances.
+    Recently updated and open-source.
 - plugin: Batch Create Symbols
   link: https://github.com/demersdesigns/sketch-batch-create-symbols
   description: A plugin for Sketch to convert selected layers to individual symbols.
@@ -33,6 +43,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Streamlines the creation of multiple symbols by converting selected layers
+    into individual symbols in a single operation. Eliminates the tedium of creating
+    symbols one-by-one, saving significant time in design system setup. Recently
+    updated and actively maintained.
 - plugin: Component Browser
   link: https://github.com/funk4d/Component-Browser-Sketch-Plugin
   description: Must-have for design systems. The symbol picker that actually works.
@@ -44,6 +59,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    A functional symbol/component picker for Sketch that provides intuitive browsing
+    and insertion of symbols, especially valuable for design systems with large component
+    libraries. Designed to overcome limitations of Sketch's native symbol picker with
+    better search and organization. Actively maintained and widely used.
 - plugin: killswitch
   link: https://github.com/madebysnacks/killswitch
   description: A simple Sketch plugin for disabling Symbol overrides.
@@ -55,6 +75,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Provides a quick way to disable symbol overrides on selected instances,
+    reverting them to their master symbol defaults. Useful for cleanup and ensuring
+    consistency across symbol usage. Open-source, last updated in October 2024.
 - plugin: Symbol Finder
   link: https://github.com/afifkhaidir/symbol-finder
   description: Finder-like interface for browsing and inserting local symbols in Sketch
@@ -66,6 +90,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Offers a macOS Finder-like interface for browsing and inserting local symbols,
+    making symbol discovery more intuitive. Helps designers quickly locate and apply
+    symbols with a familiar file-browser experience. Open-source, last updated
+    in February 2024.
 - plugin: Sketch Name Organizer
   link: https://github.com/canisminor1990/sketch-name-organizer
   description: 🖌 Rename artboards based on their x and y position; Rename layers based
@@ -78,6 +107,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automates renaming of artboards and layers based on their spatial position or
+    associated styles and symbols. Helps enforce consistent naming conventions across
+    documents, particularly useful for organizing design system artifacts. Open-source,
+    last updated December 2023.
 - plugin: Symbol Instance Locator
   link: https://github.com/sonburn/symbol-instance-locator
   description: Locate all instances of a selected symbol or instance.
@@ -89,6 +123,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Quickly finds and selects all instances of a chosen symbol across the entire
+    document, facilitating bulk updates and audits. Essential for managing large
+    symbol-heavy projects. Open-source by Jason Burns, a prolific Sketch plugin
+    developer, last updated October 2023.
 - plugin: Sketch Symbol Legend
   link: https://github.com/wix-incubator/sketch-symbol-legend
   description: Legend for your Sketch Symbols.
@@ -100,6 +139,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Generates a comprehensive legend document for all symbols in a Sketch file,
+    useful for documenting design systems and component libraries. Created by WIX
+    Incubator for design system documentation purposes. Open-source, last updated
+    March 2023.
 - plugin: SymbolNameAutocomplete
   link: https://github.com/griffin-stewie/SymbolNameAutocomplete
   description: This plugin gives you autocompletion of symbol names when creating
@@ -112,6 +156,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Provides autocompletion suggestions while naming new symbols, helping maintain
+    naming consistency and reducing typos. Speeds up the symbol creation workflow,
+    especially valuable in large design systems with established naming patterns.
+    Open-source, last updated March 2023.
 - plugin: Symbol and Artboard Organizer
   link: https://github.com/Myrronth/symbol-and-artboard-organizer
   description: Organize your symbols and artboards.
@@ -123,6 +172,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automates organization and arrangement of symbols and artboards within Sketch
+    documents, improving workspace structure and navigation. Helpful for tidying up
+    design files and creating a logical hierarchy. Open-source, last updated
+    March 2023.
 - plugin: Sync with Library
   link: https://github.com/oodesign/sync-with-library
   description: Easily replace local symbols and layer & text styles with library ones.
@@ -134,6 +188,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Facilitates migration from local symbols and styles to library-sourced versions,
+    enabling centralized design system management. Automatically replaces local assets
+    with their library equivalents while preserving overrides. Open-source by oodesign,
+    last updated March 2023.
 - plugin: Fill-Updater
   link: https://github.com/lizhengDesign/Sketch-FillUpdater
   description: Fill shapes or symbols with content of selected artboards.
@@ -145,6 +204,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Populates shapes or symbols with content from selected artboards, automating
+    repetitive fill operations across symbols. Useful for creating data-driven
+    symbol variants and batch updates. Open-source, last updated March 2023.
 - plugin: SymbolNameSync
   link: https://github.com/griffin-stewie/SymbolNameSync
   description: This plugin gives you syncing names between Symbol masters and its

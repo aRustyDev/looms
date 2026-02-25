@@ -76,6 +76,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Enables convenient selection of layers with similar attributes across artboards. Accessed via Cmd+Shift+F or Sketch Runner, supporting batch selection of layers by matching properties. Free plugin with active GitHub development and option to select within single artboard or all artboards.
 - plugin: File Cleaner
   link: https://github.com/monzo/file-cleaner
   description: Keep your Sketch files immaculately clean and in order.
@@ -87,6 +89,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Maintains Sketch file organization by enforcing artboard naming conventions (100, 101, 102) and grid layout. Automatically aligns artboards to correct positions and detects missing/duplicate artboards. Created by Monzo Design as a free tool with comprehensive file cleanup and validation features.
 - plugin: Sketch Map Generator
   link: https://github.com/eddiesigner/sketch-map-generator
   description: Plugin to fill a layer with a map generated from a location (Powered
@@ -98,6 +102,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Generates maps powered by Google Maps and Mapbox APIs directly into layer shapes. Features live preview, custom Mapbox styles, dark mode, and snazzy style support. Requires API keys but is free to use after setup; maximum image sizes are 640x640 for Google and 1280x1280 for Mapbox.
 - plugin: Sketch Styler
   link: https://github.com/oodesign/sketch-styler
   description: Assigns styles automatically to all of your unstyled layers.
@@ -109,6 +115,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Automatically assigns existing shared styles to unstyled layers by analyzing matching attributes. Discontinued plugin that may continue to work but is not actively maintained; alternatives like Merge Duplicates are recommended. Layer styles support is planned but not yet available.
 - plugin: Sketch Layer Comps
   link: https://github.com/ozgurgunes/Sketch-Layer-Comps
   description: A plugin which saves and applies layer states to create different compositions
@@ -121,6 +129,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Saves and applies layer states to create different compositions of artboards. Supports saving, setting, and deleting layer comps with state management within a single artboard. Free open-source plugin with basic composition functionality accessible via Plugins menu.
 - plugin: Pixel Perfect
   link: https://github.com/materik/sketchplugin-pixelperfect
   description: Plugin for Sketch for handling layout and sizing of layers automatically
@@ -133,6 +143,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Handles automatic layer layout and sizing using semantic naming conventions (w100, h50%, padding:20, etc.). Supports complex layout features including stacking, centering, padding/margin, constraints, and works recursively within symbols. Actively maintained with keyboard shortcuts (Cmd+L, Ctrl+Cmd+L) for different scopes.
 - plugin: Snatch
   link: https://github.com/ZhichengChen/snatch
   description: Sketch plugin which upload layer to CDN directly.
@@ -144,6 +156,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Uploads layers directly to a CDN via backend integration. Requires running a separate Snatch server for functionality. Free plugin built with skpm framework with contributions welcome.
 - plugin: DuplicateLater
   link: https://github.com/KevinGutowski/Duplicate-Later
   description: Duplicate layers in the same direction after duplicating (like in Figma).
@@ -155,6 +169,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Duplicates layers in the same direction after initial duplication, mimicking Figma's behavior. Simplifies repetitive duplication workflows with a single plugin action. Free and recently updated with straightforward functionality.
 - plugin: Flat Export
   link: https://github.com/TheSonOfThomp/sketch-flat-export
   description: Use this plugin to batch export layers to a single folder.
@@ -166,6 +182,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Batch exports symbols and layers to a single folder with manageable filenames without changing naming conventions. Supports kebab-case, snake_case, and camelCase formatting with optional prefixes and multiple export formats (SVG, PNG, JPG) at various scales (@1x, @2x, @3x). Accessible via Ctrl+Shift+E shortcut.
 - plugin: Sketch Plugin Snap to 8pt Grid
   link: https://github.com/mheesakkers/sketch-plugin-snap-to-8pt-grid
   description: A Sketch plugin which helps with snapping layer properties to the 8
@@ -178,6 +196,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Snaps layer properties (X, Y, width, height, line-height, font-size) to an 8-point grid with customizable grid size. Simple utility for maintaining design consistency with keyboard shortcuts. Free plugin actively maintained with settings accessible through plugin menu.
 - plugin: Find Dirty Styles
   link: https://github.com/KevinGutowski/FindDirtyStyles
   description: A Sketch plugin to easily find layers that are out of sync with their
@@ -190,6 +210,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Identifies layers that have been modified from their shared text or layer styles. Allows cycling through out-of-sync layers with scope options for current page. Free plugin with dedicated keyboard shortcuts (Ctrl+Cmd+T for text, Ctrl+Cmd+L for layers).
 - plugin: Sketch Snap
   link: https://github.com/charliecm/sketch-snap
   description: A Sketch plugin that lets you snap layers below, above, left of or
@@ -202,6 +224,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Snaps layers above/below/left/right of a selected layer to its edges. Includes selection commands to find layers at various positions relative to current selection. Free plugin with configurable settings and dark mode icon support.
 - plugin: Organize Layers
   link: https://github.com/eunicejson/organizeLayers
   description: A plugin that allows short key commands to move layers up, down and
@@ -214,6 +238,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Provides keyboard shortcuts to move layers up/down and reverse layer positions. Simplifies layer management workflow with three commands (Shift+Cmd+], Shift+Cmd+[, Ctrl+Alt+Cmd+R). Free lightweight utility for maintaining clean organized layers.
 - plugin: Sketch Groupie
   link: https://github.com/aparajita/sketch-groupie
   description: Sketch plugin providing commands to align layers with their parent
@@ -226,6 +252,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Aligns and centers layers relative to their parent group rather than artboard. Includes keyboard shortcuts for horizontal/vertical centering (Ctrl+Cmd+Shift+H/V) and edge alignment. Free plugin filling a gap in native Sketch alignment tools.
 - plugin: Shared Styles Hierarchy
   link: https://github.com/mathieudutour/sketch-styles-hierarchy
   description: Organize your shared styles using the layers list, create a hierarchy
@@ -238,6 +266,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Organizes shared styles using a layers list where children inherit properties from parent styles. Supports dragging to reorganize, automatic renaming cascade, and selective property inheritance via __default layers. Requires Sketch 53+ and actively maintained.
 - plugin: BillUI
   link: https://github.com/SimonTakman/BillUI
   description: Interactive artificial evolutionary tool in order to help you come

@@ -10,6 +10,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Re-implementation of Sketch Measure using TypeScript and Sketch JavaScript API, designed to create design specifications for developers and teammates. Features include resizable markers with constraints, Tint feature support, Anima stacks export, and customizable artboard export ordering. Fully compatible with Sketch v66+ and actively maintained as a more stable alternative to the original Sketch Measure.
 - plugin: Sketch Guides
   link: https://github.com/luvmex/Sketch-Guides
   description: Add Guides to edges and midpoints at once.
@@ -21,6 +23,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Plugin for adding guides to artboard edges, midpoints, and vertical/horizontal directions with a single command. Provides an intuitive interface control tool accessible via Shift+Ctrl+V and includes features for removing all guides at once. Compatible with Sketch 42+ and supports guide setup on artboards or without any artboard selected.
 - plugin: Angle
   link: https://angle.sh
   description: Apply perspective transforms on screen mockups. Auto-detect screens
@@ -34,6 +38,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Commercial device mockup library providing 7600+ vector device mockups for Sketch with perspective transformation capabilities and automatic screen detection. Offers one-time purchase at $79 with free upgrades for new devices for one year. Supports mockups across various device categories for product presentations and design handoff.
 - plugin: Annotations
   link: https://github.com/BaguetteEngineering/annotations-sketch-plugin
   description: Hide/show layer groups named 'Annotations'.
@@ -45,6 +51,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Utility plugin for managing annotation visibility across all pages and artboards in a Sketch document. Allows toggling of all layer groups named "Annotations" with hide/show commands, useful for exporting both annotated images and clean prototypes from the same file. Built with skpm and provides automatic update notifications.
 - plugin: sketch-foundation
   link: https://github.com/13protons/sketch-foundation
   description: Toggle layer visibility for all matching layer names on any artboard
@@ -57,6 +65,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Batch visibility toggle plugin for managing foundational layers across artboards by matching layer names. Enables designers to quickly show or hide all notes, guides, and other foundation layers by name pattern matching. Built with skpm and supports npm-based development workflow with webpack and babel customization options.
 - plugin: Reset Image Aspect Ratio
   link: https://github.com/perrysmotors/reset-image-aspect-ratio
   description: A Sketch plugin that resets the aspect ratio of selected images.
@@ -68,6 +78,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Simple utility plugin for resetting image aspect ratios to their original dimensions. Handles both bitmap layers and rectangles with image fills, automatically calculating dimensions to the nearest pixel. Available via Sketchpacks and supports donations via PayPal.
 - plugin: Stickers
   link: https://github.com/romannurik/Sketch-Stickers
   description: A Sketch plugin that lets you browse and quickly drag+drop stickers
@@ -80,6 +92,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Plugin for browsing and drag-dropping specially tagged layers (stickers) from Sketch Libraries with a dedicated panel interface. Integrates with Sketch Runner and streamlines the workflow for reusing library components as visual stickers. Built using skpm framework.
 - plugin: Sketch Lineout
   link: https://github.com/icona79/sketch-lineout
   description: Lineout your artboards for handoff preview
@@ -91,6 +105,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Generates wireframe previews by creating a new "Lineout" page with stripped-down copies of selected artboards or symbols. Automatically detaches symbol instances, converts shapes to red-bordered outlines, and replaces text layers with placeholder rectangles while preserving layer names. Built with skpm framework.
 - plugin: 6Spiral
   link: https://github.com/matej-marjanovic/6Spiral-Sketch-Plugin
   description: 6Spiral is a sketch plugin to draw spiral shapes (archimedean and logarithmic
@@ -104,6 +120,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Specialized tool for drawing Archimedean and logarithmic spirals with the ability to convert 2D spirals into 3D helix shapes at isometric angles. Requires Sketch 52+ and offers continuous update previews or manual updates. Note: Plugin no longer works with latest Sketch versions; author recommends using the updated Figma plugin version instead.
 - plugin: Mockup
   link: https://github.com/ruslanlatypov/Mockup-Plugin-for-Sketch
   description: Perspective transformation plugin for devices mockups
@@ -115,6 +133,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Perspective transformation plugin for applying realistic device mockups to design screenshots. Requires Sketch 60+ with separate downloads for Safari v14 and below versus v15+. Available at ls.graphics with documentation and tutorials.
 - plugin: Remove All Guides
   link: https://github.com/ichik/removeallguides
   description: Removes all the guides from selected artboards.
@@ -126,6 +146,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Simple utility plugin for bulk-removing guides from selected artboards without manual deletion. Accessible via keyboard shortcut Cmd+Shift+Alt+R and provides a quick workflow for cleaning up artboards.
 - plugin: 🐳 蓝湖
   link: https://lanhuapp.com/mac
   description: Automatic generate specs, share assets, auto-sync
@@ -137,6 +159,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Chinese design collaboration platform with Sketch plugin for automatic spec generation, asset sharing, and design sync. Provides comprehensive handoff capabilities with automatic annotation and multi-size slice exports for developers.
 - plugin: MockingBot
   link: https://modao.cc/sketch
   description: MockingBot Sketch Plugin, Your sweet Sketch companion making your handoff
@@ -149,6 +173,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Chinese design platform plugin that streamlines the design handoff process from Sketch with automatic asset sync and specification generation. Part of the 墨刀 (MockingBot) ecosystem providing prototype and design collaboration features for teams.
 - plugin: Specify (Alpha)
   link: https://specifyapp.com
   description: Export styles and assets to your Specify Libraries.
@@ -160,6 +186,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Design token management platform with Sketch export capabilities for centralizing design tokens from various sources. Note: Service has been discontinued as of the last update; product sunset was announced by the Specify team.
 - plugin: ⚓️ Sketch - SelectPlus
   link: https://github.com/nathan5x/sketch-selectplus
   description: Helps you select different type of layers, specific Shapes like Rectangle,
@@ -172,6 +200,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Batch selection utility plugin for deep-selecting layers by type and category including artboards, bitmaps, symbols, text, and specific shapes (rectangles, ovals, triangles, polygons, stars, lines, arrows). Supports selection by name pattern matching and style-based selection. Integrates with Sketch Runner for quick command access.
 - plugin: 📐 Sketch Guides
   link: http://guides.pratikshah.website/
   description: Quickly generate Guides for a selected element in Sketch
