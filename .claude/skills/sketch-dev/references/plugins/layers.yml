@@ -10,6 +10,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Aligns multiple selected layers to a designated key layer with multiple alignment options. Supports keyboard shortcuts for quick layer selection and alignment type switching (arrow keys). Includes smart two-layer inversion with Ctrl modifier. Recently maintained and actively available on GitHub.
 - plugin: Sketch Recursive Export
   link: https://github.com/commonpike/sketch-recursive-export
   description: Simple plugin to recursively export exportable layers in a selected
@@ -22,6 +24,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Recursively exports all layers marked as exportable from a selected parent layer with customizable naming schemes and folder structure options. Respects export format settings (prefixes/postfixes) defined in Sketch, though sizing settings are not applied. Recently updated and actively maintained with clear documentation and examples.
 - plugin: Single Border
   link: https://github.com/sureskumar/single-border
   description: Add single borders with advanced controls.
@@ -33,6 +37,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Applies individual borders to selected layers with granular control over each side, position (inside/center/outside), and color. Handles adjacent borders with CSS-like diagonal intersections when colors differ. Supports fixed width/height resizing to keep borders aligned during layer resizing. Keyboard shortcut: Cmd+Shift+B. Requires Sketch 40+.
 - plugin: AEUX
   link: https://github.com/google/sketch2ae
   description: Transfer layer to After Effects
@@ -44,6 +50,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Transfers Sketch layer data to Adobe After Effects for motion design workflows, extending the original Sketch2AE functionality with support for macOS Catalina and Figma. Simplifies the export process for UX designers transitioning designs to animation. Maintained by Google motion designers and actively supported. Apache 2.0 licensed.
 - plugin: Sketch Move Half Pixel
   link: https://github.com/canisminor1990/sketch-move-half-pixel
   description: 🐾 Move layers half pixel
@@ -55,6 +63,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Enables precise half-pixel movement of layers using keyboard shortcuts (Option+arrow keys), useful for pixel-perfect design adjustments. Marked as abandoned due to Sketch 46+ having native movement distance adjustment features. Available through Sketchpacks, Runner, and direct installation. Chinese documentation available in README_zh.md.
 - plugin: Sketch Select
   link: https://github.com/canisminor1990/sketch-select
   description: Make it much more convenient to select layers with similar attributes.

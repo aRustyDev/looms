@@ -4,6 +4,8 @@
   description: Looper helps automate duplication of groups and layers. One can control
     properties like Rotate, Scale and Opacity while duplicating. This powerful combination
     enables artists and designers to create interesting geometric and organic patterns.
+  summary: |
+    Automates group and layer duplication with control over rotation, scale, opacity, and movement properties, enabling creation of geometric and organic patterns. Offers advanced features including grid formation, sinusoidal transformations, and random property variation. Supports Sketch 40+ with keyboard shortcut (Cmd+L). Actively maintained with recent updates and comprehensive tutorials available.
   authors:
   - Sures Kumar
   updated: '2024-05-03'
@@ -15,6 +17,8 @@
 - plugin: Super Shapes
   link: https://github.com/sureskumar/super-shapes
   description: Generate complex organic super-shapes using super formula.
+  summary: |
+    Generates complex organic and decorative shapes using mathematical superformula algorithms, enabling creation of sophisticated geometric patterns. Requires Sketch 51+ with keyboard shortcut (Cmd+Y) for quick access. Actively maintained with recent updates and demonstrates diverse application examples including starbursts and intricate patterns.
   authors:
   - Sures Kumar
   updated: '2024-05-03'
@@ -27,6 +31,8 @@
   link: https://github.com/delighted/sketch-scale-all-in-place
   description: 'Scale all in place: Resize all selected shapes or layers, in place,
     from center.'
+  summary: |
+    Resizes multiple selected layers or shapes from their center point using a percentage-based scale input. Simple and straightforward interface accessed via Plugins menu or keyboard shortcut. Last updated in 2023; stable and widely used for proportional layer scaling without repositioning.
   authors:
   - Delighted Inc
   updated: '2023-04-16'
@@ -38,8 +44,10 @@
 - plugin: ddSpiral
   link: https://github.com/Design-Dude/ddSpiral
   description: Magically shape almost any kind of 🌀 spiral.
+  summary: |
+    Generates customizable spirals from selected objects or paths with extensive parameters including rotation, loop count, tension, transition easing, and directionality. Supports multiple input modes (single object, closed shape, open path, or two objects) with an interactive overlay UI for real-time adjustments and preview. Features automatic update option, dark mode support, and "Force into shape" experimental feature. Keyboard shortcut Ctrl+Alt+Shift+S; last updated March 2023.
   authors:
-  - Mek van’t Hoff
+  - Mek van't Hoff
   updated: '2023-03-06'
   version:
     value: b0906538ccd8cb1241082dd515c80b14c31c42e3
@@ -49,6 +57,8 @@
 - plugin: Rough
   link: https://github.com/mathieudutour/rough-sketch
   description: Transform your shapes in a sketchy, scribbly, hand-drawn-like, style.
+  summary: |
+    Applies a sketchy, hand-drawn aesthetic to selected shapes by transforming them into rough, scribbly line styles. Based on the popular roughjs library and supports Sketch 50+. Simple workflow: select shapes and apply via Plugins menu. Last updated February 2023; MIT licensed and actively maintained for sketch effect styling.
   authors:
   - mathieudutour
   updated: '2023-02-28'

@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    A generalized Sketch export plugin built with skpm that provides flexible exporting capabilities.
+    The plugin is actively maintained as of early 2023, though the specific export scenarios are not
+    detailed in the documentation. Offers basic build, watch, and development tooling setup through
+    the standard skpm framework.
 - plugin: Sketch Tokens Exporter
   link: https://github.com/icona79/sketch-design-tokens-exporter
   description: With this plugin you can export to your desktop a design-tokens.json
@@ -22,6 +27,10 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Exports all design tokens from Sketch to a design-tokens.json file compatible with Amazon Style Dictionary.
+    Extracts color variables, layer styles, text styles, shadows, font families, sizes, weights, and text alignments.
+    Uses $ references to link related tokens across the export structure. Last updated September 2022 with active maintenance.
 - plugin: Drafta
   link: https://github.com/fragmentlv/drafta
   description: Export designs directly to Drafta
@@ -33,6 +42,11 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Exports Sketch designs directly to Drafta, a team-oriented service for tracking and sharing design screens.
+    Provides one-click access to projects with up-to-date design screens and a sidebar for navigating between pages,
+    making it ideal for managing large projects with 70+ pages in different completion stages.
+    Last updated November 2020; appears dormant.
 - plugin: Storyboard Export
   link: https://github.com/cranksoftwaredev/SketchPlugins
   description: Export Sketch based designs to be used within Crank Software's Storyboard
@@ -45,6 +59,11 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Exports Sketch designs to Crank Software's Storyboard Suite via GAPP (runtime) files and image resources.
+    Supports exporting all or selected artboards with options to refine interactions in Storyboard Designer.
+    Includes limitations such as no text render extensions, single-level nesting, and no third-party animations.
+    Last updated June 2020; appears dormant.
 - plugin: Page Export
   link: https://github.com/charliecm/sketch-page-export
   description: A simple Sketch plugin for exporting page(s).
@@ -56,6 +75,10 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    A lightweight plugin for exporting individual or all Sketch pages with configurable format, scale,
+    background color, and padding options. Useful for presenting annotated flows outside artboards.
+    Available through Sketch Runner for easy installation. Last updated October 2019; appears dormant.
 - plugin: Somino
   link: https://github.com/melsomino/sketch-somino
   description: Attachable styles, Advanced clipboard, Silent export
