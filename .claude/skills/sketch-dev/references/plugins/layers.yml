@@ -280,6 +280,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Uses genetic algorithms to generate design variations and suggestions based on selected layers. Allows interactive mutation of layer parameters to explore similar design directions. Last updated in 2023; available on Sketchpacks with download metrics tracking.
 - plugin: Paddy
   link: https://github.com/DWilliames/paddy-sketch-plugin
   description: Automated padding, spacing and alignment for your Sketch layers
@@ -291,6 +293,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Automates padding, spacing, and alignment for selected layers with flexible options. Provides quick access to common spacing values and alignment configurations. Free open-source plugin created by David Williames with active GitHub repository though last updated in August 2022.
 - plugin: Gretel
   link: https://github.com/StyleShare/Gretel
   description: A Sketch plugin that flattens files after exporting.
@@ -302,6 +306,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Automatically flattens all layers in exported assets to reduce file complexity. Useful for cleaning up designs before exporting to external tools. Free open-source plugin from StyleShare last updated in July 2022 with continued availability.
 - plugin: Sketch Invert Fills
   link: https://github.com/icona79/sketch-invert-fills
   description: Invert fills beween 2 selected layers
@@ -313,6 +319,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Swaps fill colors between two selected layers. Simple utility for quickly exchanging color attributes without manual style manipulation. Free open-source plugin with straightforward functionality, last updated July 2022.
 - plugin: Select Similar Layers
   link: https://github.com/wonderbit/sketch-select-similar-layers
   description: A plugin that selects layers with similar attributes to those of the
@@ -325,6 +333,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Selects all layers matching attributes of a reference layer (colors, fonts, size, etc.). Useful for batch editing and design consistency checks. Free open-source tool by Wessley Roche, last updated June 2022.
 - plugin: Sketch Layer Name Check
   link: https://github.com/pplcallmesatz/SketchDefaultNameCheck
   description: Check the default sketch layer naming, this plugin is for the user
@@ -337,6 +347,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Validates and standardizes layer naming conventions by checking against default Sketch naming patterns. Helps maintain consistent naming practices across design files. Free open-source tool by Satheesh Kumar S, last updated October 2021.
 - plugin: Bootstrap Helpers
   link: https://github.com/konki-vienna/sketch-bootstrap-helpers
   description: A plugin to help working with bootstrap grids and grids in general.
@@ -350,6 +362,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Creates and manages Bootstrap grid systems within Sketch, automating alignment and width adjustments for grid-based layouts. Useful for responsive design workflows. Free open-source plugin by Konstantin Demblin, last updated July 2021.
 - plugin: Butter
   link: https://github.com/pberrecloth/butter-sketch-plugin
   description: Butter will butt your layers together.
@@ -361,6 +375,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Automatically positions layers adjacent to each other without gaps, eliminating manual spacing adjustments. Simplifies layer arrangement workflows. Free open-source plugin by Peter Berrecloth, last updated June 2021.
 - plugin: Shadows Utilities
   link: https://github.com/iarthstar/Shadows-Utilities
   description: Plugin to copy paste shadows across layers
@@ -372,6 +388,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Copies and pastes shadow properties between layers, enabling consistent shadow styling across designs. Simplifies shadow management workflows. Free open-source plugin by iarthstar, last updated December 2020.
 - plugin: Magic Aligner
   link: https://github.com/HugoLis/Magic-Aligner
   description: Align objects
@@ -383,6 +401,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Aligns selected layers based on their center of mass rather than edges, useful for non-rectangular or organic shapes. Provides more intuitive alignment for complex designs. Free open-source plugin by Hugo Lispector, last updated August 2020.
 - plugin: Sketch Search Everywhere
   link: https://github.com/MrPeak/sketch-search-everywhere
   description: Search layer and select it,
@@ -395,6 +415,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Searches for layers by text value, name, or object ID across entire documents. Fast layer discovery without manual browsing through layer panels. Free open-source plugin by MrPeak, last updated June 2020.
 - plugin: Pixel Perfecter
   link: https://github.com/swiadek/pixel-perfecter-sketch-plugin
   description: Pixel Perfecter helps you find pixel imperfect layers in your documents.
@@ -406,6 +428,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Identifies and highlights layers with non-integer dimensions or misaligned positions that would render imperfectly. Audits designs for pixel-perfect compliance. Free open-source plugin by Jakub Świadek, last updated May 2020.
 - plugin: Layer Styles Manager
   link: https://gumroad.com/l/sketch-shared-styles-manager
   description: A fast and easy way to manage all your layer styles. No more hassle
@@ -419,6 +443,8 @@
   open-source: false
   tags:
   - layers
+  summary: |
+    Provides fast, intuitive management of layer styles with bulk renaming and organization features. Eliminates tedious manual style name management and folder reorganization. Paid plugin sold via Gumroad by Jaer Pollux, last updated February 2020.
 - plugin: Move It
   link: https://github.com/dawidw/move-it
   description: Sketch plugin that let's you move selected layers vertically and horizontally.
@@ -430,6 +456,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Enables simple vertical and horizontal movement of selected layers with keyboard shortcuts. Lightweight utility for repositioning layers. Free open-source plugin by Dawid Woźniak, last updated July 2019.
 - plugin: Spell Check Whole Page
   link: https://github.com/Tallwave/sketch-spellcheck-all-layers
   description: A basic spellchecker that checks all layers on a page in Sketch
@@ -441,6 +469,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Performs spell checking on all text layers within a Sketch page. Detects spelling errors across entire artboards. Free open-source plugin by Tallwave with basic spell-check functionality, last updated June 2019.
 - plugin: swap-width-height
   link: https://github.com/dannymcclain/swap-width-height
   description: Swap a layer's width and height.
@@ -452,6 +482,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Quickly transposes layer dimensions by swapping width and height values. Useful for rapidly flipping rectangular shapes. Free open-source plugin by dannymcclain, last updated May 2019.
 - plugin: Duplicate Under
   link: https://github.com/oodesign/duplicate-under
   description: Sketch plugin to duplicate layers, but placing copies under the originals
@@ -464,6 +496,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Duplicates selected layers while placing copies below originals in the layer stack, opposite of default Sketch behavior. Maintains cleaner layer organization. Free open-source plugin by oodesign, last updated April 2019.
 - plugin: Sketch Resize
   link: https://github.com/lucaorio/sketch-resize
   description: Resize (not scale) multiple layers at once via shortcut.
@@ -475,6 +509,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Resizes multiple layers to uniform dimensions without scaling content. Distinguishes between resizing and scaling operations. Free open-source plugin by Luca Orio, last updated April 2019.
 - plugin: styledrop
   link: https://github.com/ryanmclaughlin/styledrop
   description: A plugin for Sketch allows you to easily copy styles from one layer
@@ -487,6 +523,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Copies all style properties from one layer to another, including fills, strokes, shadows, and text formatting. Simplifies style transfer across layers. Free open-source plugin by Ryan McLaughlin, last updated April 2019.
 - plugin: Sketch Slicer
   link: https://github.com/d4rekanguok/sketch-slicer
   description: Create slice layers from selected layers, with padding or set a fixed
@@ -499,6 +537,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Generates slice layers from selected layers with customizable padding or fixed dimensions for export workflows. Useful for preparing assets for export. Free open-source plugin by Derek Nguyen, last updated March 2019.
 - plugin: Sketch Bounding Boxer
   link: https://github.com/preciousforever/sketch-bounding-boxer
   description: A simple plugin to toggle visibility of 'boundingBox' layers in a Sketch

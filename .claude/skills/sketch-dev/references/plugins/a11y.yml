@@ -10,6 +10,8 @@
   open-source: false
   tags:
   - a11y
+  summary: |
+    AI-powered WCAG color palette manager enabling creation of accessible color schemes in seconds. Provides WCAG and APCA contrast checking, color mode variations, and exports ready-to-use JSON tokens compatible with design systems like Material and Tailwind. Actively maintained with cloud publishing and local library synchronization for design-to-development handoff.
 - plugin: Stark
   link: http://www.getstark.co
   description: Ensure your design is accessible and high contrast for every type of
@@ -22,6 +24,8 @@
   open-source: false
   tags:
   - a11y
+  summary: |
+    Comprehensive accessibility platform integrated into Sketch, Figma, GitHub, and browsers for enterprise teams. Provides real-time accessibility checks, automated issue detection with AI suggestions, WCAG compliance reports, and centralized compliance management across design to live product. Trusted by 50,000+ companies with SSO and SOC2 certification.
 - plugin: Check Contrast
   link: https://github.com/lifeofmle/check-contrast
   description: Allows you to select layers in Sketch and get realtime feedback about
@@ -34,6 +38,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Panel-based contrast ratio checker allowing real-time feedback while adjusting colors in Sketch. Select one or two layers to compare foreground and background contrast values with automatic background detection. Features a retro Winamp-inspired UI, open-source, last updated January 2023.
 - plugin: Contrast
   link: https://github.com/romannurik/Sketch-Contrast#readme
   description: A Sketch plugin to show a pass/fail type contrast report.
@@ -45,6 +51,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Pass/fail contrast report generator for entire artboards or pages against AA standards. Built with skpm framework, open-source, and supports Sketch Runner distribution. Last updated December 2022; minimal maintenance activity.
 - plugin: Attention prediction plugin
   link: https://github.com/fixate-ai/sketch-attention-prediction-plugin
   description: Attention prediction - know what your users see as they view you design
@@ -56,6 +64,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Analyzes user attention patterns in designs using AI prediction to generate attention maps. Select layers or artboards and run analysis through Fixate.ai service to visualize where users focus. Includes cache management and troubleshooting tools; last updated April 2021 with limited recent maintenance.
 - plugin: Color Blindless
   link: https://github.com/doreenyou/color-blindless
   description: Simulate design in different types of color vision deficiency
@@ -67,6 +77,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Simulates various types of color blindness including protanopia, deuteranopia, and tritanopia on selected designs. Adapted from jsColorBlindnessSimulator, enables designers to preview accessibility impact of color choices. Open-source with last update in April 2021.
 - plugin: Attention Insight
   link: https://github.com/attentioninsight/attention-insight-sketch-plugin
   description: Generate attention heatmaps and instantly know where users look when
@@ -79,6 +91,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Eye-tracking heatmap generator showing where users focus on designs. Click artboard and generate heatmap to visualize attention patterns via Attention Insight cloud service. Requires free account registration; last updated March 2021.
 - plugin: AdeeApp Sketch Plugin
   link: https://www.adeeapp.com/
   description: Design for all. The most comprehensive free accessibility testing tool
@@ -91,6 +105,8 @@
   open-source: false
   tags:
   - a11y
+  summary: |
+    Free accessibility testing tool focused on inclusive design practices. Website currently shows WordPress error; specific features and current status unclear. Last updated February 2021 with limited recent maintenance activity.
 - plugin: Cluse
   link: https://cluse.cc
   description: A Sketch plugin to check color contrast for web accessibility based
@@ -104,6 +120,8 @@
   open-source: false
   tags:
   - a11y
+  summary: |
+    WCAG 2.0 color contrast checker with live preview as you adjust colors between two layers. Features color swapping, easy color reversion, and AA/AAA compliance guidance without external tools. Free, works with Sketch 40+, macOS Mojave+; last updated June 2020.
 - plugin: Color Contrast Analyser
   link: https://github.com/getflourish/Sketch-Color-Contrast-Analyser
   description: A Sketch plugin that calculates the color contrast of two selected
@@ -116,6 +134,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Calculates WCAG 2.0 color contrast ratios between two layers or single layer against artboard background. Evaluates pass/fail against AA/AAA standards with special handling for large text definitions matching CSS specifications. Open-source by Florian Schulz; last updated February 2020, does not support transparency.
 - plugin: color-swatcher
   link: https://github.com/akiersky/color-swatcher
   description: A Sketch plugin to analyze document colors and show the WCAG color
@@ -128,6 +148,8 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Document color analyzer generating swatches showing WCAG contrast values against white and black backgrounds. Select color rectangles or auto-generate swatches from all layer styles in document. Open-source debut plugin; last updated April 2019.
 - plugin: Sketch WCAG
   link: https://github.com/bryanberger/sketch-wcag
   description: A Sketch plugin that lets you contrast test your entire color palette
@@ -140,3 +162,5 @@
   open-source: true
   tags:
   - a11y
+  summary: |
+    Batch contrast testing tool for entire color palettes against WCAG 2.0 standards. Select multiple shapes with fills to generate browser preview showing AA/AAA pass/fail status. Uses colorable library for testing; supports Sketch Runner and Sketchpacks distribution. Last updated October 2018; does not account for opacity or work on symbols.

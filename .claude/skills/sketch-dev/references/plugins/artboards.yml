@@ -209,6 +209,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Provides instant wireless artboard mirroring to iPhone and iPad using Apple AirDrop technology, with automatic switching between high-resolution and real-time preview modes. Features Quick Compare for rapid switching between artboards, Automatic Updates for live design changes, and requires zero impact on Sketch performance. Integrates seamlessly with Sketch via background plugin with separate Mac app for networking management. Recently updated with continued active development.
 - plugin: Blush
   link: https://blush.design
   description: Create and customize illustrations in your designs with Blush. Just
@@ -221,6 +223,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Integrates curated illustration collections from global artists into Sketch with full customization of components, colors, and variations. Exports illustrations as scalable vector SVG or raster PNG formats directly to the canvas without additional setup. Includes worry-free commercial and personal use license without attribution requirements. All-in-one plugin eliminating the need for external asset management and folder-based drag-and-drop workflows.
 - plugin: How Many Artboards?
   link: https://github.com/eaugustine/how-many-artboards
   description: A Sketch plugin for counting the number of artboards in your file or
@@ -233,6 +237,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Simple utility plugin that displays a count of artboards in the current Sketch document or on the selected page. Lightweight tool useful for managing document structure and tracking design scope in large projects. Open source on GitHub with straightforward installation. Last updated August 2022.
 - plugin: Arrange artboards hierarchically
   link: https://github.com/oodesign/arrange-artboards-hierarchically
   description: Sketch.app plugin to arrange artboards hierarchically depending on
@@ -245,6 +251,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically organizes artboards into visual hierarchies on the canvas based on slash-separated naming patterns (e.g., A1/S1, A1/S2). Supports both vertical (column) and horizontal (row) arrangement with configurable parent-child relationships. Note: Plugin is no longer actively supported but remains functional. Includes installation via Sketch Runner or Sketchpacks.
 - plugin: Artboard Multi-Scale
   link: https://github.com/weibeld/artboard-multi-scale
   description: Scale an Artboard to multiple dimensions at once.
@@ -256,6 +264,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Creates multiple scaled copies of an artboard at specified dimensions using space-separated specifiers (absolute widths, heights, or percentages). Automatically names and arranges new artboards logically based on target dimensions and maintains proportional relationships. Supports flexible input formats (N, wN, hN, N%) with examples for responsive design testing. Lightweight plugin with keyboard shortcut (Cmd+Shift+S) for quick access.
 - plugin: Framer Tools
   link: https://updates.framer.com/download-latest/com.framer.pasteboard
   description: Copy layers from Sketch onto the canvas in Framer
@@ -267,6 +277,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Enables direct transfer of Sketch layers and artboards to Framer canvas using clipboard functionality. Streamlines design handoff workflow by eliminating manual re-creation of assets in Framer. Last updated June 2021 and maintained by Framer team. Requires both Sketch and Framer applications installed.
 - plugin: SketchTurbo
   link: https://github.com/usagimaru/SketchTurbo
   description: A plugin for Sketch that adjusts scroll speed on a canvas.
@@ -278,6 +290,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Allows customization of canvas scroll speed for trackpads, Magic Mouse, and mouse wheels independently via terminal commands. Default coefficients can be adjusted for optimal panning experience on large canvases. Settings stored in macOS defaults system with easy reset options. Open source with last update April 2021.
 - plugin: Sketch Selective Upload
   link: https://github.com/abynim/sketch-selective-upload
   description: Exclude Artboards and Pages when uploading your Document to Sketch
@@ -290,6 +304,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Filters artboards and pages prefixed with `--` to exclude them from Sketch Cloud uploads, with customizable prefix settings. Includes commands to batch-add prefixes without manual renaming. Important warning: Requires backup of original file outside Sketch Cloud before using. Note: Not compatible with Sketch 71 and above.
 - plugin: Sketch Copy Paste Layout Settings
   link: https://github.com/FrancisVega/sketch-copy-paste-layout-settings
   description: Copy layout settings from one artboard and paste into multiples artboards.
@@ -301,6 +317,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Streamlines grid and layout configuration by copying settings from a source artboard and applying them to multiple target artboards in one operation. Simple two-step workflow: copy source settings, then paste to selected destinations. Eliminates manual layout setup for consistent design system grids across artboards. Open source with straightforward installation.
 - plugin: Sort Selected Layers
   link: https://github.com/ludovic-loridan/sketch-sort-selected-layers
   description: A handy plugin to sort layers or artboards
@@ -312,6 +330,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically sorts selected layers or artboards by their X or Y position on the canvas, useful for organizing Design System symbols and cleaning up file layer hierarchies. Tested with Sketch 70 and compatible with Sketch Runner for quick access. Open source on GitHub with features designed to ship clean files to team members.
 - plugin: Auto Arrange Artboards
   link: https://github.com/srbsingh3/autoarrange
   description: Automatically arrange the order of your artboards in the layer list
@@ -324,6 +344,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Synchronizes layer list artboard order with their visual canvas positions (left-to-right or top-to-bottom), solving the disconnect between designer's mental model and PDF/Abstract export order. Significantly faster than earlier versions for large files with 30-40+ artboards. Essential for designers managing complex workflows across multiple stakeholders. Actively developed and improved for performance.
 - plugin: sketch-notes
   link: https://github.com/daxit/sketch-notes
   description: A Sketch plugin that lets you add notes that become part of your Artboard
@@ -336,6 +358,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Adds a notes panel to artboards for inline comments that become permanent design documentation. Full lifecycle management: create, edit, delete, hide, or remove notes with dedicated plugin commands. Notes remain as part of artboard during PDF and Sketch format exports for team collaboration. Simple setup through plugin menu.
 - plugin: Tabula Rasa
   link: https://github.com/avk/sketch-tabula-rasa
   description: Add blank backgrounds to transparent artboards
@@ -347,6 +371,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Solves canvas-to-export mismatch by adding white backgrounds to transparent artboards, ensuring InVision uploads and Abstract exports match on-screen appearance. Automatically applies backgrounds to new artboards after first use. Simple plugin commands with optional PayPal donation support. Open source solution for design consistency across export platforms.
 - plugin: Axure for Sketch
   link: https://www.axure.com/axure-sketch-plugin
   description: Easily copy design elements to Axure RP or publish artboards directly
@@ -359,6 +385,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Enables seamless design handoff from Sketch to Axure RP by importing artboards as editable widgets while preserving all properties for interaction building. Supports direct publish to Axure Cloud for collaborative prototyping workflows. Maintains asset editability within Axure ecosystem after import. Commercial integration maintained by Axure Software Solutions.
 - plugin: Sketch Artboard Notes
   link: https://github.com/abynim/sketch-artboard-notes
   description: A minimal plugin to add notes to artboards in Sketch
@@ -370,6 +398,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Adds lightweight note field to inspector panel that appears automatically when artboards are selected, ideal for minimal documentation. Includes share menu with custom copy action and system extensions for notes distribution. Minimal, native design integrates seamlessly with Sketch UI. Open source collaboration by Aby Nimbalkar, Jordan, and Matt.
 - plugin: Pixelworm
   link: https://github.com/pixelworm/pixelworm-sketch-plugin-publish
   description: Upload your artboards to Pixelworm with one click.
@@ -381,6 +411,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    One-click artboard export plugin to Pixelworm design collaboration platform. Streamlines design sharing workflow for teams using Pixelworm for feedback and design review. Open source on GitHub with last update February 2020. Minimal repository with plugin releases available for download.
 - plugin: Auto Layout
   link: https://animaapp.github.io/Auto-Layout/
   description: Responsive design inside Sketch. Design for all screen sizes on one
@@ -393,6 +425,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Enables responsive design within a single artboard by implementing flex layout concepts similar to CSS, allowing designs to adapt across multiple screen sizes. Integrates with Anima Toolkit for HTML export workflows. Part of the broader Anima ecosystem for design-to-code automation. Commercial tool maintained by Anima App with ongoing development.
 - plugin: Sort Me
   link: https://github.com/romashamin/sort-me-sketch
   description: Sort artboards and layers
@@ -404,6 +438,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Quick sorting plugin with two keyboard shortcuts (Ctrl+Shift+O for ascending, Ctrl+Shift+P for descending) to organize selected artboards or layers. Tested on Sketch 46 and macOS Sierra with straightforward installation. Open source project with optional PayPal donation option. Simple utility for maintaining organized layer hierarchies.
 - plugin: Sparkle Export Plugin
   link: https://sketch-to-web.com
   description: Turn any Sketch artboard in a real website using Sparkle Visual Website
@@ -416,6 +452,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Exports Sketch artboards directly to Sitely visual website builder for rapid web design to production workflow. Elements touching artboard edges automatically become full-width; button groups convert to functional HTML buttons. Includes sizing configuration for optimal scaling to Sitely canvas. Commercial tool from Sparkle/Crinon SRL with limited recent updates.
 - plugin: SnipSnap
   link: https://github.com/wescraig/SnipSnap
   description: Remove extra padding on multiple layers or artboards with ease.
@@ -427,6 +465,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Batch remove or add padding on artboards and layers with keyboard shortcuts (Snip/Snap keys) and configurable settings. Applies specified padding across single or multiple artboards/layers while preserving relative positioning. Simplifies repetitive padding adjustments common in design workflows. Open source with visual demonstration of snip and snap operations.
 - plugin: Sketch Number Artboards by Position
   link: https://github.com/radermacher/sketch-number-artboards-by-position
   description: Sketch plugin to number artboards in order of position.

@@ -95,6 +95,11 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Exports design tokens (colors, typography, icons, and utilities) to JSON format for design system workflows.
+    Organizes tokens using Sketch's layer styles and text styles in named groups (colors, typography, icons, utils).
+    Marked as end-of-life with recommendation to use native Sketch tokens instead. Useful for legacy projects
+    needing token JSON export with nested structure support.
 - plugin: IcanIcon
   link: https://github.com/Sugarcode-Team/icanicon-live-sketch-plugin
   description: icanicon.io allows you to keep your icon libraries in sync with your
@@ -107,6 +112,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Cloud-based icon library management system that syncs Sketch designs with design system repositories via icanicon.io.
+    Enables collaborative icon management, version control, and automated code export to multiple frameworks (React, Vue, Android, iOS).
+    Integrates with design tokens workflow. Last updated early 2023; appears to be the successor to Icons → Code plugin.
 - plugin: Sketch Flow
   link: https://github.com/hite/Sketch-Flow
   description: Make Icon Slicing simple for app developers!
@@ -118,6 +127,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Simplifies icon export workflow by automatically creating slices for app icon assets.
+    Streamlines the process of preparing icon designs for developer handoff. GitHub repository provides limited
+    documentation; last updated January 2023. Appears focused on app icon slicing rather than broader icon management.
 - plugin: Sketch a Sketch
   link: https://github.com/mathieudutour/sketch-a-sketch
   description: Bringing the iconic knobs from the famous toy to Sketch.
@@ -129,6 +142,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Interactive drawing tool that recreates the iconic rotating knobs from the classic Etch A Sketch toy in Sketch.
+    Provides a playful, retro-inspired sketching experience with analog knob controls for freehand drawing.
+    Fun creative tool rather than a production design utility. Last updated January 2023.
 - plugin: Sketch Iconscope
   link: https://github.com/ziven27/Sketch-IconScope
   description: Wrap the Icon with a square(4n) scope.
@@ -140,6 +157,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Automatically creates properly-sized square bounding boxes (in multiples of 4) around selected icons centered on the icon's center point.
+    Wraps icons and backgrounds into organized groups for cleaner layer structure. Useful for standardizing icon
+    dimensions and ensuring consistent spacing with transparent backgrounds. Keyboard shortcut: Ctrl+Alt+Cmd+I.
 - plugin: icon2React
   link: https://github.com/jjj201200/icon2React
   description: a sketch plugin to converting icons to React Components
@@ -151,6 +172,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Converts Sketch symbols to React components, automating icon export for React projects.
+    Scans all symbols in the document and exports them as React component files to a selected directory.
+    Streamlines developer handoff by eliminating manual component creation from design assets. Last updated July 2022.
 - plugin: Iconify
   link: https://github.com/iconify/iconify-sketch
   description: Iconify integration. Import MDI, FontAwesome, Jam, EmojiOne and many
@@ -163,6 +188,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Provides access to 100,000+ icons from 100+ open-source icon sets (Material Design Icons, FontAwesome, Jam, Open Emoji, and more) directly in Sketch.
+    Browse or search icon sets and import any icon as vector shapes. Completely free with all icon sets under open-source licenses.
+    Accessible via Plugins menu or keyboard shortcut (Ctrl+Shift+I). Last updated June 2022.
 - plugin: AEIconizer
   link: https://github.com/tadija/AEIconizer
   description: iOS icon generator plugin for Bohemian Coding Sketch app.
@@ -174,6 +203,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Automatically scales app icon artwork to all required sizes for iOS, watchOS, and macOS from a single square artboard.
+    Generates properly-sized icon assets with one command; replaces generated artboards on each run while preserving the original.
+    Streamlines app icon export workflow. Last updated September 2021.
 - plugin: iconfont-webview
   link: https://github.com/keremciu/sketch-iconfont-web
   description: New and easy way of using Icons in Sketch
@@ -185,6 +218,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Insert Material Design icons directly into Sketch by installing the TTF font file and using a visual dialog interface.
+    Modern rewrite of the older sketch-iconfont plugin with simplified font management; currently supports Material Icons regular.
+    Requires Sketch 70+. Maintainer actively seeking requests for additional icon font support via GitHub issues.
 - plugin: Use Icon Fonts in Sketch
   link: https://github.com/keremciu/sketch-iconfont
   description: Use icon fonts in sketch
@@ -196,6 +233,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Comprehensive icon font manager that lets designers insert and manage icons from FontAwesome, Ion Icons, Material Design Icons, and custom icon fonts.
+    Supports viewing icons in a visual grid, inserting by name, exporting icon HTML, and converting all icons to SVG for team sharing.
+    Requires Sketch 3.4.4+; actively maintained with dark mode support. Older predecessor to iconfont-webview plugin.
 - plugin: Sketch Icons
   link: https://github.com/AMoreaux/Sketch-Icons
   description: Import your icons, apply a color mask and create a dynamic icons library.
@@ -207,6 +248,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Import icon sets and automatically apply color styles to build dynamic, reusable icon libraries using nested symbols.
+    Features include bulk icon import, color mask application, icon replacement/update functionality, and drag-and-drop organization.
+    Leverages Sketch libraries and nested symbols for efficient workflow. Installable via Sketch Runner or manual download.
 - plugin: Icon Tools
   link: https://github.com/oodesign/icon-tools
   description: Sketch.app plugin to clean icons and to prepare them for a clean export
@@ -219,6 +264,10 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    Two-part plugin: "Clean Icons" removes unwanted layers/groups and optionally combines shapes into unions; "Prepare for Export"
+    processes symbols with configurable naming patterns, removes tint layers, and generates a clean ExportIcons page with slices ready for asset export.
+    Solves the tint hack cleanup problem common in design systems. Installable via Sketch Runner, Sketchpacks, or manual download.
 - plugin: Inker8
   link: https://github.com/inker8/sketch-plugin
   description: A spec exporter for Sketch which can copy text/css/svg icons with only
@@ -231,3 +280,7 @@
   open-source: true
   tags:
   - icons
+  summary: |
+    One-click design spec exporter that copies text content, CSS properties, SVG icons, or React SVG components from selected layers.
+    Streamlines the handoff between designers and developers by eliminating manual spec creation and component extraction.
+    Last updated November 2018; appears to be in maintenance mode.

@@ -322,6 +322,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Simple text styling plugin that applies bold formatting to user-specified keywords in
+    selected text layers. Accessible through the Plugins menu with a straightforward dialog for
+    keyword input. Integrates with Sketch Runner for quick access.
 - plugin: Rename Layers Based On Textstyle
   link: https://github.com/tbrasington/rename-layers-based-on-textstyle
   description: Renames text layers in the current page based on their text style name
@@ -333,6 +337,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically renames text layers to match their assigned text style names using prepend,
+    append, or replace operations. Supports both local document styles and linked library styles.
+    Helps developers see design system style names in tools like InVision and Zeplin for better
+    codebase integration.
 - plugin: Lokalise plugin
   link: https://github.com/lokalise/lokalise-sketchplugin
   description: Deliver multilingual assets faster and smarter. Share context with
@@ -346,6 +355,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Integrates Sketch with Lokalise's translation platform for managing multilingual content.
+    Supports pushing text to Lokalise, pulling translations, and previewing designs in different
+    languages with automatic language switching. Includes key naming, character limits, and
+    automatic key pattern matching features.
 - plugin: Datazier Lens
   link: https://github.com/enriquezgomez/datazier-lens
   description: Inspect and sort your local font book
@@ -357,9 +371,13 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Font inspection and management utility for examining your local system font library.
+    Allows sorting and viewing font properties within Sketch. Built with skpm (Sketch Plugin
+    Manager) framework for easy distribution via Sketchpacks.
 - plugin: Emoji Autocomplete Sketch Plugin
   link: https://github.com/zeplin/emoji-autocomplete-sketch-plugin
-  description: While editing Sketch text layers, type “:” followed
+  description: While editing Sketch text layers, type ":" followed
   authors:
   - the first few letters to autocomplete emojis
   updated: '2022-08-08'
@@ -368,6 +386,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Type ":" followed by a few letters while editing text layers to autocomplete emojis.
+    Navigate results with arrow keys or mouse selection. Works in text layer editing, overrides,
+    and layer names. Maintained by Zeplin and released under MIT license.
 - plugin: sketch-multi-lingual-plugin
   link: https://github.com/GoetteSebastian/sketch-multi-lingual-plugin
   description: A plugin that allowes the user to switch between languages to visualize
@@ -381,6 +403,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Enables multilingual design visualization by loading text translations from CSV files.
+    Set up documents as multilingual, load text fragments with language columns, and switch
+    between languages to preview how designs appear in different locales. Uses {id} syntax
+    in text layers to reference translations.
 - plugin: List Font Families in Styles
   link: https://github.com/icona79/Sketch---List-Font-Families-in-use
   description: Copy a list of all the used font families active in your text styles.
@@ -392,6 +419,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Extracts all font families used in document text styles and copies them to the clipboard
+    in list format. One-click utility for auditing and reporting which fonts are active in your
+    design system. Easy installation via GitHub release or Sketch Runner.
 - plugin: Next
   link: https://github.com/endswithak/next
   description: Export designs as HTML, making it easy to quickly share design specs,
@@ -404,6 +435,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Exports artboards as interactive HTML specifications with CSS, dimensions, and assets
+    (fonts, SVGs, images). Features left/right inspection panels, note annotations, layers browser,
+    relative spacing display, and both light/dark theme support. Supports nested groups and
+    complex SVG/mask exports.
 - plugin: Search Sketch
   link: https://candy02058912.github.io/search-sketch
   description: Search Sketch searches text in any language
@@ -415,6 +451,10 @@
   open-source: false
   tags:
   - text
+  summary: |
+    Full-text search tool for finding content across Sketch files in any language. Provides
+    quick navigation through large designs for locating specific text elements. Commercial
+    plugin with dedicated website for installation and documentation.
 - plugin: Baseline Offsetter
   link: https://github.com/ozgurgunes/Sketch-Baseline-Offsetter
   description: Raise, lower, set or reset the baseline of multiple text layers with
@@ -427,6 +467,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Batch controls text baseline positioning with four commands: set offset with value input,
+    raise by 1, lower by 1, or reset to default. Works on multiple selected text layers simultaneously.
+    Available via Sketch Runner and Sketchpacks. Last updated May 2021.
 - plugin: Rename It
   link: http://rodi01.github.io/RenameIt/
   description: Keep your Sketch files organized, batch rename layers and artboards.
@@ -438,6 +482,10 @@
   open-source: false
   tags:
   - text
+  summary: |
+    Batch renaming utility for organizing Sketch files by renaming multiple layers and artboards
+    simultaneously. Simplifies design system maintenance and file organization. Commercial plugin
+    with dedicated website for documentation and support.
 - plugin: add-trailing-space
   link: https://github.com/tgfjt/sketch-add-trailing-space#readme
   description: add trailing space into selected text layers
@@ -449,6 +497,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Adds trailing whitespace to selected text layers for precise text alignment and spacing.
+    Useful for fixing text layout issues where trailing spaces matter. Built with skpm and
+    minimal in scope. Last updated April 2021.
 - plugin: Sketch Hyphenator
   link: https://github.com/golmakov/sketch-hyphenator
   description: Sketch plugin that hyphenates text
@@ -460,6 +512,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Adds or removes hyphenation in text layers using the Hypher JavaScript engine with support
+    for Russian and English languages. Language patterns can be extended by customizing source
+    code. Accessible via Sketch Runner. Last updated April 2021.
 - plugin: Sketch Variables
   link: https://github.com/murilo-campaner/sketch-variables-plugin
   description: Create text variables inside sketch to use file as template
@@ -471,6 +527,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Creates text variable placeholders in Sketch files for template-based workflows. Define
+    variables using @[variable] syntax, then set values through the plugin menu to populate
+    document text. Simple but effective approach to text templating. Last updated February 2021.
 - plugin: Set Line Height
   link: https://github.com/getflourish/Sketch-Set-Line-Height-Plugin
   description: Plugin that allows you to set the line height of a text layer as a
@@ -483,6 +543,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Sets text layer line height as a multiple of font size using em-like CSS approach.
+    Default shortcut Cmd+L can be customized. Single-purpose utility that simplifies typographic
+    control. Last updated October 2020.
 - plugin: 2O3T Tools
   link: https://github.com/2o3t/2o3t-Sketch-Tools
   description: Easy Tools, batch rename layers and artboards, etc.
@@ -494,6 +558,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Comprehensive toolkit with batch rename, find/replace formulas, icon font insertion, and
+    language switching features. Supports flexible renaming patterns and advanced formulas for
+    bulk layer operations. Available via Sketchpacks. Last updated August 2020.
 - plugin: Handy Menu
   link: https://github.com/sergeishere/HandyMenu-SketchPlugin
   description: Gives quick access to your plugins through context menu
@@ -505,6 +573,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Organizes frequently used plugins into custom context menu collections with keyboard shortcuts.
+    Create unlimited collections, group commands automatically or manually, and quickly access plugins.
+    Improves workflow efficiency for designers using many plugins. Last updated June 2020.
 - plugin: FontFinder
   link: https://github.com/ukn530/FontFinder
   description: Sketch Plugin to find and select font items in a current page
@@ -516,6 +588,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Lists all fonts used on the current page and bulk-selects layers matching specified fonts.
+    Useful for finding and converting specific fonts in large designs. Supports symbol pages.
+    Updated for Sketch 66.1 compatibility and macOS Catalina. Last updated June 2020.
 - plugin: Font Packer
   link: https://github.com/bigxixi/Font-Packer
   description: A Sketch plugin to collect font files you used in your sketch file.
@@ -527,6 +603,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Collects all font files used in a Sketch document into a folder alongside a copy of the
+    design file. Handles font style variations intelligently and reports missing fonts. Useful
+    for font sharing while respecting licensing. Works with Sketch 3.9.1+. Last updated June 2020.
 - plugin: AutoFixiOSTextLineHeight
   link: https://github.com/youngxkk/AutoFixiOSTextLineHeight
   description: Auto Fix iOS Text Line Height, so that the font restoration degree
@@ -539,6 +619,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically corrects text line heights in Sketch designs to match iOS development rendering.
+    Ensures Sketch design metrics are 100% accurate when implemented in iOS apps. Primarily tested
+    with Apple SF Pro fonts. Shortcut Shift+Option+Cmd+I. Last updated March 2020.
 - plugin: Twilio Ipsum
   link: https://github.com/twilio-labs/sketch-twilio-ipsum
   description: A realistic fake data populator for Sketch.

@@ -249,6 +249,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Provides preset artboard dimensions for major social media platforms including Twitter,
+    Facebook, Instagram, LinkedIn, Pinterest, YouTube, and others. Simply select a preset
+    from the plugin menu to instantly create appropriately-sized artboards for social
+    content. Community-driven plugin that accepts contributions for updated platform sizes.
 - plugin: Squash
   link: https://github.com/mcansh/squash-sketchplugin
   description: Export and optimize images with Realmac Squash
@@ -260,6 +265,10 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Integrates Realmac Software's Squash image compression tool into Sketch's export workflow.
+    Automatically optimizes PNG and JPG files during export with minimal quality loss while
+    maximizing file compression. Seamless integration with standard Sketch export process.
 - plugin: Sketch Image Replaste
   link: https://github.com/mheesakkers/sketch-image-replaste
   description: A simple Sketch plugin for replacing images with your copied image
@@ -272,6 +281,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Quick utility for batch-replacing images in Sketch by pasting from clipboard (Cmd+Shift+Y).
+    Select one or multiple image layers and replace them instantly with the image currently
+    on your clipboard. Inspired by Clipboard Fill plugin, providing a simple workflow
+    for iterating on placeholder images.
 - plugin: Sketch TinyPng compressor
   link: https://github.com/alxrm/sketch-tinypng-compressor
   description: A Plugin that compresses bitmap assets using TinyPNG API. This Plugin
@@ -284,6 +298,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Leverages TinyPNG API for lossy PNG and JPG compression during export workflows.
+    Requires API key from TinyPNG website (500 free compressions/month). Automatically
+    compresses selected slices during export with minimal quality loss. Note: May fail
+    on large images; works best with small icon sets.
 - plugin: Content Generator
   link: https://github.com/timuric/Content-generator-sketch-plugin
   description: Sketch app plugin for generating dummy data such as avatars, names,
@@ -296,6 +315,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Comprehensive dummy data generator creating avatars (from Uifaces, Radfaces, Unsplash),
+    names, lorem ipsum text, and geo-location data for rapid prototyping. Supports custom
+    image folders and string templates with random ranges and array selections. Useful for
+    filling mock layouts with realistic placeholder content during design iteration.
 - plugin: Awesome Image Compressor
   link: https://github.com/naoyawatanabe/awesome-image-compressor
   description: Compress exported image assets
@@ -307,6 +331,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Automatic compression tool that runs during Sketch exports using pngquant and jpegoptim
+    for optimized file sizes with minimal quality loss. Integrates seamlessly with export
+    button for quick PNG and JPG compression. Applies fastest compression settings to
+    prioritize speed over maximum compression.
 - plugin: Advanced Responsive Images Default
   link: https://github.com/Nkzq/advanced-responsive-images-default
   description: Generate default images according to the sizes given.
@@ -318,6 +347,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Generates responsive image assets for the advanced-responsive-images framework by
+    reading an image-locations.json configuration file specifying sizes and srcsets.
+    Creates properly-sized default images from Sketch artboards, supporting 2x/3x variants
+    for responsive web design. Built with skpm framework.
 - plugin: Spooky
   link: https://github.com/eliasjulian/spooky-sketch
   description: Is this image ~🎃🔪spooky🔪🎃~ enough? You'll never have to ask yourself
@@ -330,6 +364,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Novelty machine learning plugin that rates image "spookiness" using Apple's Turi Create
+    ML model. Select image layers and run the plugin to receive a spookiness assessment,
+    useful for thematic design work. Requires Sketch 49+ and macOS 10.13+. Works best with
+    Halloween-themed imagery (knives, pumpkins, spooky elements).
 - plugin: Clipboard Fill
   link: https://github.com/ScottSavarie/Clipboard-Fill
   description: Sketch plugin to paste an image from your clipboard as the fill for
@@ -342,6 +381,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Instantly applies clipboard images as fills to any shape using keyboard shortcut (Ctrl+Alt+V).
+    Copy screenshots or images, select one or more shapes, and run the plugin to fill them.
+    Works with any application's copied images. Simple workflow for rapid iteration on
+    placeholder imagery during prototyping.
 - plugin: Unsplash It
   link: https://github.com/fhuel/Unsplash-It-Sketch
   description: A plugin to quickly include great looking image from Unsplash.com in
@@ -354,6 +398,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Early Unsplash integration plugin providing access to high-quality stock photos via
+    the Unsplash Source API. Supports tagging layers with search keywords in square brackets
+    (e.g., [bird, sea]) to customize image results. Note: Now deprecated as Sketch 52+
+    includes native Unsplash support through the Data Supplier feature.
 - plugin: Shutterstock
   link: https://www.shutterstock.com/explore/shutterstock-sketch-plugin
   description: Access Shutterstock's stunning images without leaving your workspace.
@@ -365,6 +414,11 @@
   open-source: false
   tags:
   - images-photos
+  summary: |
+    Official Shutterstock plugin providing direct access to millions of premium stock images
+    and videos within Sketch workspace. Allows browsing, searching, and inserting licensed
+    Shutterstock content without leaving Sketch. Requires Shutterstock account and subscription
+    for image licensing.
 - plugin: ImageExtractorSketch
   link: https://github.com/mendyismyname/ImageExtractorSketch
   description: Extract background fill image in Sketch
@@ -376,6 +430,11 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Extracts the background fill image from any object and creates a new standalone image
+    layer with its original dimensions. Useful for design handoff workflows when developers
+    need access to original image assets. Simple one-action plugin for isolating images
+    from design compositions.
 - plugin: Unsplash
   link: https://github.com/sketch-hq/unsplash-sketchplugin
   description: Easily grab images from Unsplash.
@@ -387,3 +446,8 @@
   open-source: true
   tags:
   - images-photos
+  summary: |
+    Official Sketch Data Supplier plugin bundled since Sketch 52 for accessing Unsplash's
+    free stock photo library. Access images via toolbar icon, context menu, or overrides
+    inspector. Search using keywords or specific Unsplash photo URLs/IDs. Can view photo
+    credits and download original files directly. Continuously maintained by Sketch HQ.

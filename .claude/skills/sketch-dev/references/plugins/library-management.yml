@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    A Sketch plugin that integrates with the Wantedly design system, providing
+    access to design system components and styles. Built using skpm tooling with
+    support for custom configuration via Babel and Webpack. Recently updated and
+    actively maintained as of December 2023.
 - plugin: Sketch Style Master
   link: https://github.com/aparajita/sketch-style-master
   description: Sketch plugin for renaming shared styles
@@ -21,6 +26,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    A utility plugin that enables bulk renaming of shared styles in Sketch files,
+    helping manage and organize design system styles. Supports batch operations
+    for efficient style library management. Actively maintained and compatible with
+    modern Sketch versions as of October 2023.
 - plugin: Kitchen
   link: https://github.com/ant-design/kitchen
   description: Make your design work delicious 🍽
@@ -32,6 +42,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Ant Design's companion plugin that integrates the Ant Design system into
+    Sketch, providing access to design tokens, components, and patterns from
+    Ant Design's ecosystem. Streamlines design-to-development workflow by ensuring
+    consistency with Ant Design standards. Last updated in May 2023.
 - plugin: Detach out of sync text styles
   link: https://github.com/tijmenvangurp/detach-out-of-sync-text-styles
   description: Detach all out of sync text styles from a chosen sketch library.
@@ -43,6 +58,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Resolves text style synchronization issues by detaching out-of-sync text
+    styles from linked Sketch libraries. Useful for fixing broken library
+    references and maintaining design system consistency. Provides automated
+    batch processing for multiple documents. Last updated January 2023.
 - plugin: Install Library Bundle
   link: https://github.com/bomberstudios/install-library-bundle
   description: Installs a bunch of shared Sketch Libraries at once, because life is
@@ -55,6 +75,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Automates bulk installation of multiple Sketch libraries from a predefined
+    list, eliminating tedious manual library linking. Simplifies onboarding and
+    ensures all team members have the same library setup. Supports batch operations
+    for efficient library management. Last updated January 2023.
 - plugin: Orbison
   link: https://github.com/ilikescience/orbison
   description: A Sketch plugin for Bitly's product design system
@@ -66,6 +91,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Integrates Bitly's design system directly into Sketch, providing access to
+    design tokens, components, and patterns specific to Bitly's product design.
+    Ensures consistent application of design system standards across design files.
+    Open source and last updated January 2023.
 - plugin: Puzzle Tokens
   link: https://github.com/ingrammicro/puzzle-tokens
   description: Sketch.app plugin to apply design tokens to Sketch layers
@@ -77,6 +107,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Applies design tokens directly to Sketch layers, bridging design systems and
+    implementation by enabling token-based styling. Supports automated token
+    application and synchronization across design files. Facilitates design-to-code
+    consistency. Last updated September 2022.
 - plugin: Design Token Exporter
   link: https://github.com/here-erhe/Design-Token-Exporter
   description: Simple Design Token Exporter
@@ -88,6 +123,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Exports design tokens from Sketch files in a format suitable for development
+    tools and design system documentation. Supports multiple export formats for
+    flexibility in token consumption. Streamlines the handoff between design and
+    development teams. Last updated January 2022.
 - plugin: Swap Color Libraries
   link: https://github.com/KevinGutowski/Swap-Color-Libraries
   description: Change all your colors in a document to point to a different library
@@ -100,6 +140,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Seamlessly switches color library references across an entire Sketch document
+    while maintaining style names, enabling quick migration between design system
+    versions. Batch operation replaces all color variable references automatically.
+    Last updated November 2020; may need testing with recent Sketch versions.
 - plugin: Typograph
   link: https://github.com/dezonik/Typograph
   description: Typograph — Sketch plugin and js-library
@@ -111,6 +156,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    A typography management system that combines a Sketch plugin with a JavaScript
+    library for consistent typography implementation across design and development.
+    Exports typography rules in multiple formats compatible with various web
+    frameworks. Last updated August 2020; consider maintenance status before use.
 - plugin: zeroheight
   link: https://zeroheight.com
   description: Document your design system using beautifully simple styleguides synced
@@ -123,6 +173,11 @@
   open-source: false
   tags:
   - library-management
+  summary: |
+    A design system documentation platform that syncs with Sketch to automatically
+    generate living styleguides and design system documentation. Integrates with
+    code repositories to keep documentation synchronized with implementation. Commercial
+    tool with web-based editor. Last updated June 2020.
 - plugin: Design Systems
   link: https://github.com/Ashung/design-systems
   description: Help you find out popular design systems and download official Sketch
@@ -135,6 +190,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    A directory plugin that discovers and downloads official Sketch UI kits from
+    popular design systems including Material Design, Bootstrap, and others. Provides
+    one-click access to community design system libraries. Useful for quickly starting
+    projects with established design systems. Last updated May 2020.
 - plugin: Design System Validator
   link: https://github.com/oneuxco/Sketch-Design-systems-validator
   description: Check consistency of text layers.
@@ -146,6 +206,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Audits text layers in Sketch files to ensure consistency with design system
+    standards. Identifies non-conforming text styles and reports inconsistencies
+    for correction. Helps maintain design system integrity across multiple files.
+    Last updated November 2019; older plugin that may need compatibility testing.
 - plugin: Sketch Styles Generator
   link: https://github.com/lucaorio/sketch-styles-generator
   description: Generate hundreds of Sketch Shared Styles in a matter of seconds.
@@ -157,6 +222,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Rapidly generates large numbers of Sketch Shared Styles programmatically based
+    on design token definitions. Dramatically reduces manual style creation time by
+    automating the process. Supports batch style generation from data-driven inputs.
+    Last updated April 2019; consider maintenance and Sketch version compatibility.
 - plugin: DesignToken2Code
   link: https://github.com/m-yoshiro/DesignToken2Code
   description: Convert design tokens to SCSS variables as code
@@ -168,6 +238,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Converts design tokens from Sketch into SCSS variables for direct use in web
+    projects. Supports automated token export in a format compatible with Sass
+    compilation. Bridges the gap between design tokens and CSS preprocessing. Last
+    updated February 2019; check compatibility with modern Sketch versions.
 - plugin: Sketch Style Libraries
   link: https://github.com/sigtm/sketch-style-libraries
   description: Sync layer & text styles from any Sketch Library
@@ -179,6 +254,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Synchronizes layer and text styles from external Sketch libraries into the
+    current document, enabling efficient style reuse across projects. Supports
+    batch synchronization of multiple style types. Helps maintain consistency with
+    shared design system libraries. Last updated July 2018; older plugin.
 - plugin: Sketch Plugins
   link: https://github.com/alssndro/sandros-sketch-plugins
   description: A library of Sketch Plugins aimed towards working with horizontal/vertical
@@ -191,6 +271,11 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    A comprehensive plugin collection focused on grid and typography management,
+    providing tools for creating consistent layouts with horizontal and vertical
+    grids. Includes typography utilities for maintaining design system text standards.
+    Last updated May 2018; legacy plugin that may require compatibility updates.
 - plugin: Sketch Smart Style Switcher
   link: https://github.com/FrancisVega/Sketch-Smart-Style-Switcher
   description: Switch to an existing test style if attributes matches.
@@ -202,3 +287,8 @@
   open-source: true
   tags:
   - library-management
+  summary: |
+    Intelligently matches layer attributes and automatically applies corresponding
+    styles from a style library when conditions match. Reduces manual style
+    application by automating style selection based on layer properties. Useful
+    for maintaining consistency across many layers. Last updated April 2018.

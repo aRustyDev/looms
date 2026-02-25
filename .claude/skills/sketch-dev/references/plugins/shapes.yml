@@ -70,6 +70,8 @@
 - plugin: BlobMaker
   link: https://github.com/Rawnly/blobmaker_sketch
   description: Generate blobs with ease
+  summary: |
+    Generates organic blob shapes quickly with a simple interface. Designed for easy creation of irregular, flowing shapes commonly used in modern design. Last updated January 2023; straightforward plugin with minimal configuration needed.
   authors:
   - Federico Vitale
   updated: '2023-01-06'
@@ -82,6 +84,8 @@
   link: https://github.com/mheesakkers/sketch-plugin-metaball
   description: A simple plugin to draw shapes based on inner and outer tangents between
     two circles.
+  summary: |
+    Draws smooth connector shapes between two circles using inner and outer tangent calculations, inspired by Adobe Illustrator's metaball script. Offers three modes: Arc, Inner Tangents, and Outer Tangents. Last updated January 2023; work-in-progress with planned enhancements for grouped layers and multiple shape selection.
   authors:
   - mheesakkers
   updated: '2023-01-05'
@@ -93,6 +97,8 @@
 - plugin: Elevation Shadows
   link: https://github.com/YitingLiu/Elevation-Shadows
   description: A Sketch Plugin to apply consistent Elevation Shadows
+  summary: |
+    Applies Material Design-style elevation shadows to create depth and hierarchy in designs. Provides quick application of consistent shadow effects that match elevation principles. Last updated January 2023; focused on simplifying the shadow creation workflow in Sketch.
   authors:
   - Yiting Liu
   updated: '2023-01-04'
@@ -104,6 +110,8 @@
 - plugin: Easy Buttons
   link: https://github.com/icona79/easy-buttons-sketch-plugin
   description: Easily create button archetypes
+  summary: |
+    Generates standardized button components with configurable corner radius, text styling, and icon support (text-only, icon-only, or combined). Creates buttons automatically from existing styles or generates new ones with smart naming conventions for symbols and styles. Designed as an educational resource demonstrating Smart Layout techniques and design system best practices.
   authors:
   - Matteo Gratton
   updated: '2022-06-02'
@@ -115,6 +123,8 @@
 - plugin: User Flows
   link: https://github.com/abynim/userflows
   description: Generate user walkthroughs from Artboards in Sketch.
+  summary: |
+    Generates flow diagrams and user journey visualizations from Sketch artboards, automatically creating connections and annotations. Supports multiple languages including English, Chinese, German, French, Spanish, Italian, and more. Last updated April 2022; widely used for documenting design workflows and user interactions with comprehensive documentation and localization support.
   authors:
   - Aby Nimbalkar
   updated: '2022-04-14'
@@ -125,8 +135,10 @@
   - shapes
 - plugin: Separate Shapes
   link: https://github.com/PEZ/SketchSeparateShapes
-  description: A Sketch-app plugin that does a ”boolean” separate operation on two
+  description: A Sketch-app plugin that does a "boolean" separate operation on two
     selected shapes. Like divide in Pathfinder in Adobe Illustrator.
+  summary: |
+    Performs boolean separate operations on overlapping shapes, equivalent to the Divide function in Adobe Illustrator's Pathfinder. Supports multiple shapes with the bottommost shape as the base for separation operations. Compatible with Sketch Runner; last updated March 2019. Handles sequential separation when more than two shapes are selected.
   authors:
   - Peter Strömberg
   updated: '2019-03-26'
@@ -139,6 +151,8 @@
   link: https://github.com/kenmoore/Sketch-Relabel-Button
   description: Update a button's label and it gets resized automatically, preserving
     existing padding.
+  summary: |
+    Updates button text labels and automatically resizes the button container while maintaining original padding and spacing. Supports both left-aligned (Cmd+J) and right-aligned (Cmd+Ctrl+J) resizing modes. Works with groups and symbols, repositioning interior elements like icons and dividers intelligently. Last updated March 2019.
   authors:
   - Ken Moore
   updated: '2019-03-07'
@@ -150,6 +164,8 @@
 - plugin: Sketch Plugin Skew
   link: https://github.com/mheesakkers/sketch-plugin-skew
   description: A Sketch plugin for skewing (or shearing) shapes horizontally or vertically.
+  summary: |
+    Applies skew (shear) transformations to selected shapes and groups with a dialog input for angle degrees between -90 and 90. Accessible via Sketch Runner for quick workflow integration. Last updated February 2019; supports both horizontal and vertical skewing with simple degree-based angle input.
   authors:
   - Misha
   updated: '2019-02-19'
@@ -161,6 +177,8 @@
 - plugin: Egmont Plugin
   link: https://github.com/interfacemarket/Egmont-plugin
   description: Sketch plugin for create squircle shapes.
+  summary: |
+    Creates squircle shapes (mathematical hybrid between squares and circles) used in modern app design, particularly for iOS icon styling. Provides easy squircle generation without manual mathematical calculations. Published by Interface.Market under MIT license; last updated February 2019. Available on Sketchpacks for one-click installation.
   authors:
   - Interface
   updated: '2019-02-05'
@@ -172,6 +190,8 @@
 - plugin: Sketch Make Long Shadow
   link: https://github.com/JayHoltslander/Sketch-Make-Long-Shadow
   description: A plugin for Sketch to create long shadows from a shape.
+  summary: |
+    Generates long shadow effects from selected shapes and text layers with customizable distance and direction. Features an intuitive dialog for setting shadow parameters. Note: Currently marked as broken and untested with current Sketch versions; last updated August 2018. Available via Sketch Runner.
   authors:
   - Jay Holtslander
   updated: '2018-08-09'
@@ -183,6 +203,8 @@
 - plugin: FlipSize
   link: https://github.com/apertureless/sketch-flip-size
   description: Flip the size of any artboard or shape
+  summary: |
+    Swaps the width and height of selected artboards, layers, or shapes with a single keyboard shortcut (Cmd+Shift+Y). Useful for quickly converting between portrait and landscape orientations. Last updated July 2018; available on Sketchpacks with automatic updates. Includes support for Sketch Runner.
   authors:
   - Jakub Juszczak
   updated: '2018-07-16'
@@ -194,6 +216,8 @@
 - plugin: Pull to Center
   link: https://github.com/delighted/sketch-pull-to-center
   description: 'Pull to center: Move selected shapes or layers toward center of artboard.'
+  summary: |
+    Moves selected shapes or layers toward the artboard center by a specified pixel distance. Features a simple dialog input for distance configuration and maintains relative positioning. Last updated May 2018; useful for centering and alignment tasks during layout design work.
   authors:
   - Delighted Inc
   updated: '2018-05-22'
@@ -206,6 +230,8 @@
   link: https://github.com/joshdjuric/Skatter
   description: A plugin with tools (currently very basic tools) to assist with creating
     patterns out of shapes.
+  summary: |
+    Creates randomized patterns from selected shapes with tools for scattering, rotation, and opacity variation. Includes "Arrange Skatter" (Alt+Cmd+A) for filling artboards with scattered layers and "Random Rotate" (Alt+Cmd+R) for varied orientations. Last updated January 2018; actively developed as work-in-progress with upcoming UI controls and entropy adjustments.
   authors:
   - Josh Djuric
   updated: '2018-01-10'

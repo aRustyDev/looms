@@ -235,6 +235,10 @@
   open-source: false
   tags:
   - other
+  summary: |
+    A commercial illustration asset plugin that provides a collection of ready-made illustrations for Sketch designs.
+    Allows designers to directly import illustrations into their projects without leaving Sketch.
+    Last updated January 2021, may not be actively maintained for recent Sketch versions.
 - plugin: babelfish
   link: https://github.com/SpaceBank/babelfish-sketch-plugin
   description: babelfish plugin
@@ -246,6 +250,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Sketch plugin from SpaceBank with limited documentation available. Appears to be a utility tool built with skpm framework.
+    Last updated December 2020 with minimal commit activity. Limited information available regarding specific functionality.
 - plugin: Custom Zoom
   link: https://github.com/alexkaessner/custom-zoom-sketch
   description: Zoom your document to a custom zoom level.
@@ -257,6 +264,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Allows precise zoom to any custom level (from 42% to 50,000%) without Sketch's preset zoom constraints.
+    Built with skpm framework for Sketch 53+. Simple utility designed to speed up navigation workflows.
+    Last updated November 2020, minimal maintenance indicated.
 - plugin: Sketch Runner
   link: https://sketchrunner.com
   description: Speed up your Sketch workflow
@@ -268,6 +279,10 @@
   open-source: false
   tags:
   - other
+  summary: |
+    Premium productivity plugin offering component browser with batch rename, search/insert symbols, goto navigation,
+    and custom actions. Includes dark mode, history navigation, and jump bar with essential actions in reach.
+    Commercial plugin (Runner Pro) with last update June 2020; continues to be actively supported by Bolt Tools Limited.
 - plugin: Nudged
   link: https://github.com/KevinWoodhouse/Sketch-Nudged
   description: A Sketch plugin to easily edit your nudge distance settings.
@@ -279,6 +294,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Enables customizable nudge distance settings (small, big, and custom) with keyboard shortcuts for fast object movement.
+    Supports Sketch 59+ with reset functionality and integration with Sketch Runner. Optionally priced at £2 per user license.
+    Active maintenance through June 2020 with clear shortcuts (Ctrl+Alt+Arrow keys, Ctrl+Alt+0 for reset).
 - plugin: Sketch Translation
   link: https://github.com/hoai265/Language-Sketch-Plugin
   description: A Sketch plugin for easy multi-language design
@@ -290,6 +309,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Simplifies multi-language design workflows by generating language JSON files from text layers (prefixed with "o_") and translating designs.
+    Supports symbol instance overrides and provides batch translation functionality. Future plans include Google Sheets integration.
+    Apache 2.0 licensed, free to use, last updated February 2020.
 - plugin: Sketch RTL
   link: https://github.com/devinmancuso/sketch-rtl
   description: Automatically create RTL layouts of your designs with this plugin for
@@ -302,6 +325,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Automatically duplicates artboards and mirrors them for right-to-left language support with intelligent icon flipping
+    for SVG and Material icon fonts. Non-destructive workflow appends "_rtl" to duplicated artboards and repositions originals.
+    Apache 2.0 licensed, last updated January 2020 but may need updates for newer Sketch versions.
 - plugin: Sketch Minimap
   link: https://github.com/abynim/sketch-minimap
   description: Navigate large pages with ease
@@ -313,6 +340,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Provides a minimap window for efficient navigation of large Sketch pages with click-drag scrolling and artboard zoom-to-fit.
+    Supports custom viewport sizing via Cmd+drag and zoom level toggles with Command+click. MIT licensed utility included in Sketch Runner.
+    Last updated December 2019, stable maintenance.
 - plugin: Table of Contents
   link: https://github.com/youwenliang/Table-of-Contents
   description: Sketch plugin for generating table of contents for documentations
@@ -324,6 +355,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Automatically generates table of contents pages for documentation designs based on artboard hierarchy (Header1/Header2 folder structure).
+    Supports customizable backgrounds, margins, and font sizes with refresh/delete functionality via keyboard shortcut (Ctrl+Opt+Cmd+T).
+    Designed for Sketch 53+ with integration into A4 printing workflow for documentation PDFs.
 - plugin: Sketch To View
   link: https://github.com/kiranpuppala/sketch-to-view
   description: Generate android views from sketch
@@ -335,6 +370,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Converts Sketch design components to Android View XML code with support for LinearLayouts, circular shapes, TextViews, and ImageViews.
+    Supports gradients, strokes, and corner radius styling with Ctrl+Shift+G shortcut for clipboard export. Built with Yarn/Purescript Sketch wrapper.
+    Last updated September 2019, designed to bridge design-to-code workflows for Android development.
 - plugin: Method
   link: https://github.com/KikeSz/Method-Sketch-Plugin
   description: Tool to apply your methodology systems
@@ -346,6 +385,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Enforces design system methodologies (e.g., 8px multiples) with commands for rounding sizes, resizing, and moving elements.
+    Includes settings panel and smart guides support with keyboard shortcuts (Ctrl+8, Ctrl+Cmd+arrows). Free open-source tool.
+    Last updated August 2019, requires Sketch 49+ with built-in settings persistence.
 - plugin: ViewController for Framer
   link: https://github.com/awt2542/ViewController-for-Framer
   description: Multi step user flows in Framer.js
@@ -357,6 +400,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Companion plugin for Framer.js enabling multi-step user flows with transitions (slideIn, fadeIn, zoomIn, etc).
+    Auto-links artboards via layer naming (transitionName_viewName) with back navigation support. Includes history tracking.
+    Works with Framer.js CoffeeScript modules, last updated July 2019, useful for prototyping navigation patterns.
 - plugin: Sketch Commands
   link: https://github.com/bomberstudios/sketch-commands
   description: A collection of script commands for Bohemian Coding's Sketch.app
@@ -368,6 +415,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Comprehensive command suite including alignment, duplication, effects (repeat/spacing), exports (all formats), guides,
+    numbering, and batch operations for pages/artboards/text. Supports resizing, positioning, and case conversion.
+    Free open-source tool with 60+ commands, last updated June 2019, ported from Orange Commands for Fireworks.
 - plugin: Logodrop
   link: https://github.com/Iconscout/logodrop
   description: A Sketch Plugin to get brand logos right into Sketch App.
@@ -379,6 +430,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Integrates Iconscout's brand logo library directly into Sketch with search and drag-drop functionality (Cmd+Shift+F shortcut).
+    Powered by Iconscout API for accessing thousands of logos. MIT licensed, installable via Sketch Runner or manual download.
+    Last updated May 2019; now superseded by Icondrop plugin for broader asset support.
 - plugin: Diverse UI Sketch Plugin
   link: https://github.com/reneepadgham/diverseui-sketch-plugin
   description: The official Sketch plugin for Diverse UI.
@@ -390,6 +445,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Fills design mockups with diverse user photos from Diverse UI resource library with optional gender filtering.
+    Useful for creating representative, inclusive design comps. Installable via Sketchpacks or manual download.
+    Currently broken due to Sketch API changes as of April 2019; PRs welcome for fixes.
 - plugin: Typesettings
   link: https://github.com/buames/typesettings-sketch-plugin
   description: A quest for consistency
@@ -401,6 +460,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Manages typesetting consistency by registering and applying character spacing/line height rules per font and size.
+    Supports local registry (saved to Desktop), automatic application, and letter case variants. Includes SF Pro/SF Compact presets.
+    Keyboard shortcuts (Cmd+Shift+arrows), optional layer ignore prefixes, last updated March 2019, built with skpm.
 - plugin: sketch-camera-hotkeys
   link: https://github.com/jayhxmo/sketch-camera-hotkeys
   description: Navigate around and present more efficiently
@@ -412,6 +475,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    StarCraft 2-inspired camera control hotkeys for efficient Sketch navigation and presentation (Sketch 3.0+).
+    Creates/saves up to 20 camera positions with keyboard shortcuts for "Follow Camera on Selection" (Sketch 3.8+).
+    Configurable shortcuts via manifest.json, open-source, useful for large design file presentations.
 - plugin: Notes
   link: https://github.com/cshdllr/Notes
   description: A sketch plugin for taking notes
@@ -423,6 +490,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Simple note-taking plugin for Sketch (v53.2+) with colorful note layers (Cmd+L shortcut). Supports dynamic sizing based on zoom level.
+    Useful for quick feedback annotation and to-do lists directly in design files. Minimal utility focused on quick note insertion.
+    Last updated March 2019, simple and effective annotation tool.
 - plugin: DS Automator Sketch Plugin
   link: https://github.com/pavelneznanov/ds-automator-sketch-plugin
   description: Tools for automating designer work
@@ -434,6 +505,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Automates design system document organization with page/artboard formatting, numbering, and prefix cleanup.
+    Features include alphabetic sorting, special character removal, and batch artboard renaming. Installable via Sketch Runner.
+    Keyboard shortcuts (Cmd+Alt+Shift+P/C), last updated February 2019, focused on design system admin tasks.
 - plugin: Event Badges By David
   link: https://github.com/designforhuman/event-badges-by-david
   description: A Sketch plugin to make a large quantity of name tags for any kind
@@ -446,6 +521,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Batch-generates event name badges from spreadsheet data with automatic A4 pagination and cut guides.
+    Duplicates a designed badge template and populates names via copy-paste from CSV/spreadsheet. Includes subtle grey cutting lines.
+    MIT licensed, designed for large-scale event badge printing, last updated February 2019.
 - plugin: Sketch Line2rect
   link: https://github.com/KevinvBre/Sketch-Line2Rect
   description: Replace Lines

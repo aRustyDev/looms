@@ -220,6 +220,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Synchronizes names between symbol masters and their instances with a single command
+    or bulk operation. Supports both selective sync (for chosen instances) and global sync
+    (all instances at once). Open-source plugin, last updated March 2023.
 - plugin: Symbol States
   link: https://github.com/ozgurgunes/Sketch-Symbol-States
   description: A Sketch plugin which saves overrides of a symbol instance as states
@@ -232,6 +236,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Saves override configurations from one symbol instance and applies them to other instances
+    with customizable options for resetting overrides and saving default values. Supports states
+    stored in libraries for cross-document use. Open-source, last updated March 2023.
 - plugin: layers-to-x
   link: https://github.com/asp55/sketch-plugin-layers-to-x
   description: Quickly turn layers into groups, artboards, and symbols.
@@ -243,6 +251,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Rapidly converts selected layers into groups, frames, or symbols with a single command.
+    Streamlines component creation workflow by eliminating the need to manually convert layers
+    one at a time. Built with skpm, open-source, last updated January 2023.
 - plugin: library-inventory
   link: https://github.com/tijmenvangurp/library-inventory
   description: List all symbols that a selected document is using from an external
@@ -256,6 +268,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Generates a comprehensive list of all library symbols currently used in a selected document.
+    Useful for library audits, dependency tracking, and understanding symbol usage patterns.
+    Built with skpm, open-source, last updated January 2023.
 - plugin: Case Converter
   link: https://github.com/ozgurgunes/Sketch-Case-Converter
   description: Convert text layers, symbols or all instances of a symbol.
@@ -267,6 +283,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Converts text case in selected layers and symbol overrides to sentence case, title case,
+    uppercase, or lowercase. Supports locale-specific transformations and can apply conversions
+    to all instances of a symbol. Open-source by Özgür Güneş, last updated January 2023.
 - plugin: symbol-overlay-toggle
   link: https://github.com/uxcourt/overlaytoggler
   description: A Sketch plug-in to seek specific style names in library-sourced symbols
@@ -279,6 +299,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Creates custom overlay layers on library-sourced symbols with configurable naming and colors.
+    Useful for adding redlines and design annotations without modifying the underlying symbols.
+    Configuration options and debugMode available in source code, open-source, last updated January 2023.
 - plugin: Sketch Library Unlinker
   link: https://github.com/perrysmotors/sketch-library-unlinker
   description: Unlink symbols linked to a specific library, or unlink symbols that
@@ -291,6 +315,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Unlinks symbols from a selected library or detects and unlinks orphaned symbols missing
+    from their source libraries. Adds symbol masters to the current document when unlinking,
+    preserving the ability to update formerly-linked symbols. Open-source by Giles Perry,
+    available on Sketchpacks, last updated January 2023.
 - plugin: Symbol Namer
   link: https://github.com/perrysmotors/symbol-namer
   description: A plugin to help you rename symbols. Save default values, use override
@@ -303,6 +332,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Renames symbol instances based on their text override values, saved defaults, or pattern-based
+    templates using position references (%1, %2) and override text (%O). Supports library-wide
+    templates and instance-level defaults. Available on Sketchpacks, open-source by Giles Perry,
+    last updated January 2023.
 - plugin: Light Switch
   link: https://github.com/TheBerriman/lightswitch-sketch
   description: Toggle between Light or Dark symbols and text/layer styles.
@@ -314,6 +348,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automatically converts symbols, text styles, and layer styles between light and dark
+    alternatives by searching library components for matching theme variants. Supports keyboard
+    shortcuts (Cmd+Opt+K for light, Cmd+Opt+L for dark) and customizable settings. Open-source
+    by Samuel Berriman, last updated January 2023.
 - plugin: Symbol Master Renamer
   link: https://github.com/miguelangelnarvaezgo/symbol-master-renamer
   description: Simple plugin to rename and organizing the master symbols with '/'.
@@ -325,6 +364,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Renames and organizes symbol masters using forward slash (/) to create hierarchical folder
+    structures. Allows bulk renaming with dynamic detection of naming patterns and automatic
+    formatting. Keyboard shortcut Cmd+Ctrl+R. Open-source, last updated January 2023.
 - plugin: symbol-insert
   link: https://github.com/lifeofmle/symbol-insert
   description: Simple plugin to insert Sketch symbols
@@ -336,6 +379,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Provides a symbol insertion interface supporting both local and library symbols with
+    partial text filtering (e.g., searching "b p idl" for "Button/Primary/Idle"). Includes
+    mouse-driven symbol placement and keyboard shortcut Ctrl+Cmd+I. Open-source by Michael Le,
+    last updated January 2023.
 - plugin: Disconnector
   link: https://github.com/njcrowther/Disconnector
   description: Quickly disconnect all symbols from a selection
@@ -347,6 +395,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Disconnects all symbol instances in a selection (including nested symbols within groups
+    and artboards) with a single action. Converts library symbols to local instances while
+    preserving layer structure. Open-source by Nathan Crowther, available on Sketchpacks,
+    last updated January 2023.
 - plugin: QuickTextOverride
   link: https://github.com/dbilyk/QuickTextOverride
   description: Use a key command to target the first text override of a symbol.
@@ -358,6 +411,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Provides keyboard shortcuts to quickly access and edit text overrides in symbols without
+    using the mouse (Shift+Ctrl+T toggle, Tab for next override, Shift+Tab for previous).
+    Visual indicator shows the exact field being edited. Open-source by Dmitri Bilyk, last
+    updated January 2023.
 - plugin: Library Replacer
   link: https://github.com/sketch-hq/library-replacer-sketchplugin
   description: Quickly replace instances of shared Symbols and Styles.
@@ -369,6 +427,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Official Sketch plugin that replaces instances of shared symbols and layer/text styles
+    by switching to an alternative library. Supports both local and Sketch Cloud libraries
+    for seamless design system migration. Open-source, officially maintained by Sketch HQ,
+    last updated January 2023.
 - plugin: Atlassian Vendor Sketch Plugin
   link: https://github.com/atlassian/sketch-plugin
   description: Design your next Atlassian app with our component libraries and suite
@@ -381,6 +444,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Official Atlassian plugin providing access to Atlassian's component libraries and design
+    tools for building apps compatible with the Atlassian design system. Includes symbol
+    management and design system tools. Open-source by Atlassian Design team, last updated
+    December 2022.
 - plugin: Sketch Material
   link: https://github.com/websiddu/sketch-material
   description: Sketch material is a sketch plugin that will help you generate complex
@@ -393,6 +461,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Generates complex Material Design components including tables, chips, and forms as symbols
+    within Sketch. Requires Sketch 52.2+ and macOS 10.13.6+. Available on Sketchpacks, open-source
+    by Siddhartha Gudipati, last updated December 2022.
 - plugin: sketch-table-builder
   link: https://github.com/EricKramp/sketch-table-builder
   description: Quickly and easily use a single symbol and a CSV to create a data table.
@@ -404,6 +476,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Generates data tables from a symbol template and CSV file by duplicating the cell symbol
+    and populating the first text override with CSV data. Supports grid positioning and allows
+    header/row/column customization post-generation. Open-source by Eric Kramp, last updated
+    November 2022.
 - plugin: Omnis Skeleton Generator
   link: https://github.com/taohsu/skeletongenerator
   description: Generate skeleton/placeholder UI from the selected components
@@ -415,6 +492,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Converts selected layers, groups, and symbol instances into skeleton/placeholder UI with
+    configurable light or dark color themes. Useful for creating loading states and prototype
+    placeholders. Open-source by taohsu, last updated November 2022.
 - plugin: Symbol Swapper
   link: https://github.com/sonburn/symbol-swapper
   description: Swap the selected symbols and/or symbol instances to a master of the
@@ -427,6 +508,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Swaps selected symbols and instances to alternative versions from different libraries or
+    performs bulk library migrations. Supports renaming instances to match master names and
+    preserves overrides. Available on Sketch Runner, open-source by Jason Burns (prolific plugin
+    developer), last updated November 2022.
 - plugin: Sketch Canvas Item Manager
   link: https://github.com/icona79/Sketch-canvas-item-manager
   description: Automatically show or hide all the Canvas items that are not part of
@@ -439,6 +525,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automatically toggles visibility of canvas items that are outside artboards or main symbols,
+    keeping the canvas clean and focused on actual design content. Single-action toggle for managing
+    workspace clutter. Open-source by Matteo Gratton, last updated December 2021.
 - plugin: ContentSync
   link: https://www.contentsync.com
   description: Sync and version your design content to and from Google Sheets and

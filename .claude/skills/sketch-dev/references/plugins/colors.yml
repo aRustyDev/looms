@@ -326,6 +326,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates a comprehensive color inventory artboard showing all colors used in a Sketch document,
+    separated into Layer Style Colors and Unique Colors with frequency counts and hex values.
+    Keyboard shortcut Shift+Command+P provides quick access. Useful for design system auditing
+    and color usage documentation.
 - plugin: json-color-palette-importer
   link: https://github.com/ziyafenn/sketch-json-color-palette-importer
   description: Create shared layer styles
@@ -337,6 +342,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Imports color palettes from JSON files and creates shared layer styles in Sketch.
+    Supports structured color data for design system integration. Simplifies palette management
+    when working with external color configuration files. Useful for design token synchronization.
 - plugin: Prism2ColorVariables
   link: https://github.com/griffin-stewie/Prism2ColorVariables
   description: Migrate your Prism named color to Color Variables
@@ -348,6 +357,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Automates migration of Prism named colors to Sketch 69+ native Color Variables.
+    Streamlines color system modernization for users transitioning from Prism to Sketch's
+    native color variables. Single-click conversion preserves color definitions while updating
+    references throughout the document.
 - plugin: Randomcolors
   link: https://github.com/avadhbsd/RandomColors
   description: Sketch App Plugin For Applying Random Colors To A Selection Of Objects.
@@ -359,6 +373,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Applies random colors from the Sketch color palette to a selection of layers.
+    Useful for quickly visualizing or prototyping with varied color treatments. Simple
+    utility for testing color variations across multiple elements without manual color assignment.
 - plugin: QuickColor
   link: https://github.com/colesperks/QuickColor
   description: Sketch plugin that lets you quickly apply colors from the color palette
@@ -371,6 +389,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Provides rapid color application from the Sketch color palette to selected layers.
+    Streamlines workflow by enabling quick color assignment without opening color pickers.
+    Useful for iterating through color options and maintaining palette consistency during design work.
 - plugin: gradient-matrix-generator
   link: https://github.com/carloscabo/gradient-matrix-generator-sketch
   description: Plugin that generates a matrix of gradient combinations from a selection
@@ -383,6 +405,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates visual gradient matrices by combining selected colors in systematic variations.
+    Creates comprehensive gradient samples for design exploration and documentation.
+    Useful for visualizing color relationships and generating gradient palettes from base colors.
 - plugin: Blender
   link: https://github.com/bunnieabc/Blender
   description: A sketch plugin to create awesome gradient layers
@@ -394,6 +420,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Creates smooth gradient layers with customizable blend modes and color stops.
+    Simplifies gradient design workflow compared to manual gradient creation in Sketch.
+    Useful for rapid prototyping of gradient-based designs and visual effects.
 - plugin: Sketch Image Average Color
   link: https://github.com/AntonioJMartinez/sketch-ImageAverageColor
   description: A plugin to save and use the average color of an image.
@@ -405,6 +435,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Extracts the dominant/average color from selected image layers and converts it to Sketch colors
+    or text labels. Useful for color sampling and creating palettes from photographic sources.
+    Streamlines the process of deriving design colors from image references.
 - plugin: Prism
   link: https://github.com/ment-mx/Prism
   description: Creates a beautiful artboard color palette with all your 'Document
@@ -417,6 +451,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates a visually organized artboard displaying all document colors with labels in multiple formats
+    (hex, RGB, color names). Creates beautiful color palette documentation for design handoff and reference.
+    Useful for color system visualization and sharing palette specifications with teams.
 - plugin: CoolHue
   link: https://github.com/webkul/coolhue
   description: Coolest handpicked Gradient Palette for super amazing stuff
@@ -429,6 +467,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Provides a curated library of handpicked, visually cohesive gradients for quick application to layers.
+    Focuses on modern, aesthetically pleasing color combinations. Useful for designers seeking inspiration
+    and for rapidly applying professional gradient effects without manual color selection.
 - plugin: Name my Color
   link: https://github.com/carlosflrg/name-my-color
   description: Give your colors unique names. Generates labels for the Color Name,
@@ -441,6 +483,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Automatically generates semantic color names and layer labels from hex values.
+    Updates layer names with readable color descriptions for better design file organization.
+    Useful for maintaining naming conventions and improving design system documentation clarity.
 - plugin: Sketch Palettes
   link: https://github.com/andrewfiorillo/sketch-palettes
   description: Sketch plugin that lets you save and load colors in the color picker
@@ -452,6 +498,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Persists custom color palettes that can be saved and loaded across documents and projects.
+    Enables color palette sharing and reuse independent of Sketch's document-specific color system.
+    Useful for maintaining consistent palettes across multiple files and team collaboration.
 - plugin: img-pal-gen
   link: https://github.com/iarthstar/Image2Palette
   description: Generates Color Palette from Image Layer
@@ -463,6 +513,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Automatically extracts dominant colors from image layers and generates a color palette.
+    Creates design palettes directly from photographic or artistic sources within Sketch.
+    Useful for rapid color sampling and deriving harmonious palettes from visual inspiration.
 - plugin: Style Inventory
   link: https://github.com/getflourish/Sketch-Style-Inventory
   description: Generate a visual style sheet with all colors and text styles that
@@ -475,6 +529,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Creates a comprehensive visual style guide artboard displaying all colors and text styles used in the document.
+    Generates design system documentation with color swatches and typography samples for reference and handoff.
+    Essential tool for design system management and maintaining style consistency documentation.
 - plugin: add-selected-colors
   link: https://github.com/jorgemartins/add-selected-colors
   description: Add selected colors to document palette, sketch plugin
@@ -486,6 +544,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Extracts colors from selected layers and adds them to the document color palette.
+    Streamlines palette building by capturing colors in use rather than manual entry.
+    Useful for formalizing ad-hoc color usage into a managed palette system.
 - plugin: Miaow
   link: https://github.com/weixin/Miaow
   description: A set of plugins for Sketch include drawing links & marks, UI Kit &
@@ -498,6 +560,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Comprehensive plugin suite from Tencent WeChat Team including color sync, font replacement, and drawing tools.
+    Supports multi-functional design workflows with emphasis on consistency across elements.
+    Includes color management alongside other design utilities in a single package.
 - plugin: Material Design Color Palette
   link: https://github.com/t32k/material-design-color-palette
   description: Sketch app plugin for displaying Google material design color palette.
@@ -509,6 +575,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Provides quick access to Google Material Design's official color palette within Sketch.
+    Useful for Material Design projects and maintaining design consistency with Material guidelines.
+    Simplifies application of material colors without external references or manual entry.
 - plugin: system-styles
   link: https://github.com/sebcglbailey/sketch-system-styles
   description: Generate all the text styles you'll need, including alignment and colour.
@@ -520,6 +590,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates comprehensive text style systems including color, typography, and alignment parameters.
+    Automates creation of consistent text style libraries for design systems.
+    Useful for rapidly building complete text style hierarchies with color specifications.
 - plugin: Laboji
   link: https://github.com/rezaaa/Laboji
   description: A sketch plugin for adding emoji on layer name like colorful labels
@@ -532,6 +606,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Adds emoji labels and tags to layer names for visual organization and categorization.
+    Provides quick visual identification of layer purpose through colorful emoji markers.
+    Useful for improving layer organization and navigation in complex design files without color systems.
 - plugin: Sketch Color Vars
   link: https://github.com/philsinatra/Sketch-Color-Vars
   description: A Sketch plugin that will export the fill color of selected layers
@@ -544,6 +622,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Exports layer fill colors to preprocessor variables (SCSS, LESS) and native CSS custom properties.
+    Bridges design and development by automating color variable generation for stylesheets.
+    Streamlines design-to-code handoff for web projects using CSS preprocessors or custom properties.
 - plugin: Convert To Grayscale
   link: https://github.com/mheesakkers/sketch-plugin-convert-to-grayscale
   description: A simple Sketch plugin to convert selected shapes to grayscale colors

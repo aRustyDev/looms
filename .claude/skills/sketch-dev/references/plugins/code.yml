@@ -244,6 +244,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Creates interactive HTML click-through prototypes from Sketch designs with built-in responsive design support.
+    Features include linking between artboards, external links, JavaScript dialogs, mobile menu handling, and automatic
+    2x retina image export. Supports responsive breakpoints by artboard naming conventions (e.g., index, index tablet, index mobile).
 - plugin: 腾讯 CoDesign
   link: https://codesign.qq.com
   description: 腾讯 CoDesign 是产品设计研发一站式协作平台，帮助团队提升设计协作效率，有效管理使用设计资产，让产品设计更轻松高效。
@@ -255,6 +259,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Tencent's design collaboration platform enabling team-based design workflows with design asset management.
+    Integrates with Sketch for streamlined design-to-code processes. Commercial platform focused on improving design efficiency
+    and asset organization for product teams.
 - plugin: svgToKeyshape
   link: https://github.com/CyrilSiman/svgToKeyshape
   description: Plugin used to convert SVG filter into CSS
@@ -266,6 +274,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Converts Sketch SVG filters to CSS equivalents for use in Keyshape or other web animation tools.
+    Transforms drop-shadow filters to CSS drop-shadow, blur filters to CSS blur, and text/tspan elements for easier editing.
+    Designed as a bridge between Sketch's native filters and Keyshape's animation capabilities.
 - plugin: sketch-kodika-plugin
   link: https://github.com/kodika/kodika-import-from-sketch-plugin
   description: Export your designs to Kodika.io No Code App Builder and create your
@@ -278,6 +290,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Bridges Sketch designs to Kodika.io's no-code iOS app builder, enabling drag-and-drop mobile app creation.
+    Exports design layouts and components directly to Kodika Studio. Available as both Mac app and iPad app,
+    targeting non-developers and designers who want to build production iOS apps without coding.
 - plugin: import-shadows
   link: https://github.com/cozy/sketch-import-shadows
   description: Import CSS shadows
@@ -289,6 +305,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Imports box-shadow specifications from Material Design UI themes directly into Sketch as shadow styles.
+    Supports 24 different shadow levels with precise RGBA color values and blur/spread configurations. Designed to
+    keep Sketch design system shadows synchronized with Material UI theme specifications.
 - plugin: P5 Sketchplugin
   link: https://github.com/jacopocolo/p5-sketchplugin
   description: A plugin for using p5.js code inside Sketch
@@ -300,6 +320,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Executes p5.js code directly within Sketch to generate editable native shapes and graphics.
+    Most p5.js drawing functions are supported, allowing you to create complex generative designs that render as
+    native Sketch objects. Warning: Plugin no longer under active development; code execution carries potential risks.
 - plugin: Launchpad
   link: https://launchpad.animaapp.com
   description: Export your Sketch design into HTML website.
@@ -311,6 +335,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Anima's design-to-code solution that converts Sketch designs into fully functional HTML websites.
+    Combines design export with web building capabilities to bridge the gap between design and development.
+    Now part of Anima's broader ecosystem featuring AI-powered code generation and design agent tools.
 - plugin: helpweb
   link: https://github.com/mybenmao/sketch-helpweb
   description: web html css image
@@ -322,6 +350,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    A simple Sketch plugin for exporting designs to HTML, CSS, and web-ready images.
+    Built using skpm (Sketch Plugin Maker) with standard web development tooling. Minimal functionality focused
+    on basic design export capabilities.
 - plugin: Avocode Sketch Plugin
   link: https://avocode.com/download?origin=sketch
   description: Sync Sketch designs to Avocode.
@@ -333,6 +365,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Synced Sketch designs to Avocode for design-to-code workflows and collaboration.
+    Avocode was sunset on October 1, 2023 as Ceros pivoted to new tools (Studio, MarkUp). Plugin and service
+    are no longer functional or maintained.
 - plugin: NeoPreview
   link: https://github.com/alanfraneo/sketch-neo-preview
   description: A plugin to create HTML based preview and gallery straight from sketch
@@ -345,6 +381,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Generates responsive HTML galleries from Sketch artboards with 2x retina image support by default.
+    Supports keyboard navigation (arrow keys), URL hash-based image linking for easy sharing, and vertical scrolling
+    for mobile/webpage designs. Excludes Symbols and underscore-prefixed pages from exports.
 - plugin: PaintCode Code Generator
   link: https://www.paintcodeapp.com/sketch
   description: Convert your Sketch drawings into Swift or Objective-C
@@ -356,6 +396,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Exports Sketch vector drawings as resolution-independent Swift or Objective-C code for iOS apps.
+    Eliminates the need for multiple resolution assets (1x, 2x, 3x) by generating code that scales dynamically.
+    Commercial product with trial limited to 7 days; available directly from paintcodeapp.com.
 - plugin: Presto-Dom-Gen
   link: https://github.com/iarthstar/presto-dom-code
   description: Generates Presto Dom Code from Sketch Layers.
@@ -367,6 +411,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Converts Sketch layers to Presto Dom code for embedding in Purescript UI files.
+    Supports text, rectangles, groups, and image layers with position preservation. Images are exported at 3x resolution.
+    Enables direct copy-paste code generation from Sketch designs into Presto frontend projects.
 - plugin: Anima
   link: https://www.animaapp.com
   description: Create High-Fidelity Prototypes and Export to HTML.
@@ -378,6 +426,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Comprehensive design-to-code platform that converts Sketch designs into production-ready HTML/CSS websites.
+    Features AI-powered code generation, interactive prototyping, built-in database support, and live deployment.
+    Part of Anima's ecosystem supporting Figma, Adobe XD, and their VSCode plugin Frontier.
 - plugin: Marketch
   link: http://tudou527.github.io/marketch/
   description: Marketch is a Sketch 3 plug-in for automatically generating html page
@@ -390,6 +442,10 @@
   open-source: false
   tags:
   - code
+  summary: |
+    Generates interactive HTML pages from Sketch designs with built-in measurement and CSS style inspection.
+    Allows developers to measure distances, inspect colors, and extract CSS properties directly from generated pages.
+    Targets Sketch 3; no longer actively maintained.
 - plugin: SVG Insert
   link: https://github.com/tankxu/SVG-Insert
   description: Insert SVG code as a Layer.
@@ -401,6 +457,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Inserts SVG code directly as native Sketch layers, enabling reuse of web SVG graphics in designs.
+    Paste SVG XML code and it becomes an editable Sketch layer. Available through Sketch Runner or direct download.
+    Streamlines workflow for designers working with web-sourced SVG graphics.
 - plugin: StyleClip
   link: https://github.com/liawesomesaucer/StyleClip
   description: Sketch plugin that copies an element's styles directly to your Mac
@@ -413,6 +473,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Copies Sketch element styles to clipboard as raw CSS, SCSS variables, or SCSS-styled code.
+    Automatically generates SCSS variable names with opacity suffixes and color naming based on proximity.
+    Keyboard shortcuts: Cmd+Shift+Y (CSS), Cmd+Shift+U (SCSS globals), Cmd+Shift+I (SCSS styles).
 - plugin: iOSViews
   link: https://github.com/Charimon/iosViews
   description: Sketch Plugin to generate iOS view code
@@ -424,6 +488,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Converts Sketch shapes to UIBezierPath Swift code for iOS development, making vector graphics resolution-independent.
+    Generated code scales to runtime CGRect dimensions, enabling responsive layouts without image assets. Does not support
+    boolean operations, radius on objects, or text layers; best for simple to moderately complex shapes.
 - plugin: Slinky
   link: https://github.com/finchalyzer/slinky
   description: Export your Sketch designs as HTML email templates
@@ -435,6 +503,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Exports Sketch artboards as production-ready HTML email templates with automatic image/icon export.
+    Requires marking assets as exportable, setting link URLs via plugin sidebar, and using web-safe fonts.
+    Includes template examples and guidelines for email client compatibility.
 - plugin: CSSketch
   link: https://github.com/JohnCoates/CSSketch
   description: CSS Stylesheet integration to improve your workflow, with Less support.
@@ -447,6 +519,10 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Attaches CSS (Sass/Less) stylesheets to Sketch designs that automatically update layers on stylesheet changes.
+    Uses WebKit engine for CSS parsing; enables naming conventions like .className for targeting layers. No longer
+    supported or maintained; only works with older Sketch versions.
 - plugin: Sketch Style To React Native
   link: https://github.com/futantan/sketch-style-to-react-native
   description: Sketch plugin that copies an element's styles in React Native way directly
@@ -459,3 +535,7 @@
   open-source: true
   tags:
   - code
+  summary: |
+    Copies Sketch element styles to clipboard as React Native StyleSheet-compatible code.
+    Select an element and press Ctrl+Cmd+C to instantly get CSS formatted for React Native. Useful for designers
+    collaborating with React Native developers seeking quick style reference exports.
