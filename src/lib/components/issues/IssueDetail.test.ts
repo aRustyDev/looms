@@ -194,11 +194,11 @@ describe('IssueDetail', () => {
 			expect(screen.getByText(/1 blocking/i)).toBeInTheDocument();
 		});
 
-		it('shows "No dependencies" when none exist', () => {
+		it('shows "None" when no dependencies exist', () => {
 			const issueWithoutDeps = { ...mockIssue, blockedBy: [], blocking: [] };
 			render(IssueDetail, { props: { issue: issueWithoutDeps } });
 
-			expect(screen.getByText(/no dependencies/i)).toBeInTheDocument();
+			expect(screen.getByText(/none/i)).toBeInTheDocument();
 		});
 	});
 

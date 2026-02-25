@@ -4,6 +4,9 @@
  *
  * Provides global state that needs to be shared across layout and pages,
  * such as modal states and issue creation that happens from the nav bar.
+ *
+ * All write operations go through API endpoints to avoid importing server
+ * modules in browser code.
  */
 
 import { browser } from '$app/environment';
@@ -11,8 +14,6 @@ import { SvelteSet } from 'svelte/reactivity';
 import { createRealtimeClient, type RealtimeClient } from '$lib/realtime/useRealtime.js';
 import { toastStore } from './toast.svelte.js';
 import type { Issue, IssueFilter } from '$lib/db/types.js';
-import type { DataAccessLayer } from '$lib/db/types.js';
-import type { ProcessSupervisor } from '$lib/cli/types.js';
 
 export interface CreateIssueInput {
 	title: string;
@@ -20,19 +21,19 @@ export interface CreateIssueInput {
 	description?: string;
 	priority?: number;
 	assignee?: string;
+	status?: string;
 }
 
 export interface AppStoreConfig {
-	dal?: DataAccessLayer;
-	supervisor?: ProcessSupervisor;
+	/** Base URL for API calls (defaults to '' for same-origin) */
+	apiBase?: string;
 }
 
 /**
  * Application-level store for shared state
  */
 class AppStore {
-	#dal: DataAccessLayer | null = null;
-	#supervisor: ProcessSupervisor | null = null;
+	#apiBase = '';
 	#realtimeClient: RealtimeClient | null = null;
 	#pollingInterval: ReturnType<typeof setInterval> | null = null;
 	#initialized = false;
@@ -119,43 +120,12 @@ class AppStore {
 	}
 
 	/**
-	 * Initialize the store with dependencies
+	 * Initialize the store with configuration
 	 */
-	async init(config: AppStoreConfig = {}): Promise<void> {
+	init(config: AppStoreConfig = {}): void {
 		if (this.#initialized) return;
 
-		// Only create real instances if explicitly provided or in browser and not testing
-		const isTest = typeof process !== 'undefined' && process.env?.VITEST;
-		const shouldCreateInstances = browser && !isTest;
-
-		if (config.dal) {
-			this.#dal = config.dal;
-		} else if (shouldCreateInstances) {
-			try {
-				// Use non-static import path to bypass SvelteKit guard
-				// These modules are only loaded during SSR, never in browser
-				const dalPath = '$lib/server/db/dal.js';
-				const mod = await import(/* @vite-ignore */ dalPath);
-				this.#dal = await mod.DataAccessLayer.create();
-			} catch {
-				// DAL creation failed, will use null
-				this.#dal = null;
-			}
-		}
-
-		if (config.supervisor) {
-			this.#supervisor = config.supervisor;
-		} else if (shouldCreateInstances) {
-			try {
-				// Use non-static import path to bypass SvelteKit guard
-				const supervisorPath = '$lib/server/cli/supervisor.js';
-				const mod = await import(/* @vite-ignore */ supervisorPath);
-				this.#supervisor = mod.getProcessSupervisor();
-			} catch {
-				this.#supervisor = null;
-			}
-		}
-
+		this.#apiBase = config.apiBase ?? '';
 		this.#initialized = true;
 	}
 
@@ -164,9 +134,8 @@ class AppStore {
 	 */
 	reset(config: AppStoreConfig = {}): void {
 		this.stopWatching();
-		this.#dal = config.dal ?? null;
-		this.#supervisor = config.supervisor ?? null;
-		this.#initialized = !!config.dal || !!config.supervisor;
+		this.#apiBase = config.apiBase ?? '';
+		this.#initialized = false;
 		this.#issues = [];
 		this.#filter = {};
 		this.#loading = false;
@@ -208,77 +177,58 @@ class AppStore {
 	}
 
 	/**
-	 * Load issues from database
+	 * Load issues from API
 	 */
 	async load(): Promise<void> {
-		if (!this.#dal) {
-			await this.init();
-		}
-		if (!this.#dal) return;
+		if (!browser) return;
 
 		this.#loading = true;
 		try {
-			const issues = await this.#dal.getIssues();
-			this.#issues = issues;
+			const response = await fetch(`${this.#apiBase}/api/issues`);
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to fetch issues: ${response.status}`);
+			}
+			const data = await response.json();
+			this.#issues = data.issues ?? [];
 			this.#notifyListeners();
+		} catch (e) {
+			const message = e instanceof Error ? e.message : 'Failed to load issues';
+			toastStore.error(message);
 		} finally {
 			this.#loading = false;
 		}
 	}
 
 	/**
-	 * Create a new issue via bd CLI
+	 * Create a new issue via API
 	 */
 	async create(input: CreateIssueInput): Promise<Issue | null> {
-		if (!this.#supervisor || !this.#dal) {
-			await this.init();
-		}
-		if (!this.#supervisor || !this.#dal) {
-			toastStore.error('Store not initialized');
+		if (!browser) {
+			toastStore.error('Cannot create issues outside browser');
 			return null;
 		}
 
-		const args = ['create', '--title', input.title, '--type', input.issue_type];
-
-		if (input.priority !== undefined) {
-			args.push('--priority', String(input.priority));
-		}
-
-		if (input.assignee) {
-			args.push('--assignee', input.assignee);
-		}
-
-		if (input.description) {
-			args.push('--description', input.description);
-		}
-
 		try {
-			const result = await this.#supervisor.execute('bd', args);
+			const response = await fetch(`${this.#apiBase}/api/issues`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(input)
+			});
 
-			if (result.exitCode !== 0) {
-				throw new Error(result.stderr || 'Failed to create issue');
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to create issue: ${response.status}`);
 			}
 
-			// Parse issue ID from CLI output (format: "✓ Created issue: <id>")
-			const match = result.stdout.match(/Created issue:\s*(\S+)/);
-			const issueId = match?.[1];
-
-			if (!issueId) {
-				throw new Error('Could not parse issue ID from CLI output');
-			}
-
-			// Fetch the created issue from database
-			const issue = await this.#dal.getIssue(issueId);
-
-			if (!issue) {
-				throw new Error(`Created issue ${issueId} not found in database`);
-			}
+			const data = await response.json();
+			const issue = data.issue;
 
 			// Add to local state
 			this.#issues = [...this.#issues, issue];
 			this.#notifyListeners();
 
-			toastStore.success(`Created issue ${issueId}`);
+			toastStore.success(`Created issue ${issue.id}`);
 			return issue;
 		} catch (error) {
 			const message = error instanceof Error ? error.message : 'Failed to create issue';
@@ -288,20 +238,17 @@ class AppStore {
 	}
 
 	/**
-	 * Update an existing issue via bd CLI
+	 * Update an existing issue via API
 	 */
 	async update(id: string, changes: Partial<CreateIssueInput>): Promise<void> {
-		if (!this.#supervisor) {
-			await this.init();
-		}
-		if (!this.#supervisor) {
-			toastStore.error('Store not initialized');
+		if (!browser) {
+			toastStore.error('Cannot update issues outside browser');
 			return;
 		}
 
 		const original = this.#issues.find((i) => i.id === id);
 		if (!original) {
-			throw new Error(`Issue ${id} not found`);
+			throw new Error(`Issue ${id} not found in local state`);
 		}
 
 		// Optimistic update
@@ -310,29 +257,23 @@ class AppStore {
 		);
 		this.#notifyListeners();
 
-		const args = ['update', id];
-
-		if (changes.title !== undefined) {
-			args.push('--title', changes.title);
-		}
-		if (changes.issue_type !== undefined) {
-			args.push('--type', changes.issue_type);
-		}
-		if (changes.priority !== undefined) {
-			args.push('--priority', String(changes.priority));
-		}
-		if (changes.assignee !== undefined) {
-			args.push('--assignee', changes.assignee);
-		}
-		if (changes.description !== undefined) {
-			args.push('--description', changes.description);
-		}
-
 		try {
-			const result = await this.#supervisor.execute('bd', args);
+			const response = await fetch(`${this.#apiBase}/api/issues/${encodeURIComponent(id)}`, {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(changes)
+			});
 
-			if (result.exitCode !== 0) {
-				throw new Error(result.stderr || 'Failed to update issue');
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to update issue: ${response.status}`);
+			}
+
+			const data = await response.json();
+			// Update with server response to ensure consistency
+			if (data.issue) {
+				this.#issues = this.#issues.map((issue) => (issue.id === id ? data.issue : issue));
+				this.#notifyListeners();
 			}
 
 			toastStore.success(`Updated issue ${id}`);
@@ -348,20 +289,17 @@ class AppStore {
 	}
 
 	/**
-	 * Delete an issue via bd CLI
+	 * Close (delete) an issue via API
 	 */
 	async delete(id: string): Promise<void> {
-		if (!this.#supervisor) {
-			await this.init();
-		}
-		if (!this.#supervisor) {
-			toastStore.error('Store not initialized');
+		if (!browser) {
+			toastStore.error('Cannot close issues outside browser');
 			return;
 		}
 
 		const original = this.#issues.find((i) => i.id === id);
 		if (!original) {
-			throw new Error(`Issue ${id} not found`);
+			throw new Error(`Issue ${id} not found in local state`);
 		}
 
 		// Optimistic update - store the original list for rollback
@@ -370,10 +308,13 @@ class AppStore {
 		this.#notifyListeners();
 
 		try {
-			const result = await this.#supervisor.execute('bd', ['close', id]);
+			const response = await fetch(`${this.#apiBase}/api/issues/${encodeURIComponent(id)}`, {
+				method: 'DELETE'
+			});
 
-			if (result.exitCode !== 0) {
-				throw new Error(result.stderr || 'Failed to delete issue');
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to close issue: ${response.status}`);
 			}
 
 			toastStore.success(`Closed issue ${id}`);
@@ -382,7 +323,7 @@ class AppStore {
 			this.#issues = originalIssues;
 			this.#notifyListeners();
 
-			const message = error instanceof Error ? error.message : 'Failed to delete issue';
+			const message = error instanceof Error ? error.message : 'Failed to close issue';
 			toastStore.error(message);
 			throw error;
 		}
@@ -397,36 +338,31 @@ class AppStore {
 	}
 
 	/**
-	 * Get available statuses from DAL
+	 * Get available statuses (derived from current issues or defaults)
 	 */
-	async getStatuses(): Promise<string[]> {
-		if (!this.#dal) {
-			await this.init();
-		}
-		if (!this.#dal) return ['open', 'in_progress', 'done'];
-		return this.#dal.getStatuses();
+	getStatuses(): string[] {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity -- temporary set for deduplication
+		const fromIssues = [...new Set(this.#issues.map((i) => i.status))].filter(Boolean);
+		if (fromIssues.length > 0) return fromIssues.sort();
+		return ['open', 'in_progress', 'blocked', 'closed'];
 	}
 
 	/**
-	 * Get available assignees from DAL
+	 * Get available assignees (derived from current issues)
 	 */
-	async getAssignees(): Promise<string[]> {
-		if (!this.#dal) {
-			await this.init();
-		}
-		if (!this.#dal) return [];
-		return this.#dal.getAssignees();
+	getAssignees(): string[] {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity -- temporary set for deduplication
+		return [...new Set(this.#issues.map((i) => i.assignee).filter(Boolean) as string[])].sort();
 	}
 
 	/**
-	 * Get available issue types from DAL
+	 * Get available issue types (derived from current issues or defaults)
 	 */
-	async getIssueTypes(): Promise<string[]> {
-		if (!this.#dal) {
-			await this.init();
-		}
-		if (!this.#dal) return ['task', 'bug', 'feature'];
-		return this.#dal.getIssueTypes();
+	getIssueTypes(): string[] {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity -- temporary set for deduplication
+		const fromIssues = [...new Set(this.#issues.map((i) => i.issue_type))].filter(Boolean);
+		if (fromIssues.length > 0) return fromIssues.sort();
+		return ['task', 'bug', 'feature', 'epic'];
 	}
 
 	#notifyListeners(): void {

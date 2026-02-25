@@ -33,6 +33,8 @@
 	let error = $state<string | null>(data.error || null);
 	let searchValue = $state('');
 	let selectedId = $state<string | null>(null);
+	let sortField = $state<string>('updated_at');
+	let sortDirection = $state<'asc' | 'desc'>('desc');
 	let availableStatuses = $state<string[]>(data.statuses);
 	let availableAssignees = $state<string[]>(data.assignees);
 	let availableTypes = $state<string[]>(data.issueTypes);
@@ -45,8 +47,41 @@
 	});
 
 	// Derived from store
-	const issues = $derived(store.filtered);
+	const filteredIssues = $derived(store.filtered);
 	const filter = $derived(store.filter);
+
+	// Sort issues client-side
+	const issues = $derived.by(() => {
+		const sorted = [...filteredIssues];
+		sorted.sort((a, b) => {
+			const getValue = (issue: (typeof sorted)[0]): string | number => {
+				switch (sortField) {
+					case 'id':
+						return issue.id;
+					case 'title':
+						return issue.title.toLowerCase();
+					case 'priority':
+						return issue.priority;
+					case 'status':
+						return issue.status;
+					case 'assignee':
+						return issue.assignee?.toLowerCase() ?? '';
+					case 'updated_at':
+						return new Date(issue.updated_at).getTime();
+					default:
+						return '';
+				}
+			};
+
+			const aVal = getValue(a);
+			const bVal = getValue(b);
+
+			if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+			if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+			return 0;
+		});
+		return sorted;
+	});
 
 	// Filter state for FilterPanel (convert IssueFilter to array format)
 	const filterStatus = $derived(
@@ -130,6 +165,16 @@
 
 	function handleSelect(id: string) {
 		selectedId = id;
+		// Open detail modal for the selected issue
+		const issue = issues.find((i) => i.id === id);
+		if (issue) {
+			store.openDetailModal(issue);
+		}
+	}
+
+	function handleSort(sort: { field: string; direction: 'asc' | 'desc' }) {
+		sortField = sort.field;
+		sortDirection = sort.direction;
 	}
 
 	async function handleRetry() {
@@ -151,22 +196,24 @@
 	);
 </script>
 
-<div class="flex h-full flex-col gap-4 p-4">
-	<!-- Header with filters (includes search) -->
-	<FilterPanel
-		status={filterStatus}
-		issueType={filterIssueType}
-		priority={filterPriority}
-		assignee={filterAssignee}
-		search={searchValue}
-		{availableStatuses}
-		{availableTypes}
-		{availableAssignees}
-		onfilterchange={handleFilterChange}
-	/>
+<div class="flex h-full flex-col">
+	<!-- Sticky header with filters -->
+	<div class="sticky top-0 z-10 bg-white p-4 pb-2 dark:bg-gray-950">
+		<FilterPanel
+			status={filterStatus}
+			issueType={filterIssueType}
+			priority={filterPriority}
+			assignee={filterAssignee}
+			search={searchValue}
+			{availableStatuses}
+			{availableTypes}
+			{availableAssignees}
+			onfilterchange={handleFilterChange}
+		/>
+	</div>
 
-	<!-- Content area -->
-	<div class="flex-1 overflow-auto">
+	<!-- Scrollable content area -->
+	<div class="flex-1 overflow-auto px-4 pb-4">
 		{#if loading}
 			<div data-testid="loading-skeleton" class="space-y-2">
 				{#each { length: 5 } as _, i (i)}
@@ -195,7 +242,16 @@
 				</p>
 			</div>
 		{:else}
-			<IssueTable {issues} {loading} {selectedId} onselect={handleSelect} onretry={handleRetry} />
+			<IssueTable
+				{issues}
+				{loading}
+				{selectedId}
+				{sortField}
+				{sortDirection}
+				onselect={handleSelect}
+				onsort={handleSort}
+				onretry={handleRetry}
+			/>
 		{/if}
 	</div>
 </div>

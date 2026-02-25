@@ -6,6 +6,7 @@
 	import GlobalNav from '$lib/components/navigation/GlobalNav.svelte';
 	import ToastContainer from '$lib/components/common/ToastContainer.svelte';
 	import CreateIssueModal from '$lib/components/issues/CreateIssueModal.svelte';
+	import IssueDetailModal from '$lib/components/issues/IssueDetailModal.svelte';
 	import { appStore } from '$lib/stores/app.svelte.js';
 
 	type Tab = 'Issues' | 'Epics' | 'Board' | 'Dashboard' | 'Graph';
@@ -21,6 +22,25 @@
 
 	// Modal state from app store
 	const createModalOpen = $derived(appStore.createModalOpen);
+	const detailModalOpen = $derived(appStore.issueDetailModalOpen);
+	const selectedIssue = $derived(appStore.selectedIssueForDetail);
+
+	// Transform database Issue to modal Issue format
+	const modalIssue = $derived(
+		selectedIssue
+			? {
+					id: selectedIssue.id,
+					title: selectedIssue.title,
+					description: selectedIssue.description,
+					status: selectedIssue.status,
+					priority: `P${selectedIssue.priority}`,
+					type: selectedIssue.issue_type,
+					assignee: selectedIssue.assignee,
+					created: selectedIssue.created_at,
+					updated: selectedIssue.updated_at
+				}
+			: null
+	);
 
 	// Initialize from localStorage and system preferences
 	$effect(() => {
@@ -113,6 +133,10 @@
 	function handleCreateClose() {
 		appStore.closeCreateModal();
 	}
+
+	function handleDetailClose() {
+		appStore.closeDetailModal();
+	}
 </script>
 
 <a
@@ -140,5 +164,9 @@
 	onsubmit={handleCreateSubmit}
 	onclose={handleCreateClose}
 />
+
+{#if modalIssue}
+	<IssueDetailModal open={detailModalOpen} issue={modalIssue} onclose={handleDetailClose} />
+{/if}
 
 <ToastContainer />

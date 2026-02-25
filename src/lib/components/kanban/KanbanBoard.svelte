@@ -49,12 +49,12 @@
 	role="region"
 	aria-label="Kanban board"
 	data-testid="kanban-board"
-	class="flex h-full gap-4 overflow-x-auto p-4"
+	class="flex h-full gap-4 overflow-x-auto"
 >
 	{#if loading}
-		<div data-testid="kanban-loading" class="flex w-full gap-4">
+		<div data-testid="kanban-loading" class="flex gap-4">
 			{#each statuses as _status (_status)}
-				<div class="min-w-64 flex-1">
+				<div class="w-72 shrink-0">
 					<div class="animate-pulse">
 						<div class="h-10 rounded-t-lg bg-gray-200 dark:bg-gray-700"></div>
 						<div class="h-64 space-y-2 rounded-b-lg bg-gray-100 p-2 dark:bg-gray-800">
@@ -67,7 +67,7 @@
 		</div>
 	{:else}
 		{#each statuses as status (status)}
-			<div class="min-w-64 flex-1">
+			<div class="shrink-0">
 				<KanbanColumn
 					{status}
 					issues={issuesByStatus[status] ?? []}

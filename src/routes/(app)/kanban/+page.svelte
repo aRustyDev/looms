@@ -149,7 +149,7 @@
 
 	async function handleStatusChange(kanbanIssue: KanbanIssue, newStatus: string) {
 		try {
-			await store.update(kanbanIssue.id, { status: newStatus } as { title?: string });
+			await store.update(kanbanIssue.id, { status: newStatus });
 		} catch (e) {
 			console.error('Failed to update status:', e);
 		}
@@ -168,21 +168,23 @@
 	}
 </script>
 
-<div class="flex h-full flex-col gap-4 p-4">
-	<!-- Filter panel -->
-	<FilterPanel
-		status={filterStatus}
-		issueType={filterIssueType}
-		priority={filterPriority}
-		assignee={filterAssignee}
-		{availableStatuses}
-		{availableTypes}
-		{availableAssignees}
-		onfilterchange={handleFilterChange}
-	/>
+<div class="flex h-full flex-col">
+	<!-- Sticky filter panel -->
+	<div class="sticky top-0 z-10 bg-white p-4 pb-2 dark:bg-gray-950">
+		<FilterPanel
+			status={filterStatus}
+			issueType={filterIssueType}
+			priority={filterPriority}
+			assignee={filterAssignee}
+			{availableStatuses}
+			{availableTypes}
+			{availableAssignees}
+			onfilterchange={handleFilterChange}
+		/>
+	</div>
 
-	<!-- Kanban board -->
-	<div class="flex-1 overflow-auto">
+	<!-- Kanban board - horizontal scroll -->
+	<div class="flex-1 overflow-auto px-4 pb-4">
 		{#if error}
 			<div class="flex h-full flex-col items-center justify-center gap-4 text-center">
 				<p class="text-red-600 dark:text-red-400">Error loading issues: {error}</p>

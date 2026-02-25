@@ -84,33 +84,47 @@
 </script>
 
 <div class="flex h-full flex-col">
-	<!-- Header -->
-	<div class="border-b px-6 py-4 dark:border-gray-700">
-		<div class="flex items-start justify-between">
-			<div>
-				<span class="text-sm text-gray-500 dark:text-gray-400">{issue.id}</span>
-				<h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">{issue.title}</h2>
-			</div>
-			<div class="flex items-center gap-2">
-				<span
-					class="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium capitalize dark:bg-gray-700"
-				>
-					{issue.type}
-				</span>
+	<!-- Header - with padding-right to avoid close button -->
+	<div class="border-b px-6 py-4 pr-14 dark:border-gray-700">
+		<div class="flex items-start gap-3">
+			<div class="flex-1">
+				<div class="flex items-center gap-2">
+					<span class="font-mono text-sm text-gray-500 dark:text-gray-400">{issue.id}</span>
+					<span
+						class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 capitalize dark:bg-blue-900/50 dark:text-blue-300"
+					>
+						{issue.type}
+					</span>
+				</div>
+				<h2 class="mt-1 text-xl font-semibold text-gray-900 dark:text-gray-100">{issue.title}</h2>
 			</div>
 		</div>
 
-		<!-- Meta info -->
+		<!-- Meta info - improved contrast -->
 		<div class="mt-3 flex flex-wrap items-center gap-4 text-sm">
-			<span class={`font-medium ${getStatusColor(issue.status)}`}>{issue.status}</span>
-			<span class="font-medium text-red-600 dark:text-red-400">{issue.priority}</span>
-			<span class="text-gray-600 dark:text-gray-400">
-				{issue.assignee ?? 'Unassigned'}
+			<span
+				class="rounded-full px-2 py-0.5 text-xs font-medium {getStatusColor(
+					issue.status
+				)} bg-gray-100 dark:bg-gray-800"
+			>
+				{issue.status}
+			</span>
+			<span
+				class="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-700 dark:bg-red-900/50 dark:text-red-300"
+			>
+				{issue.priority}
+			</span>
+			<span class="text-gray-700 dark:text-gray-300">
+				{#if issue.assignee}
+					<span class="font-medium">{issue.assignee}</span>
+				{:else}
+					<span class="text-gray-500 italic dark:text-gray-400">Unassigned</span>
+				{/if}
 			</span>
 		</div>
 
 		<!-- Timestamps -->
-		<div class="mt-2 flex gap-4 text-xs text-gray-500 dark:text-gray-400">
+		<div class="mt-2 flex gap-4 text-xs text-gray-600 dark:text-gray-400">
 			<span>Created: {formatDate(issue.created)}</span>
 			<span>Updated: {formatDate(issue.updated)}</span>
 		</div>
@@ -118,36 +132,37 @@
 
 	<!-- Dependencies -->
 	<div class="border-b bg-gray-50 px-6 py-3 dark:border-gray-700 dark:bg-gray-800/50">
-		{#if hasDependencies}
-			<div class="flex items-center justify-between">
-				<div class="flex gap-4 text-sm">
+		<div class="flex items-center justify-between">
+			<div class="flex items-center gap-4 text-sm">
+				<span class="font-medium text-gray-700 dark:text-gray-300">Dependencies:</span>
+				{#if hasDependencies}
 					{#if blockedByCount > 0}
-						<span class="text-orange-600 dark:text-orange-400">{blockedByCount} blocked by</span>
+						<span
+							class="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-700 dark:bg-orange-900/50 dark:text-orange-300"
+						>
+							{blockedByCount} blocked by
+						</span>
 					{/if}
 					{#if blockingCount > 0}
-						<span class="text-purple-600 dark:text-purple-400">{blockingCount} blocking</span>
+						<span
+							class="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-700 dark:bg-purple-900/50 dark:text-purple-300"
+						>
+							{blockingCount} blocking
+						</span>
 					{/if}
-				</div>
-				<button
-					type="button"
-					onclick={() => onshowdependencies?.()}
-					class="text-sm text-blue-600 hover:underline dark:text-blue-400"
-				>
-					Show Dependencies
-				</button>
+				{:else}
+					<span class="text-gray-500 italic dark:text-gray-400">None</span>
+				{/if}
 			</div>
-		{:else}
-			<div class="flex items-center justify-between">
-				<span class="text-sm text-gray-500 dark:text-gray-400">No dependencies</span>
-				<button
-					type="button"
-					onclick={() => onshowdependencies?.()}
-					class="text-sm text-blue-600 hover:underline dark:text-blue-400"
-				>
-					Show Dependencies
-				</button>
-			</div>
-		{/if}
+			<button
+				type="button"
+				onclick={() => onshowdependencies?.()}
+				aria-label={hasDependencies ? 'Manage dependencies' : 'Add dependencies'}
+				class="rounded bg-gray-200 px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+			>
+				{hasDependencies ? 'Manage' : 'Add'}
+			</button>
+		</div>
 	</div>
 
 	<!-- Tabs -->

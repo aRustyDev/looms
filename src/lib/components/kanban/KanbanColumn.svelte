@@ -74,34 +74,69 @@
 	}
 </script>
 
-<div class="flex h-full flex-col">
+<div
+	class="flex h-full flex-col transition-all duration-200 {collapsed ? 'w-12' : 'w-72 min-w-72'}"
+>
 	<!-- Header -->
 	<div
-		class="flex items-center justify-between rounded-t-lg bg-gray-100 px-3 py-2 dark:bg-gray-800"
+		class="flex items-center justify-between rounded-t-lg bg-gray-100 px-3 py-2 dark:bg-gray-800 {collapsed
+			? 'flex-col gap-2 px-2'
+			: ''}"
 	>
-		<div class="flex items-center gap-2">
-			<h3 class="font-medium text-gray-700 dark:text-gray-300">{getStatusLabel(status)}</h3>
+		{#if collapsed}
+			<!-- Collapsed: vertical layout -->
+			<button
+				type="button"
+				aria-label="Expand column"
+				onclick={toggleCollapse}
+				class="rounded p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+			>
+				<svg class="h-4 w-4 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 9l-7 7-7-7"
+					/>
+				</svg>
+			</button>
 			<span
 				class="rounded-full bg-gray-200 px-2 py-0.5 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400"
 			>
 				{issues.length}
 			</span>
-		</div>
-		<button
-			type="button"
-			aria-label={collapsed ? 'Expand column' : 'Collapse column'}
-			onclick={toggleCollapse}
-			class="rounded p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-		>
-			<svg
-				class="h-4 w-4 transition-transform {collapsed ? '-rotate-90' : ''}"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
+			<span
+				class="origin-center -rotate-90 text-xs font-medium whitespace-nowrap text-gray-700 dark:text-gray-300"
+				style="writing-mode: vertical-rl"
 			>
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-			</svg>
-		</button>
+				{getStatusLabel(status)}
+			</span>
+		{:else}
+			<!-- Expanded: horizontal layout -->
+			<div class="flex items-center gap-2">
+				<h3 class="font-medium text-gray-700 dark:text-gray-300">{getStatusLabel(status)}</h3>
+				<span
+					class="rounded-full bg-gray-200 px-2 py-0.5 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+				>
+					{issues.length}
+				</span>
+			</div>
+			<button
+				type="button"
+				aria-label="Collapse column"
+				onclick={toggleCollapse}
+				class="rounded p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+			>
+				<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 9l-7 7-7-7"
+					/>
+				</svg>
+			</button>
+		{/if}
 	</div>
 
 	<!-- Card list / Drop zone -->
@@ -129,5 +164,18 @@
 				</div>
 			{/if}
 		</div>
+	{:else}
+		<!-- Collapsed drop zone (still accepts drops) -->
+		<div
+			role="listbox"
+			aria-label="{getStatusLabel(status)} issues (collapsed)"
+			tabindex="0"
+			ondragover={handleDragOver}
+			ondragleave={handleDragLeave}
+			ondrop={handleDrop}
+			class="flex-1 rounded-b-lg bg-gray-50 transition-colors dark:bg-gray-900/50 {isDragOver
+				? 'bg-blue-50 ring-2 ring-blue-400 dark:bg-blue-900/20'
+				: ''}"
+		></div>
 	{/if}
 </div>

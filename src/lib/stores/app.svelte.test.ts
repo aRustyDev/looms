@@ -1,13 +1,18 @@
 /**
  * App Store Tests
  * @module stores/app.svelte.test
+ *
+ * Tests for the AppStore which uses API endpoints for all operations.
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { AppStore } from './app.svelte.js';
-import type { DataAccessLayer } from '$lib/db/types.js';
-import type { ProcessSupervisor } from '$lib/cli/index.js';
 import type { Issue } from '$lib/db/types.js';
+
+// Mock browser environment
+vi.mock('$app/environment', () => ({
+	browser: true
+}));
 
 // Mock toast store
 vi.mock('./toast.svelte.js', () => ({
@@ -20,6 +25,10 @@ vi.mock('./toast.svelte.js', () => ({
 }));
 
 import { toastStore } from './toast.svelte.js';
+
+// Mock fetch globally
+const mockFetch = vi.fn();
+vi.stubGlobal('fetch', mockFetch);
 
 function createMockIssue(overrides: Partial<Issue> = {}): Issue {
 	return {
@@ -35,35 +44,25 @@ function createMockIssue(overrides: Partial<Issue> = {}): Issue {
 	};
 }
 
-function createMockDAL(): DataAccessLayer {
-	return {
-		getIssues: vi.fn().mockResolvedValue([]),
-		getIssue: vi.fn().mockResolvedValue(null),
-		getStatuses: vi.fn().mockResolvedValue(['open', 'in_progress', 'done']),
-		getAssignees: vi.fn().mockResolvedValue([]),
-		getIssueTypes: vi.fn().mockResolvedValue(['task', 'bug', 'feature']),
-		close: vi.fn()
-	} as unknown as DataAccessLayer;
-}
-
-function createMockSupervisor(): ProcessSupervisor {
-	return {
-		execute: vi.fn().mockResolvedValue({ exitCode: 0, stdout: '', stderr: '' }),
-		spawn: vi.fn()
-	} as unknown as ProcessSupervisor;
+function mockFetchResponse(data: unknown, status = 200) {
+	return Promise.resolve({
+		ok: status >= 200 && status < 300,
+		status,
+		json: () => Promise.resolve(data)
+	});
 }
 
 describe('AppStore', () => {
 	let store: AppStore;
-	let mockDAL: DataAccessLayer;
-	let mockSupervisor: ProcessSupervisor;
 
 	beforeEach(() => {
 		store = new AppStore();
-		mockDAL = createMockDAL();
-		mockSupervisor = createMockSupervisor();
-		store.reset({ dal: mockDAL, supervisor: mockSupervisor });
+		store.reset();
 		vi.clearAllMocks();
+	});
+
+	afterEach(() => {
+		store.stopWatching();
 	});
 
 	describe('Modal State', () => {
@@ -103,19 +102,20 @@ describe('AppStore', () => {
 	});
 
 	describe('Loading Issues', () => {
-		it('load() fetches issues from DAL', async () => {
+		it('load() fetches issues from API', async () => {
 			const issues = [createMockIssue()];
-			vi.mocked(mockDAL.getIssues).mockResolvedValue(issues);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ issues }));
 
 			await store.load();
 
-			expect(mockDAL.getIssues).toHaveBeenCalled();
+			expect(mockFetch).toHaveBeenCalledWith('/api/issues');
 			expect(store.issues).toEqual(issues);
 		});
 
 		it('load() sets loading state', async () => {
-			vi.mocked(mockDAL.getIssues).mockImplementation(
-				() => new Promise((resolve) => setTimeout(() => resolve([]), 10))
+			mockFetch.mockImplementationOnce(
+				() =>
+					new Promise((resolve) => setTimeout(() => resolve(mockFetchResponse({ issues: [] })), 10))
 			);
 
 			const loadPromise = store.load();
@@ -124,14 +124,20 @@ describe('AppStore', () => {
 			await loadPromise;
 			expect(store.loading).toBe(false);
 		});
+
+		it('load() handles API errors', async () => {
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ message: 'Server error' }, 500));
+
+			await store.load();
+
+			expect(toastStore.error).toHaveBeenCalled();
+		});
 	});
 
 	describe('Filtering', () => {
-		it('filtered returns all issues when no filter', async () => {
+		it('filtered returns all issues when no filter', () => {
 			const issues = [createMockIssue({ id: '1' }), createMockIssue({ id: '2' })];
-			vi.mocked(mockDAL.getIssues).mockResolvedValue(issues);
-
-			await store.load();
+			store.setIssues(issues);
 
 			expect(store.filtered).toEqual(issues);
 		});
@@ -141,28 +147,24 @@ describe('AppStore', () => {
 			expect(store.filter).toEqual({ status: 'open' });
 		});
 
-		it('filtered applies status filter', async () => {
+		it('filtered applies status filter', () => {
 			const issues = [
 				createMockIssue({ id: '1', status: 'open' }),
 				createMockIssue({ id: '2', status: 'done' })
 			];
-			vi.mocked(mockDAL.getIssues).mockResolvedValue(issues);
-
-			await store.load();
+			store.setIssues(issues);
 			store.setFilter({ status: 'open' });
 
 			expect(store.filtered).toHaveLength(1);
 			expect(store.filtered[0]?.id).toBe('1');
 		});
 
-		it('filtered applies search filter', async () => {
+		it('filtered applies search filter', () => {
 			const issues = [
 				createMockIssue({ id: '1', title: 'Fix bug' }),
 				createMockIssue({ id: '2', title: 'Add feature' })
 			];
-			vi.mocked(mockDAL.getIssues).mockResolvedValue(issues);
-
-			await store.load();
+			store.setIssues(issues);
 			store.setFilter({ search: 'bug' });
 
 			expect(store.filtered).toHaveLength(1);
@@ -171,15 +173,9 @@ describe('AppStore', () => {
 	});
 
 	describe('Creating Issues', () => {
-		it('create() calls supervisor with correct args', async () => {
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: 'Created issue: TEST-NEW',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
-			vi.mocked(mockDAL.getIssue).mockResolvedValue(createMockIssue({ id: 'TEST-NEW' }));
+		it('create() calls API with correct body', async () => {
+			const newIssue = createMockIssue({ id: 'TEST-NEW' });
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ issue: newIssue }, 201));
 
 			await store.create({
 				title: 'New Issue',
@@ -187,27 +183,20 @@ describe('AppStore', () => {
 				priority: 2
 			});
 
-			expect(mockSupervisor.execute).toHaveBeenCalledWith('bd', [
-				'create',
-				'--title',
-				'New Issue',
-				'--type',
-				'bug',
-				'--priority',
-				'2'
-			]);
+			expect(mockFetch).toHaveBeenCalledWith('/api/issues', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					title: 'New Issue',
+					issue_type: 'bug',
+					priority: 2
+				})
+			});
 		});
 
 		it('create() adds issue to store on success', async () => {
 			const newIssue = createMockIssue({ id: 'TEST-NEW', title: 'New Issue' });
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: 'Created issue: TEST-NEW',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
-			vi.mocked(mockDAL.getIssue).mockResolvedValue(newIssue);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ issue: newIssue }, 201));
 
 			const result = await store.create({
 				title: 'New Issue',
@@ -219,14 +208,8 @@ describe('AppStore', () => {
 		});
 
 		it('create() shows success toast', async () => {
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: 'Created issue: TEST-NEW',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
-			vi.mocked(mockDAL.getIssue).mockResolvedValue(createMockIssue({ id: 'TEST-NEW' }));
+			const newIssue = createMockIssue({ id: 'TEST-NEW' });
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ issue: newIssue }, 201));
 
 			await store.create({ title: 'Test', issue_type: 'task' });
 
@@ -234,13 +217,9 @@ describe('AppStore', () => {
 		});
 
 		it('create() shows error toast on failure', async () => {
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 1,
-				stdout: '',
-				stderr: 'Failed to create',
-				duration: 100,
-				timedOut: false
-			});
+			mockFetch.mockImplementationOnce(() =>
+				mockFetchResponse({ message: 'Failed to create' }, 500)
+			);
 
 			await expect(store.create({ title: 'Test', issue_type: 'task' })).rejects.toThrow();
 
@@ -251,33 +230,36 @@ describe('AppStore', () => {
 	describe('Updating Issues', () => {
 		it('update() performs optimistic update', async () => {
 			const issue = createMockIssue({ id: '1', title: 'Old Title' });
-			vi.mocked(mockDAL.getIssues).mockResolvedValue([issue]);
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: '',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() =>
+				mockFetchResponse({ issue: { ...issue, title: 'New Title' } })
+			);
 
-			await store.load();
 			await store.update('1', { title: 'New Title' });
 
 			expect(store.issues[0]?.title).toBe('New Title');
 		});
 
+		it('update() calls API with correct body', async () => {
+			const issue = createMockIssue({ id: '1' });
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() =>
+				mockFetchResponse({ issue: { ...issue, status: 'in_progress' } })
+			);
+
+			await store.update('1', { status: 'in_progress' });
+
+			expect(mockFetch).toHaveBeenCalledWith('/api/issues/1', {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ status: 'in_progress' })
+			});
+		});
+
 		it('update() rolls back on failure', async () => {
 			const issue = createMockIssue({ id: '1', title: 'Old Title' });
-			vi.mocked(mockDAL.getIssues).mockResolvedValue([issue]);
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 1,
-				stdout: '',
-				stderr: 'Failed',
-				duration: 100,
-				timedOut: false
-			});
-
-			await store.load();
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ message: 'Failed' }, 500));
 
 			await expect(store.update('1', { title: 'New Title' })).rejects.toThrow();
 
@@ -288,50 +270,30 @@ describe('AppStore', () => {
 	describe('Deleting Issues', () => {
 		it('delete() removes issue from store', async () => {
 			const issue = createMockIssue({ id: '1' });
-			vi.mocked(mockDAL.getIssues).mockResolvedValue([issue]);
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: '',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ success: true, id: '1' }));
 
-			await store.load();
 			await store.delete('1');
 
 			expect(store.issues).toHaveLength(0);
 		});
 
-		it('delete() calls bd close command', async () => {
+		it('delete() calls API DELETE endpoint', async () => {
 			const issue = createMockIssue({ id: '1' });
-			vi.mocked(mockDAL.getIssues).mockResolvedValue([issue]);
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: '',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ success: true, id: '1' }));
 
-			await store.load();
 			await store.delete('1');
 
-			expect(mockSupervisor.execute).toHaveBeenCalledWith('bd', ['close', '1']);
+			expect(mockFetch).toHaveBeenCalledWith('/api/issues/1', {
+				method: 'DELETE'
+			});
 		});
 
 		it('delete() rolls back on failure', async () => {
 			const issue = createMockIssue({ id: '1' });
-			vi.mocked(mockDAL.getIssues).mockResolvedValue([issue]);
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 1,
-				stdout: '',
-				stderr: 'Failed',
-				duration: 100,
-				timedOut: false
-			});
-
-			await store.load();
+			store.setIssues([issue]);
+			mockFetch.mockImplementationOnce(() => mockFetchResponse({ message: 'Failed' }, 500));
 
 			await expect(store.delete('1')).rejects.toThrow();
 
@@ -340,56 +302,64 @@ describe('AppStore', () => {
 	});
 
 	describe('Metadata Methods', () => {
-		it('getStatuses() returns available statuses', async () => {
-			vi.mocked(mockDAL.getStatuses).mockResolvedValue(['open', 'closed']);
+		it('getStatuses() returns unique statuses from issues', () => {
+			store.setIssues([
+				createMockIssue({ id: '1', status: 'open' }),
+				createMockIssue({ id: '2', status: 'closed' }),
+				createMockIssue({ id: '3', status: 'open' })
+			]);
 
-			const result = await store.getStatuses();
+			const result = store.getStatuses();
 
-			expect(result).toEqual(['open', 'closed']);
+			expect(result).toEqual(['closed', 'open']);
 		});
 
-		it('getAssignees() returns available assignees', async () => {
-			vi.mocked(mockDAL.getAssignees).mockResolvedValue(['alice', 'bob']);
+		it('getStatuses() returns defaults when no issues', () => {
+			const result = store.getStatuses();
 
-			const result = await store.getAssignees();
+			expect(result).toEqual(['open', 'in_progress', 'blocked', 'closed']);
+		});
+
+		it('getAssignees() returns unique assignees from issues', () => {
+			store.setIssues([
+				createMockIssue({ id: '1', assignee: 'alice' }),
+				createMockIssue({ id: '2', assignee: 'bob' }),
+				createMockIssue({ id: '3', assignee: 'alice' })
+			]);
+
+			const result = store.getAssignees();
 
 			expect(result).toEqual(['alice', 'bob']);
 		});
 
-		it('getIssueTypes() returns available types', async () => {
-			vi.mocked(mockDAL.getIssueTypes).mockResolvedValue(['task', 'bug']);
+		it('getIssueTypes() returns unique types from issues', () => {
+			store.setIssues([
+				createMockIssue({ id: '1', issue_type: 'task' }),
+				createMockIssue({ id: '2', issue_type: 'bug' }),
+				createMockIssue({ id: '3', issue_type: 'task' })
+			]);
 
-			const result = await store.getIssueTypes();
+			const result = store.getIssueTypes();
 
-			expect(result).toEqual(['task', 'bug']);
+			expect(result).toEqual(['bug', 'task']);
+		});
+
+		it('getIssueTypes() returns defaults when no issues', () => {
+			const result = store.getIssueTypes();
+
+			expect(result).toEqual(['task', 'bug', 'feature', 'epic']);
 		});
 	});
 
 	describe('Subscription', () => {
-		it('subscribe() adds listener', () => {
+		it('subscribe() adds listener', async () => {
 			const listener = vi.fn();
 			store.subscribe(listener);
 
-			// Create should notify listeners
-			vi.mocked(mockSupervisor.execute).mockResolvedValue({
-				exitCode: 0,
-				stdout: 'Created issue: TEST-1',
-				stderr: '',
-				duration: 100,
-				timedOut: false
-			});
-			vi.mocked(mockDAL.getIssue).mockResolvedValue(createMockIssue());
+			// Setting issues notifies listeners
+			store.setIssues([createMockIssue()]);
 
-			// Trigger a change that notifies listeners
-			store.create({ title: 'Test', issue_type: 'task' });
-
-			// Wait for async operation
-			return new Promise<void>((resolve) => {
-				setTimeout(() => {
-					expect(listener).toHaveBeenCalled();
-					resolve();
-				}, 10);
-			});
+			expect(listener).toHaveBeenCalled();
 		});
 
 		it('unsubscribe removes listener', () => {
@@ -399,7 +369,7 @@ describe('AppStore', () => {
 			unsubscribe();
 
 			// Make a change
-			store.setFilter({ status: 'open' });
+			store.setIssues([createMockIssue()]);
 
 			// Listener should not be called after unsubscribe
 			expect(listener).not.toHaveBeenCalled();
@@ -432,7 +402,7 @@ describe('AppStore', () => {
 
 		it('reset() stops watching', () => {
 			store.startWatching({ pollingInterval: 10000 });
-			store.reset({ dal: mockDAL, supervisor: mockSupervisor });
+			store.reset();
 			expect(store.isWatching).toBe(false);
 		});
 	});

@@ -137,23 +137,25 @@
 	const showNoEpics = $derived(!loading && !error && !hasEpics);
 </script>
 
-<div class="flex h-full flex-col gap-4 p-4">
-	<!-- Filters (includes search) -->
-	<FilterPanel
-		status={filterStatus}
-		issueType={[]}
-		priority={filterPriority}
-		assignee={filterAssignee}
-		search={searchValue}
-		searchPlaceholder="Search epics..."
-		{availableStatuses}
-		availableTypes={[]}
-		{availableAssignees}
-		onfilterchange={handleFilterChange}
-	/>
+<div class="flex h-full flex-col">
+	<!-- Sticky filters -->
+	<div class="sticky top-0 z-10 bg-white p-4 pb-2 dark:bg-gray-950">
+		<FilterPanel
+			status={filterStatus}
+			issueType={[]}
+			priority={filterPriority}
+			assignee={filterAssignee}
+			search={searchValue}
+			searchPlaceholder="Search epics..."
+			{availableStatuses}
+			availableTypes={[]}
+			{availableAssignees}
+			onfilterchange={handleFilterChange}
+		/>
+	</div>
 
-	<!-- Content area -->
-	<div class="flex-1 overflow-auto">
+	<!-- Scrollable content area -->
+	<div class="flex-1 overflow-auto px-4 pb-4">
 		{#if loading}
 			<div data-testid="loading-skeleton" class="space-y-2">
 				{#each { length: 5 } as _, i (i)}

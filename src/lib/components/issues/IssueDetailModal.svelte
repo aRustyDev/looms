@@ -74,6 +74,10 @@
 			previousActiveElement = document.activeElement as HTMLElement;
 			document.addEventListener('keydown', handleKeyDown);
 
+			// Prevent body scroll when modal is open
+			const originalOverflow = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+
 			// Focus the modal or close button after mount
 			requestAnimationFrame(() => {
 				const closeButton = modalElement?.querySelector<HTMLElement>('button[aria-label="Close"]');
@@ -82,6 +86,7 @@
 
 			return () => {
 				document.removeEventListener('keydown', handleKeyDown);
+				document.body.style.overflow = originalOverflow;
 				previousActiveElement?.focus();
 			};
 		}

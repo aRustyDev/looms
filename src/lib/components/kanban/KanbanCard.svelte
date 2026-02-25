@@ -21,12 +21,28 @@
 
 	let { issue, dragging = false, onclick }: Props = $props();
 
-	const PRIORITY_COLORS: Record<string, string> = {
-		P0: 'border-l-red-600',
+	const PRIORITY_BORDER_COLORS: Record<string, string> = {
+		P0: 'border-l-red-500',
 		P1: 'border-l-orange-500',
 		P2: 'border-l-yellow-500',
 		P3: 'border-l-green-500',
 		P4: 'border-l-gray-400'
+	};
+
+	const PRIORITY_BG_COLORS: Record<string, string> = {
+		P0: 'bg-red-50 dark:bg-red-950/30',
+		P1: 'bg-orange-50 dark:bg-orange-950/30',
+		P2: 'bg-yellow-50 dark:bg-yellow-950/20',
+		P3: 'bg-green-50 dark:bg-green-950/20',
+		P4: 'bg-gray-50 dark:bg-gray-800'
+	};
+
+	const PRIORITY_TEXT_COLORS: Record<string, string> = {
+		P0: 'text-red-700 dark:text-red-400',
+		P1: 'text-orange-700 dark:text-orange-400',
+		P2: 'text-yellow-700 dark:text-yellow-400',
+		P3: 'text-green-700 dark:text-green-400',
+		P4: 'text-gray-600 dark:text-gray-400'
 	};
 
 	const TYPE_COLORS: Record<string, string> = {
@@ -36,8 +52,16 @@
 		epic: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400'
 	};
 
-	function getPriorityColor(priority: string): string {
-		return PRIORITY_COLORS[priority] ?? 'border-l-gray-300';
+	function getPriorityBorderColor(priority: string): string {
+		return PRIORITY_BORDER_COLORS[priority] ?? 'border-l-gray-300';
+	}
+
+	function getPriorityBgColor(priority: string): string {
+		return PRIORITY_BG_COLORS[priority] ?? 'bg-white dark:bg-gray-800';
+	}
+
+	function getPriorityTextColor(priority: string): string {
+		return PRIORITY_TEXT_COLORS[priority] ?? 'text-gray-600 dark:text-gray-400';
 	}
 
 	function getTypeColor(type: string): string {
@@ -81,9 +105,11 @@
 	onclick={handleClick}
 	onkeydown={handleKeyDown}
 	ondragstart={handleDragStart}
-	class="rounded-lg border border-l-4 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 {getPriorityColor(
+	class="rounded-lg border border-l-4 shadow-sm {getPriorityBorderColor(
 		issue.priority
-	)} cursor-pointer p-3 transition-all hover:shadow-md {dragging
+	)} {getPriorityBgColor(
+		issue.priority
+	)} cursor-pointer p-3 transition-all hover:shadow-md dark:border-gray-700 {dragging
 		? 'scale-95 opacity-50 shadow-lg'
 		: ''}"
 >
@@ -100,7 +126,9 @@
 
 	<!-- Footer: Priority and Assignee -->
 	<div class="flex items-center justify-between">
-		<span class="text-xs font-medium text-gray-600 dark:text-gray-400">{issue.priority}</span>
+		<span class="rounded px-1.5 py-0.5 text-xs font-bold {getPriorityTextColor(issue.priority)}"
+			>{issue.priority}</span
+		>
 
 		{#if issue.assignee}
 			<div class="flex items-center gap-1">
