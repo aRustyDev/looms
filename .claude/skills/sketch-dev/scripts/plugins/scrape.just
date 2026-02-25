@@ -155,10 +155,16 @@ validate:
 # Summary Generation
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Generate summaries for plugins (requires ANTHROPIC_API_KEY or use Claude Code)
+# Generate summaries for plugins
+# Without --api-key: outputs JSON for AI tools (Claude Code) to process
+# With --api-key: batch processes using Anthropic API
 generate-summaries *args:
     cd "{{ plugins_dir }}" && {{ python }} generate_summaries.py {{ args }}
 
 # Preview what summaries would be generated (dry run)
 preview-summaries category="icons" limit="5":
     cd "{{ plugins_dir }}" && {{ python }} generate_summaries.py --dry-run --category "{{ category }}" --limit "{{ limit }}"
+
+# Generate summaries with API key (batch mode)
+generate-summaries-batch api_key category limit="10":
+    cd "{{ plugins_dir }}" && {{ python }} generate_summaries.py --api-key "{{ api_key }}" --category "{{ category }}" --limit "{{ limit }}"
