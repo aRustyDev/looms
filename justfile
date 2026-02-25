@@ -36,6 +36,21 @@ run: build
 dev:
     bun run dev
 
+# Start local Dolt SQL server for WebUI database access
+dolt-server:
+    @echo "Starting Dolt SQL server on port 3308..."
+    @echo "Database: beads_projx (from .beads/dolt/beads_projx)"
+    @echo "Press Ctrl+C to stop"
+    cd .beads/dolt/beads_projx && dolt sql-server --port 3308 --host localhost
+
+# Start both dev server and dolt server (requires tmux or run in separate terminals)
+dev-full:
+    @echo "Starting Dolt server in background..."
+    @just dolt-server &
+    @sleep 2
+    @echo "Starting dev server..."
+    @just dev
+
 # Install build to system (symlink to data_local_directory)
 install: build
     #!/usr/bin/env bash

@@ -62,10 +62,17 @@ export class DataAccessLayer {
 
 	/**
 	 * Detect the available database backend.
+	 * Priority: Explicit env var > Dolt server > SQLite with data > Default to Dolt
 	 */
 	private static async detectBackend(beadsPath?: string): Promise<DatabaseBackend> {
 		const path = await import('node:path');
 		const fs = await import('node:fs/promises');
+
+		// Check for explicit backend preference via environment
+		const envBackend = process.env.BEADS_BACKEND;
+		if (envBackend === 'sqlite' || envBackend === 'dolt') {
+			return envBackend;
+		}
 
 		// Try to find .beads directory
 		const basePath = beadsPath ?? process.cwd();
@@ -74,20 +81,23 @@ export class DataAccessLayer {
 		try {
 			const entries = await fs.readdir(beadsDir);
 
-			// Check for SQLite database
-			const hasSqlite = entries.some((e) => e.endsWith('.db'));
-			if (hasSqlite) {
-				return 'sqlite';
-			}
-
-			// Check for Dolt directory structure
-			const hasDolt = entries.includes('.dolt');
+			// Check for Dolt directory structure (prefers Dolt over SQLite)
+			const hasDolt = entries.includes('dolt') || entries.includes('.dolt');
 			if (hasDolt) {
 				return 'dolt';
 			}
 
-			// Default to sqlite if .beads exists but no specific backend detected
-			return 'sqlite';
+			// Check for SQLite database with actual data
+			const sqliteFiles = entries.filter((e) => e.endsWith('.db') || e.endsWith('.sqlite3'));
+			for (const file of sqliteFiles) {
+				const stat = await fs.stat(path.join(beadsDir, file));
+				if (stat.size > 0) {
+					return 'sqlite';
+				}
+			}
+
+			// Default to dolt if .beads exists but no populated SQLite found
+			return 'dolt';
 		} catch {
 			// If .beads doesn't exist, assume Dolt server mode
 			return 'dolt';
@@ -113,42 +123,114 @@ export class DataAccessLayer {
 		const basePath = this.config.beadsPath ?? process.cwd();
 		const beadsDir = path.join(basePath, '.beads');
 
-		// Find the .db file
+		// Find SQLite database files (.db or .sqlite3), prefer non-empty files with valid schema
 		const entries = await fs.readdir(beadsDir);
-		const dbFile = entries.find((e) => e.endsWith('.db'));
+		const dbFiles = entries.filter((e) => e.endsWith('.db') || e.endsWith('.sqlite3'));
+
+		if (dbFiles.length === 0) {
+			throw new Error(`No SQLite database found in ${beadsDir}`);
+		}
+
+		// Sort by file size (prefer larger files which likely have data)
+		const filesWithSize = await Promise.all(
+			dbFiles.map(async (file) => {
+				const stat = await fs.stat(path.join(beadsDir, file));
+				return { file, size: stat.size };
+			})
+		);
+		filesWithSize.sort((a, b) => b.size - a.size);
+
+		// Find a database with the issues table
+		let dbFile: string | null = null;
+		for (const { file, size } of filesWithSize) {
+			if (size === 0) continue;
+
+			const dbPath = path.join(beadsDir, file);
+			try {
+				const testDb = new Database(dbPath, { readonly: true });
+				// Check if issues table exists
+				const hasIssues = testDb
+					.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='issues'")
+					.get();
+				testDb.close();
+
+				if (hasIssues) {
+					dbFile = file;
+					break;
+				}
+			} catch {
+				// Skip invalid databases
+				continue;
+			}
+		}
 
 		if (!dbFile) {
-			throw new Error(`No SQLite database found in ${beadsDir}`);
+			throw new Error(`No SQLite database with issues table found in ${beadsDir}`);
 		}
 
 		const dbPath = path.join(beadsDir, dbFile);
 		this.sqliteDb = new Database(dbPath, { readonly: true });
 
-		// Enable WAL mode for better concurrency
-		this.sqliteDb.pragma('journal_mode = WAL');
+		// Note: WAL mode cannot be set in readonly mode, and should already
+		// be configured by the bd CLI when writing to the database
 	}
 
 	private async initDolt(): Promise<void> {
 		const mysql = await import('mysql2/promise');
 
+		// Try to connect to Dolt server, checking multiple ports
+		// Port 3308: Local project server (started by `just dolt-server`)
+		// Port 3307: Global dolt server
+		// Port 3306: Default MySQL port
+		const ports = [3308, 3307, 3306];
+		const database = process.env.DOLT_DATABASE ?? 'beads_projx';
+
 		const doltConfig = this.config.dolt ?? {
 			host: process.env.DOLT_HOST ?? 'localhost',
-			port: parseInt(process.env.DOLT_PORT ?? '3306', 10),
 			user: process.env.DOLT_USER ?? 'root',
-			password: process.env.DOLT_PASSWORD ?? '',
-			database: process.env.DOLT_DATABASE ?? 'beads'
+			password: process.env.DOLT_PASSWORD ?? ''
 		};
 
-		this.doltPool = mysql.createPool({
-			...doltConfig,
-			waitForConnections: true,
-			connectionLimit: this.config.poolSize ?? DEFAULT_CONFIG.poolSize,
-			queueLimit: 0
-		});
+		// Try each port until we find one that works with our database
+		let lastError: Error | null = null;
+		for (const port of ports) {
+			try {
+				const pool = mysql.createPool({
+					...doltConfig,
+					port: parseInt(process.env.DOLT_PORT ?? String(port), 10),
+					database,
+					waitForConnections: true,
+					connectionLimit: this.config.poolSize ?? DEFAULT_CONFIG.poolSize,
+					queueLimit: 0
+				});
 
-		// Test connection
-		const conn = await this.doltPool.getConnection();
-		conn.release();
+				// Test connection
+				const conn = await pool.getConnection();
+				conn.release();
+
+				this.doltPool = pool;
+				console.log(`Connected to Dolt server on port ${port}, database: ${database}`);
+				return;
+			} catch (error) {
+				lastError = error as Error;
+				// Try next port
+			}
+		}
+
+		// If explicit port was set, give a clearer error
+		if (process.env.DOLT_PORT) {
+			throw new Error(
+				`Failed to connect to Dolt on port ${process.env.DOLT_PORT}: ${lastError?.message}`
+			);
+		}
+
+		// All ports failed
+		throw new Error(
+			`Failed to connect to Dolt server. ` +
+				`Tried ports ${ports.join(', ')} for database "${database}". ` +
+				`Run 'just dolt-server' to start a local server. ` +
+				`Last error: ${lastError?.message}`
+		);
 	}
 
 	/**
