@@ -478,6 +478,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically numbers selected artboards based on canvas position with keyboard shortcuts for left-to-right, right-to-left, top-to-bottom, and bottom-to-top ordering. Simple installation via double-clicking the plugin file. Useful for organizing responsive design workflows and ensuring consistent artboard naming. Last updated March 2019.
 - plugin: Blur Artboard
   link: http://blur.duanjun.net
   description: Add blur effect to artboards for testing visual hierarchy easily in
@@ -490,6 +492,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Applies customizable blur effects to artboards for testing visual hierarchy and focus areas in design mockups. Helps designers evaluate composition and prioritization without color or detail distractions. Lightweight utility with simple plugin menu access. Last updated March 2019.
 - plugin: Flatten Plugin for Sketch
   link: https://github.com/einancunlu/Flatten-Plugin-for-Sketch
   description: Flatten single or multiple layers instantly, create shared artboard
@@ -502,6 +506,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Converts layers and artboards to flattened images with auto-updating shared styles and toggleable visibility for editing. Supports custom naming prefixes, layer mirroring, and tag-based customization (#no-auto, #stay-hidden, #exclude). Features automated flattening on image layer selection and settings panel for quality control. Deprecated: Maintainer migrated to Figma due to Sketch plugin API limitations.
 - plugin: Pointbreak
   link: https://pointbreak.protowire.com
   description: Add breakpoints to artboards so you can have mobile and desktop designs
@@ -514,6 +520,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Enables responsive design workflow by combining multiple screen breakpoints (mobile, tablet, desktop) on a single artboard. Reduces file complexity by eliminating the need for duplicate artboards per breakpoint. Streamlines presentation and handoff for responsive design iterations. Last updated February 2019.
 - plugin: Prott Sketch Plugin
   link: https://github.com/goodpatch/Prott-Sketch-Plugin
   description: Sync Sketch artboards to Prott like a boss.
@@ -525,6 +533,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Syncs Sketch artboards directly to Prott, a design review and prototype collaboration platform. Streamlines design handoff and team feedback workflows by eliminating manual export-import steps. Open source integration maintained by Goodpatch Inc. Last updated December 2018.
 - plugin: Artboards to PDF
   link: https://github.com/andrewfiorillo/sketch-artboards-to-pdf
   description: Sketch plugin to export artboards to PDF slideshow, from either the
@@ -537,6 +547,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports artboards to PDF slideshow format with flexible options: current page, all pages, or selected artboards. Maintains artboard export order defined in Sketch preferences for consistent PDF sequencing. Simple export workflow supporting multiple selection modes. Note: No longer actively maintained but remains functional.
 - plugin: Caravel
   link: https://github.com/CaravelDesign/caravel.sketchplugin
   description: Export your artboards directly to Caravel projects.
@@ -548,6 +560,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports Sketch artboards as annotated screens to Caravel, a design presentation and stakeholder feedback platform. Artboards sync to projects preserving numbering conventions (number prefixes recommended) and update existing screens on re-sync. Streamlines design sharing workflow for client presentations and team reviews. Last updated June 2018.
 - plugin: Export for Replia
   link: https://github.com/bunguu/SketchExportForRepliaPlugin
   description: Sketch Plugins to export selected artboard or layers for Replia.
@@ -559,6 +573,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports selected artboards or layers to Replia, an interactive prototyping platform for mobile and web design. Streamlines design handoff workflow from Sketch to Replia prototypes. Open source integration maintained by Kazuya Hirobe. Last updated May 2018.
 - plugin: Rotate Artboard Orientation
   link: https://github.com/mmilano/sketch-rotate-artboards
   description: Rotate the orientation of an artboard - from portrait to landscape,
@@ -571,6 +587,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Rotates selected artboards between portrait and landscape orientation by automatically swapping width and height values. Equivalent to manual dimension swapping in artboard inspector. Simple plugin operation that ignores non-artboard selections and includes logging. Note: Rotated artboards may overlap existing artboards requiring manual repositioning.
 - plugin: giancartboard
   link: https://github.com/MattCowBoy/giancartboard
   description: Sketch plugin to export artboards in folders automatically numbered
@@ -582,6 +600,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Exports artboards to organized folder structures with automatic numbering (1.1, 1.2, 2.1 format) grouped by pages and device resolutions. Supports PDF, JPG, and PNG export at multiple scales (0.5x, 1x, 2x, 3x). Second feature identifies and marks artboards with incorrect widths to catch responsive design errors. Actively maintained version 2 with Sketch 45+ compatibility.
 - plugin: Sketch Paginate
   link: https://github.com/jorgemartins/sketch-paginate
   description: Add page numbers to artboards.
@@ -593,6 +613,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Adds automatic pagination numbers to artboards via placeholder text layers (named {pagination}) that update with page/total counters. Requires artboards to follow Sketch's default layer ordering (first in list = last artboard). Work-in-progress plugin with plans for customizable pagination formats and automatic layer creation. Last updated May 2018.
 - plugin: Formr
   link: https://github.com/lessthanzero/Formr
   description: Helps to maintain simple proportions of layers and artboards
@@ -604,6 +626,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Maintains aspect ratios for layers and artboards with built-in proportions (1:1, 2:1, 4:3, 16:9) via keyboard shortcuts. Supports custom proportions using layer name patterns (::1/2) for flexible ratio specifications. Works with Sketch 48+ on single and multiple selections. Available through Sketch Runner, Sketch Toolbox, and Sketchpacks for easy installation.
 - plugin: Radial Lines
   link: https://github.com/herrhelms/radial-lines-sketch
   description: Generate lines originating from a certain coordinate of an artboard.
@@ -615,6 +639,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Generates radial lines from user-specified origin points on artboards with customizable quantity, color, and stroke width. Supports even distribution with uniform spacing or distribution relative to artboard borders. Simple modal interface for configuration and keyboard shortcut (Cmd+Alt+B) for quick access. Open source utility by herrhelms.
 - plugin: Upload to CloudApp
   link: https://github.com/delighted/sketch-upload-to-cloudapp
   description: 'Upload to CloudApp: Upload the current artboard or page to CloudApp.'
@@ -626,6 +652,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Uploads selected artboards or pages directly to CloudApp screenshot sharing service with keyboard shortcut Ctrl-Alt-Cmd-U. Streamlines design sharing workflow for feedback and collaboration. Open source integration maintained by Delighted Inc. Last updated May 2018.
 - plugin: Duplicate to New Artboard
   link: https://github.com/delighted/sketch-duplicate-to-new-artboard
   description: Sketch plugin to duplicate the current selection(s) to new artboard(s).
@@ -637,6 +665,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Automatically duplicates selected layers to new artboards with one command, eliminating manual artboard creation. Supports multiple layer selections for batch artboard generation. Simple workflow accessible via Plugins menu. Open source utility by Delighted Inc. Last updated May 2018.
 - plugin: Quick Presentation
   link: https://github.com/timothywhalin/Sketch-Quick-Presentation
   description: A Sketch plugin to quickly share multiple artboards with an optional
@@ -649,6 +679,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Creates presentation artboards grouping selected artboards with optional titles, margins, shadows, and background styling. Fully configurable via settings menu: fonts, colors, spacing, shadow properties, and export formats. Supports design scales (1x/2x/3x) and automatic title generation from artboard names. Open source plugin with extensive customization options.
 - plugin: Droplr
   link: https://droplr.com/integrations/sketch/
   description: Droplr for Sketch lets designers quickly and easily share their Artboards
@@ -660,6 +692,8 @@
   open-source: false
   tags:
   - artboards
+  summary: |
+    Enables quick sharing of Sketch artboards via Droplr screenshot sharing service. Streamlines design feedback workflows by directly uploading to Droplr with shareable links. Commercial integration maintained by Droplr team. Last updated March 2018.
 - plugin: Draw and Render
   link: https://github.com/nichenqin/draw-and-render-sketch-plugin
   description: A plugin to render canvas to sketch
@@ -671,6 +705,8 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Allows freehand drawing on a canvas that renders directly into Sketch as vector layers or artboards. Keyboard shortcut Cmd+Shift+D initiates drawing mode with options to rename and export. Provides bridge between hand-sketched design concepts and Sketch digital workflow. Open source plugin installed via npm. Last updated March 2018.
 - plugin: Artboardzoom
   link: https://github.com/Arkkimaagi/ArtboardZoom
   description: '"Zoom" to currently selected Artboard.'
@@ -682,3 +718,5 @@
   open-source: true
   tags:
   - artboards
+  summary: |
+    Zooms to currently selected artboard with keyboard shortcuts: Cmd+4 (zoom to fit) and Cmd+Alt+4 (zoom to 100%). Particularly useful for mobile and small screen design workflows where artboards are densely packed. Open source with automatic updates via Sketchpacks. Tested compatible with Sketch 45+.

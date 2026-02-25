@@ -90,6 +90,10 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Silent, dialogless export of artboards with Ctrl+Shift+E. Features attachable styles
+    for reusable decorations (fills, borders, shadows) and advanced clipboard operations.
+    Copy element properties then paste selectively (borders, fills, shadows, shapes). Last updated February 2019.
 - plugin: Clear Export Options
   link: https://github.com/emrerussia/sketch-clear-export-options
   description: Clear export options for all elements on all pages in a Sketch file.
@@ -101,6 +105,10 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Removes all export settings from all layers across all pages in a Sketch file.
+    Use via menu (Plugins > Clear Export Options) or shortcut Ctrl+Cmd+C. Useful for
+    cleaning up export configurations. Last updated November 2018.
 - plugin: Sketch2AE
   link: https://github.com/bigxixi/Sketch2AE
   description: A Sketch plugin to export sketch file to Adobe After Effect
@@ -112,3 +120,8 @@
   open-source: true
   tags:
   - exports
+  summary: |
+    Exports Sketch vector shapes and artboards to Adobe After Effects as Shape layers or
+    compositions. Generate JSX scripts that automatically create AE compositions with proper positioning.
+    Supports Sketch v50+. No gradient or text support; intended for shape animation with Bodymovin/Lottie.
+    Last updated July 2018.

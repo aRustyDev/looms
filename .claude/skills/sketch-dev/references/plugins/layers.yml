@@ -551,6 +551,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Toggles visibility of "boundingBox" layers with keyboard shortcuts (Cmd+L). Includes Show, Hide, and Settings commands with wildcard pattern matching support. Simple utility for managing reference layers in design documents.
 - plugin: bztone-plugin
   link: https://github.com/wangjunwangjunwang/sketch2pixi-plugin
   description: switch layers of sketch to pixi.json
@@ -562,6 +564,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Converts Sketch layers to pixi.json format for game development. Manages hotspots, links, visibility states, and background images in a structured export format.
 - plugin: Align and Resize To Layout
   link: https://github.com/KevinvBre/Align-and-resize-to-layout
   description: Align and resize layers to your layout in Sketch
@@ -573,6 +577,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Quickly aligns and resizes selected elements to layout guides using keyboard shortcuts (Cmd+Ctrl+Arrow keys). Streamlines workflow for responsive design work with grid-based alignment.
 - plugin: Better Shadow
   link: https://github.com/JJYing/Sketch-Better-Shadow
   description: Quickly generate multi-layered shadow to mimic non-linear decay.
@@ -584,6 +590,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Creates multi-layered shadows that mimic Photoshop's non-linear decay effect. Supports shadow color and opacity customization with a simple visual workflow. Version 0.2, updated August 2018.
 - plugin: Sketch Replace Layer
   link: https://github.com/daneden/sketch-replace-layer
   description: Replace selected layer(s) with copied content/layer(s)
@@ -595,6 +603,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Replaces selected layers with clipboard content using Cmd+Option+R. Maintains layer properties while swapping content, useful for rapid design iteration and asset swapping.
 - plugin: Cleanup Useless Groups
   link: https://github.com/bomberstudios/Cleanup-Useless-Groups
   description: A Sketch plugin that cleans up your layer list
@@ -607,6 +617,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Removes empty groups and flattens deeply nested layer hierarchies automatically. Can operate on entire document or selection only. Actively maintained on Sketchpacks.
 - plugin: Swappr
   link: https://github.com/pranusarna94/Swappr
   description: Swap layer positions and styles
@@ -618,6 +630,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Exchanges positions and styles between selected layers. Minimal documentation but provides quick layer swapping functionality.
 - plugin: ScreenFork
   link: https://github.com/screenfork/ScreenFork
   description: ScreenFork is the Sketchapp plugin that export screens and their variants
@@ -630,6 +644,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Exports screen artboards and their variants based on layer naming prefixes (&). Supports scaling, custom suffixes, format selection (PNG/JPG), and custom export paths. GitHub-hosted, last updated available.
 - plugin: Toggle NoPrint
   link: https://github.com/sudilkovsky/Toggle-NoPrint-Visibility-Sketch-Plugin
   description: Toggle Visibility of 'NoPrint' layers in Sketch
@@ -641,6 +657,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Show/Hide, Lock/Unlock, and Select layers with ".np" suffix. Version 1.2 with recent feature additions for layer management workflows.
 - plugin: Swap Styles
   link: https://github.com/ozzik/swap-styles
   description: Sketch plugin for swaping styles between two layers.
@@ -652,6 +670,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Swaps all style properties (fills, borders, shadows, blur, opacity, blend mode) between two layers with Cmd+Ctrl+S. Works with shape and text layers, tested on Sketch 40.3+.
 - plugin: Sketch Constraints
   link: https://github.com/bouchenoiremarc/Sketch-Constraints
   description: A plugin that integrates constraints in Sketch to lay out layers.
@@ -663,6 +683,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Implements constraint-based layout system for responsive design similar to iOS Auto Layout. Edit constraints (Cmd+E) and update layouts (Cmd+L). Note: Native constraints available in Sketch 44+, but plugin remains useful for legacy versions.
 - plugin: Copy & Paste Shadows
   link: https://github.com/ryanjohnson-me/Sketch-Copy-Paste-Shadows
   description: Copy & paste only shadow styles from layers without others styles getting
@@ -675,6 +697,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Copies and pastes shadow styles independently without affecting other layer properties. Simple keyboard shortcuts (Cmd+Shift+C/B). Tested on Sketch 50+.
 - plugin: Perfecto
   link: https://github.com/pranusarna94/Perfecto-
   description: A sketch plugin to round off all sub-pixel layers at once
@@ -686,6 +710,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Rounds all sub-pixel layers automatically for pixel-perfect design output. Built with skpm framework, includes npm scripts for development and building.
 - plugin: nudgefromrtl
   link: https://github.com/KevinGutowski/NudgeRTL
   description: Quickly resize a layer horizontally from right to left with keyboard
@@ -698,6 +724,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Resizes layers horizontally from right-to-left anchor point using Ctrl+Cmd+Arrow keys. Designed for right-to-left language design workflows with customizable nudge increments.
 - plugin: Wanderer
   link: https://github.com/turbobabr/sketch-wanderer
   description: Frictionless, Finder like navigation in layer list
@@ -710,6 +738,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Provides Finder-like keyboard navigation in Sketch's layer list using arrow keys. Includes expand/collapse groups, multi-select, and artboard navigation with optional Mission Control shortcut rebinding.
 - plugin: Nudge Resize
   link: https://github.com/DWilliames/nudge-resize-sketch-plugin
   description: Resize a layer horizontally and vertically from the centre with easy
@@ -722,6 +752,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Resizes layers from center point using Alt+Arrow keys (similar to holding Alt while dragging). Supports both horizontal and vertical resizing with Shift modifier for larger increments.
 - plugin: Sketch Marginbox
   link: https://github.com/FrancisVega/sketch-marginbox
   description: Simple scritp to create layers as margins
@@ -733,6 +765,8 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Creates margin layers using CSS-style notation (e.g., "24" or "16 32 64 32"). Parses margin data from group names and generates visual margin boundaries.
 - plugin: DeepSelect
   link: https://github.com/fhuel/DeepSelect
   description: A quick and easy way to select layers inside a group, filtering
@@ -744,3 +778,5 @@
   open-source: true
   tags:
   - layers
+  summary: |
+    Selects layers within groups with filtering by layer type (text, shape, etc.). Simplifies bulk editing of specific layer types across nested hierarchies. Available on Sketchpacks.

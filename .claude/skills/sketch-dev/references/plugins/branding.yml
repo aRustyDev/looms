@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - branding
+  summary: |
+    Integrates Brandfolder asset library directly into Sketch with keyboard shortcut
+    (Cmd+Shift+B). Browse and place brand assets (logos, colors, images) into artboards
+    with support for multi-attachment assets. Requires Sketch app installation and API key
+    authentication. Actively maintained with recent updates.
 - plugin: Frontify Plugin
   link: https://github.com/Frontify/sketch
   description: Connecting your brand and design worlds
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - branding
+  summary: |
+    Sketch plugin for Frontify brand management platform integration. Provides access to
+    brand guidelines, design systems, and brand assets. Built with skpm framework with web-based
+    frontend views for asset browsing. Actively maintained with recent updates (January 2026).
+    Full documentation at frontify.com/integrations/sketch/.
 - plugin: Brandfetch
   link: https://github.com/Brandfetch/Brandfetch-Sketch-Plugin
   description: Pull brand assets into Sketch
@@ -33,6 +43,10 @@
   open-source: true
   tags:
   - branding
+  summary: |
+    Brandfetch plugin enables searching and importing brand assets directly into Sketch.
+    Use Alt+Cmd+B to open the plugin, search for brands, and click to place assets into designs.
+    Streamlines accessing verified brand logos, colors, and guidelines. Last updated May 2024.
 - plugin: uiLogos
   link: https://github.com/realvjy/uiLogos-sketch-plugin
   description: Insert professionally designed dummy logos of companies.
@@ -44,3 +58,7 @@
   open-source: true
   tags:
   - branding
+  summary: |
+    Insert 25+ professionally designed company logos and 190+ country flags directly into
+    Sketch designs. Supports both logomarks and logotypes with filtering capabilities.
+    Available through Sketch Runner, Sketchpacks, and Sketch Plugin Manager. Last updated April 2024.

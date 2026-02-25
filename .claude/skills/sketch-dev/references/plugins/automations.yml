@@ -12,6 +12,11 @@
   open-source: false
   tags:
   - automations
+  summary: |
+    Exports Sketch artboards to Proto.io while preserving layer hierarchy and positioning.
+    Enables advanced prototyping with 80+ events, 40+ actions, nested scrolling, screen transitions,
+    timeline animations, and mobile preview. Web-based with 250+ UI components and 1000+ templates.
+    Recently maintained (February 2024) with 15-day free trial available.
 - plugin: Automate Sketch
   link: https://github.com/Ashung/Automate-Sketch
   description: Make Sketch more efficient. A lot of useful plugins in one.
@@ -23,6 +28,11 @@
   open-source: true
   tags:
   - automations
+  summary: |
+    Comprehensive automation suite with 50+ menu items for layer operations, text manipulation,
+    arrangement, and batch processing. Includes fit to artboard, swap dimensions, ungroup shapes,
+    select by type/name, rename layers, distribute objects, and union/outline operations. Reduces
+    repetitive tasks significantly. Last updated May 2023 with active community.
 - plugin: Sketch DevTools
   link: https://github.com/skpm/sketch-dev-tools
   description: See your plugin logs, inspect the state of Sketch documents, explore
@@ -35,6 +45,11 @@
   open-source: true
   tags:
   - automations
+  summary: |
+    Developer tool for debugging Sketch plugins with console log viewing, document state inspection,
+    and action exploration. Requires Sketch 52+ for proper logging. Helpful for plugin developers
+    and advanced users. Note: May impact performance when open due to action listening. Last updated
+    February 2023.
 - plugin: Helpify
   link: https://github.com/Luckyfoxdesign/helpify
   description: 'Plugin with simple actions: Generate random numbers'
@@ -46,6 +61,10 @@
   open-source: true
   tags:
   - automations
+  summary: |
+    Lightweight utility plugin that generates random numbers for placeholder content and testing.
+    Simple single-purpose tool for quickly populating designs with realistic data. Last updated
+    December 2022. Minimal overhead while providing essential automation capability.
 - plugin: Sketch Action
   link: https://github.com/onmyway133/sketch-action
   description: Spotlight in Sketch
@@ -57,6 +76,10 @@
   open-source: true
   tags:
   - automations
+  summary: |
+    Command palette tool (Cmd+Ctrl+O) for finding and executing Sketch menu commands with fuzzy search.
+    Navigate and execute commands via keyboard without menu traversal. Supports layer finding and custom
+    actions. Streamlines workflow with Spotlight-like interface. Last updated August 2022.
 - plugin: ProtoPie for Sketch
   link: https://protopie.io/sketch
   description: Export your designs and add powerful interactions—conditional logic,
@@ -66,9 +89,14 @@
   updated: '2021-04-06'
   version:
     value: unknown
-  open-source: false
+  open-source: true
   tags:
   - automations
+  summary: |
+    Exports Sketch designs to ProtoPie for high-fidelity prototyping with conditional logic, text input,
+    sensor access, voice, and camera features. Supports multi-touch gestures and dynamic interactions beyond
+    Sketch's capabilities. Cross-device testing on desktop, mobile, tablet with sharing and commenting.
+    macOS only, actively maintained with comprehensive documentation.
 - plugin: toggleLayers
   link: https://github.com/KevinGutowski/toggleLayers
   description: One action to toggle layers on / off so that you can more easily remap
@@ -81,3 +109,7 @@
   open-source: true
   tags:
   - automations
+  summary: |
+    Simple action to toggle visibility of selected layers with remap-friendly single action.
+    Enables custom keyboard shortcuts for quick layer visibility toggling without menu navigation.
+    Lightweight utility built with skpm. Last updated November 2018.

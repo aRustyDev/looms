@@ -213,6 +213,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Quickly generate guides for selected elements with automatic support for Bootstrap and Material grid layouts. Enables easy keyboard shortcut customization (default Cmd+Shift+\) for rapid guide creation. Designed to ease the tedious guide setup process in Sketch's layout settings.
 - plugin: Sketch Guides
   link: https://github.com/pratikjshah/Sketch-Guides
   description: Quickly generate Guides for a selected element in Sketch
@@ -224,6 +226,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Open-source version of PS-Guides for rapidly generating guides on selected elements. Supports Sketch 3.8+ with customizable keyboard shortcuts via system preferences. MIT licensed with straightforward installation from GitHub releases.
 - plugin: Mockplus iDoc
   link: https://idoc.mockplus.com/download/sketch
   description: Generating Assets and Specs Automatically, Make Design Collaboration
@@ -236,6 +240,8 @@
   open-source: false
   tags:
   - spec---measure
+  summary: |
+    Automatic specification generation and asset export for design handoff via Mockplus cloud platform. Supports artboard marking for export, pixel density configuration, page states, and design system checker. Integrates with Mockplus Cloud for team collaboration on designs and specifications.
 - plugin: Duplicator
   link: https://github.com/turbobabr/Duplicator
   description: A Sketch 3 plugin that takes the currently selected layers and copies
@@ -248,6 +254,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Duplicate selected layers or artboards in specified directions with arrow key shortcuts (Cmd+Ctrl+arrow). Supports manual offset adjustment, custom repeat counts with injection modes, and special handling for artboards with 100px default spacing. Works with symbols and groups.
 - plugin: Sketch Maps
   link: https://github.com/bouchenoiremarc/Sketch-Maps
   description: A Sketch plugin that uses the Mapbox API to fill layers with specific
@@ -260,6 +268,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Fill selected layers with map tiles from Mapbox API with customizable zoom, bearing, and pitch options. Supports 5 professional Mapbox styles plus custom styles from Mapbox Studio. Requires attribution if watermarks are hidden, compatible with Sketch 40+.
 - plugin: Sketch Preview
   link: https://github.com/marcisme/sketch-preview
   description: This Sketch plugin provides a preview command (⌘P) that will open a
@@ -273,6 +283,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Export selected artboards to Skala Preview for live device preview with configurable dimensions and scaling modes. Supports auto-preview mode toggling with Cmd+Ctrl+P and manual preview with Cmd+Shift+P. Compatible with Sketch 49.3+ and Skala View for iOS/Android.
 - plugin: Gutter Cutter
   link: https://github.com/GCampi/gutter-cutter
   description: A Sketch plugin to create custom grids with guides
@@ -284,6 +296,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Create custom grids with guides for artboards with visual configuration interface. Simplifies grid setup process with animated demonstration GIFs. Installable via Sketch Runner or direct download from GitHub releases.
 - plugin: Sketch Aspect Ratio
   link: https://github.com/preciousforever/sketch-aspect-ratio
   description: A simple plugin to apply preset or custom aspect ratios to a selected
@@ -296,6 +310,8 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Apply preset or custom aspect ratios to resize selected layers while maintaining proportions. Includes common presets (16:9, 4:3, square, etc.) with customizable dialog for manual ratios. Customizable presets available by editing /src/resources/ratios.js and rebuilding.
 - plugin: Gridy
   link: https://github.com/Volorf/Gridy
   description: An easy way creating guidelines
@@ -307,3 +323,5 @@
   open-source: true
   tags:
   - spec---measure
+  summary: |
+    Create horizontal and vertical guidelines from selected layers with three keyboard shortcuts. Supports creating vertical guides (Ctrl+Alt+V), horizontal guides (Ctrl+Alt+H), and removing all guides (Ctrl+Alt+R). Simple visual interface with GIF tutorials demonstrating workflow.

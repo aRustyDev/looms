@@ -205,6 +205,11 @@
   open-source: true
   tags:
   - data
+  summary: |
+    DataSupplier plugin that integrates with VK (VKontakte) accounts to fetch avatars,
+    names, and video thumbnails directly into Sketch designs. Accessible via toolbar icon,
+    context menu, or Inspector overrides. Works with Sketch 52+ and available through
+    Sketch Runner for easy installation. Last updated December 2019.
 - plugin: Seoul
   link: https://github.com/sunkibaek/Seoul
   description: A DataSupplier plugin
@@ -216,6 +221,10 @@
   open-source: true
   tags:
   - data
+  summary: |
+    A basic DataSupplier plugin for Sketch built with skpm framework. Provides data
+    supply functionality for filling layers with generated content. Last updated October 2018;
+    limited documentation available, but follows standard skpm development patterns.
 - plugin: Fake Chinese Name for Sketch
   link: https://github.com/JJYing/fake-chinese-name-for-sketch
   description: Generate Chinese names for text layers.
@@ -227,6 +236,11 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Generates realistic random Chinese names (simplified Chinese) for filling Sketch
+    text layers. Useful for Chinese design mockups and prototyping with locale-appropriate
+    persona data. Accessible via Plugins > 生成人名 menu or Ctrl+Option+R shortcut.
+    Updated with auto-update mechanism in September 2018.
 - plugin: Sketch Data Studio
   link: https://github.com/thetylerwolf/sketch-data-studio
   description: Sketch plugin to generate charts and data for data tables.
@@ -238,6 +252,10 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Generates realistic mock data (numbers, stocks, bonds, custom values) and renders
+    charts/tables directly in Sketch. Supports CSV import, custom data ranges (0-1, 0-100),
+    and premium features for imported CSV data. Requires Sketch 41+. Last updated August 2018.
 - plugin: I Want Apple System Font
   link: https://github.com/usagimaru/Sketch-AppleSystemFont-Plugin
   description: A Sketch plugin for applying Apple system font to text layers. (For
@@ -250,3 +268,8 @@
   open-source: true
   tags:
   - data
+  summary: |
+    Applies macOS system font (San Francisco + Hiragino Sans) to text layers, providing
+    proper Japanese typography with native-like rendering. Supports multiple weights
+    (Light through Heavy), OpenType features (Monospaced Digits, High Legibility, etc.),
+    and batch application to groups. Designed for Japanese design workflows. Last updated January 2018.

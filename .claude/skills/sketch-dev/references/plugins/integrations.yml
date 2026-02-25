@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Syncs Sketch artboards to Miro boards in a single click, enabling real-time team collaboration
+    and discussion. Preserves layer positioning and hierarchy for seamless handoff between design tools.
+    Allows adding interactions and annotations directly in Miro for collaborative feedback loops.
+    Recently maintained with active development.
 - plugin: Sketch Wakatime
   link: https://github.com/wakatime/sketch-wakatime
   description: A Plugin to update your WakaTime stats automatically from Sketch.
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Automatically logs Sketch design time to WakaTime for time tracking and productivity analytics.
+    Integrates seamlessly with WakaTime's dashboard for comprehensive project time reporting.
+    Maintains accurate time attribution across your design workflow without manual tracking.
+    Last updated October 2023, actively maintained by WakaTime.
 - plugin: Cloudinary Plugin
   link: https://github.com/cloudinary-devs/cloudinary-sketch-plugin
   description: Cloudinary plugin for Sketch projects
@@ -33,6 +43,10 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Integrates Cloudinary image management directly into Sketch for asset hosting and optimization.
+    Enables designers to fetch, preview, and insert cloud-hosted images with transformation capabilities.
+    Simplifies asset management workflows and supports responsive image delivery. Last updated July 2023.
 - plugin: SketchContentSync
   link: https://github.com/contentsync/SketchContentSync
   description: Sync sketch files with google docs.
@@ -44,6 +58,10 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Syncs copy and content between Sketch designs and Google Docs for collaborative editing.
+    Maintains two-way synchronization for text changes without manual copying. Enables writers and designers
+    to work concurrently in their preferred tools. Last updated March 2023 with ongoing maintenance.
 - plugin: Sketch Chat
   link: https://github.com/mathieudutour/sketch-chat
   description: A Sketch plugin to chat in Sketch Cloud files
@@ -55,6 +73,10 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Enables real-time chat and collaboration within Sketch Cloud files for team communication.
+    Reduces context switching by keeping conversations within the design file itself.
+    Supports threaded discussions and mentions for coordinating feedback. Last updated March 2023.
 - plugin: Connection Flow Arrows
   link: https://github.com/faridsabitov/Sketch-Connection-Flow-Arrows
   description: Plugin for generating easy to use connection flow arrows in Sketch
@@ -66,6 +88,10 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Generates connection flow arrows and relationship lines between elements with automatic routing
+    and customizable styling. Simplifies creating user flow diagrams, data flow charts, and system architecture
+    visualizations. Supports bidirectional arrows and curved connectors. Last updated January 2023.
 - plugin: Google Sheets Content Sync
   link: https://github.com/DWilliames/Google-sheets-content-sync-sketch-plugin
   description: Edit and collaborate on your content in Google Sheets, then sync in
@@ -78,6 +104,10 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Establishes two-way sync between Google Sheets and Sketch for content management and collaboration.
+    Content editors work in Sheets while designers maintain Sketch files in sync. Supports bulk updates
+    and maintains data integrity across tools. Last updated August 2021.
 - plugin: Primary Sync
   link: https://github.com/Primary-app/primary-sync
   description: Sync your Sketch designs 💎 with Primary's user flows and design documents.
@@ -89,3 +119,8 @@
   open-source: true
   tags:
   - integrations
+  summary: |
+    Integrates Sketch designs with Primary's user flows and design documentation system.
+    Keeps design artifacts synchronized across tools for improved design system governance.
+    Enables designers to maintain source-of-truth designs in Sketch while documenting in Primary.
+    Last updated May 2020.

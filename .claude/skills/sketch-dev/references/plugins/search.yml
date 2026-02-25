@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Links text layers and symbol overrides to JSON content files with @key syntax and supports nested
+    keys with dot/slash notation. Includes text truncation modifiers (|n, |n..., |...n). Features pull/push
+    sync, check for mismatches, and Excel export. Useful for managing multilingual content and design
+    handoff workflows. Last updated March 2023.
 - plugin: Reselect
   link: https://github.com/mfouquet/Reselect
   description: Reselect allows you to restore a previous selection or save selections
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Restores previous selections (Ctrl+Alt+\\) or saves selections for reuse across design sessions.
+    Load saved selections from dropdown with persistent storage even after document closure. Customizable
+    selection history limit via Settings. Keyboard-friendly workflow with intuitive shortcuts. Last
+    updated February 2022. Available via Sketch Runner and Sketchpacks.
 - plugin: Select 'n' Slice
   link: https://github.com/kevintoepfer/select-n-slice
   description: A Sketch plugin to create a slice around anything you've selected.
@@ -33,6 +43,10 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Creates slices around selected elements with optional padding configuration. Simple Slice generates
+    tight boundaries, Padding Slice adds specified margins. Useful for batch exporting assets without
+    manual slice creation. Built with skpm and based on SizeArtboard plugin. Last updated February 2022.
 - plugin: SketchDistributor
   link: https://github.com/PEZ/SketchDistributor
   description: Distribute selection objects vertically or horizontally with a given
@@ -45,6 +59,11 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Distributes objects with precise spacing between edges or centers (replaces Sketch's legacy "boxed"
+    distribution). Supports negative spacing for overlaps and works with Sketch Runner integration.
+    Keyboard shortcuts for horizontal (Ctrl+Opt+H), vertical (Ctrl+Opt+V), and repeat distribution
+    (Ctrl+Opt+A). Highly ranked in productivity plugin lists. Last updated May 2021.
 - plugin: pickle
   link: https://github.com/billychasen/pickle-sketch
   description: Pickle lets you get quick feedback on anything you design. By integrating
@@ -58,6 +77,11 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Launches user research directly from Sketch by selecting up to 4 design variants and posing comparison
+    questions. Collects responses with demographic data at $0.10 per response (100x cheaper than traditional
+    tools). Integrates early research into design process. Requires API key and account credits. Last
+    updated January 2021.
 - plugin: Viewfinder Sketchplugin
   link: https://github.com/ahmedmigo/ViewFinder-Sketchplugin
   description: Easy access anywhere in you project file
@@ -69,6 +93,11 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Creates named bookmarks to specific canvas views for quick navigation across large Sketch files.
+    Save current viewport with custom names and jump between views instantly from plugin panel.
+    Eliminates manual scrolling and zooming through complex documents. Available on Sketchpacks and
+    Sketch Runner. Last updated February 2020.
 - plugin: Sketch Reverse
   link: https://github.com/lucaorio/sketch-reverse
   description: Reverse the position or depth of selected elements.
@@ -80,3 +109,8 @@
   open-source: true
   tags:
   - search
+  summary: |
+    Reverses position of elements on X or Y axes, or reverses layer depth order in the layers panel.
+    Supports position reversal without depth changes or depth reversal without moving elements.
+    Integrates with Sketch Runner and Sketchpacks. Keyboard shortcuts: Ctrl+Cmd+Y (X-axis), Ctrl+Cmd+X
+    (Y-axis), Ctrl+Cmd+O (depth). Last updated April 2019.

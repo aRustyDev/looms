@@ -10,6 +10,10 @@
   open-source: true
   tags:
   - copy-paste
+  summary: |
+    Sketch plugin that integrates with Abstract version control to fetch copy content
+    from branch comments directly into your design. Built with skpm, it streamlines the
+    workflow for designers collaborating on copy management. Last updated March 2023.
 - plugin: copycat
   link: https://github.com/azhsetiawan/sketch-copycat
   description: sketch plugin
@@ -21,6 +25,11 @@
   open-source: true
   tags:
   - copy-paste
+  summary: |
+    Duplicates layout styles from one artboard to another using layer styles as templates.
+    Create a "Copycat" layout in a source artboard, then apply its style to rectangles in
+    other artboards to replicate the layout structure. Supports export scale configuration.
+    Last updated January 2023, available via Sketchpacks.
 - plugin: Paste Paddings
   link: https://github.com/simonlidesign/pastePaddings
   description: Allows you to copy the paddings of one element and apply them to another
@@ -32,6 +41,11 @@
   open-source: true
   tags:
   - copy-paste
+  summary: |
+    Copies padding values from one element to apply to another across different artboards.
+    Use Ctrl+Shift+C to copy an element's paddings and Ctrl+Shift+V to paste them.
+    Supports both horizontal and vertical padding operations. Created January 2020,
+    last updated January 2023.
 - plugin: Frontitude
   link: https://www.frontitude.com
   description: One place for your UX copy, from design to production.
@@ -43,6 +57,11 @@
   open-source: false
   tags:
   - copy-paste
+  summary: |
+    Centralized platform for managing UX copy from design through production across
+    multiple languages. Bridges design, localization, and development teams with AI-powered
+    writing assistance, translation memory, and developer CLI for seamless handoffs.
+    Includes integrations with design tools and localization services. Paid SaaS product.
 - plugin: Paste Direct
   link: https://github.com/yudiz-solutions/paste-direct
   description: Design like a guitarist!
@@ -54,3 +73,8 @@
   open-source: true
   tags:
   - copy-paste
+  summary: |
+    Provides keyboard-driven shortcuts for cycling through document colors and
+    managing color/text clipboard operations. Use arrow keys to navigate colors,
+    Cmd+Ctrl+X to copy color codes, and Cmd+Ctrl+V to paste colors or text into layers.
+    Minimal maintenance since 2018, but functional for quick color operations.

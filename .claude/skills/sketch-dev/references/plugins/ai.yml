@@ -10,19 +10,29 @@
   open-source: true
   tags:
   - ai
+  summary: |
+    AI-powered screenshot-to-design converter that extracts UI components (buttons, cards,
+    forms, navigation bars) from images and outputs editable Sketch layers. Recognizes component
+    hierarchy and layout relationships. Accepts PNG, JPG, and device screenshots with secure
+    private data processing. Recently updated (May 2025).
 - plugin: Picsart BG Remover & Image Enhancer
   link: https://picsart.io
   description: 'Elevate your Sketch designs with the Picsart Plugin: effortlessly
     remove backgrounds from product photos, cars, furniture, jewelry, and more, and
     upscale images'
   authors:
-  - up to 8x per side (64x resolution)
+  - Picsart
   updated: '2025-01-15'
   version:
     value: unknown
   open-source: false
   tags:
   - ai
+  summary: |
+    AI image editing plugin for background removal, image enhancement, and upscaling
+    (up to 8x resolution). Works with product photos, vehicles, furniture, and jewelry.
+    Integrates Picsart's 150M+ user AI tools into Sketch. Part of broader plugin ecosystem
+    including Figma and Miro. Actively maintained (January 2025).
 - plugin: 'Codia AI Design: Screenshot to Editable Sketch Design'
   link: https://codia.ai/image-to-sketch
   description: Transform screenshots into editable Sketch UI designs effortlessly.
@@ -36,3 +46,8 @@
   open-source: false
   tags:
   - ai
+  summary: |
+    AI-powered screenshot-to-Sketch converter that transforms app/website screenshots into
+    fully editable Sketch designs. Upload images and the tool automatically generates editable
+    UI layers. Streamlines design workflow by eliminating manual tracing/recreation. Last updated
+    November 2024.

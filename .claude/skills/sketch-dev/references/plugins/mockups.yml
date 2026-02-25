@@ -11,6 +11,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Export selected artboards from Sketch and instantly present them on client mobile devices without leaving the application. Enables real-time design preview and feedback collection directly on target devices. Built with skpm and includes debugging support for development.
 - plugin: Sketch Isometric
   link: https://github.com/sureskumar/sketch-isometric
   description: Generate Isometric views from Artboards and Rectangles.
@@ -22,6 +24,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Generate isometric 3D projections of artboards and rectangles with customizable rotation direction, depth, and scale. Supports multiple rotation directions and requires additional plugins like Magic Mirror for mapping artboard contents to isometric shapes. Actively maintained with extensive documentation and examples.
 - plugin: Sketch Data Faker
   link: https://github.com/paintedbicycle/sketch-data-faker
   description: A Sketch data plugin providing data for you mockups from Faker.js
@@ -33,6 +37,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Insert 130+ types of realistic mock data into Sketch designs including names, emails, addresses, and product descriptions using Faker.js. Supports both manual and automatic modes, works with symbols and library imports for unique per-instance data. Can be localized for different regions and provides layer renaming helpers for automatic data assignment.
 - plugin: Isometry
   link: https://github.com/maxkonovalov/Isometry
   description: Create isometric projections from layers
@@ -44,6 +50,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Generate three types of isometric projections (top, left, front) from any shape or text layer using MIT-licensed plugin. Supports all layer types with automatic transformation while maintaining visual properties. Available for download with simple installation process.
 - plugin: Chippen charts
   link: https://github.com/smallmultiples/sketch-chippencharts
   description: Bar chart creator for your mockups using random data. Change the size
@@ -57,6 +65,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Create bar charts with random, linear, or user-defined data for both horizontal and vertical layouts. Features trend options (random, linear, natural), clipboard data import from Excel, and random color fill with gradient generation. Supports custom scale multipliers and maximum height constraints for flexible mockup design.
 - plugin: areanow
   link: https://github.com/norman-woz/areanow
   description: Get the total area of selected rectangle layers.
@@ -68,6 +78,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Calculate total area of multiple selected rectangle layers with keyboard shortcut (Cmd+Option+Shift+A). Simple utility for quickly obtaining dimensional calculations from grouped shape selections. Open-source plugin built with community contributions.
 - plugin: Sketch Split Shape
   link: https://github.com/kupe517/sketch-split-shape
   description: Sketch plugin to split up a rectangle evenly
@@ -79,6 +91,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Divide a rectangle into evenly-spaced rows and columns with configurable gutters and margins. Supports placing divisions within artboards with automatic margin subtraction and centering. Currently seeking maintainers as original author has transitioned to Figma.
 - plugin: triangle-field
   link: https://github.com/0la0/triangle-fields
   description: Generate Delaunay triangle tessellation inside a shape.
@@ -90,6 +104,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Generate Delaunay triangulation patterns inside selected shapes with multiple distribution algorithms (random, parabolic, grid, radial). Features interactive configuration UI and real-time preview capabilities. Useful for creating complex geometric art and pattern-based mockups.
 - plugin: Nudge Corner Radius
   link: https://github.com/DWilliames/nudge-corner-radius-sketch-plugin
   description: Increase/decrease the corner radius of a rectangle, or path nodes —
@@ -102,6 +118,8 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Quickly adjust corner radius using Cmd+] and Cmd+[ shortcuts with customizable nudge amounts respecting Sketch settings. Works with individual nodes, multiple layers, and respects uneven corner values. Contextually aware to avoid conflicts with text alignment shortcuts.
 - plugin: Android Screenshot
   link: https://github.com/sylvainleris/fr.y3s.sketch.screenshot
   description: A Sketch plugin to take screenshots of Android device connected over
@@ -114,3 +132,5 @@
   open-source: true
   tags:
   - mockups
+  summary: |
+    Capture screenshots directly from USB-connected Android devices into Sketch with embedded ADB tool. Supports both inserting screenshots as new elements and filling selected layers with screenshots via keyboard shortcuts. Requires USB debugging enabled on Android devices.

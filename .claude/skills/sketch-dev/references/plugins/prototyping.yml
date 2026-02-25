@@ -11,9 +11,11 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Publish Sketch artboards to Flow server with complete design specifications, 2x PNG previews, full layer metadata, and prototype flow links. Enables developers to inspect specs, export assets, and click through interactive prototype journeys directly in the web browser. Features design token documentation and comprehensive layer tree extraction with animation types.
 - plugin: Justinmind Sketch
   link: https://github.com/JustinmindDevelopment/justinmind-sketch
-  description: You can export artboards, layers and pages you’ve made in Sketch to
+  description: You can export artboards, layers and pages you've made in Sketch to
     Justinmind and turn them into interactive shareable prototypes.
   authors:
   - Justinmind
@@ -23,9 +25,11 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Export Sketch artboards, layers, and pages directly to Justinmind platform for creating interactive, shareable prototypes. Bridges design and prototyping workflows with simple export process. Requires Sketch 3.3+ and integrates with Justinmind's comprehensive prototyping tools.
 - plugin: Overflow
   link: https://overflow.io
-  description: Overflow is the world’s first user flow diagramming tool tailored for
+  description: Overflow is the world's first user flow diagramming tool tailored for
     designers. It empowers designers to design, present and share beautiful user flow
     diagrams that tell a story.
   authors:
@@ -36,6 +40,8 @@
   open-source: false
   tags:
   - prototyping
+  summary: |
+    Commercial user flow diagramming tool that syncs designs from Sketch with three presentation modes: canvas view for flow mapping, prototype view for screen-by-screen inspection, and story view for guided walkthroughs. Trusted by 500k+ designers, offers unlimited version history and team collaboration. Available as Pro ($) or Enterprise plan.
 - plugin: Flow Exporter
   link: https://github.com/romannurik/Sketch-FlowExporter
   description: A Sketch plugin that exports prototype flows built with Sketch 49+
@@ -48,6 +54,8 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Export Sketch 49+ prototype flows to interactive HTML format for self-hosted sharing via web hosts like Firebase Hosting. Built with skpm framework and enables sharing of artboard connections with design stakeholders. Simple installation via GitHub releases or Sketch Runner.
 - plugin: Mupixa
   link: https://github.com/mupixa/sketch-plugin-mupixa
   description: Mupixa allows you to leverage the full potential of your prototypes
@@ -60,6 +68,8 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Publish Sketch projects to Mupixa platform for browser-based prototype viewing and usability testing. Includes simple authentication flow and project management directly from Sketch plugin interface. Enables design collaboration and feedback collection through the Mupixa web application.
 - plugin: Beatflyer Lite
   link: https://beatflyer.com
   description: Animate your artboards in a few clicks with a lite and free version
@@ -72,6 +82,8 @@
   open-source: false
   tags:
   - prototyping
+  summary: |
+    Create music-reactive animated flyers and social media content from static designs with beat-synced animations. Free lite version available with optional paid plan for commercial use without watermarks. Supports export as MP4, GIF, or static images for Instagram, TikTok, Spotify Canvas, and email campaigns.
 - plugin: AnimateMate
   link: https://github.com/Creatide/AnimateMate
   description: Create your animations directly in Sketch
@@ -83,6 +95,8 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Create simple animations directly in Sketch using keyframe-based animation editor with support for move, rotation, scale, and transparency effects. Export animations as PNG or GIF with customizable easing functions. Note: Project is deprecated and no longer maintained, though code contributions are welcome.
 - plugin: Sketch Map
   link: https://github.com/she1991/Sketch-Map
   description: Get a bird's eye views of your prototype flows.
@@ -94,6 +108,8 @@
   open-source: true
   tags:
   - prototyping
+  summary: |
+    Export Sketch prototype flows to an interactive HTML state diagram showing artboard connections and user flow paths. Based on Roman Nurik's Flow Exporter with visual enhancements for flow analysis and presentation. Viewable as an interactive map in any web browser.
 - plugin: Indigo.Design
   link: https://cloud.indigo.design/resources
   description: Create, edit, and apply themes to your Indigo.Design UI Kit based designs
@@ -106,6 +122,8 @@
   open-source: false
   tags:
   - prototyping
+  summary: |
+    Commercial plugin from Infragistics for publishing Indigo.Design UI Kit-based Sketch designs as interactive prototypes to the cloud. Enables theme creation and editing directly in Sketch with cloud synchronization. Part of the broader Indigo.Design design system suite.
 - plugin: Framer Inventory 2.0 for Sketch
   link: http://timurnurutdinov.github.io/framerinventory/
   description: Sketch plugin to generate FramerJS prototypes. Just have your motion
@@ -118,3 +136,5 @@
   open-source: false
   tags:
   - prototyping
+  summary: |
+    Generate FramerJS prototypes from Sketch with automatic code generation for transitions between layer states and animations. Supports layer states import, relative positioning, pixel-to-points conversion, and native layer animations. Pro version available with unlimited exports ($).

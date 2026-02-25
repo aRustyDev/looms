@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - override-management
+  summary: |
+    Manage hundreds of symbol overrides with one click using enable/disable commands.
+    Features include: disable all/enable all overrides, disable locked layers, enable
+    unlocked layers, and dependency on lock status. Available via Sketchrunner and Sketchpacks.
+    Actively maintained with recent updates (February 2026).
 - plugin: Decimal Number Generator
   link: https://github.com/vaexperience/sketch-plugin-decimal-number-generator
   description: Generate anbd override text fields with decimal number values and custom
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - override-management
+  summary: |
+    Generates decimal numbers and custom numeric values for text layer overrides in
+    trading, finance, and data-heavy designs. Configure decimal places, number ranges,
+    and add prefixes/suffixes (currency, percentages, degrees). Speeds up creation of
+    realistic mock data. Last updated January 2020.
 - plugin: Overrideit Sketchplugin
   link: https://github.com/ahmedmigo/overrideit-sketchplugin
   description: Overrideit is sketch plugin that allow designers to search in overridelist
@@ -34,6 +44,11 @@
   open-source: true
   tags:
   - override-management
+  summary: |
+    Search overrides by layer name or value with smart filtering for nested symbols.
+    Provides expandable text fields for paragraph text overrides. Includes search algorithm
+    that finds symbol instances and their nested components. Available via Sketchpacks and
+    Sketch Runner. Last updated May 2019.
 - plugin: restore-overrides
   link: https://github.com/danielthall/restore-overrides
   description: A small plugin to store and restore override values before and after
@@ -46,3 +61,8 @@
   open-source: true
   tags:
   - override-management
+  summary: |
+    Stores and restores override values before library updates to prevent data loss when
+    symbol remapping occurs. Run "Override Export" before updating libraries, then
+    "Override Import" after. Works with text value overrides; symbol instance order must
+    remain consistent. Available via Sketchpacks. Last updated May 2019.

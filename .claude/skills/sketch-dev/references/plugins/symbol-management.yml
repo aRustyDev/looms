@@ -541,6 +541,11 @@
   open-source: false
   tags:
   - symbol-management
+  summary: |
+    Synchronizes design content between Sketch and Google Sheets or Microsoft 365 with bidirectional
+    syncing and versioning capabilities. Provides deep support for symbol overrides, text content,
+    and style management. Commercial plugin priced at $39/month with unlimited projects and versions.
+    Last updated October 2021.
 - plugin: Move To Library Sketchplugin
   link: https://github.com/ahmedmigo/Move-to-library-sketchplugin
   description: You can now move symbol from your project to any library and re-attach
@@ -554,6 +559,11 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Migrates symbols from local documents to external libraries while re-attaching all instances
+    and preserving overrides. Works with Abstract libraries that are not stored locally, enabling
+    seamless symbol management across projects. Open-source plugin by Ahmed Genaidy, last updated
+    September 2021.
 - plugin: Duplicate Symbol Locator
   link: https://github.com/rijieli/duplicate-symbol-locator-plugin
   description: Locate duplicate symbols, anywhere.
@@ -565,6 +575,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Identifies and locates duplicate symbols throughout a Sketch document with a single command.
+    Useful for symbol audits and design system cleanup to eliminate redundant symbols. Open-source
+    plugin by Roger Lee, last updated July 2021.
 - plugin: export-colors
   link: https://github.com/massimo-cassandro/sketch-export-colors-plugin
   description: Export document color components
@@ -576,6 +590,9 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Exports color components and color variables from Sketch documents for use in other design tools
+    or development workflows. Open-source plugin by Massimo Cassandro, last updated June 2021.
 - plugin: Symbol Organizer
   link: https://github.com/sonburn/symbol-organizer
   description: Organize your symbols page and layer list, based on the symbol names.
@@ -587,6 +604,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automatically organizes symbols page and layer hierarchy based on symbol names, creating a clean
+    and logical folder structure. Essential for managing large symbol libraries and maintaining design
+    system organization. Open-source by prolific developer Jason Burns, last updated May 2021.
 - plugin: Symbol Instance Renamer
   link: https://github.com/sonburn/symbol-instance-renamer
   description: Rename all symbol instances to the name of their master.
@@ -598,6 +619,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Renames all symbol instances in a document or selection to match their parent symbol masters' names.
+    Ensures consistent naming across instances for better organization and documentation. Open-source
+    by Jason Burns, last updated May 2021.
 - plugin: Smart Truncate
   link: https://github.com/ozgurgunes/Sketch-Smart-Truncate
   description: Truncates text in selected layers, symbol overrides or even all overrides
@@ -610,6 +635,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Truncates text content in selected layers or symbol overrides to a specified character length.
+    Supports bulk operations on all instances of a symbol, useful for UI mockups with content constraints.
+    Open-source by Özgür Güneş, last updated May 2021.
 - plugin: Sketch Find All Instances of Symbol
   link: https://github.com/mcansh/sketch-find-all-instances-of-symbol
   description: Find all instances of a symbol in Sketch
@@ -621,6 +650,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Locates and selects all instances of a chosen symbol throughout a Sketch document with a single
+    command. Facilitates bulk updates, audits, and symbol usage analysis. Open-source by Logan McAnsh,
+    last updated April 2021.
 - plugin: Symbol Browser
   link: http://symbol-browser.pratikshah.website
   description: A new way to browse your symbols. Make the most of your Design System
@@ -633,6 +666,10 @@
   open-source: false
   tags:
   - symbol-management
+  summary: |
+    Provides an alternative interface for browsing and managing design system symbols with improved
+    visualization of symbol sticker sheets. Designed to enhance design system workflows and symbol discovery.
+    Last updated May 2020.
 - plugin: Swap It
   link: https://github.com/shantsis/swap-it-sketch
   description: A sketch plugin to replace symbols across multiple artboards easily
@@ -645,6 +682,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Replaces symbols across multiple artboards with alternatives from libraries or local documents.
+    Streamlines bulk symbol swaps for design system updates or component substitutions. Open-source
+    by Shaina Hantsis, last updated March 2020.
 - plugin: Format Symbol Names
   link: https://github.com/perrysmotors/format-symbol-names
   description: A Sketch plugin to nicely format the names of all artboards or symbol
@@ -657,6 +698,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Formats and standardizes symbol master and artboard names on the current page according to naming
+    conventions. Useful for enforcing consistent naming patterns across design systems. Open-source by
+    Giles Perry, last updated February 2020.
 - plugin: Symbols Manager
   link: https://gumroad.com/l/sketch-symbols-manager
   description: A fast and easy way to manage all your symbols. No more hassle with
@@ -670,6 +715,10 @@
   open-source: false
   tags:
   - symbol-management
+  summary: |
+    Simplifies symbol management by providing bulk renaming and organization capabilities for
+    complex symbol libraries. Reduces the tedium of managing long symbol names and folder hierarchies.
+    Commercial plugin available on Gumroad, last updated February 2020.
 - plugin: Compo
   link: https://github.com/romashamin/compo-sketch
   description: Makes it easier to work with interface components in Sketch
@@ -681,6 +730,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Enhances component workflow in Sketch by providing utilities for easier symbol and component
+    management. Streamlines working with interface components and design systems. Open-source by
+    Roman Shamin, last updated June 2019.
 - plugin: SVG to React Component
   link: https://github.com/reeli/sketch-svg-to-react-component
   description: Sketch plugin to compress SVG and transform it to React (include React
@@ -694,6 +747,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Converts Sketch artboards and symbols to React and React Native components with SVG compression.
+    Supports copying component code to clipboard or exporting as files. Bridges design-to-code workflow.
+    Open-source by reeli, last updated June 2019.
 - plugin: Sketch Manager Plugin
   link: https://www.sketchmanager.com
   description: The easiest way to manager your Symbols, Text styles and Layer styles.
@@ -705,6 +762,10 @@
   open-source: false
   tags:
   - symbol-management
+  summary: |
+    Provides unified management interface for symbols, text styles, and layer styles in Sketch.
+    Simplifies design system organization and library maintenance. Commercial plugin, last updated
+    May 2019.
 - plugin: color-locator
   link: https://github.com/anavarromartin/sketch-color-locator
   description: Find all instances of a HEX color
@@ -716,6 +777,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Locates all instances of a specific hex color throughout a Sketch document for color audits and
+    design system compliance checks. Useful for identifying off-palette colors and enforcing color
+    consistency. Open-source by Adria Navarro, last updated May 2019.
 - plugin: Shared Style Finder
   link: https://github.com/sonburn/shared-style-finder
   description: Find instances of a shared layer or text style.
@@ -727,6 +792,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Locates all instances of a selected shared layer or text style throughout a document. Facilitates
+    style audits and bulk updates to design system assets. Open-source by Jason Burns, last updated
+    April 2019.
 - plugin: Symbol Instance Sheet
   link: https://github.com/sonburn/symbol-instance-sheet
   description: Generate a sheet of symbol instances from your current document or
@@ -739,6 +808,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Generates a comprehensive sheet displaying all symbol instances from the current document or
+    external libraries for documentation and reference. Useful for design system documentation and
+    component inventory. Open-source by Jason Burns, last updated April 2019.
 - plugin: library-audit
   link: https://github.com/naughtandcross/sketch-library-audit
   description: Export Symbol and Shared Style data from any Sketch Library to CSV.
@@ -750,6 +823,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Exports symbols and shared styles from Sketch libraries to CSV format for external analysis,
+    auditing, and reporting. Enables data-driven design system management and compliance tracking.
+    Open-source by Colby Grenier, last updated March 2019.
 - plugin: Airtabledata
   link: https://sketchairtabledataplugin.com/
   description: Use your Airtable data in your Sketch symbols
@@ -761,6 +838,10 @@
   open-source: false
   tags:
   - symbol-management
+  summary: |
+    Populates Sketch symbols with data from Airtable tables, enabling data-driven design and
+    automation of symbol instances. Bridges design and data management workflows. Commercial plugin
+    by Rutger Willems, last updated March 2019.
 - plugin: Escriba
   link: https://github.com/Pausansol/Escriba
   description: Sketch plugin to copy paste symbol overrides
@@ -772,6 +853,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Enables copying and pasting override configurations between symbol instances, streamlining the
+    process of applying consistent overrides across multiple symbols. Useful for maintaining design
+    consistency. Open-source by Pablo Sanchez Soler, last updated February 2019.
 - plugin: Lottie Sketch Export
   link: https://github.com/buba447/Lottie-Sketch-Export
   description: Native Sketch plugin for exporting Artboards and Symbols into Lottie
@@ -784,6 +869,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Exports Sketch artboards and symbols to Lottie JSON format for use in motion design and
+    animation workflows. Bridges design tool and animation frameworks. Open-source by Brandon Withrow,
+    last updated February 2019.
 - plugin: Align artboards and symbols
   link: https://github.com/richardgazdik/sketch-align
   description: Group and align your Sketch symbols and artboards
@@ -795,6 +884,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Groups and aligns symbol masters and artboards within a Sketch canvas for organized layout
+    and improved workspace navigation. Useful for maintaining clean symbol library organization.
+    Open-source by Richard Gazdik, last updated December 2018.
 - plugin: Symbol Text Inspector
   link: https://github.com/dbilyk/SymbolTextInspector
   description: Easily inspect the specifications of all text overrides in symbols,
@@ -807,6 +900,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Inspects and displays detailed specifications of text overrides across symbol instances,
+    including nested symbols. Facilitates text property audits and ensures consistency in symbol
+    typography. Open-source by Dmitri Bilyk, last updated October 2018.
 - plugin: Unsplasher
   link: https://github.com/perrysmotors/sketch-unsplasher
   description: Fills shapes or symbols with images from Unsplash
@@ -818,6 +915,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Populates shapes and symbols with high-quality placeholder images from Unsplash, useful for
+    UI mockups and prototypes. Streamlines the process of adding realistic imagery to designs.
+    Open-source by Giles Perry, last updated October 2018.
 - plugin: Copy as React Component (JSX)
   link: https://github.com/jasondonnette/sketch-copy-as-react-component
   description: Generate a React components from Sketch with a keyboard shortcut
@@ -829,6 +930,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Converts selected Sketch symbols and layers to React JSX component code and copies to clipboard
+    with a keyboard shortcut. Bridges design-to-code workflow by generating production-ready components.
+    Open-source by Jason Donnette, last updated June 2018.
 - plugin: Sketch Duplicatesymbol
   link: https://github.com/marianomike/sketch-duplicatesymbol
   description: Sketch plugin that creates a new symbol out of a selected symbol
@@ -840,6 +945,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Duplicates selected symbols to create variants or copies with independent overrides. Useful for
+    creating symbol variants without affecting the original. Open-source by Mike Mariano, last updated
+    May 2018.
 - plugin: Export Symbols
   link: https://github.com/marianomike/sketch-exportsymbols
   description: Sketch Plugins
@@ -851,6 +960,9 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Exports symbols from Sketch documents for use in other design tools or for backup/archival purposes.
+    Facilitates symbol sharing and portability. Open-source by Mike Mariano, last updated May 2018.
 - plugin: Organize Symbols
   link: https://github.com/marianomike/sketch-organizesymbols
   description: Sketch plugin that arranges symbol artboards
@@ -862,6 +974,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Automatically arranges and organizes symbol artboards within a Sketch page for improved layout
+    and navigation. Streamlines symbol library workspace management. Open-source by Mike Mariano,
+    last updated May 2018.
 - plugin: Sketch Unlinker
   link: https://github.com/eivindbohler/Sketch-Unlinker
   description: Sketch plugin that lets you unlink selected layers and groups from
@@ -874,6 +990,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Bulk unlinks layers and groups from shared symbols, layer styles, or text styles with a single
+    command. Useful for detaching components before reorganization or cleanup. Open-source by Eivind
+    Bøhler, last updated May 2018.
 - plugin: Library Symbol Replacer
   link: https://github.com/zeroheight/library-symbol-replacer
   description: Sketch plugin to replace symbols in an existing documents with library
@@ -886,6 +1006,10 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Replaces local symbols with their library equivalents for design system synchronization and
+    centralized component management. Supports selective and bulk replacements. Open-source by
+    zeroheight, last updated May 2018.
 - plugin: Quick Export as PNG
   link: https://github.com/richardgazdik/sketch-quickexport
   description: Quick Export layers/artboards/symbols as PNG Plugin for Sketch.
@@ -897,6 +1021,9 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Quickly exports layers, artboards, and symbols as PNG files without opening export dialogs.
+    Streamlines asset extraction workflow. Open-source by Richard Gazdik, last updated May 2018.
 - plugin: Select Same Symbols
   link: https://github.com/yusukesaitoh/sketch-select-same-symbols
   description: Select same symbols as the currently selected symbol.
@@ -908,3 +1035,7 @@
   open-source: true
   tags:
   - symbol-management
+  summary: |
+    Selects all instances of the currently selected symbol across a document for batch editing and
+    updates. Facilitates efficient symbol management and consistency checking. Open-source by Yusuke
+    Saitoh, last updated January 2018.

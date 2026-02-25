@@ -12,6 +12,11 @@
   open-source: false
   tags:
   - localization
+  summary: |
+    Enables early-stage localization by previewing designs in 500+ languages directly in Sketch.
+    Two-way sync with Phrase's TMS platform for streamlined translation workflow without manual copy-paste.
+    Character limit enforcement and context screenshots guide translators. Enterprise-ready with active
+    support team and seamless design-to-translation pipeline.
 - plugin: Crowdin for Sketch
   link: https://github.com/crowdin/sketch-crowdin
   description: Localize the UI before programming starts. Translate and preview any
@@ -24,6 +29,11 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Sends Sketch designs to Crowdin for collaborative translation and retrieves translated versions
+    as separate pages. Supports whole pages or individual artboards with live preview. Includes artboard
+    screenshot uploads for translator context. Recently maintained (October 2024) with active community
+    support and comprehensive documentation.
 - plugin: Prototypes Invision ↔︎ Sketch
   link: https://github.com/mathieudutour/prototypes-invision-sketch
   description: Translate your prototyping links back and forth between Sketch and
@@ -36,6 +46,11 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Converts prototyping links between Sketch and InVision formats bidirectionally.
+    Handles interaction translations while preserving original links for manual review of features
+    that cannot be exactly translated. Simplifies handoff between design and prototyping tools.
+    Last updated February 2023.
 - plugin: Sketch Auto Translate
   link: https://github.com/symdesign/sketch-auto-translate
   description: Plugin to translate Sketch files into via Google Translate.
@@ -47,6 +62,11 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Translates text layers and symbol overrides across 40+ languages using Google Translate API.
+    Supports translating selections, current pages, or entire documents. Requires Google Cloud API
+    setup with free trial credits available. Offers batch processing with keyboard shortcuts for
+    efficiency. Last updated September 2022.
 - plugin: Translate From JSON
   link: https://github.com/kbirgoren/sketch-json-translator
   description: A Sketch plugin lets you use variables for texts in your designs.
@@ -58,6 +78,11 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Links text layers and symbol overrides to JSON language files with key-value pairs.
+    Supports text truncation modifiers and nested JSON keys joined by slashes. Updates all texts
+    with Update All Texts command (Cmd+Opt+T). Note: Last updated January 2021, may need updates
+    for newer Sketch versions.
 - plugin: Smartling
   link: https://smartling.github.io/smartling-sketch-plugin/
   description: Plugin for Sketch that allows to translate and pseudo-localize designs
@@ -70,6 +95,11 @@
   open-source: false
   tags:
   - localization
+  summary: |
+    Sends page content to Smartling for professional translation management and retrieves translations
+    as new pages. Supports pseudo-translation for testing layout impacts (Chinese/Japanese reduce text 30-50%,
+    others increase 15-50%). File-based export/import also available. Requires Smartling project access.
+    Last updated June 2020.
 - plugin: Translate.me
   link: https://github.com/eddiesigner/sketch-translate-me
   description: Translations. Simplified. Translate your Sketch text layers, artboards
@@ -82,6 +112,11 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Translates individual layers, artboards, or entire documents to 100+ languages via Google Translate API.
+    Auto-detects source language and offers keyboard shortcuts for quick access. Requires Google API key setup
+    (free trial with $300 credits available). Compatible with Sketch 4+. Last updated May 2019, accepts
+    donations for ongoing development.
 - plugin: Jane Doe
   link: https://github.com/konki-vienna/jane_doe
   description: This Sketch Data plugin adds localized profile names (powered
@@ -93,3 +128,8 @@
   open-source: true
   tags:
   - localization
+  summary: |
+    Populates text layers and symbol overrides with localized profile names (names, genders, regions)
+    powered by uinames.com API. Useful for creating realistic user interface mockups with authentic
+    cultural names. Supports batch processing of multiple layers and symbols. Created during Design Tools
+    Hackathon 2018.

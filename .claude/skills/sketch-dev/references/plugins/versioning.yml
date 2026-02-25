@@ -11,6 +11,11 @@
   open-source: false
   tags:
   - versioning
+  summary: |
+    True version control for Sketch files with Git-like branching and merging.
+    Features include centralized file management, branch-based exploration, real-time
+    collaboration, side-by-side change comparison, and conflict resolution. Used by 1 in 3
+    Fortune 500 companies. Includes design system management and review workflow tools.
 - plugin: Last-updated indicator
   link: https://github.com/bvmensvoort/sketch-last-updated
   description: Mark your designs with a version indicator which automatically changes
@@ -23,6 +28,11 @@
   open-source: true
   tags:
   - versioning
+  summary: |
+    Automatically updates metadata placeholders with timestamps, increments, page numbers,
+    and artboard titles. Supports 15+ placeholder formats for dates, times, document size,
+    and page numbering. Works with text layers and symbol overrides. Recently updated to
+    Sketch 95.1 compatibility. Useful for design versioning and documentation.
 - plugin: Git Sketch Plugin
   link: https://github.com/mathieudutour/git-sketch-plugin
   description: A Git client generating pretty diffs built right into Sketch.
@@ -34,6 +44,11 @@
   open-source: true
   tags:
   - versioning
+  summary: |
+    Git client built into Sketch that generates human-readable diffs for design changes.
+    Requires Sketch 3.4+, Git, and Xcode Command Line Tools. Available through Sketch Runner.
+    First attempt at version control for design; creator now recommends Kactus.io for
+    true version control. Last updated January 2023.
 - plugin: Sketch Plugin Manager 🔌
   link: https://mludowise.github.io/Sketch-Plugin-Manager
   description: Keeping your Sketch plugins up to date with the power of Git.
@@ -45,6 +60,10 @@
   open-source: false
   tags:
   - versioning
+  summary: |
+    Manages all installed Sketch plugins with automatic update checking using Git.
+    Features plugin catalog for browsing/installing GitHub plugins, automatic update notifications,
+    and centralized plugin management. OS X 10.12 Sierra minimum. Last updated October 2019.
 - plugin: Sketch Git Pro
   link: https://github.com/xuming/sketch-git-pro
   description: Git tools for sketch.
@@ -56,3 +75,7 @@
   open-source: true
   tags:
   - versioning
+  summary: |
+    Git client built into Sketch modified from git-sketch-plugin with improved diff visualization.
+    Requires Sketch 3.4+, Git, and Xcode Command Line Tools. Enables commit, push, and
+    version tracking directly from Sketch. Last updated January 2019.

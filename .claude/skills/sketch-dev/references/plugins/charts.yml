@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Creates precise segmented circular graphics for analytics dashboards and instrumentation diagrams.
+    Supports variable-value pie charts, tick mark circles, and dashed circles with customizable thickness
+    and bottom cut-out angles. Rewritten in v2.07 with support for Sketch 53+, actively maintained.
+    Fully editable output with separated groups for easy customization.
 - plugin: Sketch Topographic
   link: https://github.com/ziven27/Sketch-topographic
   description: Display Topographic Information
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Displays structural layout information for Sketch designs, similar to Chrome's Web Developer extension.
+    Shows frame boundaries with semi-transparent overlays or borders to visualize spacing and hierarchy.
+    Highlights text layers without shared styles and flags sizing inconsistencies with colored indicators.
+    Useful for design quality control and layout validation.
 - plugin: Typographie frenchy
   link: https://github.com/Saint-loup/typographie-frenchy
   description: Sketch plugin to automatically add typographic french conventions and
@@ -34,6 +44,12 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Automatically applies French typographic conventions to text, including character substitutions
+    (guillemets, en-dashes, fractions, ordinal suffixes) and non-breaking spaces around punctuation.
+    Works independently of system preferences and provides toggle for narrow vs. normal non-breaking spaces.
+    Includes batch processing for entire documents and compatibility with Sketch 50+. Well-maintained
+    with French and English documentation.
 - plugin: chart
   link: https://github.com/pavelkuligin/chart
   description: Create the most popular types of charts
@@ -45,6 +61,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Supports 16 popular chart types (pie, line, bar, candlestick, donut, area, scatter, heatmap, etc.)
+    with data from Google Sheets, Excel, CSV, JSON APIs, or random generation. Includes 250+ UI components,
+    1000+ templates, and customizable color palettes with template system for consistency. Requires Sketch 56+,
+    with freemium pricing ($20/year unlocks all chart types). Active community on Slack.
 - plugin: Freeman Finchart Sketchplugin
   link: https://github.com/freeman990/Freeman-FinChart-SketchPlugin
   description: Draw financial chart like candle-stick or line chart like a boss.
@@ -56,6 +77,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Generates candlestick and line charts with real financial data for Sketch prototypes.
+    Supports customizable gap sizes, chart dimensions, and fully editable separated layers for styling.
+    Tested with Sketch 55.2. Provides realistic data visualization for financial apps and dashboards,
+    eliminating manual chart creation.
 - plugin: Sketchy Pies
   link: https://github.com/abynim/sketchy-pies
   description: A Sketch plugin to magically convert regular circle layers into pie
@@ -68,6 +94,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Converts circle layers into pie charts with equal or proportional slices based on hex color
+    and percentage values. Each slice becomes a separate editable layer for fine-tuning colors.
+    Supports donut charts by adjusting border thickness. Works with Sketch 3.3+ and provides
+    intuitive UI for specifying color and value data.
 - plugin: AEFlowchart
   link: https://github.com/tadija/AEFlowchart
   description: Flowchart diagram plugin for Bohemian Coding Sketch app.
@@ -79,6 +110,11 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Creates flowchart diagrams by converting text labels to flowchart shapes (rectangles, diamonds, etc.)
+    and connecting them with lines. Offers extensive customization via settings panel for shape appearance
+    and styling. Simplifies the process of designing structured diagrams and process flows in Sketch.
+    Lightweight tool created for design efficiency.
 - plugin: Sparkliner
   link: https://github.com/Volorf/Sparkliner
   description: Sparkliner — easy way to make sparkline graph
@@ -90,3 +126,8 @@
   open-source: true
   tags:
   - charts
+  summary: |
+    Generates sparkline graphs (small, simple line charts) from JSON data files with customizable
+    stroke color, thickness, and end-point markers. Preserves or removes the sizing artboard after generation.
+    JSON format supports dataArray values, colors, and marker properties. Ideal for inline data visualizations
+    in dashboards and reports.

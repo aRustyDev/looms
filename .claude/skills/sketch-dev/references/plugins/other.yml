@@ -536,6 +536,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Converts lines drawn in Sketch into rectangles to eliminate half-pixel issues that result from Sketch's default 0.5-pixel line placement.
+    Provides the speed of Sketch's line tool with precise pixel-aligned rectangles. Lightweight utility plugin last updated February 2019.
 - plugin: Sketch Pochette
   link: https://github.com/zehfernandes/sketch-pochette
   description: A Sketch plugin that lets you carry your most used properties close
@@ -548,6 +551,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Brings a floating "bumbag" panel with design properties (fill, stroke, effects) close to the mouse cursor via Cmd+` shortcut.
+    Eliminates repeated movement between canvas and inspector panel, inspired by how painters carry brushes and colors on a palette.
+    Supports customizable property selection with active development seeking community contributions.
 - plugin: Bootstrap Grid
   link: https://github.com/De-La-Vega/BootstrapGrid
   description: Sketch plugin inserts correct bootstrap grid in nested blocks.
@@ -559,6 +566,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Inserts responsive Bootstrap grid layouts with nested column support directly into Sketch artboards and groups.
+    Provides both default and custom grid configurations with keyboard shortcuts (Ctrl+Shift+W/G/D) for quick application.
+    Available through Sketchpacks and Sketch Runner, updated October 2018, actively maintained with community feedback integration.
 - plugin: Fluid for Sketch
   link: https://github.com/matt-curtis/fluid-for-sketch
   description: Fluid is a Sketch plugin that provides a means to create more constraint-based,
@@ -571,6 +582,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Creates responsive, constraint-based designs using Auto Layout constraints for pinning, sizing, and alignment relative to parent or sibling elements.
+    Supports mathematical expressions and percentages with preview mode for testing responsive layouts at different device sizes.
+    No longer actively maintained; consider alternatives like built-in Sketch constraints or newer auto-layout plugins.
 - plugin: Sketch Plugin Monster
   link: https://github.com/PeachScript/sketch-plugin-monster
   description: A Sketch plugin for managing all plugin shortcuts.
@@ -582,6 +597,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Centralized interface for managing all Sketch plugin shortcuts with conflict detection and resolution.
+    Allows setting/clearing shortcuts, importing/exporting configurations, searching commands, and multi-language support.
+    Available through Sketchpacks and Runner; includes CI/CD status tracking and maintains comprehensive FAQ documentation.
 - plugin: Y Tools
   link: https://github.com/yued-fe/y-tools
   description: Sketch plugin tools yued-fe.TM
@@ -593,6 +612,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Suite of three productivity tools: Scope Icon (auto-fit icons to 4n pixel squares), Create Shared Text Style with naming conventions,
+    and Topographic (visualize design hierarchy with semi-transparent overlays or borders). Designed for yued-fe design team workflows.
+    Keyboard shortcuts provided (Ctrl+Alt+Cmd+i/s/t/b/z) for each feature with layer naming conventions for error detection.
 - plugin: Acl Sketch Plugin
   link: https://github.com/duyluonganduin/acl-sketch-plugin
   description: Internal tool for Anduin Design Team
@@ -604,6 +627,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Internal data generator tool for Anduin Design Team providing auto-population of realistic mock data (finance numbers, entity names, user names, document names).
+    Accessible via menu or Sketch Runner plugin. Designed specifically for design team workflows with pre-built data templates.
+    Limited public documentation; August 2018 release indicates minimal active maintenance.
 - plugin: FusionCool
   link: https://github.com/alibaba-fusion/cool
   description: Plugin to using resources of Fusion Design.
@@ -615,6 +642,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Integrates Alibaba Fusion design system resources directly into Sketch with drag-and-drop material components and auto-synced styles.
+    Auto-imports Fusion design materials and components for consistent design implementations. Requires macOS and Sketch 50+.
+    Actively maintained by Alibaba with plans for symbol management and design document annotation features.
 - plugin: Sketch Tiles
   link: https://github.com/kumo/sketch-tiles
   description: A Sketch plugin for playing with seamless tiles.
@@ -626,6 +657,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Creates seamless tile patterns by tiling artboard contents with edge wrapping for overflow shapes.
+    Useful for pattern design and seamless background creation. Supports template-based workflows with distance customization.
+    Simple utility with trial-and-error shape alignment; last updated June 2018 with minimal maintenance.
 - plugin: Toggle Constrain Proportions
   link: https://github.com/ErikFontanel/sketch-toggle-constrain-proportions
   description: Toggles the contrain proportions setting with keyboard shortcut ⌘ +
@@ -638,6 +673,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Toggles the "Constrain Proportions" lock for selected objects via keyboard shortcut (assignable via macOS System Preferences).
+    Built with modern skpm framework compatible with Sketch 45+. No default shortcut to prevent conflicts; works seamlessly with Sketch Runner.
+    Lightweight utility for quick aspect ratio lock management; last updated June 2018.
 - plugin: Rotator
   link: https://github.com/pberrecloth/rotator-sketch-plugin
   description: Rotate objects at preset amounts
@@ -649,6 +688,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Rotates selected objects to preset angles (45°, 90°, 180°) or custom amounts via menu dialog or keyboard shortcuts.
+    Assignable shortcuts for common rotations streamline repetitive rotation tasks. Installable via Sketch Toolbox.
+    Simple utility plugin last updated May 2018 with straightforward preset and custom rotation UI.
 - plugin: MagicPresenter
   link: https://github.com/MagicSketch/MagicPresenter
   description: Sketch Plugin to Present Slides or Deck directly in Sketch 3
@@ -660,6 +703,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Presents artboard slides/decks as full-screen slideshows directly within Sketch using arrow keys for navigation.
+    Supports fullscreen toggle with Cmd+Enter and works with Sketch 3.7+. Simple presentation tool for quick design reviews.
+    Last updated May 2018; minimal maintenance but functional for basic presentation workflows.
 - plugin: Sketch Mouse Pointers
   link: https://github.com/stuartromanek/sketch-mouse-pointers
   description: Add Mouse Pointers to Sketch.
@@ -671,6 +718,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Adds realistic mouse cursor graphics to Sketch artboards for mockups and presentations.
+    Simple visual asset addition for interface designs and user flow documentation. Last updated May 2018 with minimal documentation.
 - plugin: Sketch Mate
   link: https://github.com/getflourish/Sketch-Mate
   description: These plugins will make you best friends with Sketch.
@@ -682,6 +732,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Comprehensive suite of 60+ commands for artboard management (duplicate/sort/fit), alignment, smart moves, layer operations, and advanced distribution.
+    Includes text styling, guides, sorting options, and layer selection tools with extensive keyboard shortcuts for workflow acceleration.
+    Free open-source collection last updated May 2018; stable foundation of productivity plugins ported from Fireworks.
 - plugin: Assistant
   link: https://github.com/jordansinger/Assistant
   description: Talk to Sketch
@@ -693,6 +747,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Voice-controlled design creation using natural language commands (Cmd+Shift+I) with Wit.ai NLP to create shapes and insert icons.
+    Supports parametric commands like "Draw red 200x300px rectangle" and "Add blue circle" with Feather icon support.
+    Experimental/proof-of-concept plugin using private API; last updated May 2018 showing exploratory voice design interaction.
 - plugin: charapara
   link: https://github.com/kd-co/charapara-sketch-extension
   description: Charapara, an initiative
@@ -705,6 +763,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Malayalam dummy text generator for Sketch by Kerala Designers Collaborative filling text layers with placeholder content.
+    Supports quantity selection via Plugins menu (Ctrl+Alt+Cmd+T). Enables localization testing for Malayalam language interfaces.
+    Last updated May 2018; language-specific utility for non-Latin script typography testing.
 - plugin: Utility Belt
   link: https://github.com/frankko/UtilityBelt
   description: An always-expanding collection of simple, focused plugins for Sketch.
@@ -716,6 +778,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Collection of focused utility plugins for Sketch 45+ including font management, image pattern fills, layer selection by name/font,
+    and batch positioning. Many guide-related features are temporarily disabled. Supports clipboard and URL-based image patterns.
+    Actively expanding toolkit (last updated May 2018) addressing common design workflows; select layers by name and font family.
 - plugin: ZEN Sketch
   link: https://github.com/FrancisVega/ZEN-Sketch
   description: A collection of Sketch plugins
@@ -727,6 +793,9 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Personal collection of Sketch plugins by Francis Vega with minimal public documentation.
+    Last updated April 2018 indicating minimal active maintenance. Specific functionality details not readily available from repository.
 - plugin: SketchReloadPlugins
   link: https://github.com/liangjingyang/SketchReloadPlugins
   description: Reload Plugins.
@@ -738,6 +807,10 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Simple plugin development utility that reloads all Sketch plugins without restarting the application.
+    Useful for plugin developers testing changes quickly. Built with skpm framework for modern Sketch plugin development.
+    Last updated April 2018; minimal functionality focused on developer workflow acceleration.
 - plugin: Sketch Exchanger
   link: https://github.com/littlebusters/Sketch-Exchanger
   description: Convert from Sketch to JSON w/assets and JSON w/assets to Sketch.
@@ -749,3 +822,7 @@
   open-source: true
   tags:
   - other
+  summary: |
+    Bidirectional converter between Sketch files and JSON+assets format (basically unzipped Sketch with formatted JSON).
+    Enables design-to-code workflows by exporting Sketch to JSON for programmatic manipulation. Requires jq for JSON formatting.
+    Last updated January 2018; useful for build pipelines and design system automation but may need updates for newer Sketch formats.

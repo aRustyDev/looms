@@ -11,6 +11,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Convert pixel dimensions to print units (inch, cm, mm) with customizable DPI and precision settings. Supports manual unit configuration and resizing layers based on print unit values. Note: Deprecated by author; no longer maintained but available for forks or adoption.
 - plugin: PinIt
   link: https://github.com/acollurafici/PinIt
   description: A collection of Resizing Shortcuts.
@@ -22,6 +24,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Collection of keyboard shortcuts for quickly applying responsive layout constraints (fixed headers/footers, sidebars, rows/columns). Includes visual icons for constraint patterns and integrates with Sketch Runner for quick access. Streamlines layout configuration workflow.
 - plugin: Toggle Pixel Fitting
   link: https://github.com/KevinGutowski/PixelFit
   description: A simple plugin to change your pixel fitting preference.
@@ -33,6 +37,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Simple utility for toggling pixel fitting preference with optional custom keyboard shortcuts. Useful for quickly switching between pixel-perfect and default rendering modes during design work. Part of creator's broader plugin collection for Sketch workflow optimization.
 - plugin: Copy Paste Position & Size
   link: https://github.com/ajilderda/Sketch-Copy-Paste-Position-Size
   description: A Sketch plugin that lets you easily copy & paste width, height, x
@@ -45,6 +51,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Copy and paste width, height, x, y dimensions individually or as groups with keyboard shortcuts. Supports multiple layer selection and proportional resizing for width/height. Inspired by John Dunning's Fireworks plugin with enhanced Sketch-specific features.
 - plugin: Sketch Pixel Cleanup
   link: https://github.com/stackdevelopment/sketch-pixel-cleanup
   description: A plugin for Sketch to fix all of those partial pixels
@@ -56,6 +64,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Round all partial-pixel positioning to whole pixels with keyboard shortcut (Option+Cmd+P). Works on shapes, groups, symbols, and paths with option to affect parent groups. Beta status with note that repository is no longer supported; use version control before running.
 - plugin: Dribbble
   link: https://github.com/dribbble/dribbble-sketch
   description: Share your creative process directly to the Dribbble community from
@@ -68,6 +78,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Share Sketch designs directly to Dribbble community platform from within the application. Built with React and webpack technology stack. Provides seamless integration between design creation and community sharing workflow.
 - plugin: Resize Commands
   link: https://github.com/ajilderda/Sketch-Resize-Commands
   description: A Sketch plugin that lets you resize and reposition objects
@@ -81,6 +93,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Resize and reposition objects using simple arithmetic syntax (e.g., 'l+20', 'w/2', 'h=200'). Supports combined commands with multiple operators and directions including percentages and multipliers. Inspired by Matt Stow's Fireworks plugin with keyboard shortcut (Ctrl+Shift+Q).
 - plugin: Transpose
   link: https://github.com/wescraig/Transpose
   description: Transpose your selection and set pixel margins between elements.
@@ -92,6 +106,8 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Flip layout direction (horizontal to vertical or vice versa) while maintaining pixel margins between elements. Provides visual configuration interface with GIF previews for both horizontal and vertical transposition. Version 1.0 with stable feature set.
 - plugin: Sketch Export Generator
   link: https://github.com/kang-chen/sketch-export-generator
   description: Sketch plugin to export assets at different scale sizes
@@ -103,3 +119,5 @@
   open-source: true
   tags:
   - sizing
+  summary: |
+    Generate iOS and Android exports at appropriate scale sizes with keyboard shortcut (Shift+Option+Cmd+E). Streamlines multi-platform asset export workflow for mobile applications. Last updated for Sketch 48.2 compatibility.

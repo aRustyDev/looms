@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - linting
+  summary: |
+    Design linting tool that finds and fixes style inconsistencies in Sketch files like
+    spell-check does for text. Build a style library, then scan pages to identify colors,
+    text styles, shadows, borders, and radiuses that don't match. Auto-fix inconsistencies
+    or ignore one-off styles. Helps maintain design system compliance. Last updated October 2022.
 - plugin: Tidy
   link: https://github.com/gbrunow/tidy
   description: Keep your sketch files Tidy.
@@ -22,6 +27,9 @@
   open-source: true
   tags:
   - linting
+  summary: |
+    Sketch file organization and cleanup utility built with skpm framework. Helps keep
+    design files tidy and well-organized for better team collaboration. Last updated August 2022.
 - plugin: SketchCleaner
   link: http://www.sketchcleaner.com/
   description: Sketch plugin that helps you get your design files as clean as a whistle.
@@ -33,6 +41,11 @@
   open-source: false
   tags:
   - linting
+  summary: |
+    Cleans up Sketch design files by removing unused styles, hidden layers, and bitmaps.
+    Features include smart layer renaming (based on content), consistent border positioning,
+    unused style removal, and automated bulk cleanup. Helps prepare final design files for
+    handoff. Last updated December 2018.
 - plugin: Sketch Grid Master
   link: https://github.com/exevil/sketch-grid-master
   description: Grid Master is a Sketch plugin that fixes long-standing bugs and adds
@@ -45,3 +58,8 @@
   open-source: true
   tags:
   - linting
+  summary: |
+    Fixes bugs with toggling grid and layout visibility across multiple artboards.
+    Includes "Toggle Grid/Layout on All Artboards" command (Ctrl+G/L) for batch operations.
+    Available via Sketchpacks. Requires system keyboard shortcut configuration to work properly.
+    Last updated January 2018.

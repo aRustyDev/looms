@@ -10,6 +10,11 @@
   open-source: true
   tags:
   - imports
+  summary: |
+    Enables exporting and sharing Sketch export preferences as JSON files with team members.
+    Save your configured export settings to a file, then import them to quickly apply
+    the same preferences to other projects. Streamlines workflow consistency across teams.
+    Last updated January 2023.
 - plugin: iOS2Sketch
   link: https://www.design-code.app/docs
   description: Import App Screens to Sketch
@@ -21,6 +26,9 @@
   open-source: false
   tags:
   - imports
+  summary: |
+    Imports iOS app screens and designs directly into Sketch from Design Code app.
+    Bridges iOS development and design workflows. Last updated October 2022.
 - plugin: Magicul Converter
   link: https://magicul.io/
   description: Convert and import XD files in Sketch, Figma to Sketch, XD to Figma
@@ -33,6 +41,11 @@
   open-source: false
   tags:
   - imports
+  summary: |
+    Comprehensive design file converter supporting Adobe XD, Figma, Sketch, Photoshop,
+    Illustrator, Canva, and more. Converts between formats (XD to Sketch, Figma to Sketch, etc.)
+    with drag-and-drop interface. Used by 4,000+ companies. Includes automated backup for
+    Figma designs and specialized tools like Figma Backup Tool and Magicul Monocle.
 - plugin: Sketch User Flows
   link: https://github.com/reqfire/sketch-user-flows
   description: A Sketch Plug-in for importing/exporting user flow and interface definitions
@@ -45,3 +58,7 @@
   open-source: true
   tags:
   - imports
+  summary: |
+    Integrates Reqfire project user flows into Sketch designs. Generate user flow maps
+    from Reqfire projects and import them into Sketch artboards. Sync Sketch symbols back to
+    Reqfire to keep designs synchronized. Bridges design and UX planning workflows. Last updated March 2018.

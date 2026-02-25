@@ -10,6 +10,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Import SVG files as Sketch artboards instead of groups, preserving viewBox offsets and dimensions. Solves the default Sketch behavior of auto-fitting SVG groups to content. Simple installation via download and double-click with MIT license.
 - plugin: SVG-BEM
   link: https://github.com/mLihs/svg-bem
   description: A Plugin for SVG export to convert IDs to Classes, create BEM Styled
@@ -23,6 +25,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Convert SVG IDs to CSS classes and apply BEM naming conventions based on Sketch layer hierarchy during export. Automatically compresses SVGs with SVGO and provides customizable settings for ID-to-class conversion, separators, and BEM styling. Requires Sketch 52+.
 - plugin: SVGO Compressor
   link: https://sketch.com/extensions/plugins/svgo-compressor/
   description: A Plugin that compresses SVG assets using SVGO, right when you export
@@ -35,6 +39,8 @@
   open-source: false
   tags:
   - vectors
+  summary: |
+    Official Sketch plugin that automatically compresses exported SVG assets using SVGO without requiring manual action. Available through Sketch's official extension marketplace. Official maintenance and integration with Sketch's native export system.
 - plugin: Logo Fetcher
   link: https://github.com/soulchild/sketch-logo-fetcher
   description: Place logos from either the Logos API (SVG format) or Clearbit API
@@ -47,6 +53,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Search and insert company logos directly into Sketch from either user-contributed Logos API (SVG) or Clearbit API (PNG). Includes keyboard shortcuts for rapid logo insertion and requires Sketch 42+ with App Transport Security support. Provides two distinct logo quality/source options.
 - plugin: path-tools
   link: https://github.com/rdunk/sketch-path-tools
   description: A collection of path tools for Sketch
@@ -58,6 +66,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Collection of path manipulation tools including simplify path (via Simplify.js) and snap points to pixels. Works on both single paths and groups of paths with alignment to nearest pixel. MIT licensed with simple zip download installation.
 - plugin: Composite SVG
   link: https://github.com/alanfraneo/svg-composite
   description: A Sketch plugin to create a composite SVG file from sketch artboards
@@ -69,6 +79,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Generate a single composite SVG file from all artboards on a page, useful for icon sets. Simple open-source tool with minimal setup. Ideal for consolidating multiple icon designs into a reusable SVG asset.
 - plugin: slice-it
   link: https://github.com/deepakshrma/sketch-slice-it
   description: Slice-it tool, Export the slices from the local sketch file in png,jpeg,svg
@@ -80,6 +92,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Export slices from Sketch files directly as PNG, JPEG, or SVG format assets. Built with skpm framework for modern Sketch plugin development. Streamlines batch asset export workflow from local Sketch documents.
 - plugin: StickyGrid
   link: https://github.com/uetchy/Sketch-StickyGrid
   description: Sketch plugin to make paths be snapped to grid.
@@ -91,6 +105,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Snap paths to grid or pixel grid with keyboard shortcuts (Ctrl+Cmd+G for grid, Ctrl+Cmd+X for pixel grid). Enables precise alignment of vector paths for pixel-perfect designs. Integrates with Sketch's native pixel precision documentation.
 - plugin: SVGO Export
   link: https://github.com/josephmcasey/sketch-plugin-svgo-unique-id
   description: Uses SVGO to compress exported SVG assets
@@ -102,6 +118,8 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Compress exported SVG assets using SVGO with unique ID handling. Open-source utility focused on SVG optimization during export process. Works with Sketch's native export workflow.
 - plugin: SVGO Compressor
   link: https://github.com/sketch-hq/svgo-compressor
   description: Automatically compress your SVG assets using SVGO at export time.
@@ -113,3 +131,5 @@
   open-source: true
   tags:
   - vectors
+  summary: |
+    Official Sketch plugin for automatic SVG compression at export time using SVGO with customizable configuration. Supports custom svgo.config.js in Sketch plugins folder for advanced optimization settings. Available via GitHub releases with MIT license.

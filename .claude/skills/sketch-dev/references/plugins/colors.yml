@@ -637,6 +637,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Converts selected shapes to grayscale colors with a single keyboard shortcut (Ctrl+Cmd+Shift+G).
+    Works with multiple fills, borders, and gradients simultaneously, making it ideal for creating
+    wireframes or removing color from complex designs. Simple utility with straightforward operation.
+    Unmaintained since 2018.
 - plugin: ColorBrightness
   link: https://github.com/andexds/ColorBrightness
   description: Color Brightness sketch plugin
@@ -648,6 +653,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Quickly adjust the brightness of selected shapes and text layers using keyboard shortcuts
+    (Ctrl+Shift+L for lighten, Ctrl+Shift+D for darken). Works with one layer at a time for
+    rapid color adjustments. Lightweight utility for iterative design refinement. Unmaintained
+    since 2018.
 - plugin: Chromatic Sketch
   link: https://github.com/petterheterjag/chromatic-sketch
   description: Create good-looking and perceptually uniform gradients and color scales.
@@ -659,6 +669,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Creates perceptually uniform gradients and color scales using Lab color space (via Chroma.js),
+    which produces more aesthetically pleasing results than RGB interpolation. Features a dedicated UI
+    for preview and customization, supporting Lab, Lch, HSL, and RGB color modes with alpha support.
+    Two main commands: Fix Gradient and Create Color Scale. Last updated 2018.
 - plugin: keyColor
   link: https://github.com/KevinGutowski/keyColor
   description: A Sketch plugin to apply colors via the keyboard.
@@ -670,6 +685,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Applies fill or border colors to selected layers using keyboard shortcuts (Ctrl+1-9 for fill,
+    Ctrl+Shift+1-9 for borders). Supports customizable color presets via settings menu. Enables rapid
+    color workflow without mouse interaction. Marked as under active development with planned features
+    including group selection and gradient support. Unmaintained since 2018.
 - plugin: arrowfy
   link: https://github.com/joclin/arrowfy
   description: Add simple arrowhead to end of selected paths. Matches color and weight.
@@ -681,6 +701,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Adds solid arrowheads to selected paths that automatically match the path's color and stroke weight.
+    Keyboard shortcut (Ctrl+Shift+A) adds arrows to path ends; menu provides options for start, end, or both.
+    Works with Sketch 50+. Author notes that Sketch v51+ now has built-in arrowheads and development is largely ceased.
 - plugin: Sketch iOS Bar Color Calculator
   link: https://github.com/einancunlu/Sketch-iOS-Bar-Color-Calculator
   description: A Sketch plugin that calculates and applies the correct color for you
@@ -693,6 +717,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Calculates and applies adjusted colors for iOS translucent bars (UINavigationBar, UIToolbar) based
+    on 84% opacity and 40px blur assumptions. Includes bidirectional conversion: Design Color to Bar Color
+    and reverse. Important limitation: Accuracy depends on iOS implementation details that Apple may change,
+    and calculations assume white background only. Requires verification before production use.
 - plugin: SwiftColorPalette
   link: https://github.com/nahitheper/SwiftColorPalette
   description: Sketch plugin that generates Swift Color Theme with enums
@@ -704,6 +733,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Converts Sketch color palette layers into Swift enum code with UIColor initializers using RGB values.
+    Useful for iOS developers to maintain design system consistency in code. Supports exporting to file or
+    copying to clipboard. Requires color palette layers to be properly named. Unmaintained since 2018.
 - plugin: CopyColor
   link: https://github.com/poyi/CopyColor
   description: Plugin that provides shortcut to copy layer fill color, border color,
@@ -716,6 +749,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Quickly copies hex color codes from selected layers to clipboard via keyboard shortcuts:
+    Shift+Cmd+F for fill, Shift+Cmd+B for border, Shift+Cmd+X for text color. Designed for Sketch 4.
+    Useful for rapid color sampling. Shortcuts can be customized by editing plugin file. Unmaintained since 2018.
 - plugin: Color Copier
   link: https://github.com/mfouquet/Color-Copier
   description: Sketch Plugin to quickly copy color RGB/HEX values.
@@ -727,6 +764,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Copies color values from fill and border colors to clipboard in multiple formats: RGB, RGBA, HSB, HSL,
+    HSLA, and HEX. Works with any single selected shape or text layer. Immediately copies values to clipboard
+    without dialog. Lightweight utility for rapid color sampling. Unmaintained since 2018.
 - plugin: Chain
   link: https://lalomts.github.io/Chain/
   description: Dynamic color relations in Sketch.
@@ -738,6 +779,11 @@
   open-source: false
   tags:
   - colors
+  summary: |
+    Creates dynamic color relationships between layers by chaining transformations of hue, saturation,
+    brightness, and alpha values. Select layers to chain, choose a reference color, and apply desired
+    transformations to generate color combinations. Supports many transformation combinations for color
+    harmony exploration. Commercial plugin available via Gumroad. Unmaintained since 2018.
 - plugin: Alembic
   link: https://github.com/awkward/Alembic
   description: A Sketch plugin to extract a color palette from any layer that contains
@@ -750,6 +796,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Extracts representative color palettes from bitmap images and pattern fills using Color Thief algorithm.
+    Select a layer containing image data, launch plugin, and click extracted colors to copy them to clipboard.
+    Useful for color inspiration from photographic content. Supports Sketch Runner for quick access. Open source
+    under MIT license. Unmaintained since 2018.
 - plugin: GGradient
   link: https://github.com/andexds/ggradient
   description: Simple way to create perfect gradient
@@ -761,6 +812,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Simplifies gradient creation with a single keyboard shortcut (Cmd+Shift+G). Generates visually pleasing
+    ease-out gradients with minimal user input. Lightweight utility focused on quick gradient generation.
+    Author encourages community contribution via GitHub. Unmaintained since 2018.
 - plugin: Bonsai Standards
   link: https://github.com/thechinesekid/bonsai-plugin
   description: Update all the colors in an artboard to the latest Bonsai colors.
@@ -772,6 +827,10 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Updates all colors within an artboard to match the latest Bonsai design system color standards. Maintains
+    design consistency across Sketch files when color standards are updated. Organization-specific tool for
+    teams using Bonsai design system. Unmaintained since 2018; check compatibility with current Sketch versions.
 - plugin: Sketch Palette Generator
   link: https://github.com/awkward/sketch-palette-generator
   description: Output a JSON colour palette to Sketch 💎
@@ -783,6 +842,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Imports color palettes defined in JSON files into Sketch using Material Design format. Supports JSON
+    structure with color groups containing numbered accents (requires 500 key as primary). Generates visual
+    palette representation in Sketch. Useful for syncing design system colors across files and tools.
+    JSON format enables developer integration and tool conversion. Open source under MIT license.
 - plugin: Copy Swift Code
   link: https://github.com/ngs/sketchplugin-swift-color
   description: A Sketch Plugin for generating UIColor and NSColor initializer Swift
@@ -795,6 +859,11 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Generates UIColor (iOS) and NSColor (macOS) Swift initializer code from selected layer fill colors.
+    Converts Sketch colors directly to production-ready Swift syntax with RGB components. Streamlines
+    design-to-code handoff for iOS/macOS development. Unmaintained since 2018; check compatibility with
+    modern Swift syntax (uses older initializer format).
 - plugin: Color Variables Migrator
   link: https://github.com/sketch-hq/color-variables-migrator
   description: Migrate your Layers and Styles to use the new Color Variables feature
@@ -807,3 +876,8 @@
   open-source: true
   tags:
   - colors
+  summary: |
+    Official Sketch plugin that helps migrate legacy color swatches and styles to the new Color Variables
+    feature introduced in Sketch 69. Independently updates Layers and Layer/Text Styles to use existing
+    Color Variables, with toggleable options for each category. Essential for upgrading design files
+    to modern Sketch standards. Works only on currently open documents; open shared Libraries separately.

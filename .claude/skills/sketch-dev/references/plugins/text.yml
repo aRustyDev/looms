@@ -634,6 +634,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data supplier plugin that populates text layers and image placeholders with realistic fake
+    data from Twilio (phone numbers, emails, addresses). Integrates with Sketch's native Data
+    Supplier feature. Last updated February 2020.
 - plugin: Text Styles Manager
   link: https://gum.co/sketch-text-styles-manager
   description: A fast and easy way to manage all your Text Styles. No more hassle
@@ -647,6 +651,10 @@
   open-source: false
   tags:
   - text
+  summary: |
+    Simplifies text style management in Sketch by organizing and renaming styles easily.
+    Prevents naming errors and reduces complexity when working with large numbers of text
+    styles. Commercial plugin distributed via Gumroad.
 - plugin: Fontily
   link: https://github.com/partyka1/Fontily
   description: Sketch plugin for finding & replacing fonts for Sketch 3+
@@ -658,6 +666,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Find and replace fonts across your Sketch document with support for bulk font conversion.
+    Simplifies font management for design system updates or platform-specific font changes.
+    Last updated December 2019.
 - plugin: Mail Merge
   link: https://github.com/kumo/sketch-mail-merge
   description: Sketch plugin that allows you to duplicate a layer/artboard and replace
@@ -670,6 +682,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Duplicates artboards and replaces text layers with CSV data using placeholder syntax
+    for mail merge-style batch document generation. Useful for creating variations of
+    designs with different content. Last updated November 2019.
 - plugin: Layer Renamer
   link: https://github.com/LeonardPauli/layer-renamer
   description: Find or rename multiple layers at once using RegEx and flags in Sketch
@@ -682,6 +698,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Batch rename layers using RegEx patterns with support for capture groups and flags.
+    Enables complex layer renaming operations across selections. Tested with Sketch v45+.
+    Last updated November 2019.
 - plugin: Sync Text Layer Name
   link: https://github.com/Creatide/Sketch_Sync-Text-Layer-Name
   description: Sketch plugin to rename text layers based on their text box values.
@@ -694,6 +714,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically synchronizes text layer names with their content values. Layer names
+    update whenever the text content changes, keeping layer names aligned with text content
+    for better organization. Last updated October 2019.
 - plugin: Fast Text Transfer
   link: https://github.com/jbentzen/sketch-fast-text-transfer
   description: Lightning fast copying, pasting and swapping text.
@@ -705,6 +729,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Streamlines text operations with optimized copying, pasting, and swapping between text
+    layers. Enhances workflow efficiency for designers who frequently manipulate text content.
+    Last updated August 2019.
 - plugin: lazy-styles-generator
   link: https://github.com/lazybearcreations/sketch-lazy-styles-generator#readme
   description: Generate shared layer and text styles using the name of the selected
@@ -717,6 +745,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Generates shared layer and text styles from selected layers using their names as style names.
+    Automates design system style creation from existing layer hierarchies. Available via
+    Sketchpacks. Last updated May 2019.
 - plugin: Unused Style Remover
   link: https://github.com/sonburn/unused-style-remover
   description: Remove unused layer and text styles.
@@ -728,6 +760,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Identifies and removes unused layer and text styles from your Sketch document, cleaning
+    up design system bloat. Helps maintain tidy style libraries by eliminating orphaned styles.
+    Last updated April 2019.
 - plugin: jerryipsum
   link: https://github.com/vinceangeloni/jerryipsum
   description: A Seinfeld data plugin for Sketch.
@@ -739,6 +775,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data supplier that populates text layers with quotes and references from the TV show Seinfeld.
+    Adds entertainment value to mockups as an alternative to standard Lorem Ipsum. Last updated
+    March 2019.
 - plugin: Foreign Ipsum
   link: https://github.com/3raxton/foreignipsum
   description: Generate text for your mockups in multiple languages 🗺
@@ -750,6 +790,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Generates Lorem Ipsum placeholder text in multiple languages including Spanish, French,
+    German, and Italian. Supports international mockups and multilingual design workflows.
+    Last updated March 2019.
 - plugin: String Value Puller
   link: https://github.com/YannickWidmer/sketch_strings_puller
   description: Plugin to handle pull string values from github repositories.
@@ -761,6 +805,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Pulls string values directly from GitHub repositories to populate text layers in Sketch.
+    Integrates design with external content sources for dynamic mockup generation. Last updated
+    March 2019.
 - plugin: Sketch Export Text
   link: https://github.com/exevil/Sketch-Export-Text
   description: Helps you to save all text data on current page in customizable format
@@ -773,6 +821,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Exports all text data from the current page in customizable formats with filtering options.
+    Useful for creating text inventories and extracting copy for translation or documentation.
+    Supports multiple output formats. Last updated February 2019.
 - plugin: Sketch Rename Artboards
   link: https://github.com/KevinvBre/Sketch-Rename-Artboards
   description: Rename Artboards based on their X and Y locations in Sketch
@@ -784,6 +836,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically renames artboards (now frames) based on their canvas position coordinates.
+    Useful for organizing artboards by grid layout. Legacy plugin for Sketch v45+. Last updated
+    February 2019.
 - plugin: Renamer
   link: https://github.com/webkul/renamer
   description: Select multiple layers/groups/artboards and rename all of them on the
@@ -797,19 +853,10 @@
   open-source: true
   tags:
   - text
-- plugin: Renamer
-  link: https://github.com/webkul/renamer
-  description: Select multiple layers/groups/artboards and rename all of them on the
-    go.
-  authors:
-  - Webkul
-  - Nitish Khagwal
-  updated: '2018-12-11'
-  version:
-    value: 7f432fb8bad1366cff3ecc9082f0299a20627ab3
-  open-source: true
-  tags:
-  - text
+  summary: |
+    Batch rename multiple layers, groups, and artboards simultaneously with flexible naming
+    patterns. Streamlines large-scale layer organization and design system structuring.
+    Last updated December 2018.
 - plugin: Sketch Codelight
   link: https://github.com/somebee/sketch-codelight
   description: Highlight code inside Text layers in Sketch
@@ -821,6 +868,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Applies syntax highlighting to code snippets within text layers for better code visualization.
+    Uses code syntax coloring to make embedded code more readable in design mockups. Last updated
+    November 2018.
 - plugin: 100 Shapesum
   link: https://github.com/markaleksanderh/100-shapesum
   description: Lorem Ipsum Sketch plugin based on 100 Shapes tone of voice.
@@ -832,6 +883,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data supplier plugin that generates Lorem Ipsum text in the tone and style of 100 Shapes.
+    Provides branded placeholder content for mockups. Last updated November 2018.
 - plugin: Shared Text Styles
   link: https://github.com/nilshoenson/shared-text-styles
   description: Easily import and export your Text Styles in Sketch.
@@ -843,6 +897,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Facilitates import and export of text styles between Sketch documents for design system
+    sharing. Enables teams to synchronize typography standards across projects. Last updated
+    November 2018.
 - plugin: Character Count
   link: https://github.com/andrewfiorillo/sketch-character-count
   description: Sketch plugin to count number of characters in a text layer
@@ -854,6 +912,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Counts characters in selected text layers and displays results. Useful for UX writing,
+    character limits, and copy auditing. Quick utility for checking text length constraints.
+    Last updated November 2018.
 - plugin: English and Persian Lorem Ipsum
   link: https://github.com/Rezaaa/english-and-persian-lorem-ipsum
   description: A Sketch extension to generate english and persian lorem ipsum text.
@@ -865,6 +927,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Generates Lorem Ipsum placeholder text in both English and Persian languages. Supports
+    right-to-left text layouts for Persian content mockups. Useful for bilingual design
+    projects. Last updated October 2018.
 - plugin: Font Mixer
   link: https://github.com/littlebusters/Sketch-Font-Mixer
   description: Plugin can apply other fonts for each character type of Text Layer.
@@ -876,6 +942,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Applies different fonts to specific character types within a single text layer (e.g., numbers
+    vs letters). Enables creative typography combinations and special character formatting. Last
+    updated September 2018.
 - plugin: Sketch SF UI Font Fixer
   link: https://github.com/kylehickinson/Sketch-SF-UI-Font-Fixer
   description: A Sketch plugin that adjusts the character spacing on text layers using
@@ -888,6 +958,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Adjusts character spacing on SF UI (San Francisco) font text to match iOS app rendering.
+    Ensures design accuracy when implementing text in iOS applications using Apple's system
+    fonts. Last updated September 2018.
 - plugin: adjustToFit
   link: https://github.com/andyault/sketch-adjusttofit
   description: A quick Sketch plugin to resize text layers, groups, and artboards
@@ -900,6 +974,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically resizes text layers, groups, and artboards to fit their content. Supports
+    nested resizing for complex layouts. Saves time on manual text box adjustments. Last updated
+    September 2018.
 - plugin: Sd Changer
   link: https://github.com/yeun/sd-changer
   description: Converts Apple SD Gothic Neo font to SF Pro Display
@@ -911,6 +989,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Batch converts Apple SD Gothic Neo font to SF Pro Display in selected text layers.
+    Useful for updating legacy Korean typography to current iOS system fonts. Last updated
+    September 2018.
 - plugin: Truncate Text Lines
   link: https://github.com/mamuso/sketch-truncate-textlines
   description: Truncate the number of lines of a textbox, adding an ellipsis if needed.
@@ -923,6 +1005,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Truncates text layers to a specified number of lines with automatic ellipsis addition.
+    Supports both word and character-based truncation for responsive design mockups. Last updated
+    September 2018.
 - plugin: Textbox fit Content
   link: https://github.com/juliussohn/sketch-textbox-fit-content
   description: This plugin sets the height of a selected text layer or all text layers
@@ -935,6 +1021,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Automatically resizes text layer heights to match their content. Supports single layers
+    or batch processing for all text in selected groups. Reduces manual text box adjustments.
+    Last updated July 2018.
 - plugin: Sketch Markup Listify
   link: https://github.com/marisaroque/sketch-markup-listify
   description: Sketch plugin for convert and copy text layers into HTML lists.
@@ -946,6 +1036,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Converts selected text layers into HTML list markup (ul/ol) and copies to clipboard.
+    Useful for exporting design copy to development as semantic HTML. Last updated May 2018.
 - plugin: TitleCase
   link: https://github.com/jessebilsten/Sketch-TitleCase
   description: A Sketch plugin that changes your text to TitleCase
@@ -957,6 +1050,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Converts selected text layers to Title Case with proper capitalization rules. Simple
+    text transformation utility for consistent heading treatment in mockups. Last updated
+    May 2018.
 - plugin: SketchTextSourcer
   link: https://github.com/hamidp/sketchtextsourcer
   description: Sketch plugin for easily populating a bunch of text layers from a source.
@@ -968,6 +1065,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Populates multiple text layers from a single source document or file. Enables batch text
+    replacement and synchronization across designs. Last updated May 2018.
 - plugin: Align Text Baseline
   link: https://github.com/soutaro/Align-text-baseline-sketch-plugin
   description: Align text layer vertically based on its baseline and cap height.
@@ -979,6 +1079,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Aligns text layers vertically using baseline and cap height metrics for precise typographic
+    positioning. Ensures professional text alignment across designs. Last updated May 2018.
 - plugin: Comma
   link: https://github.com/margusholland/Comma
   description: Sketch plugin for text modifications
@@ -990,6 +1093,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Provides general text modification utilities and transformations. Enables various text
+    formatting operations within Sketch for design text layer manipulation. Last updated
+    May 2018.
 - plugin: polyglot
   link: https://github.com/fruitfrills/polyglot
   description: Text translations
@@ -1001,6 +1108,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Facilitates text translation workflows for multilingual mockups. Integrates translation
+    management into the design process. Last updated May 2018.
 - plugin: BaseAlign
   link: https://github.com/abynim/BaseAlign
   description: A Sketch Plugin to align Text Layers
@@ -1012,6 +1122,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Aligns text layers by their baselines for precise typographic positioning. Ensures consistent
+    vertical alignment of text across designs. Last updated March 2018.
 - plugin: Bacon Ipsum
   link: https://github.com/zcallan/sketch-bacon-ipsum
   description: A simple & easy Bacon Ipsum text generator for Sketch.
@@ -1023,6 +1136,9 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Data supplier that generates Bacon Ipsum placeholder text (meat-themed Lorem Ipsum variant).
+    Adds personality to mockups with humorous placeholder content. Last updated March 2018.
 - plugin: Efficiency
   link: https://github.com/x-raizor/Efficiency
   description: 'Set of plugins for efficient work: change text linespacing and leading
@@ -1036,6 +1152,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Toolkit for efficient text and layer operations including linespacing control via keyboard,
+    random sizing/positioning, and text-only selection filtering. Streamlines repetitive design
+    tasks. Last updated February 2018.
 - plugin: Sketch Copy Layers Styles
   link: https://github.com/FrancisVega/Sketch-Copy-Layers-Styles
   description: Sketch plugin to copy Layers and Text styles
@@ -1047,3 +1167,7 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Copies layer and text styles from one element and applies them to other selected elements.
+    Streamlines style application across designs without using the styles panel. Last updated
+    February 2018.
