@@ -11,6 +11,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Collaborative lorem ipsum generator that pulls custom placeholder text from Google
+    Sheets. Design teams can maintain and share their own fake content via a public
+    spreadsheet that syncs in real-time. Requires publishing the spreadsheet to web
+    for Sketch access.
 - plugin: lippy
   link: https://github.com/abynim/lippy
   description: An interactive lorem ipsum generator plugin for Sketch
@@ -22,6 +27,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Interactive lorem ipsum generator with visual grid interface (Cmd+L) for selecting
+    word, sentence, or paragraph counts by clicking/dragging cells. Supports keyboard
+    shortcuts (arrow keys) for quick generation. Allows adding custom text sources
+    beyond standard lorem ipsum with configurable punctuation settings.
 - plugin: autorename
   link: https://github.com/dchahla/autorename
   description: Lightweight, low-fi Auto Name Group ( ⌘ + g ) Sketch Plugin
@@ -33,6 +43,10 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Minimalist auto-naming utility that renames groups to match their first text
+    element's content when using Cmd+G. Encourages good layer naming practices by
+    using z-index order to determine the naming source. Single-purpose tool at v1.0.0.
 - plugin: Sketch Data Populator
   link: https://datapopulator.com
   description: A Sketch App plugin to populate your documents with meaningful data.
@@ -45,6 +59,11 @@
   open-source: false
   tags:
   - text
+  summary: |
+    Populate design mockups with real data by replacing {placeholder} syntax in text
+    and images with JSON values. Supports local JSON files and live API endpoints for
+    dynamic content. Cross-platform available for Sketch and Adobe XD. Commercial
+    product by precious design studio (Hamburg).
 - plugin: Find And Replace
   link: https://github.com/thierryc/Sketch-Find-And-Replace
   description: Sketch 3 plugin to do a simple find and replace on text within layers
@@ -56,6 +75,11 @@
   open-source: true
   tags:
   - text
+  summary: |
+    Powerful find-and-replace for text layers with full regex support for advanced
+    pattern matching. Works across symbol overrides and remembers settings between
+    sessions. Shortcut Cmd+Option+Shift+F. Actively maintained at v2.6.0, requires
+    Sketch 62+.
 - plugin: Sketch Ipsum
   link: https://github.com/sketch-hq/sketch-ipsum
   description: A DataSupplier plugin that fills your text layers with random Lorem
