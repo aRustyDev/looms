@@ -30,6 +30,9 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 | [0022](./0022-federated-data-access-layer-for-multi-source-support.md) | Federated DAL for Multi-Source | Proposed | database, federation, multi-repo |
 | [0023](./0023-search-architecture-for-issue-filtering.md) | Search Architecture for Issue Filtering | Accepted | search, architecture, filtering |
 | [0024](./0024-design-system-architecture-and-design-to-code-pipeline.md) | Design System Architecture | Proposed | design-system, sketch, tokens |
+| [0025](./0025-component-naming-conventions.md) | Component Naming Conventions | Accepted | wireframes, conventions, sketch |
+| [0026](./0026-design-task-workflow-with-visual-verification.md) | Design Task Workflow with Visual Verification | Accepted | wireframes, process, beads |
+| [0027](./0027-beads-task-decomposition-for-design-work.md) | Beads Task Decomposition for Design Work | Accepted | beads, process, design |
 
 ## Summary
 
@@ -55,6 +58,9 @@ This directory contains Architecture Decision Records (ADRs) for the Unified Bea
 18. **Federation**: Multi-source DAL with namespace isolation (ADR-0022)
 19. **Search**: Hybrid client/server filtering with query parser (ADR-0023)
 20. **Design System**: Hybrid plugins + MCP scripts for Sketch-Tailwind sync (ADR-0024)
+21. **Component Naming**: Category/Subcategory/Variant pattern for Sketch symbols (ADR-0025)
+22. **Design Workflow**: Verify-per-component with hard blocking dependencies (ADR-0026)
+23. **Task Decomposition**: 1 component per task max, mandatory verification tasks (ADR-0027)
 
 ### Architecture Overview
 
