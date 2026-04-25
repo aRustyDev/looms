@@ -10,7 +10,7 @@
 	 * - Click to view issue details
 	 */
 	import { GanttChart } from '$lib/components/gantt/index.js';
-	import { IssueDetailModal } from '$lib/components/issues/index.js';
+	import IssueDetailModal from '$lib/components/issues/IssueDetailModal.svelte';
 	import type { Issue } from '$lib/db/types.js';
 
 	interface PageData {

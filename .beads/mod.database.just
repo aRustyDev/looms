@@ -1,4 +1,4 @@
-# Database module for projx-ui
+# Database module for looms
 # Usage: just db <recipe>
 #
 # This module manages the beads database (Dolt + SQLite ephemeral cache)
@@ -99,14 +99,14 @@ sync-sqlite:
 
     PROJECT_ROOT="$(git rev-parse --show-toplevel)"
     BEADS_DIR="$PROJECT_ROOT/.beads"
-    DOLT_DIR="$BEADS_DIR/dolt/beads_projx"
+    DOLT_DIR="$HOME/.beads/shared-server/dolt"
     SQLITE_DB="$BEADS_DIR/ephemeral.sqlite3"
 
     echo "Syncing Dolt data to SQLite..."
 
-    # Export issues from Dolt
+    # Export issues from Dolt (shared server)
     cd "$DOLT_DIR"
-    dolt sql -q "SELECT id, title, description, design, acceptance_criteria, notes, status, priority, issue_type, assignee, owner, created_at, updated_at, closed_at, external_ref, spec_id, due_at FROM issues" --result-format csv > /tmp/dolt_issues.csv
+    dolt sql -q "SELECT id, title, description, design, acceptance_criteria, notes, status, priority, issue_type, assignee, owner, created_at, updated_at, closed_at, external_ref, spec_id, due_at FROM beads_looms.issues" --result-format csv > /tmp/dolt_issues.csv
 
     # Create/reset SQLite schema
     sqlite3 "$SQLITE_DB" "DROP TABLE IF EXISTS issues;"

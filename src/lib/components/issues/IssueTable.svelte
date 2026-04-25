@@ -206,9 +206,3 @@
 		</tbody>
 	</table>
 {/if}
-
-<style>
-	.selected {
-		/* Additional selected styles if needed */
-	}
-</style>

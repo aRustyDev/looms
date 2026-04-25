@@ -200,11 +200,12 @@ export class DataAccessLayer {
 		const mysql = await import('mysql2/promise');
 
 		// Try to connect to Dolt server, checking multiple ports
+		// Port 13306: Shared dolt server (~/.beads/shared-server/dolt/)
 		// Port 3308: Local project server (started by `just dolt-server`)
 		// Port 3307: Global dolt server
 		// Port 3306: Default MySQL port
-		const ports = [3308, 3307, 3306];
-		const database = process.env.DOLT_DATABASE ?? 'beads_projx';
+		const ports = [13306, 3308, 3307, 3306];
+		const database = process.env.DOLT_DATABASE ?? 'beads_looms';
 
 		const doltConfig = this.config.dolt ?? {
 			host: process.env.DOLT_HOST ?? 'localhost',

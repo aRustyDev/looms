@@ -17,7 +17,7 @@
 # json: false
 
 # Default actor for audit trails (overridden by BD_ACTOR or --actor)
-# actor: ""
+actor: "aRustyDev"
 
 # Export events (audit trail) to .beads/events.jsonl on each flush/sync
 # When enabled, new events are appended incrementally using a high-water mark.
@@ -31,6 +31,13 @@
 #   additional:   # Additional repos to hydrate from (read-only)
 #     - ~/beads-planning  # Personal planning repo
 #     - ~/work-planning   # Work planning repo
+
+# Dolt server configuration (shared server)
+dolt:
+  host: 127.0.0.1
+  port: 13306
+  mode: server
+  shared-server: true
 
 # Integration settings (access with 'bd config get/set')
 # These are stored in the database, not in this file:
