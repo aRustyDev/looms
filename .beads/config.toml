@@ -1,0 +1,8 @@
+[dolt]
+mode = "server"
+host = "127.0.0.1"
+port = 13306
+shared-server = true
+
+[id]
+prefix = "looms"

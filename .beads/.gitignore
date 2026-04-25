@@ -7,6 +7,23 @@ bd.sock
 bd.sock.startlock
 sync-state.json
 last-touched
+export-state.json
+dolt-server.pid
+dolt-server.log
+dolt-server.lock
+dolt-server.port
+dolt-server.activity
+dolt-config.log
+.env
+
+# Embedded Dolt (not used with shared server, but excluded for safety)
+embeddeddolt/
+
+# Credential key
+.beads-credential-key
+
+# Corrupt backups
+*.corrupt.backup/
 
 # Local version tracking (prevents upgrade notification spam after git ops)
 .local_version
@@ -36,10 +53,8 @@ ephemeral.sqlite3-shm
 *.db-shm
 db.sqlite
 bd.db
-daemon.lock
-daemon.log
-daemon-*.log.gz
-daemon.pid
+daemon.*
+*.lock
 beads.base.jsonl
 beads.base.meta.json
 beads.left.jsonl
