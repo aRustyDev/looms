@@ -75,6 +75,9 @@ web_modules/
 !.env.example
 **/.env
 !**/.env.example
+!.docker/.env.dev
+!.docker/.env.test
+!.docker/.env.prod
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -154,6 +157,19 @@ test-results/
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+###------------------------###
+###  Beads / Dolt           ###
+###------------------------###
+
+# Dolt database files (managed by Dolt, not git)
+.dolt/
+
+# Legacy SQLite databases
+*.db
+
+# Beads credential key
+.beads-credential-key
 
 ###------------------------###
 ###  Project: Binary/Data  ###

@@ -1,0 +1,10 @@
+node_modules
+build
+.svelte-kit
+.beads
+.docker/data
+.claude
+.agents
+.playwright-mcp
+*.png
+*.jpg

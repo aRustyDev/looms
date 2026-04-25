@@ -1,18 +1,31 @@
-# Penpot Self-Hosted Configuration
-# Reference: https://help.penpot.app/technical-guide/getting-started/docker/
+# Looms Docker Compose — multi-environment
+# ============================================================================
+#
+# Profiles:
+#   dev   — hot-reload SvelteKit + dedicated Dolt server (isolated from host)
+#   test  — built image, connects to external Dolt (production values)
+#   prod  — built image + dedicated Dolt server (fully isolated)
+#   penpot — Penpot design stack (independent, start alongside any profile)
 #
 # Usage:
-#   docker compose -f .docker/compose.yaml up -d
+#   just docker env=dev up        # or: docker compose ... --profile dev up -d
+#   just docker env=prod up
+#   just docker env=penpot up
+#   just docker env=dev down
 #
-# Access:
-#   Penpot UI: http://localhost:9001
-#   Mailcatcher: http://localhost:1080 (dev email viewer)
+# ============================================================================
 
-# Shared configuration anchors
-x-flags: &penpot-flags
-  # Available flags: https://help.penpot.app/technical-guide/configuration/#penpot-configuration
-  # WARNING: Remove 'disable-secure-session-cookies' and 'disable-email-verification'
-  # when exposing to the internet
+# ========================== Shared Anchors ===================================
+
+x-looms-env: &looms-env
+  DOLT_DATABASE: ${DOLT_DATABASE:-beads_looms}
+  DOLT_USER: ${DOLT_USER:-root}
+  DOLT_PASSWORD: ${DOLT_PASSWORD:-}
+  REALTIME_PORT: ${REALTIME_PORT:-5199}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  ENABLE_GASTOWN: ${ENABLE_GASTOWN:-false}
+
+x-penpot-flags: &penpot-flags
   PENPOT_FLAGS: >-
     enable-demo-users
     enable-login-with-password
@@ -23,30 +36,156 @@ x-flags: &penpot-flags
     disable-secure-session-cookies
     disable-onboarding
 
-x-uri: &penpot-public-uri
+x-penpot-uri: &penpot-public-uri
   PENPOT_PUBLIC_URI: http://localhost:9001
 
-x-body-size: &penpot-http-body-size
-  PENPOT_HTTP_SERVER_MAX_BODY_SIZE: 31457280 # 30MiB - plain requests
-  PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE: 367001600 # 350MiB - file uploads
+x-penpot-body-size: &penpot-http-body-size
+  PENPOT_HTTP_SERVER_MAX_BODY_SIZE: 31457280
+  PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE: 367001600
 
-x-secret-key: &penpot-secret-key
-  # Generate with: python3 -c "import secrets; print(secrets.token_urlsafe(64))"
-  # TODO: Replace with a secure key for production
+x-penpot-secret: &penpot-secret-key
   PENPOT_SECRET_KEY: ${PENPOT_SECRET_KEY:-change-this-insecure-key}
 
+# ========================== Networks =========================================
+
 networks:
+  looms:
+    name: looms
   penpot:
     name: penpot
 
-# Using bind mounts instead of Docker volumes for version control
-# Data is stored in .docker/data/ which can be committed or backed up
+# ========================== Services =========================================
 
 services:
-  # ============================================================================
-  # Penpot Frontend
-  # ============================================================================
+
+  # ---------- DEV: SvelteKit with hot-reload ---------------------------------
+  looms-dev:
+    profiles: [dev]
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+      target: deps
+    container_name: looms-dev
+    restart: unless-stopped
+    working_dir: /app
+    command: ["bun", "run", "dev", "--host", "0.0.0.0", "--port", "3000"]
+    ports:
+      - '${LOOMS_PORT:-5175}:3000'
+      - '${REALTIME_PORT:-5199}:5199'
+    volumes:
+      - ../src:/app/src
+      - ../static:/app/static
+      - ../svelte.config.js:/app/svelte.config.js
+      - ../vite.config.ts:/app/vite.config.ts
+      - ../tsconfig.json:/app/tsconfig.json
+      - ../.svelte-kit:/app/.svelte-kit
+    depends_on:
+      dolt-dev:
+        condition: service_healthy
+    networks:
+      - looms
+    environment:
+      <<: *looms-env
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      DOLT_HOST: dolt-dev
+      DOLT_PORT: 3306
+      BEADS_BACKEND: dolt
+
+  # ---------- DEV: Dolt database (isolated from host) ------------------------
+  dolt-dev:
+    profiles: [dev]
+    image: dolthub/dolt-sql-server:latest
+    container_name: dolt-dev
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "dolt", "sql", "-q", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    volumes:
+      - dolt-dev-data:/var/lib/dolt
+    ports:
+      - '${DOLT_DEV_PORT:-13307}:3306'
+    networks:
+      - looms
+    environment:
+      DOLT_ROOT_HOST: '%'
+      DOLT_DEFAULT_DB: ${DOLT_DATABASE:-beads_looms}
+
+  # ---------- TEST: Built image, external Dolt -------------------------------
+  looms-test:
+    profiles: [test]
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+      target: runtime
+    container_name: looms-test
+    restart: unless-stopped
+    ports:
+      - '${LOOMS_PORT:-5176}:3000'
+    networks:
+      - looms
+    environment:
+      <<: *looms-env
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      DOLT_HOST: ${DOLT_HOST:-127.0.0.1}
+      DOLT_PORT: ${DOLT_PORT:-13306}
+      BEADS_BACKEND: dolt
+
+  # ---------- PROD: Built image + dedicated Dolt ----------------------------
+  looms-prod:
+    profiles: [prod]
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile
+      target: runtime
+    container_name: looms-prod
+    restart: unless-stopped
+    ports:
+      - '${LOOMS_PORT:-3000}:3000'
+    depends_on:
+      dolt-prod:
+        condition: service_healthy
+    networks:
+      - looms
+    environment:
+      <<: *looms-env
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      DOLT_HOST: dolt-prod
+      DOLT_PORT: 3306
+      BEADS_BACKEND: dolt
+
+  # ---------- PROD: Dolt database (isolated) ---------------------------------
+  dolt-prod:
+    profiles: [prod]
+    image: dolthub/dolt-sql-server:latest
+    container_name: dolt-prod
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "dolt", "sql", "-q", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    volumes:
+      - dolt-prod-data:/var/lib/dolt
+    networks:
+      - looms
+    environment:
+      DOLT_ROOT_HOST: '%'
+      DOLT_DEFAULT_DB: ${DOLT_DATABASE:-beads_looms}
+
+  # ========================== Penpot Stack ===================================
+
   penpot-frontend:
+    profiles: [penpot]
     image: 'penpotapp/frontend:${PENPOT_VERSION:-latest}'
     container_name: penpot-frontend
     restart: unless-stopped
@@ -62,10 +201,8 @@ services:
     environment:
       <<: [*penpot-flags, *penpot-http-body-size]
 
-  # ============================================================================
-  # Penpot Backend
-  # ============================================================================
   penpot-backend:
+    profiles: [penpot]
     image: 'penpotapp/backend:${PENPOT_VERSION:-latest}'
     container_name: penpot-backend
     restart: unless-stopped
@@ -80,30 +217,16 @@ services:
       - penpot
     environment:
       <<: [*penpot-flags, *penpot-public-uri, *penpot-http-body-size, *penpot-secret-key]
-
       PENPOT_GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-penpot}
       PENPOT_GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-penpot}
-
-      # Database
       PENPOT_DATABASE_URI: postgresql://penpot-postgres/penpot
       PENPOT_DATABASE_USERNAME: penpot
       PENPOT_DATABASE_PASSWORD: ${PENPOT_DB_PASSWORD:-penpot}
-
-      # Redis/Valkey (websocket notifications)
       PENPOT_REDIS_URI: redis://penpot-valkey/0
-
-      # Asset storage (filesystem - bind mounted for version control)
       PENPOT_OBJECTS_STORAGE_BACKEND: fs
       PENPOT_OBJECTS_STORAGE_FS_DIRECTORY: /opt/data/assets
-
-      # File data storage (use storage backend for version control)
-      # Options: legacy-db, db, storage (requires 2.11.0+)
       PENPOT_FILE_DATA_BACKEND: storage
-
-      # Telemetry (set to false to disable)
       PENPOT_TELEMETRY_ENABLED: false
-
-      # SMTP (uses mailcatcher for dev)
       PENPOT_SMTP_DEFAULT_FROM: no-reply@localhost
       PENPOT_SMTP_DEFAULT_REPLY_TO: no-reply@localhost
       PENPOT_SMTP_HOST: penpot-mailcatch
@@ -113,10 +236,8 @@ services:
       PENPOT_SMTP_TLS: false
       PENPOT_SMTP_SSL: false
 
-  # ============================================================================
-  # Penpot Exporter (PDF/SVG export)
-  # ============================================================================
   penpot-exporter:
+    profiles: [penpot]
     image: 'penpotapp/exporter:${PENPOT_VERSION:-latest}'
     container_name: penpot-exporter
     restart: unless-stopped
@@ -130,10 +251,8 @@ services:
       PENPOT_PUBLIC_URI: http://penpot-frontend:8080
       PENPOT_REDIS_URI: redis://penpot-valkey/0
 
-  # ============================================================================
-  # PostgreSQL Database
-  # ============================================================================
   penpot-postgres:
+    profiles: [penpot]
     image: postgres:15
     container_name: penpot-postgres
     restart: unless-stopped
@@ -154,10 +273,8 @@ services:
       POSTGRES_USER: penpot
       POSTGRES_PASSWORD: ${PENPOT_DB_PASSWORD:-penpot}
 
-  # ============================================================================
-  # Valkey (Redis-compatible cache)
-  # ============================================================================
   penpot-valkey:
+    profiles: [penpot]
     image: valkey/valkey:8.1
     container_name: penpot-valkey
     restart: unless-stopped
@@ -172,10 +289,8 @@ services:
     environment:
       VALKEY_EXTRA_FLAGS: --maxmemory 128mb --maxmemory-policy volatile-lfu
 
-  # ============================================================================
-  # Mailcatcher (Dev SMTP server)
-  # ============================================================================
   penpot-mailcatch:
+    profiles: [penpot]
     image: sj26/mailcatcher:latest
     container_name: penpot-mailcatch
     restart: unless-stopped
@@ -186,25 +301,29 @@ services:
     networks:
       - penpot
 
-  # ============================================================================
-  # Penpot MCP Server (Official)
-  # Provides MCP tools for AI-assisted design workflows
-  # Requires browser plugin connection from Penpot UI
-  # ============================================================================
   penpot-mcp:
+    profiles: [penpot]
     build:
       context: ./penpot-mcp
       dockerfile: Dockerfile
     container_name: penpot-mcp
     restart: unless-stopped
     ports:
-      - '4400:4400' # Plugin manifest server
-      - '4401:4401' # MCP HTTP/SSE endpoint
-      - '4402:4402' # WebSocket (plugin connection)
-      - '4403:4403' # REPL server (debugging)
+      - '4400:4400'
+      - '4401:4401'
+      - '4402:4402'
+      - '4403:4403'
     networks:
       - penpot
     environment:
       PENPOT_MCP_SERVER_LISTEN_ADDRESS: '0.0.0.0'
       PENPOT_MCP_SERVER_ADDRESS: 'localhost'
       PENPOT_MCP_LOG_LEVEL: 'info'
+
+# ========================== Volumes ==========================================
+
+volumes:
+  dolt-dev-data:
+    name: looms-dolt-dev
+  dolt-prod-data:
+    name: looms-dolt-prod
