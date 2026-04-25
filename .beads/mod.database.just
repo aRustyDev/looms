@@ -106,7 +106,7 @@ sync-sqlite:
 
     # Export issues from Dolt (shared server)
     cd "$DOLT_DIR"
-    dolt sql -q "SELECT id, title, description, design, acceptance_criteria, notes, status, priority, issue_type, assignee, owner, created_at, updated_at, closed_at, external_ref, spec_id, due_at FROM beads_looms.issues" --result-format csv > /tmp/dolt_issues.csv
+    dolt sql -q "SELECT id, title, description, design, acceptance_criteria, notes, status, priority, issue_type, assignee, owner, created_at, updated_at, closed_at, started_at, completed_at, external_ref, spec_id, due_at FROM beads_looms.issues" --result-format csv > /tmp/dolt_issues.csv
 
     # Create/reset SQLite schema
     sqlite3 "$SQLITE_DB" "DROP TABLE IF EXISTS issues;"
@@ -125,6 +125,8 @@ sync-sqlite:
         created_at TEXT,
         updated_at TEXT,
         closed_at TEXT,
+        started_at TEXT,
+        completed_at TEXT,
         external_ref TEXT,
         spec_id TEXT,
         due_at TEXT

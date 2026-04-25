@@ -14,7 +14,10 @@ import type {
 	Dependency,
 	Comment,
 	Label,
-	IssueFilter
+	IssueFilter,
+	StatusTransition,
+	CFDDataPoint,
+	IssueMetrics
 } from '$lib/db/types.js';
 import type { ProcessSupervisor } from '$lib/cli/types.js';
 import { getProcessSupervisor } from '../cli/supervisor.js';
@@ -205,7 +208,7 @@ export class DataAccessLayer {
 		// Port 3307: Global dolt server
 		// Port 3306: Default MySQL port
 		const ports = [13306, 3308, 3307, 3306];
-		const database = process.env.DOLT_DATABASE ?? 'beads_looms';
+		const database = this.config.dolt?.database ?? process.env.DOLT_DATABASE ?? 'beads_looms';
 
 		const doltConfig = this.config.dolt ?? {
 			host: process.env.DOLT_HOST ?? 'localhost',
@@ -487,6 +490,68 @@ export class DataAccessLayer {
 	}
 
 	/**
+	 * Get status transitions for an issue, ordered chronologically.
+	 */
+	async getStatusTransitions(issueId: string): Promise<StatusTransition[]> {
+		const result = await this.query<StatusTransition>(
+			'SELECT * FROM status_transitions WHERE issue_id = ? ORDER BY changed_at ASC',
+			[issueId]
+		);
+		return result.rows;
+	}
+
+	/**
+	 * Get CFD data: daily cumulative status counts.
+	 * Derives from current issue statuses grouped by updated_at date.
+	 * When sufficient transition history exists, this can be enhanced
+	 * to reconstruct historical daily snapshots from status_transitions.
+	 */
+	async getCFDData(days: number = 30): Promise<CFDDataPoint[]> {
+		const result = await this.query<CFDDataPoint>(
+			`SELECT
+				DATE(updated_at) as date,
+				status,
+				COUNT(*) as count
+			FROM issues
+			WHERE updated_at >= DATE_SUB(NOW(), INTERVAL ? DAY)
+			GROUP BY DATE(updated_at), status
+			ORDER BY date`,
+			[days]
+		);
+		return result.rows;
+	}
+
+	/**
+	 * Get time-based metrics for closed issues.
+	 * Lead time: created_at to completed_at (total time from creation to done).
+	 * Cycle time: started_at to completed_at (active work time).
+	 */
+	async getMetrics(days: number = 30): Promise<IssueMetrics> {
+		const result = await this.query<{
+			avg_lead_time_hours: number | null;
+			avg_cycle_time_hours: number | null;
+			total_closed: number;
+		}>(
+			`SELECT
+				AVG(TIMESTAMPDIFF(HOUR, created_at, completed_at)) as avg_lead_time_hours,
+				AVG(TIMESTAMPDIFF(HOUR, started_at, completed_at)) as avg_cycle_time_hours,
+				COUNT(*) as total_closed
+			FROM issues
+			WHERE completed_at IS NOT NULL
+				AND completed_at >= DATE_SUB(NOW(), INTERVAL ? DAY)`,
+			[days]
+		);
+
+		const row = result.rows[0];
+		return {
+			avgLeadTimeHours: row?.avg_lead_time_hours ?? null,
+			avgCycleTimeHours: row?.avg_cycle_time_hours ?? null,
+			totalClosed: row?.total_closed ?? 0,
+			periodDays: days
+		};
+	}
+
+	/**
 	 * Close database connections.
 	 */
 	async close(): Promise<void> {
@@ -502,27 +567,43 @@ export class DataAccessLayer {
 	}
 }
 
-/** Singleton instance */
-let defaultDal: DataAccessLayer | null = null;
+/**
+ * Singleton stored on globalThis so it survives Vite HMR module re-evaluation.
+ * Module-level `let` variables get reset when Vite re-imports the module,
+ * which breaks the singleton pattern for database connections.
+ */
+const GLOBAL_KEY = '__looms_dal__' as const;
+
+function getGlobalDal(): DataAccessLayer | null {
+	return ((globalThis as Record<string, unknown>)[GLOBAL_KEY] as DataAccessLayer | null) ?? null;
+}
+
+function setGlobalDal(dal: DataAccessLayer | null): void {
+	(globalThis as Record<string, unknown>)[GLOBAL_KEY] = dal;
+}
 
 /**
  * Get the default DataAccessLayer instance.
  * Creates one with auto-detection if not initialized.
  */
 export async function getDataAccessLayer(): Promise<DataAccessLayer> {
-	if (!defaultDal) {
-		defaultDal = await DataAccessLayer.create();
+	let dal = getGlobalDal();
+	if (!dal) {
+		dal = await DataAccessLayer.create();
+		setGlobalDal(dal);
 	}
-	return defaultDal;
+	return dal;
 }
 
 /**
  * Initialize the default DataAccessLayer with custom config.
  */
 export async function initDataAccessLayer(config: DatabaseConfig): Promise<DataAccessLayer> {
-	if (defaultDal) {
-		await defaultDal.close();
+	const existing = getGlobalDal();
+	if (existing) {
+		await existing.close();
 	}
-	defaultDal = await DataAccessLayer.create(config);
-	return defaultDal;
+	const dal = await DataAccessLayer.create(config);
+	setGlobalDal(dal);
+	return dal;
 }

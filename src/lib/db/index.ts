@@ -18,5 +18,8 @@ export type {
 	Comment,
 	Label,
 	IssueFilter,
+	StatusTransition,
+	CFDDataPoint,
+	IssueMetrics,
 	DataAccessLayer
 } from './types.js';

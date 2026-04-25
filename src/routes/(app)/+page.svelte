@@ -114,14 +114,7 @@
 			}
 		}
 
-		// Start watching for external changes (polling fallback, 10s interval)
-		// This will refresh data when issues change externally
-		store.startWatching({ pollingInterval: 10000 });
-
-		// Cleanup on unmount
-		return () => {
-			store.stopWatching();
-		};
+		// Real-time watching is handled at the layout level
 	});
 
 	function updateURL(newFilter: IssueFilter) {

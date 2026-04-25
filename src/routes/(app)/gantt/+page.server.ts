@@ -5,12 +5,12 @@
  * Loads issues from the database for the Gantt timeline view.
  */
 
-import { DataAccessLayer } from '$lib/server/db/dal.js';
+import { getDataAccessLayer } from '$lib/server/db/dal.js';
 import type { PageServerLoad } from './$types.js';
 
 export const load: PageServerLoad = async () => {
 	try {
-		const dal = await DataAccessLayer.create();
+		const dal = await getDataAccessLayer();
 		const issues = await dal.getIssues();
 
 		// Filter to issues that have dates (due_at or date in title)

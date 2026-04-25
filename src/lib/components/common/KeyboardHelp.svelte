@@ -14,7 +14,7 @@
 
 	let { open, shortcuts, onclose }: Props = $props();
 
-	let modalElement: HTMLDivElement | undefined;
+	let modalElement: HTMLDivElement | undefined = $state();
 
 	// Group shortcuts by category
 	function getShortcutsByCategory(): SvelteMap<string, ShortcutHandler[]> {
@@ -37,12 +37,12 @@
 		if (config.ctrl) parts.push('Ctrl');
 		if (config.alt) parts.push('Alt');
 		if (config.shift) parts.push('Shift');
-		if (config.meta) parts.push('⌘');
+		if (config.meta) parts.push('\u2318');
 
 		// Format special keys nicely
 		let key = config.key;
 		if (key === 'Escape') key = 'Esc';
-		if (key === 'Enter') key = '↵';
+		if (key === 'Enter') key = '\u21B5';
 		if (key === ' ') key = 'Space';
 
 		parts.push(key.toUpperCase());
@@ -72,7 +72,7 @@
 {#if open}
 	<div
 		bind:this={modalElement}
-		class="keyboard-help-backdrop"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="keyboard-help-title"
@@ -80,30 +80,48 @@
 		onkeydown={handleKeyDown}
 		onclick={handleBackdropClick}
 	>
-		<div class="keyboard-help-modal">
-			<header class="keyboard-help-header">
-				<h2 id="keyboard-help-title">Keyboard Shortcuts</h2>
+		<div
+			class="flex max-h-[80vh] w-[90%] max-w-lg flex-col overflow-hidden rounded-lg bg-white shadow-xl dark:bg-gray-900"
+		>
+			<header
+				class="flex items-center justify-between border-b border-gray-200 px-5 py-4 dark:border-gray-700"
+			>
+				<h2 id="keyboard-help-title" class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+					Keyboard Shortcuts
+				</h2>
 				<button
 					type="button"
-					class="close-button"
+					class="rounded-md p-1 text-xl text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
 					aria-label="Close keyboard shortcuts"
 					onclick={() => onclose?.()}
 				>
-					×
+					&times;
 				</button>
 			</header>
 
-			<div class="keyboard-help-content">
+			<div class="overflow-y-auto px-5 py-4">
 				{#each Array.from(getShortcutsByCategory().entries()) as [category, categoryShortcuts] (category)}
-					<section class="shortcut-category">
-						<h3>{category}</h3>
-						<dl class="shortcut-list">
+					<section class="mb-5 last:mb-0">
+						<h3
+							class="mb-3 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400"
+						>
+							{category}
+						</h3>
+						<dl>
 							{#each categoryShortcuts as shortcut (shortcut.config.key)}
-								<div class="shortcut-item">
-									<dt class="shortcut-key">
-										<kbd>{formatKey(shortcut.config)}</kbd>
+								<div
+									class="flex items-center justify-between border-b border-gray-100 py-2 last:border-b-0 dark:border-gray-800"
+								>
+									<dt>
+										<kbd
+											class="inline-block rounded border border-gray-200 bg-gray-100 px-2 py-1 font-mono text-xs shadow-sm dark:border-gray-700 dark:bg-gray-800"
+										>
+											{formatKey(shortcut.config)}
+										</kbd>
 									</dt>
-									<dd class="shortcut-description">{shortcut.config.description}</dd>
+									<dd class="text-sm text-gray-500 dark:text-gray-400">
+										{shortcut.config.description}
+									</dd>
 								</div>
 							{/each}
 						</dl>
@@ -111,134 +129,19 @@
 				{/each}
 			</div>
 
-			<footer class="keyboard-help-footer">
-				<span class="hint">Press <kbd>Esc</kbd> or <kbd>?</kbd> to close</span>
+			<footer
+				class="border-t border-gray-200 px-5 py-3 text-center text-xs text-gray-400 dark:border-gray-700"
+			>
+				Press <kbd
+					class="inline-block rounded border border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-[0.625rem] dark:border-gray-700 dark:bg-gray-800"
+					>Esc</kbd
+				>
+				or
+				<kbd
+					class="inline-block rounded border border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-[0.625rem] dark:border-gray-700 dark:bg-gray-800"
+					>?</kbd
+				> to close
 			</footer>
 		</div>
 	</div>
 {/if}
-
-<style>
-	.keyboard-help-backdrop {
-		position: fixed;
-		inset: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 1000;
-	}
-
-	.keyboard-help-modal {
-		background: var(--bg-primary, white);
-		border-radius: 8px;
-		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-		max-width: 500px;
-		max-height: 80vh;
-		width: 90%;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.keyboard-help-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 16px 20px;
-		border-bottom: 1px solid var(--border-color, #e5e7eb);
-	}
-
-	.keyboard-help-header h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		font-weight: 600;
-	}
-
-	.close-button {
-		background: none;
-		border: none;
-		font-size: 1.5rem;
-		cursor: pointer;
-		padding: 4px 8px;
-		color: var(--text-secondary, #6b7280);
-	}
-
-	.close-button:hover {
-		color: var(--text-primary, #111827);
-	}
-
-	.keyboard-help-content {
-		overflow-y: auto;
-		padding: 16px 20px;
-	}
-
-	.shortcut-category {
-		margin-bottom: 20px;
-	}
-
-	.shortcut-category:last-child {
-		margin-bottom: 0;
-	}
-
-	.shortcut-category h3 {
-		font-size: 0.875rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		color: var(--text-secondary, #6b7280);
-		margin: 0 0 12px 0;
-	}
-
-	.shortcut-list {
-		margin: 0;
-		padding: 0;
-	}
-
-	.shortcut-item {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 8px 0;
-		border-bottom: 1px solid var(--border-color-light, #f3f4f6);
-	}
-
-	.shortcut-item:last-child {
-		border-bottom: none;
-	}
-
-	.shortcut-key {
-		margin: 0;
-	}
-
-	.shortcut-description {
-		margin: 0;
-		color: var(--text-secondary, #6b7280);
-	}
-
-	kbd {
-		display: inline-block;
-		padding: 4px 8px;
-		font-family: ui-monospace, monospace;
-		font-size: 0.75rem;
-		background: var(--bg-secondary, #f3f4f6);
-		border: 1px solid var(--border-color, #e5e7eb);
-		border-radius: 4px;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-	}
-
-	.keyboard-help-footer {
-		padding: 12px 20px;
-		border-top: 1px solid var(--border-color, #e5e7eb);
-		text-align: center;
-	}
-
-	.hint {
-		font-size: 0.75rem;
-		color: var(--text-tertiary, #9ca3af);
-	}
-
-	.hint kbd {
-		font-size: 0.625rem;
-		padding: 2px 4px;
-	}
-</style>

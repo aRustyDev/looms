@@ -42,7 +42,10 @@ class AppStore {
 	// Modal states
 	#createModalOpen = $state(false);
 	#issueDetailModalOpen = $state(false);
+	#depsModalOpen = $state(false);
 	#selectedIssueForDetail = $state<Issue | null>(null);
+	#selectedIssueForDeps = $state<Issue | null>(null);
+	#keyboardHelpOpen = $state(false);
 
 	// Issues state (shared across pages)
 	#issues = $state<Issue[]>([]);
@@ -60,8 +63,20 @@ class AppStore {
 		return this.#issueDetailModalOpen;
 	}
 
+	get depsModalOpen(): boolean {
+		return this.#depsModalOpen;
+	}
+
+	get keyboardHelpOpen(): boolean {
+		return this.#keyboardHelpOpen;
+	}
+
 	get selectedIssueForDetail(): Issue | null {
 		return this.#selectedIssueForDetail;
+	}
+
+	get selectedIssueForDeps(): Issue | null {
+		return this.#selectedIssueForDeps;
 	}
 
 	get issues(): Issue[] {
@@ -141,7 +156,10 @@ class AppStore {
 		this.#loading = false;
 		this.#createModalOpen = false;
 		this.#issueDetailModalOpen = false;
+		this.#depsModalOpen = false;
 		this.#selectedIssueForDetail = null;
+		this.#selectedIssueForDeps = null;
+		this.#keyboardHelpOpen = false;
 	}
 
 	// Modal controls
@@ -161,6 +179,24 @@ class AppStore {
 	closeDetailModal(): void {
 		this.#issueDetailModalOpen = false;
 		this.#selectedIssueForDetail = null;
+	}
+
+	openDepsModal(issue: Issue): void {
+		this.#selectedIssueForDeps = issue;
+		this.#depsModalOpen = true;
+	}
+
+	closeDepsModal(): void {
+		this.#depsModalOpen = false;
+		this.#selectedIssueForDeps = null;
+	}
+
+	openKeyboardHelp(): void {
+		this.#keyboardHelpOpen = true;
+	}
+
+	closeKeyboardHelp(): void {
+		this.#keyboardHelpOpen = false;
 	}
 
 	// Issue operations
@@ -324,6 +360,75 @@ class AppStore {
 			this.#notifyListeners();
 
 			const message = error instanceof Error ? error.message : 'Failed to close issue';
+			toastStore.error(message);
+			throw error;
+		}
+	}
+
+	/**
+	 * Reopen a closed issue via API (sets status back to open)
+	 */
+	async reopen(id: string): Promise<void> {
+		await this.update(id, { status: 'open' });
+	}
+
+	/**
+	 * Add a dependency between issues via API
+	 */
+	async addDependency(
+		issueId: string,
+		dependsOnId: string,
+		type: string = 'blocks'
+	): Promise<void> {
+		if (!browser) return;
+
+		try {
+			const response = await fetch(
+				`${this.#apiBase}/api/issues/${encodeURIComponent(issueId)}/dependencies`,
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ depends_on_id: dependsOnId, type })
+				}
+			);
+
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to add dependency: ${response.status}`);
+			}
+
+			toastStore.success(`Added dependency: ${issueId} depends on ${dependsOnId}`);
+		} catch (error) {
+			const message = error instanceof Error ? error.message : 'Failed to add dependency';
+			toastStore.error(message);
+			throw error;
+		}
+	}
+
+	/**
+	 * Remove a dependency between issues via API
+	 */
+	async removeDependency(issueId: string, dependsOnId: string): Promise<void> {
+		if (!browser) return;
+
+		try {
+			const response = await fetch(
+				`${this.#apiBase}/api/issues/${encodeURIComponent(issueId)}/dependencies`,
+				{
+					method: 'DELETE',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ depends_on_id: dependsOnId })
+				}
+			);
+
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Failed to remove dependency: ${response.status}`);
+			}
+
+			toastStore.success(`Removed dependency`);
+		} catch (error) {
+			const message = error instanceof Error ? error.message : 'Failed to remove dependency';
 			toastStore.error(message);
 			throw error;
 		}

@@ -5,7 +5,7 @@
  * Loads issues from the database on the server side.
  */
 
-import { DataAccessLayer } from '$lib/server/db/dal.js';
+import { getDataAccessLayer } from '$lib/server/db/dal.js';
 import type { PageServerLoad } from './$types.js';
 
 // Canonical status order for Kanban columns
@@ -13,7 +13,7 @@ const STATUS_ORDER = ['open', 'in_progress', 'review', 'done', 'closed'];
 
 export const load: PageServerLoad = async () => {
 	try {
-		const dal = await DataAccessLayer.create();
+		const dal = await getDataAccessLayer();
 		const issues = await dal.getIssues();
 
 		// Extract unique values for filters, maintaining canonical order for statuses

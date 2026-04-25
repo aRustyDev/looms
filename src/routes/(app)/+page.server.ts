@@ -6,7 +6,7 @@
  * native modules (better-sqlite3) are available.
  */
 
-import { DataAccessLayer } from '$lib/server/db/dal.js';
+import { getDataAccessLayer } from '$lib/server/db/dal.js';
 import type { PageServerLoad } from './$types.js';
 
 // Canonical status order
@@ -14,7 +14,7 @@ const STATUS_ORDER = ['open', 'in_progress', 'review', 'done', 'closed'];
 
 export const load: PageServerLoad = async () => {
 	try {
-		const dal = await DataAccessLayer.create();
+		const dal = await getDataAccessLayer();
 		const issues = await dal.getIssues();
 
 		// Extract unique values for filters, maintaining canonical order for statuses

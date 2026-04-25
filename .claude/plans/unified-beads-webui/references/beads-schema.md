@@ -87,6 +87,28 @@ Primary issue storage table.
 | rig | varchar(255) | YES | | '' | Rig |
 | due_at | datetime | YES | | | Due date |
 | defer_until | datetime | YES | | | Defer until date |
+| no_history | tinyint(1) | YES | | 0 | No history flag |
+| started_at | datetime | YES | | | Set by trigger on first transition to in_progress |
+| completed_at | datetime | YES | | | Set by trigger on first transition to done/closed |
+
+---
+
+### status_transitions
+
+Status change audit trail. Populated by AFTER UPDATE trigger on issues.
+
+| Field | Type | Null | Key | Default | Notes |
+|-------|------|------|-----|---------|-------|
+| id | bigint | NO | PRI | | Auto-increment |
+| issue_id | varchar(255) | NO | MUL | | Issue ID |
+| old_status | varchar(32) | NO | | | Previous status |
+| new_status | varchar(32) | NO | | | New status |
+| actor | varchar(255) | YES | | '' | Who changed it |
+| changed_at | datetime | NO | MUL | CURRENT_TIMESTAMP | When it changed |
+
+**Triggers:**
+- `issues_set_timestamps` (BEFORE UPDATE): Auto-sets `started_at` on first `in_progress`, `completed_at` on first `done`/`closed`
+- `issues_log_transition` (AFTER UPDATE): Logs every status change to `status_transitions`
 
 ---
 

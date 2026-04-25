@@ -92,10 +92,22 @@ export interface Issue {
 	created_at: string;
 	updated_at: string;
 	closed_at?: string;
+	started_at?: string;
+	completed_at?: string;
 	external_ref?: string;
 	spec_id?: string;
 	due_at?: string;
 	metadata?: Record<string, unknown>;
+}
+
+/** Status transition record from database */
+export interface StatusTransition {
+	id: number;
+	issue_id: string;
+	old_status: string;
+	new_status: string;
+	actor: string;
+	changed_at: string;
 }
 
 /** Dependency relationship from database */
@@ -138,6 +150,21 @@ export interface IssueFilter {
 	};
 }
 
+/** CFD data point: issue count per status per day */
+export interface CFDDataPoint {
+	date: string;
+	status: string;
+	count: number;
+}
+
+/** Time-based metrics for issues */
+export interface IssueMetrics {
+	avgLeadTimeHours: number | null;
+	avgCycleTimeHours: number | null;
+	totalClosed: number;
+	periodDays: number;
+}
+
 /**
  * DataAccessLayer interface for browser-safe type imports.
  * The actual implementation is in $lib/server/db/dal.ts (server-only).
@@ -175,6 +202,15 @@ export interface DataAccessLayer {
 
 	/** Get issue count with optional filter */
 	getIssueCount(filter?: IssueFilter): Promise<number>;
+
+	/** Get status transitions for an issue */
+	getStatusTransitions(issueId: string): Promise<StatusTransition[]>;
+
+	/** Get CFD data: daily status counts derived from transitions */
+	getCFDData(days?: number): Promise<CFDDataPoint[]>;
+
+	/** Get time-based metrics (lead time, cycle time) */
+	getMetrics(days?: number): Promise<IssueMetrics>;
 
 	/** Close database connections */
 	close(): Promise<void>;

@@ -96,12 +96,7 @@
 			store.setFilter(urlFilter);
 		}
 
-		// Start watching for changes
-		store.startWatching({ pollingInterval: 10000 });
-
-		return () => {
-			store.stopWatching();
-		};
+		// Real-time watching is handled at the layout level
 	});
 
 	function updateURL(newFilter: IssueFilter) {
