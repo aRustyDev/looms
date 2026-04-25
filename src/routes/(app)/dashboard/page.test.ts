@@ -64,6 +64,7 @@ function buildDashboardData(issues: Issue[]) {
 	const recentThroughput = lastBucket?.count ?? 0;
 
 	return {
+		issues,
 		summary: { totalOpen, totalClosed, avgLeadTimeDays, avgCycleTimeDays, recentThroughput },
 		leadTimes,
 		cycleTimes,
@@ -119,8 +120,11 @@ describe('Dashboard Page', () => {
 			render(Page, { props: { data: buildDashboardData(issues) } });
 			await waitForAsync();
 
-			expect(screen.getByText('Open Issues')).toBeInTheDocument();
-			expect(screen.getByText('2')).toBeInTheDocument(); // 2 open/in-progress
+			const label = screen.getByText('Open Issues');
+			expect(label).toBeInTheDocument();
+			// The count "2" should be a sibling element within the same card
+			const card = label.closest('div');
+			expect(card?.textContent).toContain('2');
 		});
 
 		it('shows lead time stat', async () => {
@@ -157,8 +161,8 @@ describe('Dashboard Page', () => {
 		});
 	});
 
-	describe('Chart Placeholders', () => {
-		it('shows Coming Soon for panels with data', async () => {
+	describe('Charts', () => {
+		it('renders chart headings with data present', async () => {
 			const issues = [
 				makeIssue({
 					id: 'a',
@@ -170,29 +174,8 @@ describe('Dashboard Page', () => {
 			render(Page, { props: { data: buildDashboardData(issues) } });
 			await waitForAsync();
 
-			const comingSoon = screen.getAllByText('Coming Soon');
-			expect(comingSoon.length).toBeGreaterThanOrEqual(1);
-		});
-
-		it('shows data point count in lead time placeholder', async () => {
-			const issues = [
-				makeIssue({
-					id: 'a',
-					status: 'closed',
-					created_at: '2026-04-01T00:00:00Z',
-					completed_at: '2026-04-05T00:00:00Z'
-				}),
-				makeIssue({
-					id: 'b',
-					status: 'closed',
-					created_at: '2026-04-02T00:00:00Z',
-					completed_at: '2026-04-08T00:00:00Z'
-				})
-			];
-			render(Page, { props: { data: buildDashboardData(issues) } });
-			await waitForAsync();
-
-			expect(screen.getByText('2 data points ready')).toBeInTheDocument();
+			expect(screen.getByRole('heading', { level: 2, name: 'Lead Time' })).toBeInTheDocument();
+			expect(screen.getByRole('heading', { level: 2, name: 'Throughput' })).toBeInTheDocument();
 		});
 
 		it('shows empty state for panels with no data', async () => {
@@ -202,6 +185,23 @@ describe('Dashboard Page', () => {
 			expect(screen.getByText('No closed issues to display')).toBeInTheDocument();
 			expect(screen.getByText('No throughput data to display')).toBeInTheDocument();
 			expect(screen.getByText('No open issues')).toBeInTheDocument();
+		});
+
+		it('shows throughput granularity toggle', async () => {
+			const issues = [
+				makeIssue({
+					id: 'a',
+					status: 'closed',
+					created_at: '2026-04-01T00:00:00Z',
+					completed_at: '2026-04-05T00:00:00Z'
+				})
+			];
+			render(Page, { props: { data: buildDashboardData(issues) } });
+			await waitForAsync();
+
+			expect(screen.getByRole('button', { name: 'day' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: 'week' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: 'month' })).toBeInTheDocument();
 		});
 	});
 

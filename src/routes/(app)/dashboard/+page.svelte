@@ -3,6 +3,7 @@
 	 * Dashboard Page - Lean/Kanban metrics overview
 	 * @component
 	 */
+	import { calculateThroughput, type ThroughputGranularity } from '$lib/analytics/metrics.js';
 	import type {
 		LeadTimeEntry,
 		CycleTimeEntry,
@@ -11,6 +12,11 @@
 		AgingWIPEntry,
 		Percentiles
 	} from '$lib/analytics/metrics.js';
+	import type { Issue } from '$lib/db/types.js';
+	import LeadTimeChart from '$lib/components/dashboard/LeadTimeChart.svelte';
+	import ThroughputChart from '$lib/components/dashboard/ThroughputChart.svelte';
+	import CFDChart from '$lib/components/dashboard/CFDChart.svelte';
+	import AgingWIPChart from '$lib/components/dashboard/AgingWIPChart.svelte';
 
 	interface Summary {
 		totalOpen: number;
@@ -22,6 +28,7 @@
 
 	interface Props {
 		data: {
+			issues: Issue[];
 			summary: Summary;
 			leadTimes: LeadTimeEntry[];
 			cycleTimes: CycleTimeEntry[];
@@ -36,10 +43,22 @@
 
 	const { data }: Props = $props();
 
+	// Client-side throughput granularity toggle
+	let throughputGranularity = $state<ThroughputGranularity>('week');
+	const throughputData = $derived(
+		throughputGranularity === 'week'
+			? data.throughput
+			: calculateThroughput(data.issues, throughputGranularity)
+	);
+
 	function formatDays(days: number | null): string {
 		if (days === null) return '--';
 		if (days < 1) return `${Math.round(days * 24)}h`;
 		return `${days.toFixed(1)}d`;
+	}
+
+	function handlePointClick(_issueId: string) {
+		// TODO: Navigate to issue detail when deep-linking is implemented
 	}
 </script>
 
@@ -122,33 +141,12 @@
 						Distribution of time from creation to close
 					</p>
 				</div>
-				<div class="flex h-64 items-center justify-center">
-					{#if data.leadTimes.length === 0}
-						<p class="text-sm text-gray-400 dark:text-gray-500">No closed issues to display</p>
-					{:else}
-						<div class="text-center">
-							<div
-								class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30"
-							>
-								<svg
-									class="h-5 w-5 text-blue-600 dark:text-blue-400"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<circle cx="12" cy="12" r="3" />
-									<path
-										d="M12 2v4m0 12v4m10-10h-4M6 12H2m15.07-5.07-2.83 2.83M9.76 14.24l-2.83 2.83m0-10.14 2.83 2.83m4.48 4.48 2.83 2.83"
-									/>
-								</svg>
-							</div>
-							<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Coming Soon</p>
-							<p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
-								{data.leadTimes.length} data points ready
-							</p>
-						</div>
-					{/if}
+				<div class="h-64">
+					<LeadTimeChart
+						data={data.leadTimes}
+						percentiles={data.leadTimePercentiles}
+						onpointclick={handlePointClick}
+					/>
 				</div>
 			</div>
 
@@ -158,30 +156,12 @@
 					<h2 class="text-sm font-semibold text-gray-900 dark:text-gray-100">Throughput</h2>
 					<p class="text-xs text-gray-500 dark:text-gray-400">Items completed per period</p>
 				</div>
-				<div class="flex h-64 items-center justify-center">
-					{#if data.throughput.length === 0}
-						<p class="text-sm text-gray-400 dark:text-gray-500">No throughput data to display</p>
-					{:else}
-						<div class="text-center">
-							<div
-								class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30"
-							>
-								<svg
-									class="h-5 w-5 text-green-600 dark:text-green-400"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path d="M3 12h4l3-9 4 18 3-9h4" />
-								</svg>
-							</div>
-							<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Coming Soon</p>
-							<p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
-								{data.throughput.length} periods tracked
-							</p>
-						</div>
-					{/if}
+				<div class="h-64">
+					<ThroughputChart
+						data={throughputData}
+						granularity={throughputGranularity}
+						ongranularitychange={(g) => (throughputGranularity = g)}
+					/>
 				</div>
 			</div>
 
@@ -193,30 +173,8 @@
 						Issue status distribution over time
 					</p>
 				</div>
-				<div class="flex h-64 items-center justify-center">
-					{#if data.cfd.length === 0}
-						<p class="text-sm text-gray-400 dark:text-gray-500">No flow data to display</p>
-					{:else}
-						<div class="text-center">
-							<div
-								class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/30"
-							>
-								<svg
-									class="h-5 w-5 text-purple-600 dark:text-purple-400"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path d="M2 20h20M2 16l5-4 4 2 5-6 4 4" />
-								</svg>
-							</div>
-							<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Coming Soon</p>
-							<p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
-								{data.cfd.length} days of data
-							</p>
-						</div>
-					{/if}
+				<div class="h-64">
+					<CFDChart data={data.cfd} />
 				</div>
 			</div>
 
@@ -226,31 +184,8 @@
 					<h2 class="text-sm font-semibold text-gray-900 dark:text-gray-100">Aging WIP</h2>
 					<p class="text-xs text-gray-500 dark:text-gray-400">Open issues by age</p>
 				</div>
-				<div class="flex h-64 items-center justify-center">
-					{#if data.agingWIP.length === 0}
-						<p class="text-sm text-gray-400 dark:text-gray-500">No open issues</p>
-					{:else}
-						<div class="text-center">
-							<div
-								class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30"
-							>
-								<svg
-									class="h-5 w-5 text-amber-600 dark:text-amber-400"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<circle cx="12" cy="12" r="10" />
-									<path d="M12 6v6l4 2" />
-								</svg>
-							</div>
-							<p class="text-sm font-medium text-gray-500 dark:text-gray-400">Coming Soon</p>
-							<p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
-								{data.agingWIP.length} items in progress
-							</p>
-						</div>
-					{/if}
+				<div class="h-64">
+					<AgingWIPChart data={data.agingWIP} percentiles={data.leadTimePercentiles} />
 				</div>
 			</div>
 		</div>

@@ -45,6 +45,7 @@ export const load: PageServerLoad = async () => {
 		const recentThroughput = lastBucket?.count ?? 0;
 
 		return {
+			issues,
 			summary: {
 				totalOpen,
 				totalClosed,
@@ -63,6 +64,7 @@ export const load: PageServerLoad = async () => {
 	} catch (error) {
 		console.error('Failed to load dashboard data:', error);
 		return {
+			issues: [],
 			summary: {
 				totalOpen: 0,
 				totalClosed: 0,
